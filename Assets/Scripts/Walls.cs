@@ -25,6 +25,7 @@ public class Walls : MonoBehaviour
         if (transform.position.y < -50)
         {
             dontFall = false;
+            Destroy(this);
         }
     }
 }
