@@ -53,6 +53,7 @@ public class PlayerSC : MonoBehaviour
     {
         playerRB.AddForce(new Vector3(playerRB.velocity.x, jumpForce, playerRB.velocity.z), ForceMode.Impulse);
         Invoke("ChangeGravity", jumpTime);
+
     }
     public void ChangeGravity()
     {
