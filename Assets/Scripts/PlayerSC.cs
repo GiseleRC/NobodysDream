@@ -9,9 +9,10 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] float gravityScale, jumpTime;
     [SerializeField] float jumpForce, gravity, fallY;
-    [SerializeField] private Collider doorC;
+    [SerializeField] private Collider doorC, ghostC;
     public Walls walls;
-    
+    public GhostCloth ghostCloth;
+
     GroundCheck ground;
 
     void Start()
@@ -53,6 +54,7 @@ public class PlayerSC : MonoBehaviour
     {
         playerRB.AddForce(new Vector3(playerRB.velocity.x, jumpForce, playerRB.velocity.z), ForceMode.Impulse);
         Invoke("ChangeGravity", jumpTime);
+
     }
     public void ChangeGravity()
     {
@@ -64,6 +66,10 @@ public class PlayerSC : MonoBehaviour
         if (other == doorC)
         {
             walls.kinematicDisable = true;
+        }
+        if (other == ghostC)
+        {
+            ghostCloth.collitionE = true;
         }
     }
 }
