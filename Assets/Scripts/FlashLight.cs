@@ -6,10 +6,15 @@ public class FlashLight : MonoBehaviour
 {
     Light flashLight;
 
-    // Start is called before the first frame update
+    public float MinTime;
+    public float MaxTime;
+    public float Timer;
+    public float posibility;
+   // Start is called before the first frame update
     void Start()
     {
         flashLight = GetComponent<Light>();
+        Timer = Random.Range(MinTime, MaxTime);
     }
 
     // Update is called once per frame
@@ -26,5 +31,23 @@ public class FlashLight : MonoBehaviour
                 flashLight.enabled = true;
             }
         }
+
+        posibility = Random.Range(0f, 1f);
+        FlickerLight();
     }
+    void FlickerLight()
+    {
+        if (Timer > 0)
+        {
+            Timer -= Time.deltaTime;
+        }
+        if (posibility <= 0.01)
+        {
+             if (Timer <= 0)
+             {
+                  flashLight.enabled = !flashLight.enabled;
+                  Timer = Random.Range(MinTime, MaxTime);
+             }
+        }
+    }  
 }

@@ -6568,6 +6568,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1455116963}
     - target: {fileID: 6272776439929919671, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: MaxTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272776439929919671, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: MinTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272776439929919671, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: lantern
       value: 
       objectReference: {fileID: 0}
