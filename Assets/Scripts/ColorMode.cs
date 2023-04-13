@@ -5,56 +5,32 @@ using UnityEngine;
 public class ColorMode : MonoBehaviour
 {
 
-    public Color colorChanghed = Color.red; // color al que cambia el entorno
-    public float duration = 2f; // duración del cambio de color
-    public float timeWait = 0f; // tiempo de espera antes del cambio de color
-
-    private Color colorOriginal;
-    private float initialTimeChang = 0f;
-    private bool colorTrigger = false;
+    public Color[] skyColors;
+    private int currentSkyColorIndex = 0;
 
     void Start()
     {
-        colorOriginal = RenderSettings.ambientSkyColor;
+        RenderSettings.skybox.SetColor("_Tint", skyColors[currentSkyColorIndex]);
     }
 
     void Update()
     {
-        if (colorTrigger)
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        Debug.Log("Escrolee");
+        if (scroll > 0f)
         {
-            float tiempoCambio = Time.time - initialTimeChang;
-            if (tiempoCambio >= duration)
+            currentSkyColorIndex = (currentSkyColorIndex + 1) % skyColors.Length;
+            RenderSettings.skybox.SetColor("_Tint", skyColors[currentSkyColorIndex]);
+        }
+        else if (scroll < 0f)
+        {
+            currentSkyColorIndex--;
+            if (currentSkyColorIndex < 0)
             {
-                colorTrigger = false;
-                RenderSettings.ambientSkyColor = colorOriginal;
+                currentSkyColorIndex = skyColors.Length - 1;
             }
-            else
-            {
-                RenderSettings.ambientSkyColor = Color.Lerp(colorOriginal, colorChanghed, tiempoCambio / duration);
-            }
+            RenderSettings.skybox.SetColor("_Tint", skyColors[currentSkyColorIndex]);
         }
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Invoke("ChangeColorNow", timeWait);
-        }
-    }
-
-    void ChangeColorNow()
-    {
-        colorTrigger = true;
-        initialTimeChang = Time.time;
-    }
-
-    /*     public Color skyColor;
-
-    void Start()
-    {
-        RenderSettings.skybox.SetColor("_Tint", skyColor);
-    }
-} */
-
 }
