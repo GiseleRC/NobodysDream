@@ -30,7 +30,11 @@ public class GameState : MonoBehaviour
 
     public void SetPlaneMode(PlaneMode planeMode)
     {
+        if (planeMode == this.planeMode)
+            return;
+
         this.planeMode = planeMode;
+        Debug.Log("Cambiando a Plane Mode " + planeMode.ToString());
     }
 
     public void SetNextPlaneMode()
@@ -38,13 +42,13 @@ public class GameState : MonoBehaviour
         switch (planeMode)
         {
             case PlaneMode.Dream:
-                planeMode = PlaneMode.Ghost;
+                SetPlaneMode(PlaneMode.Ghost);
                 break;
             case PlaneMode.Ghost:
-                planeMode = PlaneMode.Demon;
+                SetPlaneMode(PlaneMode.Demon);
                 break;
             case PlaneMode.Demon:
-                planeMode = PlaneMode.Dream;
+                SetPlaneMode(PlaneMode.Dream);
                 break;
         }
     }
@@ -54,13 +58,13 @@ public class GameState : MonoBehaviour
         switch (planeMode)
         {
             case PlaneMode.Dream:
-                planeMode = PlaneMode.Demon;
+                SetPlaneMode(PlaneMode.Demon);
                 break;
             case PlaneMode.Ghost:
-                planeMode = PlaneMode.Dream;
+                SetPlaneMode(PlaneMode.Dream);
                 break;
             case PlaneMode.Demon:
-                planeMode = PlaneMode.Ghost;
+                SetPlaneMode(PlaneMode.Ghost);
                 break;
         }
     }

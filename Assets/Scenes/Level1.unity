@@ -6830,6 +6830,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 691922695422852397, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 56113615}
+    - target: {fileID: 691922695422852397, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: jumpForce
       value: 10
       objectReference: {fileID: 0}
