@@ -14,6 +14,7 @@ public class PlayerSC : MonoBehaviour
     public Walls walls;
     public GhostCloth ghostCloth;
 
+
     GroundCheck ground;
 
     void Start()
