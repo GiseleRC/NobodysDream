@@ -190,6 +190,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1b028ee2f06694c92f71a607fd2a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinTime: 0
+  MaxTime: 0
+  Timer: 0
+  posibility: 0
+--- !u!1 &4910667391373324830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3199895085017049642}
+  m_Layer: 0
+  m_Name: ObjectCreatedPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3199895085017049642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4910667391373324830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.755}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8166849483277595109}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6081485899709659877
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +394,7 @@ Transform:
   - {fileID: 1672834466783322607}
   - {fileID: 5206544825102660083}
   - {fileID: 5579184150392987516}
+  - {fileID: 3199895085017049642}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -405,12 +441,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 8734371037959268166}
+  doorRB: {fileID: 0}
   walkSpeed: 4
   runSpeed: 8
-  mainCamera: {fileID: 0}
   gravityScale: 5
   jumpTime: 0.25
+  jumpForce: 0
   gravity: 0
+  fallY: 0
+  doorC: {fileID: 0}
+  ghostC: {fileID: 0}
+  doorT: {fileID: 0}
+  walls: {fileID: 0}
+  ghostCloth: {fileID: 0}
 --- !u!114 &1891338930473898930
 MonoBehaviour:
   m_ObjectHideFlags: 0
