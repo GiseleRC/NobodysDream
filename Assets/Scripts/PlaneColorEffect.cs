@@ -26,7 +26,7 @@ public class PlaneColorEffect : MonoBehaviour
 
         lastAppliedPlaneMode = currAppliedPlaneMode;
 
-        switch (currAppliedPlaneMode)
+        /*switch (currAppliedPlaneMode)
         {
             case GameState.PlaneMode.Dream:
                 SetPlaneMode(PlaneMode.Demon);
@@ -37,6 +37,6 @@ public class PlaneColorEffect : MonoBehaviour
             case GameState.PlaneMode.Demon:
                 SetPlaneMode(PlaneMode.Ghost);
                 break;
-        }
+        }*/
     }
 }
