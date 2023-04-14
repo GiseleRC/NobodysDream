@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlashLight : MonoBehaviour
 {
     Light flashLight;
+    public AudioSource flashLightOn, flashLightOff;
 
     public float MinTime;
     public float MaxTime;
@@ -29,13 +30,15 @@ public class FlashLight : MonoBehaviour
     {
         if (Input.GetButtonDown("Flashlight"))
         {
-            if (flashLight.enabled == true)
+            if (flashLight.enabled)
             {
                 flashLight.enabled = false;
+                flashLightOff.Play();
             }
             else
             {
                 flashLight.enabled = true;
+                flashLightOn.Play();
             }
         }
 
