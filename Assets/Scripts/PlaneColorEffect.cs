@@ -14,7 +14,7 @@ public class PlaneColorEffect : MonoBehaviour
     {
         gameState = FindObjectOfType<GameState>();
         lastAppliedPlaneMode = gameState.GetPlaneMode();
-        colorDreamPlane = GetComponent<Material>().GetColor(0);
+        colorDreamPlane = GetComponent<Renderer>().material.color;
     }
 
     // Update is called once per frame
@@ -29,10 +29,13 @@ public class PlaneColorEffect : MonoBehaviour
         switch (currAppliedPlaneMode)
         {
             case GameState.PlaneMode.Dream:
+                GetComponent<Renderer>().material.color = colorDreamPlane;
                 break;
             case GameState.PlaneMode.Ghost:
+                GetComponent<Renderer>().material.color = colorGhostPlane;
                 break;
             case GameState.PlaneMode.Demon:
+                GetComponent<Renderer>().material.color = colorDemonPlane;
                 break;
         }
     }
