@@ -10,7 +10,14 @@ public class FlashLight : MonoBehaviour
     public float MaxTime;
     public float Timer;
     public float posibility;
+    bool flicker;
    // Start is called before the first frame update
+
+    public bool Flicker(bool flickerState)
+    {
+        return flicker = flickerState;
+    }
+
     void Start()
     {
         flashLight = GetComponent<Light>();
@@ -33,7 +40,11 @@ public class FlashLight : MonoBehaviour
         }
 
         posibility = Random.Range(0f, 1f);
-        FlickerLight();
+
+        if (flicker)
+        {
+            FlickerLight();
+        }
     }
     void FlickerLight()
     {
