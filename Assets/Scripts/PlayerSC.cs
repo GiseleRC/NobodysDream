@@ -13,7 +13,7 @@ public class PlayerSC : MonoBehaviour
     public Transform doorT;
     public Walls walls;
     public GhostCloth ghostCloth;
-
+    public GameState gameState;
 
     GroundCheck ground;
 
@@ -32,6 +32,16 @@ public class PlayerSC : MonoBehaviour
         if (Input.GetButtonDown("Jump") && ground.IsGrounded)
         {
             Jump();
+        }
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0f)
+        {
+            gameState.SetNextPlaneMode();
+        }
+        else if (scroll < 0f)
+        {
+            gameState.SetPrevPlaneMode();
         }
     }
 
