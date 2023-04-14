@@ -84,6 +84,7 @@ public class PlayerSC : MonoBehaviour
         if (other == ghostC)
         {
             ghostCloth.collitionE = true;
+            gameState.GhostPlaneModeEnabled = true;
         }
     }
 }
