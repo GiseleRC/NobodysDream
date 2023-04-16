@@ -134,7 +134,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1b028ee2f06694c92f71a607fd2a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashLightOn: {fileID: 0}
+  flashLightOff: {fileID: 0}
   MinTime: 0
   MaxTime: 0
   Timer: 0
@@ -454,6 +456,7 @@ MonoBehaviour:
   doorT: {fileID: 0}
   walls: {fileID: 0}
   ghostCloth: {fileID: 0}
+  gameState: {fileID: 0}
 --- !u!114 &1891338930473898930
 MonoBehaviour:
   m_ObjectHideFlags: 0
