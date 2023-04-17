@@ -606,10 +606,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: adf32bd35b36fe243986032e1088d8ed, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5305f7a9d9b91884b974be4dbf96d936, type: 2}
     - target: {fileID: -6684484549247449003, guid: adf32bd35b36fe243986032e1088d8ed, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -6298825242758255049, guid: adf32bd35b36fe243986032e1088d8ed, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5305f7a9d9b91884b974be4dbf96d936, type: 2}
     - target: {fileID: 919132149155446097, guid: adf32bd35b36fe243986032e1088d8ed, type: 3}
       propertyPath: m_Name
       value: Cama 1 (1)
