@@ -652,6 +652,7 @@ MonoBehaviour:
   walls: {fileID: 0}
   ghostCloth: {fileID: 0}
   gameState: {fileID: 0}
+  orientation: {fileID: 0}
 --- !u!114 &4063438181940665769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ruler: {fileID: 8415100867455641355, guid: de1d337dd4064764c8512fb36eb4b54a, type: 3}
   objectsActive: []
-  spawnPos: {fileID: 0}
+  spawnPos: {fileID: 3199895085017049642}
 --- !u!114 &1891338930473898930
 MonoBehaviour:
   m_ObjectHideFlags: 0
