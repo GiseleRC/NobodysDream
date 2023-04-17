@@ -14,26 +14,30 @@ public class PlayerSC : MonoBehaviour
     public Walls walls;
     public GhostCloth ghostCloth;
     public GameState gameState;
+    public Transform orientation;
 
     GroundCheck ground;
-
-    void Start()
-    {
-        playerRB = GetComponent<Rigidbody>();
-    }
 
     void Awake()
     {
         ground = GetComponentInChildren<GroundCheck>();
     }
-
+    void Start()
+    {
+        playerRB = GetComponent<Rigidbody>();
+    }
     private void Update()
     {
-        if (Input.GetButtonDown("Jump") && ground.IsGrounded)
-        {
-            Jump();
-        }
+        Jump();
+        PlaneChange();
+    }
+    void FixedUpdate()
+    {
+        PlayerMovement();
+    }
 
+    void PlaneChange()
+    {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll > 0f)
         {
@@ -44,35 +48,31 @@ public class PlayerSC : MonoBehaviour
             gameState.SetPrevPlaneMode();
         }
     }
-
-    void FixedUpdate()
+    void PlayerMovement()
     {
-        fallY = playerRB.velocity.y;
+        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputY = Input.GetAxisRaw("Vertical");
 
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), gravity, Input.GetAxis("Vertical"));
+        Vector3 input = new Vector3(inputX, 0f, inputY);
         input.Normalize();
 
-        if (Input.GetButton("Fire3"))
-        {
-            transform.Translate(input * runSpeed * Time.deltaTime);
-        }
-        else
-        {
-            transform.Translate(input * walkSpeed * Time.deltaTime);
-        }
+        float speed = Input.GetButton("Fire3") ? runSpeed : walkSpeed;
+
+        Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.deltaTime;
+        transform.position += velocity;
     }
-
-    public void Jump()
+    void Jump()
     {
-        playerRB.AddForce(new Vector3(playerRB.velocity.x, jumpForce, playerRB.velocity.z), ForceMode.Impulse);
-        Invoke("ChangeGravity", jumpTime);
-
+        if (Input.GetButtonDown("Jump") && ground.IsGrounded)
+        {
+            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            Invoke("ChangeGravity", jumpTime);
+        }
     }
     public void ChangeGravity()
     {
         gameObject.GetComponent<CustomGravity>().changeGravity(gravityScale);
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other == doorC)

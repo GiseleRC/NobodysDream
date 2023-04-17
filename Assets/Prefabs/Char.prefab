@@ -566,6 +566,7 @@ GameObject:
   - component: {fileID: 8734371037959268166}
   - component: {fileID: 2507740949718719874}
   - component: {fileID: 691922695422852397}
+  - component: {fileID: 4063438181940665769}
   - component: {fileID: 1891338930473898930}
   m_Layer: 0
   m_Name: Char
@@ -617,7 +618,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8166849483277595108}
-  m_Material: {fileID: 13400000, guid: 1683dfe24a433c048ad5ee815897b825, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -651,6 +652,21 @@ MonoBehaviour:
   walls: {fileID: 0}
   ghostCloth: {fileID: 0}
   gameState: {fileID: 0}
+--- !u!114 &4063438181940665769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166849483277595108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92620fc7e3cb2a147b2aa587e3cae73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ruler: {fileID: 8415100867455641355, guid: de1d337dd4064764c8512fb36eb4b54a, type: 3}
+  objectsActive: []
+  spawnPos: {fileID: 0}
 --- !u!114 &1891338930473898930
 MonoBehaviour:
   m_ObjectHideFlags: 0

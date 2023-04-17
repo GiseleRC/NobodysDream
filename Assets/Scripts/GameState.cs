@@ -37,7 +37,6 @@ public class GameState : MonoBehaviour
     {
         if (planeMode == this.planeMode)
             return false;
-
         if (planeMode == PlaneMode.Dream && !DreamPlaneModeEnabled)
             return false;
         if (planeMode == PlaneMode.Ghost && !GhostPlaneModeEnabled)
