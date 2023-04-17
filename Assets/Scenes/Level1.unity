@@ -6238,26 +6238,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &777100722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8166849483277595108, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
-  m_PrefabInstance: {fileID: 1455116961}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &777100728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777100722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92620fc7e3cb2a147b2aa587e3cae73d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ruler: {fileID: 8415100867455641355, guid: de1d337dd4064764c8512fb36eb4b54a, type: 3}
-  objectsActive: []
-  spawnPos: {fileID: 1482918432}
 --- !u!20 &787343997 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8455773065886786340, guid: e104677c9f15bbc4097316c8368cfd4e, type: 3}
@@ -7049,11 +7029,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469938637}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1482918432 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3199895085017049642, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
-  m_PrefabInstance: {fileID: 1455116961}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504811741
 GameObject:
   m_ObjectHideFlags: 0
