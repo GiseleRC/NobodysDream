@@ -22,7 +22,6 @@ public class GhostCloth : MonoBehaviour
 
         if (collitionE)
         {
-            Debug.Log("Colisione");
             gameObject.SetActive(false);
         }
     }
