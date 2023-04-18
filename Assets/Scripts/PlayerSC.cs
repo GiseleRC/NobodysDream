@@ -10,7 +10,7 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] float gravityScale, jumpTime;
     [SerializeField] float jumpForce, gravity, fallY;
     [SerializeField] private Collider doorC, ghostC;
-    public Transform doorT;
+    //public Transform doorT;
     public Walls walls;
     public GhostCloth ghostCloth;
     public GameState gameState;
@@ -79,7 +79,7 @@ public class PlayerSC : MonoBehaviour
         {
             walls.kinematicDisable = true;
             doorRB.GetComponent<Rigidbody>().isKinematic = true;
-            doorT.transform.rotation = Quaternion.Euler(0, -90, 0);
+            //doorT.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
         if (other == ghostC)
         {
