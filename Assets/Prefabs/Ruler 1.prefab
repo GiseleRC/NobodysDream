@@ -128,3 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRotation: 60
+  speedMov: 0
+  sens: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 65
+  finalPosObject: {fileID: 8415100867455641355, guid: 54cd40ad4855a194ab195300f44c0ef6, type: 3}
+  actualObject: {fileID: 0}

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MaterializeObjects : MonoBehaviour
 {
-    [SerializeField] GameObject ruler;
-    GameObject actualObject;
+    [SerializeField] GameObject ruler, camPos;
     [SerializeField] List<GameObject> objectsActive;
-    [SerializeField] Transform spawnPos;
+    GameObject actualObject;
+
 
     bool placingObject;
     int objectCreated;
@@ -20,11 +20,17 @@ public class MaterializeObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit hit;
+
+        bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 6f);
+
+        var pos = camPos.transform.position + camPos.transform.forward.normalized * 6f;
+
         if (Input.GetButtonDown("Action1"))
         {
             if (!placingObject)
             {
-                GameObject newRuler = Instantiate(ruler, spawnPos.position, spawnPos.rotation);
+                GameObject newRuler = Instantiate(ruler, pos, transform.rotation);
                 placingObject = true;
                 actualObject = newRuler;
                 actualObject.transform.parent = gameObject.transform;
@@ -40,16 +46,23 @@ public class MaterializeObjects : MonoBehaviour
                     objectsActive.Add(actualObject);
                     objectCreated++;
                 }
-                
+
             }
             else
             {
                 actualObject.transform.parent = null;
                 actualObject.GetComponent<Rigidbody>().isKinematic = false;
-                actualObject.GetComponent<RotateObject>().enabled = false;
+                actualObject.GetComponent<RotateObject>().FinalPosObject();
                 placingObject = false;
+
             }
 
         }
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(camPos.transform.position, camPos.transform.forward * 6f);
     }
 }
