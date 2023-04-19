@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2e15fabd3bd043348b6f1772358cc173, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: eae1964feec1a814ca8b3cf8d2e5e95c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -722,7 +722,7 @@ Transform:
   - {fileID: 543450652751324547}
   - {fileID: 543450652938968111}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &175321183
 BoxCollider:
@@ -769,7 +769,7 @@ Transform:
   - {fileID: 1154660957}
   - {fileID: 1666147724}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &207021944
 GameObject:
@@ -3138,8 +3138,8 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MinParticleSize: 2
+  m_MaxParticleSize: 3
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -3240,7 +3240,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -3301,7 +3301,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3801,7 +3801,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: -0, y: 0, z: 0}
-    m_Scale: {x: 300, y: 20, z: 300}
+    m_Scale: {x: 300, y: 10, z: 300}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -3999,7 +3999,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10000
+      scalar: 1
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4438,7 +4438,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.4056604, g: 0.051664297, b: 0.051664297, a: 0}
-        key1: {r: 0.20754719, g: 0.051886797, b: 0.051886797, a: 0.13333334}
+        key1: {r: 0.20754719, g: 0.051886797, b: 0.051886797, a: 0.101960786}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9022,14 +9022,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302532167}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.6463805, y: 2.4726496, z: -1.069847}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0698469, y: 2.4726496, z: 1.6463809}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 770542175}
-  m_Father: {fileID: 1439416792}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313117408
 GameObject:
@@ -9512,7 +9512,6 @@ Transform:
   - {fileID: 895567382}
   - {fileID: 641223409}
   - {fileID: 721000000}
-  - {fileID: 1302532168}
   - {fileID: 1553036984}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -10061,7 +10060,7 @@ Transform:
   - {fileID: 1316218097}
   - {fileID: 385169490}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1504811741
 GameObject:
@@ -10494,7 +10493,7 @@ Transform:
   m_Children:
   - {fileID: 1927508916}
   m_Father: {fileID: 1439416792}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1558532595
 GameObject:
