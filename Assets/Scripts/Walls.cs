@@ -4,28 +4,23 @@ using UnityEngine;
 
 public class Walls : MonoBehaviour
 {
-    public bool kinematicDisable = false;
-    public bool dontFall = true;
-    void Start()
+    public GameObject newWalls;
+    public void EventFallWalls()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (kinematicDisable && dontFall)
+        Rigidbody[] rigidbodies = FindObjectsOfType<Rigidbody>();
+        foreach (Rigidbody rb in rigidbodies)
         {
-            Rigidbody[] rigidbodies = FindObjectsOfType<Rigidbody>();
-            foreach (Rigidbody rb in rigidbodies)
+            rb.isKinematic = false;
+            if (rb.transform.position.y < -50)
             {
-                rb.isKinematic = false;
+                Destroy(rb);
             }
         }
-
-        if (transform.position.y < -50)
-        {
-            dontFall = false;
-            Destroy(this);
-        }
     }
+    public void EventNewWalls()
+    {
+        newWalls.SetActive(true);
+    }
+
+
 }
