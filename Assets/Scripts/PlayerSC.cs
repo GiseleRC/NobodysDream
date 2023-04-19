@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class PlayerSC : MonoBehaviour
 {
-    [SerializeField] private Rigidbody playerRB, doorRB;
+    [SerializeField] private Rigidbody playerRB;
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] float gravityScale, jumpTime;
-    [SerializeField] float jumpForce, gravity, fallY;
-    [SerializeField] private Collider doorC, ghostC;
-    public Transform doorT;
-    public Walls walls;
+    [SerializeField] float jumpForce, gravity;
+    [SerializeField] private Collider ghostC;
     public GhostCloth ghostCloth;
     public GameState gameState;
     public Transform orientation;
@@ -75,12 +73,6 @@ public class PlayerSC : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other == doorC)
-        {
-            walls.kinematicDisable = true;
-            doorRB.GetComponent<Rigidbody>().isKinematic = true;
-            doorT.transform.rotation = Quaternion.Euler(0, -90, 0);
-        }
         if (other == ghostC)
         {
             ghostCloth.collitionE = true;
