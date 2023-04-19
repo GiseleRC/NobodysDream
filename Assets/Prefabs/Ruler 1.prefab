@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRotation: 60
-  speedMov: 0
-  sens: 0
+  speedMov: 0.1
+  sens: 200
   layerMask:
     serializedVersion: 2
     m_Bits: 65
