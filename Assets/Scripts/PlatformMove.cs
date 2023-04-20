@@ -14,6 +14,10 @@ public class PlatformMove : MonoBehaviour
 
     private void Update()
     {
+        MovePlatform();
+    }
+    void MovePlatform()
+    {
         if (index == 0)
         {
             Vector3 dir = pos2.position - Platform.transform.position;
@@ -35,6 +39,21 @@ public class PlatformMove : MonoBehaviour
                 index = 0;
                 Debug.Log("El index es " + index);
             }
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.transform.SetParent(null);
         }
     }
 }
