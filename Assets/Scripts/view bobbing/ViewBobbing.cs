@@ -23,7 +23,7 @@ public class ViewBobbing : MonoBehaviour
 
     void Update()
     {
-        Vector3 inputVector = new Vector3(Input.GetAxis("Vertical"), 0f, Input.GetAxis("Horizontal"));
+        Vector3 inputVector = new Vector3(Input.GetAxis("Vertical"), 0f, Input.GetAxis("Horizontal")); //usa los inputs para determinar cuando hacer el bobbing
         
         if (inputVector.magnitude > 0f)
         {
@@ -34,10 +34,10 @@ public class ViewBobbing : MonoBehaviour
             SinTime = 0f;
         }
 
-        float sinAmountY = -Mathf.Abs(EffectIntensity * Mathf.Sin(SinTime));
-        Vector3 sinAmountX = FollowerInstance.transform.right * EffectIntensity * Mathf.Cos(SinTime) * EffectIntensityX;
+        float sinAmountY = -Mathf.Abs(EffectIntensity * Mathf.Sin(SinTime)); //usa el negativo del seno para funcionar (empieza en 0,0)
+        Vector3 sinAmountX = FollowerInstance.transform.right * EffectIntensity * Mathf.Cos(SinTime) * EffectIntensityX; //lo mismo pero con coseno
 
-        FollowerInstance.Offset = new Vector3
+        FollowerInstance.Offset = new Vector3 // Aplica la funcion senoidal de los outputs a los offsets de la posicion del follower
         {
             x = OriginalOffset.x,
             y = OriginalOffset.y + sinAmountY,
