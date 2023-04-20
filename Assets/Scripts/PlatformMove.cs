@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlatformMove : MonoBehaviour
 {
-    public Transform Platform; 
+    public Transform platform; 
     public Transform pos1;
     public Transform pos2;
 
@@ -14,16 +14,19 @@ public class PlatformMove : MonoBehaviour
 
     private void Update()
     {
-        MovePlatform();
+        if (gameObject.name == "PlatMovil1")
+        {
+            MovePlatform();
+        } 
     }
     void MovePlatform()
     {
         if (index == 0)
         {
-            Vector3 dir = pos2.position - Platform.transform.position;
-            Platform.transform.position = Platform.transform.position + dir * Time.deltaTime;
+            Vector3 dir = pos2.position - platform.transform.position;
+            platform.transform.position = platform.transform.position + dir * Time.deltaTime;
 
-            if (Vector3.Distance(Platform.position, pos2.position) < distMin)
+            if (Vector3.Distance(platform.position, pos2.position) < distMin)
             {
                 index = 1;
                 Debug.Log("El index es " + index);
@@ -31,10 +34,10 @@ public class PlatformMove : MonoBehaviour
         }
         else
         {
-            Vector3 dir = pos1.position - Platform.transform.position;
-            Platform.transform.position = Platform.transform.position + dir * Time.deltaTime;
+            Vector3 dir = pos1.position - platform.transform.position;
+            platform.transform.position = platform.transform.position + dir * Time.deltaTime;
 
-            if (Vector3.Distance(Platform.position, pos1.position) < distMin)
+            if (Vector3.Distance(platform.position, pos1.position) < distMin)
             {
                 index = 0;
                 Debug.Log("El index es " + index);
@@ -43,7 +46,7 @@ public class PlatformMove : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject"))
         {
             collision.gameObject.transform.SetParent(transform);
         }
@@ -51,7 +54,7 @@ public class PlatformMove : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject") && collision.gameObject.name != gameObject.name)
         {
             collision.gameObject.transform.SetParent(null);
         }

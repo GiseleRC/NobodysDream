@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 8415100867455641359}
   - component: {fileID: 8415100867455641357}
   - component: {fileID: 8215096108839130721}
+  - component: {fileID: -65590346063145307}
   - component: {fileID: 4478542144306065190}
   m_Layer: 6
   m_Name: Ruler 1
-  m_TagString: Untagged
+  m_TagString: MatObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,6 +74,21 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &-65590346063145307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8415100867455641355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a301de76cd0fd34438696d05e1af3b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 8415100867455641356}
+  pos1: {fileID: 0}
+  pos2: {fileID: 0}
 --- !u!114 &4478542144306065190
 MonoBehaviour:
   m_ObjectHideFlags: 0
