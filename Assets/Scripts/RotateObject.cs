@@ -32,7 +32,6 @@ public class RotateObject : MonoBehaviour
         }
 
         transform.Translate(0, Input.GetAxis("Mouse Y") * (sens * speedMov) * Time.deltaTime, 0);
-        print(destroyFinalPosObject);
         ray = Physics.BoxCast(gameObject.GetComponent<Collider>().bounds.center, transform.localScale, -transform.up, out hit, transform.rotation, 100f, layerMask);
         float rotation = Input.GetAxis("RotateObject") * speedRotation;
         gameObject.transform.Rotate(0, rotation * Time.deltaTime, 0);

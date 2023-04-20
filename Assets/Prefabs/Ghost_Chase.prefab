@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5141403093152676815}
   - component: {fileID: 1748622477613749995}
   - component: {fileID: 2429819213234004189}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PM3D_Sphere3D1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7547929914011678044}
   - component: {fileID: 3135432282117127193}
   - component: {fileID: 3073630366174488184}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Male_PlanesofHead_256
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,8 +175,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6027114006704043644}
-  m_Layer: 0
-  m_Name: Ghost
+  - component: {fileID: 1803535805798290395}
+  - component: {fileID: 2827700569509666139}
+  - component: {fileID: 8112297046893572486}
+  - component: {fileID: 4730416354267188804}
+  - component: {fileID: 8045113459443339642}
+  - component: {fileID: 6710108228142256836}
+  m_Layer: 11
+  m_Name: Ghost_Chase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,6 +206,101 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -183.032, z: 0}
+--- !u!195 &1803535805798290395
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.01
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.035
+  m_BaseOffset: 0.03
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!136 &2827700569509666139
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0067800726
+  m_Height: 0.04605078
+  m_Direction: 1
+  m_Center: {x: 0.00095361297, y: -0.0133841345, z: 2.13743e-12}
+--- !u!114 &8112297046893572486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a25ff4682ac51e488c1ea6a2a3671f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDistance: 15
+--- !u!114 &4730416354267188804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19836fd5b1a93cf43b079ece3270da60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints: []
+  currentPoint: 0
+  whiteEyes: {fileID: 2100000, guid: 1fb686d76fce7514eaa0e3d9bfa50d66, type: 2}
+--- !u!114 &8045113459443339642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0506f5e7e0159f64382ccbbb7ed8016c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistanceChar: 2
+  redEyes: {fileID: 2100000, guid: 07018c737c314cf4ca4e22f282e0e25a, type: 2}
+  whiteEyes: {fileID: 2100000, guid: 1fb686d76fce7514eaa0e3d9bfa50d66, type: 2}
+--- !u!54 &6710108228142256836
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7616414793381458946
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +312,7 @@ GameObject:
   - component: {fileID: 949850051993388355}
   - component: {fileID: 2770535309514525543}
   - component: {fileID: 4544037033894115542}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PM3D_Cylinder3D1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MaterializeObjects : MonoBehaviour
 {
-    [SerializeField] GameObject ruler, camPos;
-    [SerializeField] List<GameObject> objectsActive;
+    [SerializeField] GameObject ruler,cube, camPos;
+    [SerializeField] List<GameObject> rulersActive, cubesActive;
     GameObject actualObject;
 
 
@@ -35,15 +35,48 @@ public class MaterializeObjects : MonoBehaviour
                 actualObject = newRuler;
                 actualObject.transform.parent = gameObject.transform;
 
-                if (objectsActive.Count == 2)
+                if (rulersActive.Count == 2)
                 {
-                    Destroy(objectsActive[0]);
-                    objectsActive[0] = objectsActive[1];
-                    objectsActive[1] = actualObject;
+                    Destroy(rulersActive[0]);
+                    rulersActive[0] = rulersActive[1];
+                    rulersActive[1] = actualObject;
                 }
                 else
                 {
-                    objectsActive.Add(actualObject);
+                    rulersActive.Add(actualObject);
+                    objectCreated++;
+                }
+
+            }
+            else
+            {
+                actualObject.transform.parent = null;
+                actualObject.GetComponent<Rigidbody>().isKinematic = false;
+                actualObject.GetComponent<RotateObject>().FinalPosObject();
+                placingObject = false;
+
+            }
+
+        }
+
+        if (Input.GetButtonDown("Action2"))
+        {
+            if (!placingObject)
+            {
+                GameObject newCube = Instantiate(cube, pos, transform.rotation);
+                placingObject = true;
+                actualObject = newCube;
+                actualObject.transform.parent = gameObject.transform;
+
+                if (cubesActive.Count == 2)
+                {
+                    Destroy(cubesActive[0]);
+                    cubesActive[0] = cubesActive[1];
+                    cubesActive[1] = actualObject;
+                }
+                else
+                {
+                    cubesActive.Add(actualObject);
                     objectCreated++;
                 }
 

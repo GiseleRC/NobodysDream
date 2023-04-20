@@ -7,12 +7,21 @@ public class FlashLight : MonoBehaviour
     Light flashLight;
     public AudioSource flashLightOn, flashLightOff;
 
+
     public float MinTime;
     public float MaxTime;
     public float Timer;
     public float posibility;
     bool flicker;
-   // Start is called before the first frame update
+
+    public bool FlashLightEnabled
+    {
+        get
+        {
+            return flashLight.enabled;
+        }
+    }
+    // Start is called before the first frame update
 
     public bool Flicker(bool flickerState)
     {
@@ -57,11 +66,11 @@ public class FlashLight : MonoBehaviour
         }
         if (posibility <= 0.01)
         {
-             if (Timer <= 0)
-             {
-                  flashLight.enabled = !flashLight.enabled;
-                  Timer = Random.Range(MinTime, MaxTime);
-             }
+            if (Timer <= 0)
+            {
+                flashLight.enabled = !flashLight.enabled;
+                Timer = Random.Range(MinTime, MaxTime);
+            }
         }
-    }  
+    }
 }
