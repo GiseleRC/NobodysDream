@@ -9,8 +9,6 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] float gravityScale, jumpTime;
     [SerializeField] float jumpForce, gravity;
-    [SerializeField] private Collider ghostC;
-    public GhostCloth ghostCloth;
     public GameState gameState;
     public Transform orientation;
 
@@ -70,13 +68,5 @@ public class PlayerSC : MonoBehaviour
     public void ChangeGravity()
     {
         gameObject.GetComponent<CustomGravity>().changeGravity(gravityScale);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other == ghostC)
-        {
-            ghostCloth.collitionE = true;
-            gameState.GhostPlaneModeEnabled = true;
-        }
     }
 }
