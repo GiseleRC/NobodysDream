@@ -46,7 +46,7 @@ public class PlatformMove : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject"))
+        if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject")) && collision.gameObject.name != gameObject.name)
         {
             collision.gameObject.transform.SetParent(transform);
         }
@@ -54,7 +54,7 @@ public class PlatformMove : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject") && collision.gameObject.name != gameObject.name)
+        if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject")) && collision.gameObject.name != gameObject.name)
         {
             collision.gameObject.transform.SetParent(null);
         }
