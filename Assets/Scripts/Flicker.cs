@@ -9,7 +9,6 @@ public class Flicker : MonoBehaviour
         if(other.gameObject.layer == 7)
         {
             other.gameObject.GetComponentInChildren<FlashLight>().Flicker(true);
-
         }
     }
 }

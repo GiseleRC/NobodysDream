@@ -69,4 +69,5 @@ public class PlayerSC : MonoBehaviour
     {
         gameObject.GetComponent<CustomGravity>().changeGravity(gravityScale);
     }
+
 }
