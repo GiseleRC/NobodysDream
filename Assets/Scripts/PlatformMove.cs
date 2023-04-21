@@ -10,7 +10,7 @@ public class PlatformMove : MonoBehaviour
 
     private Vector3 origin;
     private Rigidbody rigidBody;
-    private float t = 0f;
+    public float t = 0f;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class PlatformMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        t += Time.fixedDeltaTime;
+        t += Time.deltaTime;
         rigidBody.MovePosition(origin + dir.normalized * amp * Mathf.Sin(2f * Mathf.PI * freq * t));
     }
 }
