@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    [SerializeField] public PlayerSC playerSC;
+    [SerializeField] public GameObject playerSC;
+    [SerializeField] public Transform playerSpawn;
 
     private PlaneMode planeMode = PlaneMode.Dream;
     public bool DreamPlaneModeEnabled { get; set; } = true;
@@ -80,6 +81,7 @@ public class GameState : MonoBehaviour
 
     public void RespawnPlayer()
     {
-
+        playerSC.transform.position = playerSpawn.position;
+        playerSC.transform.rotation = playerSpawn.rotation;
     }
 }
