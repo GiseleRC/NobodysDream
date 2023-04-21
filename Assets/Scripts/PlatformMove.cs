@@ -6,7 +6,7 @@ public class PlatformMove : MonoBehaviour
 {
     [SerializeField] private Vector3 dir = Vector3.right;
     [SerializeField] private float amp = 5f;
-    [SerializeField] private float freq = 0.2f;
+    [SerializeField] private float freq = 0.15f;
 
     private Vector3 origin;
     private Rigidbody rigidBody;
