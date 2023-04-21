@@ -4,59 +4,27 @@ using UnityEngine;
 
 public class PlatformMove : MonoBehaviour
 {
-    public Transform platform; 
-    public Transform pos1;
-    public Transform pos2;
+    [SerializeField] private Vector3 dir = Vector3.right;
+    [SerializeField] private float amp = 1f;
+    [SerializeField] private float freq = 1f;
 
-    Vector3 pos;
-    int index = 0;
-    float distMin = 0.5f;
+    private Vector3 origin;
+    private Rigidbody rigidBody;
+    private float t = 0f;
 
-    private void Update()
+    private void Awake()
     {
-        if (gameObject.name == "PlatMovil1")
-        {
-            MovePlatform();
-        } 
-    }
-    void MovePlatform()
-    {
-        if (index == 0)
-        {
-            Vector3 dir = pos2.position - platform.transform.position;
-            platform.transform.position = platform.transform.position + dir * Time.deltaTime;
-
-            if (Vector3.Distance(platform.position, pos2.position) < distMin)
-            {
-                index = 1;
-                Debug.Log("El index es " + index);
-            }
-        }
-        else
-        {
-            Vector3 dir = pos1.position - platform.transform.position;
-            platform.transform.position = platform.transform.position + dir * Time.deltaTime;
-
-            if (Vector3.Distance(platform.position, pos1.position) < distMin)
-            {
-                index = 0;
-                Debug.Log("El index es " + index);
-            }
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject")) && collision.gameObject.name != gameObject.name)
-        {
-            collision.gameObject.transform.SetParent(transform);
-        }
+        rigidBody = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void Start()
     {
-        if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject")) && collision.gameObject.name != gameObject.name)
-        {
-            collision.gameObject.transform.SetParent(null);
-        }
+        origin = transform.position;
+    }
+
+    private void FixedUpdate()
+    {
+        t += Time.fixedDeltaTime;
+        rigidBody.MovePosition(origin + dir.normalized * amp * Mathf.Sin(2f * Mathf.PI * freq * t));
     }
 }

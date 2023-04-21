@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a301de76cd0fd34438696d05e1af3b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 1493530038546662041}
-  pos1: {fileID: 0}
-  pos2: {fileID: 0}
+  dir: {x: 0, y: 0, z: 1}
+  amp: 5
+  freq: 0.5
 --- !u!54 &-1375413372007714519
 Rigidbody:
   m_ObjectHideFlags: 0
