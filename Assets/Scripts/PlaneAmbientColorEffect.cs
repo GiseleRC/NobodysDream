@@ -30,6 +30,7 @@ public class PlaneAmbientColorEffect : MonoBehaviour
         {
             case GameState.PlaneMode.Dream:
                 RenderSettings.ambientLight = colorDreamPlane;
+                ghostItems.SetActive(false);
                 break;
             case GameState.PlaneMode.Ghost:
                 ghostItems.SetActive(true);
