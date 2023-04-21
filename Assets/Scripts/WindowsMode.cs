@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class WindowsMode : MonoBehaviour
 {
+    private void Start()
+    {
+        Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
