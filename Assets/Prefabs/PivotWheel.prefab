@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c90a095c060a3458cb9bae0677e086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityRotation: 10
+  rotationAxis: {x: 0, y: 1, z: 0}
+  angularVelocity: 10
 --- !u!54 &1053708622258676825
 Rigidbody:
   m_ObjectHideFlags: 0

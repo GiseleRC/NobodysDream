@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class Wheel : MonoBehaviour
 {
-    [SerializeField] float velocityRotation;
-    void Update()
+    [SerializeField] private Vector3 rotationAxis = Vector3.up;
+    [SerializeField] private float angularVelocity = 1f;
+
+    private Rigidbody rigidBody;
+
+    private void Awake()
     {
-        transform.Rotate(0,(transform.rotation.y + velocityRotation)* Time.deltaTime, 0);
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject") && collision.gameObject.name != gameObject.name)
-        {
-            collision.gameObject.transform.SetParent(transform);
-        }
+        rigidBody = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionExit(Collision collision)
+    void FixedUpdate()
     {
-        if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MatObject")) && collision.gameObject.name != gameObject.name)
-        {
-            collision.gameObject.transform.SetParent(null);
-        }
+        Quaternion deltaRotation = Quaternion.Euler(angularVelocity * rotationAxis * Time.fixedDeltaTime);
+        rigidBody.MoveRotation(rigidBody.rotation * deltaRotation);
     }
 }
