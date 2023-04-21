@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunDuration: 2
+  standardColor: {r: 0.99215686, g: 0.87058824, b: 0.6392157, a: 0}
+  stunColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
 --- !u!1 &3322943901203963114
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,8 +790,6 @@ MonoBehaviour:
   jumpTime: 0.25
   jumpForce: 10
   gravity: 0
-  ghostC: {fileID: 0}
-  ghostCloth: {fileID: 0}
   gameState: {fileID: 0}
   orientation: {fileID: 0}
 --- !u!114 &4063438181940665769
@@ -805,8 +805,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ruler: {fileID: 8415100867455641355, guid: de1d337dd4064764c8512fb36eb4b54a, type: 3}
+  cube: {fileID: 0}
   camPos: {fileID: 0}
-  objectsActive: []
+  rulersActive: []
+  cubesActive: []
 --- !u!114 &1891338930473898930
 MonoBehaviour:
   m_ObjectHideFlags: 0

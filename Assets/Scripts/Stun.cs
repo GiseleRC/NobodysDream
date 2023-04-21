@@ -7,6 +7,7 @@ public class Stun : MonoBehaviour
     FlashLight fl;
     bool flashlightOn;
     [SerializeField] float stunDuration;
+    [SerializeField] Color standardColor, stunColor;
     // Start is called before the first frame update
 
     void Update()
@@ -21,6 +22,13 @@ public class Stun : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Patrol>().enabled) other.gameObject.GetComponent<Patrol>().Stunned(stunDuration);
             if (other.gameObject.GetComponent<ChaseCharacter>().enabled) other.gameObject.GetComponent<ChaseCharacter>().Stunned(stunDuration);
+
+            fl.gameObject.GetComponent<Light>().color = stunColor;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        fl.gameObject.GetComponent<Light>().color = standardColor;
     }
 }
