@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2217dcce1e5ab85489c2a3bb5a224065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSC: {fileID: 1769828709}
 --- !u!1 &73322201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1007,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &381322831
 GameObject:
@@ -10501,6 +10502,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747362264}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1769828709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 691922695422852397, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+  m_PrefabInstance: {fileID: 1455116961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c316e1a6b61769a488f1ea7af0410482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1833043611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11322,7 +11334,7 @@ RectTransform:
   m_Children:
   - {fileID: 1699740572}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

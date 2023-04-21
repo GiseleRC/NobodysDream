@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    [SerializeField] public PlayerSC playerSC;
+
     private PlaneMode planeMode = PlaneMode.Dream;
     public bool DreamPlaneModeEnabled { get; set; } = true;
     public bool GhostPlaneModeEnabled { get; set; } = false;
@@ -76,4 +78,8 @@ public class GameState : MonoBehaviour
         }
     }
 
+    public void RespawnPlayer()
+    {
+
+    }
 }
