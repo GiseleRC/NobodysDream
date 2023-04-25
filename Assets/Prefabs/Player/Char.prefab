@@ -642,7 +642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 4160
   radius: 0.1
 --- !u!1 &8033119698008565209
 GameObject:
@@ -836,6 +836,9 @@ MonoBehaviour:
   camPos: {fileID: 0}
   rulersActive: []
   cubesActive: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!114 &1891338930473898930
 MonoBehaviour:
   m_ObjectHideFlags: 0

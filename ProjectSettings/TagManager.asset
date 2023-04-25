@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - MatObject
+  - Cube
+  - Ruler
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - SensorPlayer
   - EnviromentDetails
   - Enemy
-  - 
+  - MatObjs
   - 
   - 
   - 

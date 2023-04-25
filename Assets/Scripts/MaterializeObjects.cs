@@ -6,96 +6,136 @@ public class MaterializeObjects : MonoBehaviour
 {
     [SerializeField] GameObject ruler,cube, camPos;
     [SerializeField] List<GameObject> rulersActive, cubesActive;
-    GameObject actualObject;
+    GameObject actualObject, lastObjectCreated, newObject;
+    [SerializeField] LayerMask layerMask;
+    Vector3 pos;
 
 
-    bool placingObject;
+    bool placingObject, test;
     int objectCreated;
     // Start is called before the first frame update
     void Start()
     {
         objectCreated = 0;
+        lastObjectCreated = ruler;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         RaycastHit hit;
 
-        bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 6f);
+        bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 6f, layerMask);
 
-        var pos = camPos.transform.position + camPos.transform.forward.normalized * 6f;
+        if (ray)
+        {
+            pos = hit.point;
+        }
+        else
+        {
+            pos = camPos.transform.position + camPos.transform.forward.normalized * 6f;
+        }
+
+        print(hit.point);
 
         if (Input.GetButtonDown("Action1"))
         {
             if (!placingObject)
             {
-                GameObject newRuler = Instantiate(ruler, pos, transform.rotation);
+                newObject = Instantiate(lastObjectCreated, pos, transform.rotation);
                 placingObject = true;
-                actualObject = newRuler;
+                actualObject = newObject;
                 actualObject.transform.parent = gameObject.transform;
-
-                if (rulersActive.Count == 2)
-                {
-                    Destroy(rulersActive[0]);
-                    rulersActive[0] = rulersActive[1];
-                    rulersActive[1] = actualObject;
-                }
-                else
-                {
-                    rulersActive.Add(actualObject);
-                    objectCreated++;
-                }
-
+                print(actualObject.name);
             }
             else
             {
+                if (actualObject.tag == "Ruler")
+                {
+                    if (rulersActive.Count == 2)
+                    {
+                        Destroy(rulersActive[0]);
+                        rulersActive[0] = rulersActive[1];
+                        rulersActive[1] = actualObject;
+                    }
+                    else
+                    {
+                        rulersActive.Add(actualObject);
+                        objectCreated++;
+                    }
+                    lastObjectCreated = ruler;
+                }
+                else
+                {
+                    if (cubesActive.Count == 2)
+                    {
+                        Destroy(cubesActive[0]);
+                        cubesActive[0] = cubesActive[1];
+                        cubesActive[1] = actualObject;
+                    }
+                    else
+                    {
+                        cubesActive.Add(actualObject);
+                        objectCreated++;
+                    }
+                    lastObjectCreated = cube;
+                }
+
+                RotateObject ro;
+                ro = actualObject.GetComponent<RotateObject>();
                 actualObject.transform.parent = null;
-                actualObject.GetComponent<Rigidbody>().isKinematic = false;
+                actualObject.GetComponent<Collider>().isTrigger = false;
+                actualObject.transform.position = ro.FinalPos;
                 actualObject.GetComponent<RotateObject>().FinalPosObject();
                 placingObject = false;
 
             }
-
         }
 
-        if (Input.GetButtonDown("Action2"))
+        if (placingObject)
         {
-            if (!placingObject)
+            if (Input.GetButtonDown("SwitchItem"))
             {
-                GameObject newCube = Instantiate(cube, pos, transform.rotation);
-                placingObject = true;
-                actualObject = newCube;
-                actualObject.transform.parent = gameObject.transform;
-
-                if (cubesActive.Count == 2)
+                if(actualObject.tag == "Ruler")
                 {
-                    Destroy(cubesActive[0]);
-                    cubesActive[0] = cubesActive[1];
-                    cubesActive[1] = actualObject;
+                    actualObject.GetComponent<RotateObject>().CancelObject();
+                    Destroy(newObject);
+                    newObject = Instantiate(cube, pos, transform.rotation);
+                    actualObject = newObject;
+
                 }
                 else
                 {
-                    cubesActive.Add(actualObject);
-                    objectCreated++;
+                    actualObject.GetComponent<RotateObject>().CancelObject();
+                    Destroy(newObject);
+                    newObject = Instantiate(ruler, pos, transform.rotation);
+                    actualObject = newObject;
                 }
-
             }
-            else
-            {
-                actualObject.transform.parent = null;
-                actualObject.GetComponent<Rigidbody>().isKinematic = false;
-                actualObject.GetComponent<RotateObject>().FinalPosObject();
-                placingObject = false;
+            
+        }
 
-            }
+        if(Input.GetButtonDown("Cancel") && placingObject)
+        {
+            actualObject.GetComponent<RotateObject>().CancelObject();
+            placingObject = false;
+        }
 
+        print(hit.collider);
+    }
+
+    public Vector3 PosObject
+    {
+        get
+        {
+            return pos;
         }
     }
 
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawRay(camPos.transform.position, camPos.transform.forward * 6f);
+        Gizmos.DrawRay(camPos.transform.position, camPos.transform.forward.normalized * 6f);
     }
 }

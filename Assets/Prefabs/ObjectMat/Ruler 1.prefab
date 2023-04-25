@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8415100867455641357}
   - component: {fileID: 8215096108839130721}
   - component: {fileID: 4478542144306065190}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Ruler 1
-  m_TagString: MatObject
+  m_TagString: Ruler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8415100867455641355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.86, y: 3.1335692, z: 3.61}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43,11 +43,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8415100867455641355}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0675986, z: 1.0633376}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.80098784, z: 1.0179185}
+  m_Center: {x: 0, y: 0.28446513, z: -0.022709548}
 --- !u!54 &8215096108839130721
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,13 +77,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRotation: 60
-  speedMov: 0.1
-  sens: 200
   layerMask:
     serializedVersion: 2
     m_Bits: 65
   finalPosObject: {fileID: 8415100867455641355, guid: 54cd40ad4855a194ab195300f44c0ef6, type: 3}
   actualObject: {fileID: 0}
+  cube: 0
 --- !u!1001 &813242228115259651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,10 +144,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5725421286233614941, guid: dfd6c9789d20f4549a7dbab24da83b01, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5725421286233614941, guid: dfd6c9789d20f4549a7dbab24da83b01, type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085546323388763016, guid: dfd6c9789d20f4549a7dbab24da83b01, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6085546323388763016, guid: dfd6c9789d20f4549a7dbab24da83b01, type: 3}

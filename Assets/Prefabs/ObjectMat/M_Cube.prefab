@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2452172618069073037}
   - component: {fileID: -4473073128292767010}
   - component: {fileID: 3043374784525011741}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: M_Cube
-  m_TagString: MatObject
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,7 +55,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5885717844043559547}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -98,7 +98,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5885717844043559547}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -116,13 +116,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRotation: 60
-  speedMov: 0.1
-  sens: 200
   layerMask:
     serializedVersion: 2
     m_Bits: 65
   finalPosObject: {fileID: 5885717844043559547, guid: 996e64be41554b642a944501fc0301de, type: 3}
   actualObject: {fileID: 0}
+  cube: 1
 --- !u!54 &3043374784525011741
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -202,9 +201,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561357, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3301585026001561358, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
       propertyPath: m_Name
       value: ForJumpEmpty (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561358, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
@@ -276,9 +283,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561357, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3301585026001561358, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
       propertyPath: m_Name
       value: ForJumpEmpty (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561358, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
@@ -350,9 +365,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561357, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3301585026001561358, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
       propertyPath: m_Name
       value: ForJumpEmpty (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561358, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
@@ -424,9 +447,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561357, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3301585026001561358, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
       propertyPath: m_Name
       value: ForJumpEmpty (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561358, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
