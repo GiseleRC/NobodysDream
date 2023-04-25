@@ -10446,6 +10446,10 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1455116962}
+    - target: {fileID: 691922695422852397, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: gravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1481715762398472399, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -10509,7 +10513,7 @@ PrefabInstance:
     - target: {fileID: 2507740949718719874, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 13400000, guid: 6032ec464272c6e489df5a5e55141c60, type: 2}
     - target: {fileID: 2787236397980313371, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -10604,15 +10608,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.1
+      value: -2.782
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.8
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 43.27
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11958,7 +11962,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
+  m_fontSize: 18
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class RotateObject : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class RotateObject : MonoBehaviour
     bool ray, destroyFinalPosObject;
     RaycastHit hit;
     MaterializeObjects mo;
+    Rigidbody rb;
 
     public void FinalPosObject()
     {
@@ -38,6 +40,7 @@ public class RotateObject : MonoBehaviour
         actualObject = Instantiate(finalPosObject, transform.position,transform.rotation);
         destroyFinalPosObject = false;
         mo = GameObject.Find("Char").GetComponent<MaterializeObjects>();
+        rb = GetComponent<Rigidbody>();
 
     }
 
@@ -50,17 +53,36 @@ public class RotateObject : MonoBehaviour
         }
 
         transform.position = mo.PosObject;
-        ray = Physics.BoxCast(gameObject.GetComponent<Collider>().bounds.center, transform.localScale, -transform.up, out hit, transform.rotation, 100f, layerMask);
+        Collider[] col = Physics.OverlapBox(gameObject.GetComponent<Collider>().bounds.center, transform.localScale, transform.rotation, layerMask);
+        Collider[] orderCol;
+        Vector3 closestPoint;
+
+        if (col.Any())
+        {
+            orderCol = col.OrderBy(x => Vector3.Distance(x.transform.position, mo.PosObject)).ToArray();
+            closestPoint = orderCol[0].ClosestPoint(mo.PosObject);
+        }
+        else if(Physics.Raycast(transform.position,-Vector3.up, out hit, Mathf.Infinity,layerMask))
+        {
+            closestPoint = hit.point;
+        }
+        else
+        {
+            closestPoint = mo.transform.position;
+        }
+
         float rotation = Input.GetAxis("RotateObject") * speedRotation;
         gameObject.transform.Rotate(0, rotation * Time.deltaTime, 0);
 
         if (cube)
         {
-            actualObject.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+            //actualObject.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+            actualObject.transform.position = new Vector3(transform.position.x, closestPoint.y + 0.5f, transform.position.z);
         }
         else
         {
-            actualObject.transform.position = transform.position;
+            //actualObject.transform.position = transform.position;
+            actualObject.transform.position = new Vector3(transform.position.x, closestPoint.y, transform.position.z);
         }
 
         actualObject.transform.rotation = transform.rotation;
@@ -81,6 +103,21 @@ public class RotateObject : MonoBehaviour
         {
             return finalPos;
         }
+    }
+
+    public void Spawn()
+    {
+        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        StartCoroutine(WaitPhysics());
+    }
+
+    IEnumerator WaitPhysics()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        rb.isKinematic = true;
     }
 
 }

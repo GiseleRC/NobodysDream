@@ -15,7 +15,6 @@ public class AIDecisions : MonoBehaviour
     void Start()
     {
         nma = GetComponent<NavMeshAgent>();
-
     }
 
     public Transform CharacterPos

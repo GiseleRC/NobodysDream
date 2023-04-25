@@ -22,10 +22,13 @@ public class CustomGravity : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 gravity = globalGravity * gravityScale * Vector3.up;
-        m_rb.AddForce(gravity, ForceMode.Acceleration);
         if (ground.IsGrounded)
         {
             gravityScale = 1.0f;
+        }
+        else
+        {
+            m_rb.AddForce(gravity, ForceMode.Acceleration);
         }
     }
     public void changeGravity(float scaleGravity)

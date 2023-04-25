@@ -34,7 +34,7 @@ public class MaterializeObjects : MonoBehaviour
         }
         else
         {
-            pos = camPos.transform.position + camPos.transform.forward.normalized * 6f;
+            pos = camPos.transform.position + camPos.transform.forward * 6f;
         }
 
         print(hit.point);
@@ -88,6 +88,7 @@ public class MaterializeObjects : MonoBehaviour
                 actualObject.GetComponent<Collider>().isTrigger = false;
                 actualObject.transform.position = ro.FinalPos;
                 actualObject.GetComponent<RotateObject>().FinalPosObject();
+                actualObject.GetComponent<RotateObject>().Spawn();
                 placingObject = false;
 
             }
