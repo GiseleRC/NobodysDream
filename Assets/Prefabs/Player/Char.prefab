@@ -740,7 +740,6 @@ GameObject:
   - component: {fileID: 2507740949718719874}
   - component: {fileID: 691922695422852397}
   - component: {fileID: 4063438181940665769}
-  - component: {fileID: 1891338930473898930}
   - component: {fileID: 8575045992528231707}
   m_Layer: 7
   m_Name: Char
@@ -814,7 +813,6 @@ MonoBehaviour:
   playerRB: {fileID: 8734371037959268166}
   walkSpeed: 4
   runSpeed: 8
-  jumpForce: 6
   dreamPlaneJumpHeight: 2
   ghostPlaneJumpHeight: 3
   demonPlaneJumpHeight: 0
@@ -834,26 +832,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ruler: {fileID: 8415100867455641355, guid: de1d337dd4064764c8512fb36eb4b54a, type: 3}
-  cube: {fileID: 0}
+  cube: {fileID: 5885717844043559547, guid: a68b64d5bd89c354081475ea30bf4cc4, type: 3}
   camPos: {fileID: 0}
   rulersActive: []
   cubesActive: []
   layerMask:
     serializedVersion: 2
     m_Bits: 65
---- !u!114 &1891338930473898930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8166849483277595108}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc3d8984672bdf64398f7a9b43b3f470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravityScale: 1
 --- !u!114 &8575045992528231707
 MonoBehaviour:
   m_ObjectHideFlags: 0

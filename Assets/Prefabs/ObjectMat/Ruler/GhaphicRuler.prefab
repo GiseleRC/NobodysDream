@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8327370573723565890}
   - component: {fileID: 6085546323388763016}
   m_Layer: 0
-  m_Name: regla
+  m_Name: GhaphicRuler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

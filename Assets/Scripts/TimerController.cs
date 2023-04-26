@@ -17,7 +17,6 @@ public class TimerController : MonoBehaviour
         time.value = timeWait;
     }
 
-    // Update is called once per frame
     void Update()
     {
         currTimeWait -= Time.deltaTime;
