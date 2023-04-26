@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3395c83372e09428eb73a0212b73a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeWait: 1000
+  timeWait: 100
   currTimeWait: 0
   time: {fileID: 48033283}
   playerSC: {fileID: 1769828712}
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 900923966}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 1000
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1000
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -576,6 +576,9 @@ MonoBehaviour:
         m_CallState: 2
   playerSC: {fileID: 1769828706}
   playerSpawn: {fileID: 671613698}
+  dreamPlaneTimeScale: 1
+  ghostPlaneTimeScale: 0.5
+  demonPlaneTimeScale: 2
 --- !u!1 &67251612
 GameObject:
   m_ObjectHideFlags: 0
