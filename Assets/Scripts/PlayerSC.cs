@@ -11,6 +11,7 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] float jumpForce, gravity;
     public GameState gameState;
     public Transform orientation;
+    private bool runEnabled = true;
 
     GroundCheck ground;
 
@@ -52,7 +53,7 @@ public class PlayerSC : MonoBehaviour
         Vector3 input = new Vector3(inputX, 0f, inputY);
         input.Normalize();
 
-        float speed = Input.GetButton("Fire3") ? runSpeed : walkSpeed;
+        float speed = (runEnabled && Input.GetButton("Fire3")) ? runSpeed : walkSpeed;
 
         Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.deltaTime;
         transform.position += velocity;
@@ -69,5 +70,8 @@ public class PlayerSC : MonoBehaviour
     {
         gameObject.GetComponent<CustomGravity>().changeGravity(gravityScale);
     }
-
+    public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
+    {
+        runEnabled = planeMode != GameState.PlaneMode.Ghost;
+    }
 }

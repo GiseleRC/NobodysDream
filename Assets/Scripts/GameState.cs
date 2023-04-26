@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameState : MonoBehaviour
 {
+    [System.Serializable] public class PlaneModeChangedEvent : UnityEvent<PlaneMode> {}
+
+    [SerializeField] PlaneModeChangedEvent OnPlaneModeChanged;
     [SerializeField] public GameObject playerSC;
     [SerializeField] public Transform playerSpawn;
 
@@ -38,6 +42,7 @@ public class GameState : MonoBehaviour
         this.planeMode = planeMode;
         Debug.Log("Cambiando a Plane Mode " + planeMode.ToString());
 
+        OnPlaneModeChanged.Invoke(this.planeMode);
         return true;
     }
 
