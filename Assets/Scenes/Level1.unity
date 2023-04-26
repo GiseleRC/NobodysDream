@@ -550,6 +550,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4730416354267188804, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
+        m_TargetAssemblyTypeName: Patrol, Assembly-CSharp
+        m_MethodName: OnPlaneModeChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7430825112782802547, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
+        m_TargetAssemblyTypeName: Patrol, Assembly-CSharp
+        m_MethodName: OnPlaneModeChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerSC: {fileID: 1769828706}
   playerSpawn: {fileID: 671613698}
 --- !u!1 &67251612
@@ -1692,7 +1716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &381322832
 Transform:
   m_ObjectHideFlags: 0
@@ -13613,7 +13637,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7649417663230535575, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3489162463139912000, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
       propertyPath: m_Layer
@@ -13677,11 +13701,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6408425375911668934, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7430825112782802547, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7616414793381458946, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
       propertyPath: m_Layer
@@ -14015,15 +14039,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1803535805798290395, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2827700569509666139, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4730416354267188804, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4730416354267188804, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
       propertyPath: patrolPoints.Array.size
@@ -14095,7 +14119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8112297046893572486, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
@@ -21068,7 +21092,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7649417663230535575, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6027114006704043644, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
       propertyPath: m_RootOrder
@@ -21128,11 +21152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6408425375911668934, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7430825112782802547, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b1c79453c26adb4d83176901ca2381a, type: 3}
