@@ -7,8 +7,11 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private Rigidbody playerRB;
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 8f;
-    [SerializeField] float gravityScale, jumpTime;
-    [SerializeField] float jumpForce, gravity;
+    [SerializeField] private float dreamPlaneJumpHeight = 1f;
+    [SerializeField] private float ghostPlaneJumpHeight = 1f;
+    [SerializeField] private float demonPlaneJumpHeight = 1f;
+    [SerializeField] private float artificialGravity = 5f;
+    private float jumpHeight;
     public GameState gameState;
     public Transform orientation;
     private bool runEnabled = true;
@@ -17,11 +20,13 @@ public class PlayerSC : MonoBehaviour
 
     void Awake()
     {
+        jumpHeight = dreamPlaneJumpHeight;
+
         ground = GetComponentInChildren<GroundCheck>();
+        playerRB = GetComponent<Rigidbody>();
     }
     void Start()
     {
-        playerRB = GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -31,6 +36,7 @@ public class PlayerSC : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMovement();
+        playerRB.AddForce(Vector3.down * artificialGravity);
     }
 
     void PlaneChange()
@@ -53,7 +59,7 @@ public class PlayerSC : MonoBehaviour
         Vector3 input = new Vector3(inputX, 0f, inputY);
         input.Normalize();
 
-        float speed = (runEnabled && Input.GetButton("Fire3")) ? runSpeed : walkSpeed;
+        float speed = (runEnabled && Input.GetButton("Fire3")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
 
         Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.deltaTime;
         transform.position += velocity;
@@ -62,16 +68,34 @@ public class PlayerSC : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && ground.IsGrounded)
         {
-            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Invoke("ChangeGravity", jumpTime);
+            //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            //Invoke("ChangeGravity", jumpTime);
+            float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
+            playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
+            Debug.Log("saltando " + jumpvelocity);
+            //playerRB.AddForce(Vector3.up * Physics.gravity.y, ForceMode.Acceleration);
         }
     }
-    public void ChangeGravity()
-    {
-        gameObject.GetComponent<CustomGravity>().changeGravity(gravityScale);
-    }
+    //public void ChangeGravity()
+    //{
+    //    gameObject.GetComponent<CustomGravity>().changeGravity(gravityScale);
+    //}
+
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         runEnabled = planeMode != GameState.PlaneMode.Ghost;
+
+        switch (planeMode)
+        {
+            case GameState.PlaneMode.Dream:
+                jumpHeight = dreamPlaneJumpHeight;
+                break;
+            case GameState.PlaneMode.Ghost:
+                jumpHeight = ghostPlaneJumpHeight;
+                break;
+            case GameState.PlaneMode.Demon:
+                jumpHeight = demonPlaneJumpHeight;
+                break;
+        }
     }
 }

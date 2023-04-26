@@ -65,7 +65,8 @@ public class Patrol : MonoBehaviour
 
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
-        //no es lo mas prolijo pero la idea es que los fantasmas permanezcan estuneados cuando se encuentra en ghostplane y cuando no que vuelvvan
+        /*no es lo mas prolijo pero la idea es que los fantasmas permanezcan estuneados 
+         * cuando se encuentra en ghostplane y cuando no, que vuelvan a moverser normalmente, optimizalo tranquilamente*/
         if (planeMode == GameState.PlaneMode.Ghost)
         {
             Stunned(1000);

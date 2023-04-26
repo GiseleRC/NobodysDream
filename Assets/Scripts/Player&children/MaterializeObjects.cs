@@ -37,7 +37,7 @@ public class MaterializeObjects : MonoBehaviour
             pos = camPos.transform.position + camPos.transform.forward * 6f;
         }
 
-        print(hit.point);
+        //print(hit.point);
 
         if (Input.GetButtonDown("Action1"))
         {
@@ -123,7 +123,7 @@ public class MaterializeObjects : MonoBehaviour
             placingObject = false;
         }
 
-        print(hit.collider);
+        //print(hit.collider);
     }
 
     public Vector3 PosObject

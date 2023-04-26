@@ -8,8 +8,6 @@ public class Stun : MonoBehaviour
     bool flashlightOn;
     [SerializeField] float stunDuration;
     [SerializeField] Color standardColor, stunColor;
-    // Start is called before the first frame update
-
     void Update()
     {
         fl = GetComponentInParent<FlashLight>();

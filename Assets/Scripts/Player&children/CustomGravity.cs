@@ -14,7 +14,7 @@ public class CustomGravity : MonoBehaviour
     void OnEnable()
     {
         m_rb = GetComponent<Rigidbody>();
-        m_rb.useGravity = false;
+        //m_rb.useGravity = false;
         ground = GetComponentInChildren<GroundCheck>();
 
     }
