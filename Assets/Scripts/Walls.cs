@@ -4,26 +4,51 @@ using UnityEngine;
 
 public class Walls : MonoBehaviour
 {
-    public GameObject newWalls;
-    public Rigidbody wall1, wall2, wall3, wall4;
-    public void EventFallWalls()
+    [SerializeField] private GameObject[] walls;
+    private Vector3[] wallsRestorePos;
+
+    private void Start()
     {
-        wall1.isKinematic = false;
-        wall2.isKinematic = false;
-        wall3.isKinematic = false;
-        wall4.isKinematic = false;
-        if (wall1.position.y < -50 || wall2.position.y < -50 || wall3.position.y < -50 || wall4.position.y < -50)
+        wallsRestorePos = new Vector3[walls.Length];
+        for (int i = 0; i < walls.Length; i++)
         {
-            Destroy(wall1);
-            Destroy(wall2);
-            Destroy(wall3);
-            Destroy(wall4);
+            wallsRestorePos[i] = walls[i].transform.localPosition;
         }
     }
-    public void EventNewWalls()
+
+    private void FixedUpdate()
     {
-        newWalls.SetActive(true);
+        for (int i = 0; i < walls.Length; i++)
+        {
+            if (walls[i].transform.localPosition.y < -40)
+            {
+                walls[i].SetActive(false);
+            }
+        }
     }
-
-
+    public void EventDropWalls()
+    {
+        DropWalls();
+    }
+    public void EventRestoreWalls()
+    {
+        RestoreWalls();
+    }
+    
+    private void DropWalls()
+    {
+        for (int i = 0; i < walls.Length; i++)
+        {
+            walls[i].GetComponent<Rigidbody>().isKinematic = false;
+        }
+    }
+    private void RestoreWalls()
+    {
+        for (int i = 0; i < walls.Length; i++)
+        {
+            walls[i].SetActive(true);
+            walls[i].GetComponent<Rigidbody>().isKinematic = true;
+            walls[i].transform.localPosition = wallsRestorePos[i];
+        }
+    }
 }
