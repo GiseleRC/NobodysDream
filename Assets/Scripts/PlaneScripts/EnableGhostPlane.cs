@@ -17,7 +17,6 @@ public class EnableGhostPlane : MonoBehaviour
         {
             ghostCloth.collitionE = true;
             gameState.GhostPlaneModeEnabled = true;
-            gameState.RespawnPlayer();
         }
     }
 }

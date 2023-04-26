@@ -61,26 +61,17 @@ public class PlayerSC : MonoBehaviour
 
         float speed = (runEnabled && Input.GetButton("Fire3")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
 
-        Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.deltaTime;
+        Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
         transform.position += velocity;
     }
     void Jump()
     {
         if (Input.GetButtonDown("Jump") && ground.IsGrounded)
         {
-            //playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            //Invoke("ChangeGravity", jumpTime);
             float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
             playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
-            Debug.Log("saltando " + jumpvelocity);
-            //playerRB.AddForce(Vector3.up * Physics.gravity.y, ForceMode.Acceleration);
         }
     }
-    //public void ChangeGravity()
-    //{
-    //    gameObject.GetComponent<CustomGravity>().changeGravity(gravityScale);
-    //}
-
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         runEnabled = planeMode != GameState.PlaneMode.Ghost;
