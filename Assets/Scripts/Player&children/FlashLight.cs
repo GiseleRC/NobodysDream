@@ -13,6 +13,8 @@ public class FlashLight : MonoBehaviour
     public float Timer;
     public float posibility;
     bool flicker;
+    bool hasFlashlight = true;//cuando agarre la flashlight hay que ponerlo en false despues
+    bool canUseFlashlight = true;//pregunte si puede usar la linterna en el plano
 
     public bool FlashLightEnabled
     {
@@ -21,7 +23,6 @@ public class FlashLight : MonoBehaviour
             return flashLight.enabled;
         }
     }
-    // Start is called before the first frame update
 
     public bool Flicker(bool flickerState)
     {
@@ -34,10 +35,16 @@ public class FlashLight : MonoBehaviour
         Timer = Random.Range(MinTime, MaxTime);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Flashlight"))
+        gameObject.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
+
+        if (!canUseFlashlight)
+        {
+            flashLight.enabled = false;
+            return;
+        }
+        else if (Input.GetButtonDown("Flashlight"))
         {
             if (flashLight.enabled)
             {
@@ -72,5 +79,10 @@ public class FlashLight : MonoBehaviour
                 Timer = Random.Range(MinTime, MaxTime);
             }
         }
+    }
+
+    public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
+    {
+        canUseFlashlight = planeMode == GameState.PlaneMode.Dream;
     }
 }
