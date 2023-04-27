@@ -6,6 +6,7 @@ public class FlashLight : MonoBehaviour
 {
     Light flashLight;
     public AudioSource flashLightOn, flashLightOff;
+    public GameObject linterna;
 
 
     public float MinTime;
@@ -37,7 +38,7 @@ public class FlashLight : MonoBehaviour
 
     void Update()
     {
-        gameObject.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
+        linterna.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
 
         if (!canUseFlashlight)
         {
