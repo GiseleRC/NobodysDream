@@ -42,7 +42,6 @@ public class FlashLight : MonoBehaviour
         if (!canUseFlashlight)
         {
             flashLight.enabled = false;
-            return;
         }
         else if (Input.GetButtonDown("Flashlight"))
         {

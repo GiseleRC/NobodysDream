@@ -36,9 +36,9 @@ public class MaterializeObjects : MonoBehaviour
 
         print(hit.point);
 
-        if (Input.GetButtonDown("Action1"))
+        if (Input.GetButtonDown("Action1")) 
         {
-            if (!placingObject)
+            if (!placingObject) // Spawnea
             {
                 newObject = Instantiate(lastObjectCreated, pos, transform.rotation);
                 placingObject = true;
@@ -63,7 +63,7 @@ public class MaterializeObjects : MonoBehaviour
                     }
                     lastObjectCreated = ruler;
                 }
-                else
+                else //Posiciona el item
                 {
                     if (cubesActive.Count == 2)
                     {
@@ -93,7 +93,7 @@ public class MaterializeObjects : MonoBehaviour
 
         if (placingObject)
         {
-            if (Input.GetButtonDown("SwitchItem"))
+            if (Input.GetButtonDown("SwitchItem")) //Cambia de item
             {
                 if(actualObject.tag == "Ruler")
                 {
@@ -114,7 +114,7 @@ public class MaterializeObjects : MonoBehaviour
             
         }
 
-        if(Input.GetButtonDown("Cancel") && placingObject)
+        if(Input.GetButtonDown("Cancel") && placingObject) //Cancela
         {
             actualObject.GetComponent<RotateObject>().CancelObject();
             placingObject = false;

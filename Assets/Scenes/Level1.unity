@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0028074803, g: 0.00034389587, b: 0.00035845497, a: 1}
+  m_IndirectSpecularColor: {r: 0.0028074812, g: 0.00034389595, b: 0.000358455, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -968,7 +968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &165600699
 Transform:
   m_ObjectHideFlags: 0
@@ -1373,6 +1373,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 381
       objectReference: {fileID: 0}
+    - target: {fileID: 5717200328121030782, guid: 4b5426ce657c66048b6773cfea22efc7, type: 3}
+      propertyPath: MieG
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5717200328121030783, guid: 4b5426ce657c66048b6773cfea22efc7, type: 3}
       propertyPath: m_Range
       value: 38.6
@@ -1474,7 +1478,7 @@ GameObject:
   - component: {fileID: 288304319}
   - component: {fileID: 288304318}
   - component: {fileID: 288304317}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1713,7 +1717,7 @@ GameObject:
   - component: {fileID: 351689168}
   - component: {fileID: 351689167}
   - component: {fileID: 351689166}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 33PlatfExt (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1810,7 +1814,7 @@ GameObject:
   - component: {fileID: 380947600}
   - component: {fileID: 380947599}
   - component: {fileID: 380947598}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1943,7 +1947,7 @@ GameObject:
   - component: {fileID: 389727933}
   - component: {fileID: 389727932}
   - component: {fileID: 389727931}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2249,7 +2253,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7015029657330940187, guid: e104677c9f15bbc4097316c8368cfd4e, type: 3}
       propertyPath: Resolution
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7987219251820379129, guid: e104677c9f15bbc4097316c8368cfd4e, type: 3}
       propertyPath: m_Enabled
@@ -2449,7 +2453,7 @@ GameObject:
   - component: {fileID: 440941773}
   - component: {fileID: 440941772}
   - component: {fileID: 440941771}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2925,7 +2929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &531735602
 Transform:
   m_ObjectHideFlags: 0
@@ -3871,7 +3875,7 @@ GameObject:
   - component: {fileID: 692361874}
   - component: {fileID: 692361873}
   - component: {fileID: 692361872}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4284,7 +4288,7 @@ GameObject:
   - component: {fileID: 768160285}
   - component: {fileID: 768160284}
   - component: {fileID: 768160283}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9332,7 +9336,7 @@ GameObject:
   - component: {fileID: 857294045}
   - component: {fileID: 857294044}
   - component: {fileID: 857294043}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 33PlatfExt (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10779,7 +10783,7 @@ GameObject:
   - component: {fileID: 1106484167}
   - component: {fileID: 1106484166}
   - component: {fileID: 1106484165}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11011,7 +11015,7 @@ GameObject:
   - component: {fileID: 1153774052}
   - component: {fileID: 1153774051}
   - component: {fileID: 1153774050}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11940,7 +11944,7 @@ GameObject:
   - component: {fileID: 1348600927}
   - component: {fileID: 1348600926}
   - component: {fileID: 1348600925}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12039,7 +12043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437095120}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: WallsTall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12232,7 +12236,7 @@ GameObject:
   - component: {fileID: 1446271697}
   - component: {fileID: 1446271696}
   - component: {fileID: 1446271695}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12652,7 +12656,7 @@ GameObject:
   - component: {fileID: 1461075895}
   - component: {fileID: 1461075894}
   - component: {fileID: 1461075893}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13003,7 +13007,7 @@ GameObject:
   - component: {fileID: 1507845987}
   - component: {fileID: 1507845986}
   - component: {fileID: 1507845985}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14095,7 +14099,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 18
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14446,7 +14450,7 @@ GameObject:
   - component: {fileID: 1765769288}
   - component: {fileID: 1765769287}
   - component: {fileID: 1765769286}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14928,7 +14932,7 @@ GameObject:
   - component: {fileID: 1877579047}
   - component: {fileID: 1877579046}
   - component: {fileID: 1877579045}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15025,7 +15029,7 @@ GameObject:
   - component: {fileID: 1891209810}
   - component: {fileID: 1891209809}
   - component: {fileID: 1891209808}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16381,7 +16385,7 @@ GameObject:
   - component: {fileID: 2082841602}
   - component: {fileID: 2082841601}
   - component: {fileID: 2082841600}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16517,7 +16521,7 @@ GameObject:
   - component: {fileID: 2103263677}
   - component: {fileID: 2103263676}
   - component: {fileID: 2103263675}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: 2PlatfExt (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
