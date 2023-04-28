@@ -6,7 +6,8 @@ public class EnableGhostPlane : MonoBehaviour
 {
     public GameState gameState;
     public GhostCloth ghostCloth;
-    [SerializeField] private Collider ghostC;
+    public GameObject glasses, map;
+    [SerializeField] private Collider ghostC, glassesC;
     void Update()
     {
         
@@ -17,6 +18,11 @@ public class EnableGhostPlane : MonoBehaviour
         {
             ghostCloth.collitionE = true;
             gameState.GhostPlaneModeEnabled = true;
+        }
+        if (other == glassesC)
+        {
+            glasses.SetActive(false);
+            map.SetActive(true);
         }
     }
 }
