@@ -425,6 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashLightOn: {fileID: 3445653181536797366}
   flashLightOff: {fileID: 9139861461604076440}
+  linterna: {fileID: 0}
   MinTime: 0.1
   MaxTime: 0.2
   Timer: 0
@@ -985,7 +986,7 @@ MonoBehaviour:
   demonPlaneJumpHeight: 0
   artificialGravity: 5
   gameState: {fileID: 0}
-  orientation: {fileID: 0}
+  orientation: {fileID: 5579184150392987516}
 --- !u!114 &4063438181940665769
 MonoBehaviour:
   m_ObjectHideFlags: 0
