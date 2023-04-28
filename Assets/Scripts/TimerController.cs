@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
-    public float timeWait = 100f;
+    public float timeWait = 1000f;
     public float currTimeWait;
     public Slider time;
     public Transform playerSC;
