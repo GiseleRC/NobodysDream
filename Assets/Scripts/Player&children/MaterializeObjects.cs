@@ -10,7 +10,7 @@ public class MaterializeObjects : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     Vector3 pos;
 
-    public AudioSource fallObj, spawnObj;
+    public AudioSource fallObj, spawnObj, spawnPosition;
     bool placingObject, test;
     int objectCreated;
     void Start()
@@ -36,8 +36,10 @@ public class MaterializeObjects : MonoBehaviour
 
         if (Input.GetButtonDown("Action1")) 
         {
+
             if (!placingObject) // Spawnea
             {
+                spawnPosition.Play();
                 newObject = Instantiate(lastObjectCreated, pos, transform.rotation);
                 placingObject = true;
                 actualObject = newObject;
