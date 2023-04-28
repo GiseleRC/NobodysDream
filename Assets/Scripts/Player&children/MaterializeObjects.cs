@@ -10,7 +10,7 @@ public class MaterializeObjects : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     Vector3 pos;
 
-
+    public AudioSource fallObj, spawnObj;
     bool placingObject, test;
     int objectCreated;
     void Start()
@@ -95,15 +95,16 @@ public class MaterializeObjects : MonoBehaviour
             {
                 if(actualObject.tag == "Ruler")
                 {
+                    spawnObj.Play();
                     actualObject.GetComponent<RotateObject>().CancelObject();
                     Destroy(newObject);
                     newObject = Instantiate(cube, pos, transform.rotation);
                     actualObject = newObject;
                     actualObject.transform.parent = gameObject.transform;
-
                 }
                 else
                 {
+                    spawnObj.Play();
                     actualObject.GetComponent<RotateObject>().CancelObject();
                     Destroy(newObject);
                     newObject = Instantiate(ruler, pos, transform.rotation);
@@ -111,7 +112,7 @@ public class MaterializeObjects : MonoBehaviour
                     actualObject.transform.parent = gameObject.transform;
                 }
             }
-            
+            fallObj.Play();
         }
 
         if(Input.GetButtonDown("Cancel") && placingObject) //Cancela
@@ -120,7 +121,7 @@ public class MaterializeObjects : MonoBehaviour
             placingObject = false;
         }
 
-        print(hit.collider);
+        //print(hit.collider);
     }
 
     public Vector3 PosObject

@@ -13000,6 +13000,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.903
       objectReference: {fileID: 0}
+    - target: {fileID: 2339157385741300608, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2507740949718719874, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Material
       value: 
@@ -13020,6 +13024,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 3471944853335116751, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: m_Pitch
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471944853335116751, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3993898324957452158, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Layer
       value: 14
@@ -13032,10 +13044,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4063438181940665769, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
-      propertyPath: cube
-      value: 
-      objectReference: {fileID: 5885717844043559547, guid: a68b64d5bd89c354081475ea30bf4cc4, type: 3}
     - target: {fileID: 4063438181940665769, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: camPos
       value: 
