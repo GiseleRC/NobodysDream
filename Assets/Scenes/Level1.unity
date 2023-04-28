@@ -2493,7 +2493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8455773065886786347, guid: e104677c9f15bbc4097316c8368cfd4e, type: 3}
       propertyPath: sensX
-      value: 200
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 8455773065886786347, guid: e104677c9f15bbc4097316c8368cfd4e, type: 3}
       propertyPath: sensY
