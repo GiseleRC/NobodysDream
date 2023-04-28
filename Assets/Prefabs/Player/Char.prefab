@@ -990,6 +990,7 @@ MonoBehaviour:
   artificialGravity: 5
   gameState: {fileID: 0}
   orientation: {fileID: 5579184150392987516}
+  respawn: 112
 --- !u!114 &4063438181940665769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,7 +1028,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 0}
   ghostCloth: {fileID: 0}
+  glasses: {fileID: 0}
+  map: {fileID: 0}
   ghostC: {fileID: 0}
+  glassesC: {fileID: 0}
+  mapC: {fileID: 0}
 --- !u!82 &-1603284204465304387
 AudioSource:
   m_ObjectHideFlags: 0

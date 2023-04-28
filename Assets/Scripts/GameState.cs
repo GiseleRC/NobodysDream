@@ -10,6 +10,10 @@ public class GameState : MonoBehaviour
     [SerializeField] PlaneModeChangedEvent OnPlaneModeChanged;
     [SerializeField] public GameObject playerSC;
     [SerializeField] public Transform playerSpawn;
+    [SerializeField] public Transform point1;
+    [SerializeField] public Transform point2;
+    [SerializeField] public Transform point3;
+    [SerializeField] public Transform inicialPos;
     [SerializeField] private float dreamPlaneTimeScale = 1f;
     [SerializeField] private float ghostPlaneTimeScale = 1f;
     [SerializeField] private float demonPlaneTimeScale = 1f;
@@ -100,6 +104,27 @@ public class GameState : MonoBehaviour
         }
     }
 
+    public void PositionInitial()
+    {
+        playerSpawn.transform.position = inicialPos.position;
+        playerSpawn.transform.rotation = inicialPos.rotation;
+    }
+
+    public void Position1()
+    {
+        playerSpawn.transform.position = point1.position;
+        playerSpawn.transform.rotation = point1.rotation;
+    }
+    public void Position2()
+    {
+        playerSpawn.transform.position = point2.position;
+        playerSpawn.transform.rotation = point2.rotation;
+    }
+    public void Position3()
+    {
+        playerSpawn.transform.position = point3.position;
+        playerSpawn.transform.rotation = point3.rotation;
+    }
     public void RespawnPlayer()
     {
         playerSC.transform.position = playerSpawn.position;

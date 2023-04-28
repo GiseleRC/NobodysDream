@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSC : MonoBehaviour
 {
@@ -32,6 +33,15 @@ public class PlayerSC : MonoBehaviour
     {
         Jump();
         PlaneChange();
+        if (Input.GetButtonDown("Reinicio"))
+        {
+            ReloadScene();
+        }
+
+        if (transform.position.y < -35)
+        {
+            gameState.RespawnPlayer();
+        }
     }
     void FixedUpdate()
     {
@@ -39,6 +49,10 @@ public class PlayerSC : MonoBehaviour
         playerRB.AddForce(Vector3.down * artificialGravity);
     }
 
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene("Level1");
+    }
     void PlaneChange()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
@@ -80,9 +94,13 @@ public class PlayerSC : MonoBehaviour
         {
             case GameState.PlaneMode.Dream:
                 jumpHeight = dreamPlaneJumpHeight;
+                walkSpeed = 4;
+                runSpeed = 8;
                 break;
             case GameState.PlaneMode.Ghost:
                 jumpHeight = ghostPlaneJumpHeight;
+                walkSpeed = 4;
+                runSpeed = 0;
                 break;
             case GameState.PlaneMode.Demon:
                 jumpHeight = demonPlaneJumpHeight;

@@ -26,10 +26,6 @@ public class TimerController : MonoBehaviour
             SceneManager.LoadScene("Level1");
             currTimeWait = timeWait;
         }
-
-        if (playerSC.position.y < -20)
-        {
-            SceneManager.LoadScene("Level1");
-        }
     }
+
 }
