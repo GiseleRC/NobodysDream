@@ -7,7 +7,7 @@ public class EnableGhostPlane : MonoBehaviour
     public GameState gameState;
     public GhostCloth ghostCloth;
     public GameObject glasses, map;
-    [SerializeField] private Collider ghostC, glassesC;
+    [SerializeField] private Collider ghostC, glassesC, mapC;
     void Update()
     {
         
@@ -23,6 +23,11 @@ public class EnableGhostPlane : MonoBehaviour
         {
             glasses.SetActive(false);
             map.SetActive(true);
+        }
+        if (other == mapC)
+        {
+            map.SetActive(false);
+            gameState.DemonPlaneModeEnabled = true;
         }
     }
 }

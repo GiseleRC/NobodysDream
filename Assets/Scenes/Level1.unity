@@ -337,7 +337,7 @@ MonoBehaviour:
   playerSpawn: {fileID: 671613698}
   dreamPlaneTimeScale: 1
   ghostPlaneTimeScale: 0.5
-  demonPlaneTimeScale: 2
+  demonPlaneTimeScale: 1
   planeMode: 0
 --- !u!1 &67251612
 GameObject:
@@ -13153,7 +13153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.36
+      value: 22.96
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13161,7 +13161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.83
+      value: -37.33
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13199,6 +13199,10 @@ PrefabInstance:
       propertyPath: map
       value: 
       objectReference: {fileID: 1851316751}
+    - target: {fileID: 8575045992528231707, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: mapC
+      value: 
+      objectReference: {fileID: 1851316753}
     - target: {fileID: 8575045992528231707, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: ghostC
       value: 
