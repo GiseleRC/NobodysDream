@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 5020132193217997865}
   m_Layer: 6
   m_Name: PivotWheel
-  m_TagString: Untagged
+  m_TagString: MobilePlatforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

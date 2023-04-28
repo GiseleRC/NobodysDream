@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0028074826, g: 0.0003438963, b: 0.00035845523, a: 1}
+  m_IndirectSpecularColor: {r: 0.0028074812, g: 0.00034389595, b: 0.000358455, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -480,6 +480,7 @@ MonoBehaviour:
   dreamPlaneTimeScale: 1
   ghostPlaneTimeScale: 0.5
   demonPlaneTimeScale: 2
+  planeMode: 0
 --- !u!1 &67251612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207188199}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.37, y: -4.5, z: 62.49}
+  m_LocalPosition: {x: 12.37, y: -4.5, z: 64.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12290,10 +12291,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 127388435312243306, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 691922695422852397, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: doorC
       value: 
@@ -12482,18 +12479,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5924691749812327740, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
-      propertyPath: stunColor.b
-      value: 0.3443396
-      objectReference: {fileID: 0}
-    - target: {fileID: 5924691749812327740, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
-      propertyPath: stunColor.g
-      value: 0.3443396
-      objectReference: {fileID: 0}
-    - target: {fileID: 5924691749812327740, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
-      propertyPath: stunColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6081485899709659877, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -12544,15 +12529,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.57
+      value: 42.2
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.44
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.16
+      value: 31.16
       objectReference: {fileID: 0}
     - target: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12911,7 +12896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479661807}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.320238, y: -4.5, z: 43.87}
+  m_LocalPosition: {x: -3.84, y: -4.5, z: 63.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13333,7 +13318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541787523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.05, y: -4.5, z: 62.49}
+  m_LocalPosition: {x: 12.46, y: -4.5, z: 40.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14202,7 +14187,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56.25
+  m_fontSize: 28
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1

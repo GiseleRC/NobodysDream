@@ -17,6 +17,7 @@ public class RotateObject : MonoBehaviour
 
     public void FinalPosObject()
     {
+        GetComponentInChildren<BoxCollider>().enabled = true;
         if(gameObject.GetComponent<MeshRenderer>() != null)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = true;
@@ -47,7 +48,7 @@ public class RotateObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (destroyFinalPosObject)
+        if (destroyFinalPosObject && actualObject != null)
         {
             Destroy(actualObject);
         }
@@ -91,12 +92,6 @@ public class RotateObject : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(new Vector3(actualObject.transform.position.x, hit.point.y, actualObject.transform.position.z), transform.localScale);
-        Gizmos.DrawRay(actualObject.transform.position, -transform.up);
-    }
-
     public Vector3 FinalPos
     {
         get
@@ -105,19 +100,41 @@ public class RotateObject : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 0)
+        {
+            if (collision.gameObject.tag == "MobilePlatforms")
+            {
+                transform.parent = collision.transform;
+            }
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.isKinematic = true;
+            GetComponent<FollowObject>().enabled = true;
+        }
+    }
+
+    public void Freeze()
+    {
+
+    }
+
     public void Spawn()
     {
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
-        StartCoroutine(WaitPhysics());
+        //StartCoroutine(WaitPhysics());
     }
 
-    IEnumerator WaitPhysics()
+    
+
+    /*IEnumerator WaitPhysics()
     {
         yield return new WaitForSeconds(0.5f);
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
         rb.isKinematic = true;
-    }
+    }*/
+
 
 }

@@ -52,10 +52,14 @@ public class AIDecisions : MonoBehaviour
             }
             else if(distance > viewDistance)
             {
-                gameObject.GetComponent<Patrol>().enabled = true;
                 gameObject.GetComponent<ChaseCharacter>().enabled = false;
+                gameObject.GetComponent<Patrol>().enabled = true;
             }
-
+        }
+        else
+        {
+            gameObject.GetComponent<Patrol>().enabled = false;
+            gameObject.GetComponent<ChaseCharacter>().enabled = false;
         }
     }
 }

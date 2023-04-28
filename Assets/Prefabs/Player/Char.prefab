@@ -212,7 +212,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -5618677681922122251, guid: 1bf840ccb71f240408caaeb75949f10f, type: 3}
+  m_Mesh: {fileID: -5618677681922122251, guid: 66fe84366bbd6f143bffe3f83dbbefc9, type: 3}
 --- !u!114 &5924691749812327740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunDuration: 5
   standardColor: {r: 0.99215686, g: 0.87058824, b: 0.6392157, a: 0}
-  stunColor: {r: 0.9811321, g: 0.24528302, b: 0.24528302, a: 0.50980395}
+  stunColor: {r: 1, g: 0.3443396, b: 0.3443396, a: 0.50980395}
 --- !u!1 &3322943901203963114
 GameObject:
   m_ObjectHideFlags: 0

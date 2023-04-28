@@ -14,7 +14,7 @@ public class GameState : MonoBehaviour
     [SerializeField] private float ghostPlaneTimeScale = 1f;
     [SerializeField] private float demonPlaneTimeScale = 1f;
 
-    private PlaneMode planeMode = PlaneMode.Dream;
+    public PlaneMode planeMode = PlaneMode.Dream;
     public bool DreamPlaneModeEnabled { get; set; } = true;
     public bool GhostPlaneModeEnabled { get; set; } = false;
     public bool DemonPlaneModeEnabled { get; set; } = false;

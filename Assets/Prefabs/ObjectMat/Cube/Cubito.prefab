@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3241274144439560186}
   - component: {fileID: 1969350927520720991}
   - component: {fileID: 4373133183448095893}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cubito
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -34,8 +34,6 @@ public class MaterializeObjects : MonoBehaviour
             pos = camPos.transform.position + camPos.transform.forward * 6f;
         }
 
-        print(hit.point);
-
         if (Input.GetButtonDown("Action1")) 
         {
             if (!placingObject) // Spawnea
@@ -44,7 +42,6 @@ public class MaterializeObjects : MonoBehaviour
                 placingObject = true;
                 actualObject = newObject;
                 actualObject.transform.parent = gameObject.transform;
-                print(actualObject.name);
             }
             else
             {
@@ -81,6 +78,7 @@ public class MaterializeObjects : MonoBehaviour
 
                 RotateObject ro;
                 ro = actualObject.GetComponent<RotateObject>();
+
                 actualObject.transform.parent = null;
                 actualObject.GetComponent<Collider>().isTrigger = false;
                 actualObject.transform.position = ro.FinalPos;
@@ -101,6 +99,7 @@ public class MaterializeObjects : MonoBehaviour
                     Destroy(newObject);
                     newObject = Instantiate(cube, pos, transform.rotation);
                     actualObject = newObject;
+                    actualObject.transform.parent = gameObject.transform;
 
                 }
                 else
@@ -109,6 +108,7 @@ public class MaterializeObjects : MonoBehaviour
                     Destroy(newObject);
                     newObject = Instantiate(ruler, pos, transform.rotation);
                     actualObject = newObject;
+                    actualObject.transform.parent = gameObject.transform;
                 }
             }
             
