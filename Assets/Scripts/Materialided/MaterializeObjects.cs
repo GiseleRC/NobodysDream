@@ -20,7 +20,8 @@ public class MaterializeObjects : MonoBehaviour
     }
     void Update()
     {
-
+        // creo que tiemblan las posiciones de lo objetos porque 1 vez por frame esta comprobando donde ubicarse entre 2 floors
+        //tal vez se podriubicar dandole un rango  de distancia y si se pasa de ese rango ubicar el pre objeto
         RaycastHit hit;
 
         bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 6f, layerMask);
