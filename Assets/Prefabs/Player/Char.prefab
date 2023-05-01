@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunDuration: 5
   standardColor: {r: 0.99215686, g: 0.87058824, b: 0.6392157, a: 0}
-  stunColor: {r: 1, g: 0.3443396, b: 0.3443396, a: 0.50980395}
+  stunColor: {r: 0.16642933, g: 0.41509432, b: 0.26313236, a: 0.50980395}
 --- !u!1 &3322943901203963114
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +990,6 @@ MonoBehaviour:
   artificialGravity: 5
   gameState: {fileID: 0}
   orientation: {fileID: 5579184150392987516}
-  respawn: 112
 --- !u!114 &4063438181940665769
 MonoBehaviour:
   m_ObjectHideFlags: 0
