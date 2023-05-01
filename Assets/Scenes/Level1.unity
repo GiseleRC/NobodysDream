@@ -16448,18 +16448,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2827700569509666139, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4730416354267188804, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4730416354267188804, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
-      propertyPath: patrolPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4730416354267188804, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 
@@ -16523,10 +16511,6 @@ PrefabInstance:
     - target: {fileID: 6408425375911668934, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
       propertyPath: m_Name
       value: Ghost_Chase
-      objectReference: {fileID: 0}
-    - target: {fileID: 8112297046893572486, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78de79d2b6a0074478a46cf89f96b942, type: 3}

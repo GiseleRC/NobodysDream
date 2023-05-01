@@ -268,7 +268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19836fd5b1a93cf43b079ece3270da60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints: []
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentPoint: 0
   whiteEyes: {fileID: 2100000, guid: 1fb686d76fce7514eaa0e3d9bfa50d66, type: 2}
 --- !u!114 &8045113459443339642
