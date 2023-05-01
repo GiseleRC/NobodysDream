@@ -2284,11 +2284,10 @@ Transform:
   m_Children:
   - {fileID: 1899438557}
   - {fileID: 5140370426832568813}
-  - {fileID: 1852552328}
-  - {fileID: 546275619}
   - {fileID: 1687600981}
   - {fileID: 1469938638}
   - {fileID: 2047002009}
+  - {fileID: 1852552328}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2982,6 +2981,7 @@ Transform:
   - {fileID: 1077930982}
   - {fileID: 117177623}
   - {fileID: 521604164}
+  - {fileID: 546275619}
   m_Father: {fileID: 531130930}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3092,7 +3092,7 @@ Transform:
   - {fileID: 525309424}
   - {fileID: 1131526934}
   m_Father: {fileID: 1256921370}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &531735601
 GameObject:
@@ -3380,13 +3380,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546275618}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.250001, y: 4.1, z: 7.940009}
-  m_LocalScale: {x: 2.5000002, y: 0.4, z: 3.6048007}
+  m_LocalRotation: {x: 0.000000021073427, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.53400034, y: 0.26000074, z: -5.8749933}
+  m_LocalScale: {x: 0.49999988, y: 0.8, z: 1.8023999}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 392579907}
-  m_RootOrder: 3
+  m_Father: {fileID: 525309424}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &546275620
 BoxCollider:
@@ -11706,7 +11706,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0ef00ef72ba750e4bbe83a4911003908, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ef00ef72ba750e4bbe83a4911003908, type: 3}
       propertyPath: m_LocalScale.x
@@ -12346,8 +12346,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1335135723}
   - {fileID: 531130930}
+  - {fileID: 1335135723}
   - {fileID: 1489446498}
   - {fileID: 2096548094}
   m_Father: {fileID: 536724490}
@@ -14045,7 +14045,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1469938638
 Transform:
@@ -14060,7 +14060,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 392579907}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1469938639
 BoxCollider:
@@ -15435,7 +15435,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1687600981
 Transform:
@@ -15450,7 +15450,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 392579907}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1687600982
 BoxCollider:
@@ -16472,7 +16472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1852552328}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16493,7 +16493,7 @@ Transform:
   m_Children:
   - {fileID: 2197847807178146407}
   m_Father: {fileID: 392579907}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1877579043
 GameObject:
@@ -17869,7 +17869,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2047002009
 Transform:
@@ -17884,7 +17884,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 392579907}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2047002010
 BoxCollider:
@@ -19282,11 +19282,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5075535782950574396, guid: 8db8a715368dfb64a8f21952ea1e4a02, type: 3}
       propertyPath: m_Size.x
-      value: 160.4274
+      value: 139.82309
       objectReference: {fileID: 0}
     - target: {fileID: 5075535782950574396, guid: 8db8a715368dfb64a8f21952ea1e4a02, type: 3}
       propertyPath: m_Center.x
-      value: -30.213745
+      value: -40.515568
       objectReference: {fileID: 0}
     - target: {fileID: 5075535782950574396, guid: 8db8a715368dfb64a8f21952ea1e4a02, type: 3}
       propertyPath: m_Center.y
@@ -19294,7 +19294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5075535782950574396, guid: 8db8a715368dfb64a8f21952ea1e4a02, type: 3}
       propertyPath: m_Center.z
-      value: -0.00011552561
+      value: -0.000114804985
       objectReference: {fileID: 0}
     - target: {fileID: 5203970394930221211, guid: 8db8a715368dfb64a8f21952ea1e4a02, type: 3}
       propertyPath: m_Name
@@ -19567,7 +19567,7 @@ GameObject:
   - component: {fileID: 3469287837748367730}
   - component: {fileID: 1711813854826325432}
   - component: {fileID: 3469287837748367731}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19602,7 +19602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652726308446}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: puerta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20170,7 +20170,7 @@ GameObject:
   - component: {fileID: 2900156442174222914}
   - component: {fileID: 3627019418146332917}
   - component: {fileID: 1157069336209129092}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: manija
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20348,7 +20348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1563015985720278470, guid: bd4d0e7191f9e0a47b91c318881faa82, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1563015985720278470, guid: bd4d0e7191f9e0a47b91c318881faa82, type: 3}
       propertyPath: m_LocalScale.z
@@ -20764,7 +20764,7 @@ GameObject:
   - component: {fileID: 7704279228581342850}
   - component: {fileID: 3983763236738808617}
   - component: {fileID: 2859715800760493727}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cerrojo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21920,6 +21920,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3301585026001561354, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.72857
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561354, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1238
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561354, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.78
       objectReference: {fileID: 0}
@@ -21957,6 +21965,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3301585026001561354, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561356, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561357, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_Size.x
+      value: 0.50731486
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561357, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_Center.x
+      value: 0.09328744
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561357, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_Center.z
+      value: 3.6230574e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301585026001561357, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3301585026001561358, guid: ec8f4fb279433fe42955f961b3e94b51, type: 3}
@@ -22703,7 +22731,7 @@ GameObject:
   - component: {fileID: 8710281735008188408}
   - component: {fileID: 8893302934544242707}
   - component: {fileID: 6875169778932290309}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cerrojo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23298,7 +23326,7 @@ GameObject:
   - component: {fileID: 7969896392030258986}
   - component: {fileID: 4912457214249295601}
   - component: {fileID: 9046574839617185554}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: manija1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23322,7 +23350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020132193217997865, guid: 8b221929a2abcf4479b8a2ffded5a8be, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5020132193217997865, guid: 8b221929a2abcf4479b8a2ffded5a8be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25203,7 +25231,7 @@ GameObject:
   - component: {fileID: 2924364805369964723}
   - component: {fileID: 38173122155950510}
   - component: {fileID: 3456056424835652780}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: puerta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25327,7 +25355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2197847807178146407}
   - component: {fileID: 7663795471018615530}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PuertaGraphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
