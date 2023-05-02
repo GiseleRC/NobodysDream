@@ -1353,11 +1353,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1493530038546662021, guid: 429b0b75ab6f2084d88ec522c86d508d, type: 3}
       propertyPath: amp
-      value: 12
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 1493530038546662021, guid: 429b0b75ab6f2084d88ec522c86d508d, type: 3}
       propertyPath: freq
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1493530038546662040, guid: 429b0b75ab6f2084d88ec522c86d508d, type: 3}
       propertyPath: m_Name
@@ -9972,6 +9972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3645102465602700224, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3645102465602700227, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_Material
       value: 
@@ -10023,6 +10027,10 @@ PrefabInstance:
     - target: {fileID: 3645102465602700255, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927829368807552586, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4452270767432707312, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -14152,6 +14160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 3645102465602700224, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3645102465602700227, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_Material
       value: 
@@ -14203,6 +14215,10 @@ PrefabInstance:
     - target: {fileID: 3645102465602700255, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927829368807552586, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4452270767432707312, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -14533,6 +14549,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WW
       objectReference: {fileID: 0}
+    - target: {fileID: 3645102465602700224, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3645102465602700227, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_Material
       value: 
@@ -14588,6 +14608,10 @@ PrefabInstance:
     - target: {fileID: 3645102465602700255, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927829368807552586, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4452270767432707312, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -22301,6 +22325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3645102465602700224, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3645102465602700227, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_Material
       value: 
@@ -22356,6 +22384,10 @@ PrefabInstance:
     - target: {fileID: 3645102465602700255, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927829368807552586, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4452270767432707312, guid: 808981657c5ac3f4bb647f670ab1b1b6, type: 3}
       propertyPath: m_LocalScale.x
