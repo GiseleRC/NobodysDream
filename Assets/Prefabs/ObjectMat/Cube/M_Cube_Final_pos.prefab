@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4154510680760398151}
   - component: {fileID: 9074296342557270686}
   - component: {fileID: 2534149059651098127}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: M_Cube_Final_pos
   m_TagString: Cube
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7902239168870201680}
   - component: {fileID: 2016443955178925130}
   - component: {fileID: 5178471672994067486}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

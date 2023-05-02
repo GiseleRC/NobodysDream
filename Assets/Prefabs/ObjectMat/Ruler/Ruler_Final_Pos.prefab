@@ -9635,7 +9635,7 @@ GameObject:
   - component: {fileID: 8415100867455641356}
   - component: {fileID: 8415100867455641359}
   - component: {fileID: 8415100867455641358}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Ruler_Final_Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
