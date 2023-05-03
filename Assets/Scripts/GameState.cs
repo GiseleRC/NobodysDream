@@ -51,18 +51,18 @@ public class GameState : MonoBehaviour
 
         OnPlaneModeChanged.Invoke(this.planeMode);
 
-        switch (planeMode)
-        {
-            case PlaneMode.Dream:
-                Time.timeScale = dreamPlaneTimeScale;
-                break;
-            case PlaneMode.Ghost:
-                Time.timeScale = ghostPlaneTimeScale;
-                break;
-            case PlaneMode.Demon:
-                Time.timeScale = demonPlaneTimeScale;
-                break;
-        }
+        //switch (planeMode)
+        //{
+        //    case PlaneMode.Dream:
+        //        Time.timeScale = dreamPlaneTimeScale;
+        //        break;
+        //    case PlaneMode.Ghost:
+        //        Time.timeScale = ghostPlaneTimeScale;
+        //        break;
+        //    case PlaneMode.Demon:
+        //        Time.timeScale = demonPlaneTimeScale;
+        //        break;
+        //}
         return true;
     }
 

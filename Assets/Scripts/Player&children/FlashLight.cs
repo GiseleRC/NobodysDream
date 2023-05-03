@@ -14,8 +14,9 @@ public class FlashLight : MonoBehaviour
     public float Timer;
     public float posibility;
     bool flicker;
-    bool hasFlashlight = true;//cuando agarre la flashlight hay que ponerlo en false despues
-    bool canUseFlashlight = true;//pregunte si puede usar la linterna en el plano
+    public bool hasFlashlight = false;
+    bool canUseFlashlight = false;//pregunte si puede usar la linterna en el plano
+
 
     public bool FlashLightEnabled
     {
@@ -38,7 +39,10 @@ public class FlashLight : MonoBehaviour
 
     void Update()
     {
-        linterna.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
+        if (hasFlashlight)
+        {
+            linterna.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
+        }
 
         if (!canUseFlashlight)
         {
