@@ -41,8 +41,11 @@ public class FlashLight : MonoBehaviour
     {
         if (hasFlashlight)
         {
-            linterna.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
+            canUseFlashlight = hasFlashlight;
+            hasFlashlight = false;
         }
+
+        linterna.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
 
         if (!canUseFlashlight)
         {

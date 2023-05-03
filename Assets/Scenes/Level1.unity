@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0028074803, g: 0.00034389587, b: 0.00035845497, a: 1}
+  m_IndirectSpecularColor: {r: 0.0028074826, g: 0.0003438963, b: 0.00035845523, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -401,9 +401,6 @@ MonoBehaviour:
   point2: {fileID: 374955991}
   point3: {fileID: 577912756}
   inicialPos: {fileID: 1584006290}
-  dreamPlaneTimeScale: 1
-  ghostPlaneTimeScale: 0.5
-  demonPlaneTimeScale: 1
   planeMode: 0
 --- !u!1 &76265698
 GameObject:
@@ -15485,6 +15482,10 @@ PrefabInstance:
       propertyPath: flashLightSC
       value: 
       objectReference: {fileID: 1561511186}
+    - target: {fileID: 15092383332247294, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: flashLigthArm
+      value: 
+      objectReference: {fileID: 225524522}
     - target: {fileID: 339931611260082497, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -19313,7 +19314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0145625, y: 0.012}
   m_AnchorMax: {x: 0.23314583, y: 0.1564815}
-  m_AnchoredPosition: {x: -97.00061, y: 32}
+  m_AnchoredPosition: {x: -97.000854, y: 32}
   m_SizeDelta: {x: -35, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1892123756
@@ -19366,7 +19367,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.7
+  m_fontSize: 23.15
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
