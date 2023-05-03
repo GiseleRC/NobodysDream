@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerCollitionsBody : MonoBehaviour
 {
     public GameState gameState;
-    public GhostCloth glassesSC;
     public GameObject glasses, map;
     [SerializeField] private Collider glassesC, mapC;
     void Update()
@@ -15,7 +14,6 @@ public class PlayerCollitionsBody : MonoBehaviour
     {
         if (other == glassesC)
         {
-            glassesSC.collitionE = true;
             gameState.GhostPlaneModeEnabled = true;
             glasses.SetActive(false);
             map.SetActive(true);
