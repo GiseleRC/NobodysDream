@@ -19371,7 +19371,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 24.75
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23712,7 +23712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2152492180601908304
 GameObject:
   m_ObjectHideFlags: 0
@@ -23898,8 +23898,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135864355939994342}
   m_Mesh: {fileID: -8023744915822549943, guid: 12f5b5d2b9523004887581f946bd8340, type: 3}
---- !u!65 &2395939642467131386
-BoxCollider:
+--- !u!64 &2395939642467131386
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -23908,9 +23908,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 124.48623, y: 44.02844, z: 118.11516}
-  m_Center: {x: 0.480338, y: 3.9187243, z: -6.2032666}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8023744915822549943, guid: 12f5b5d2b9523004887581f946bd8340, type: 3}
 --- !u!4 &2420185138478299932
 Transform:
   m_ObjectHideFlags: 0

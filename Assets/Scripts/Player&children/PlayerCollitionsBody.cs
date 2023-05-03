@@ -7,7 +7,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public GameState gameState;
     public FlashLight flashLightSC;
     public GameObject glasses, map, flashLigthArm, cap, flashLightPick;
-    [SerializeField] private Collider glassesC, mapC, flashLightC;
+    [SerializeField] private Collider glassesC, mapC, flashLightC, capC;
     void Update()
     {
     }
@@ -30,6 +30,11 @@ public class PlayerCollitionsBody : MonoBehaviour
             flashLigthArm.SetActive(true);//brazo
             flashLightPick.SetActive(false);//brazo
             cap.SetActive(true);
+        }
+        if (other == capC)
+        {
+            cap.SetActive(false);
+            //capSC.capEnable= true;
         }
     }
 }
