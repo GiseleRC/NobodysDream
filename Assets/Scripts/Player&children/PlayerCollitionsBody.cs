@@ -6,7 +6,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 {
     public GameState gameState;
     public FlashLight flashLightSC;
-    public GameObject glasses, map, flashLigthArm, cap;
+    public GameObject glasses, map, flashLigthArm, cap, flashLightPick;
     [SerializeField] private Collider glassesC, mapC, flashLightC;
     void Update()
     {
@@ -27,7 +27,8 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (other == flashLightC)
         {
             flashLightSC.hasFlashlight = true;
-            flashLigthArm.SetActive(false);//brazo
+            flashLigthArm.SetActive(true);//brazo
+            flashLightPick.SetActive(false);//brazo
             cap.SetActive(true);
         }
     }
