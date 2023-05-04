@@ -982,14 +982,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: {fileID: 0}
-  flashLightSC: {fileID: 0}
+  flashLightSC: {fileID: 6272776439929919671}
+  tutorialPaperBool: {fileID: 0}
   glasses: {fileID: 0}
   map: {fileID: 0}
-  flashLigth: {fileID: 0}
+  flashLigthArm: {fileID: 339931611260082497}
   cap: {fileID: 0}
+  flashLightPick: {fileID: 0}
   glassesC: {fileID: 0}
   mapC: {fileID: 0}
   flashLightC: {fileID: 0}
+  capC: {fileID: 0}
 --- !u!114 &691922695422852397
 MonoBehaviour:
   m_ObjectHideFlags: 0
