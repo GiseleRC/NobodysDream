@@ -9,8 +9,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TutorialPaperSC tutorialPaperBool;
     public GameObject glasses, map, flashLigthArm, cap, flashLightPick;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC;
-
-    //public AudioSource OpenTutorial;
+    public AudioSource openTutorial;
     void Update()
     {
     }
@@ -18,6 +17,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     {
         if (other == flashLightC)
         {
+            openTutorial.Play();
             tutorialPaperBool.showPaper = true;
             flashLightSC.hasFlashlight = true;
             flashLigthArm.SetActive(true);//brazo

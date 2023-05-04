@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0028074826, g: 0.0003438963, b: 0.00035845523, a: 1}
+  m_IndirectSpecularColor: {r: 0.0028074803, g: 0.00034389587, b: 0.00035845497, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14226,9 +14226,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 932033493865593259, guid: 5412e6b1008b128418e4391d8dd58b32, type: 3}
   m_PrefabInstance: {fileID: 1321174494}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1324470105 stripped
+--- !u!82 &1324470106 stripped
 AudioSource:
-  m_CorrespondingSourceObject: {fileID: 968745798950552541, guid: 289a5f3098844314fab953af05bfc698, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3491332941413916739, guid: 289a5f3098844314fab953af05bfc698, type: 3}
   m_PrefabInstance: {fileID: 6785422316726696771}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1330080283
@@ -15188,6 +15188,10 @@ PrefabInstance:
       propertyPath: flashLightC
       value: 
       objectReference: {fileID: 3469287836642756782}
+    - target: {fileID: 15092383332247294, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: openTutorial
+      value: 
+      objectReference: {fileID: 1769828724}
     - target: {fileID: 15092383332247294, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: flashLightPick
       value: 
@@ -18243,6 +18247,11 @@ MonoBehaviour:
 --- !u!4 &1769828716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8166849483277595109, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+  m_PrefabInstance: {fileID: 1455116961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1769828724 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 9172787260233978953, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
   m_PrefabInstance: {fileID: 1455116961}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1779725285
@@ -27089,6 +27098,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 560791096}
     m_Modifications:
+    - target: {fileID: 3491332941413916739, guid: 289a5f3098844314fab953af05bfc698, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0cf9ac3966f7f1e44964e94d29b23dbb, type: 3}
     - target: {fileID: 6785422315708402400, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: FlashlightC
       value: 
@@ -27096,7 +27109,11 @@ PrefabInstance:
     - target: {fileID: 6785422315708402400, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: OpenTutorial
       value: 
-      objectReference: {fileID: 1324470105}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785422315708402400, guid: 289a5f3098844314fab953af05bfc698, type: 3}
+      propertyPath: closeTutorial
+      value: 
+      objectReference: {fileID: 1324470106}
     - target: {fileID: 6785422315708402401, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: m_Pivot.x
       value: 1
