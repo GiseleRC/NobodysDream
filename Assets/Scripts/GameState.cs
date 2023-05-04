@@ -47,7 +47,6 @@ public class GameState : MonoBehaviour
             return false;
 
         this.planeMode = planeMode;
-        Debug.Log("Cambiando a Plane Mode " + planeMode.ToString());
 
         OnPlaneModeChanged.Invoke(this.planeMode);
 
