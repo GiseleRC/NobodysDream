@@ -19,13 +19,13 @@ public class TutorialPaperSC : MonoBehaviour
         if (Input.GetButtonDown("Cancel") && showPaper == true)
         {
             closeTutorial.Play();
-            paperTutorial.fillAmount -= fillAmount * Time.deltaTime;
-            if (paperTutorial.fillAmount <= 0 )
-            {
-                paperTutorial.fillAmount = 0;
-                showPaper = false;
+            showPaper = false;
+            //if (paperTutorial.fillAmount <= 0 )
+            //{
+            //    paperTutorial.fillAmount = 0;
+                
 
-            }
+            //}
         }
     }
     public void ShowPaper(bool show)
@@ -33,6 +33,10 @@ public class TutorialPaperSC : MonoBehaviour
         if (show)
         {
             paperTutorial.fillAmount += fillAmount * Time.deltaTime;
+        }
+        else
+        {
+            paperTutorial.fillAmount -= fillAmount * Time.deltaTime;
         }
     }
 }
