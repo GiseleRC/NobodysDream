@@ -20,12 +20,6 @@ public class TutorialPaperSC : MonoBehaviour
         {
             closeTutorial.Play();
             showPaper = false;
-            //if (paperTutorial.fillAmount <= 0 )
-            //{
-            //    paperTutorial.fillAmount = 0;
-                
-
-            //}
         }
     }
     public void ShowPaper(bool show)
