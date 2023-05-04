@@ -9,6 +9,8 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TutorialPaperSC tutorialPaperBool;
     public GameObject glasses, map, flashLigthArm, cap, flashLightPick;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC;
+
+    //public AudioSource OpenTutorial;
     void Update()
     {
     }

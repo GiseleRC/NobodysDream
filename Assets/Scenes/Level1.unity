@@ -14226,6 +14226,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 932033493865593259, guid: 5412e6b1008b128418e4391d8dd58b32, type: 3}
   m_PrefabInstance: {fileID: 1321174494}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1324470105 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 968745798950552541, guid: 289a5f3098844314fab953af05bfc698, type: 3}
+  m_PrefabInstance: {fileID: 6785422316726696771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1330080283
 GameObject:
   m_ObjectHideFlags: 0
@@ -19016,7 +19021,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.35
+  m_fontSize: 25.7
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -27084,6 +27089,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 560791096}
     m_Modifications:
+    - target: {fileID: 6785422315708402400, guid: 289a5f3098844314fab953af05bfc698, type: 3}
+      propertyPath: FlashlightC
+      value: 
+      objectReference: {fileID: 3469287836642756782}
+    - target: {fileID: 6785422315708402400, guid: 289a5f3098844314fab953af05bfc698, type: 3}
+      propertyPath: OpenTutorial
+      value: 
+      objectReference: {fileID: 1324470105}
     - target: {fileID: 6785422315708402401, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -27198,7 +27211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6785422315711831353, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.999878
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6785422315711831353, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: m_AnchoredPosition.y
