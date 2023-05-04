@@ -10,7 +10,7 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float dreamPlaneJumpHeight = 1f;
     [SerializeField] private float ghostPlaneJumpHeight = 1f;
-    [SerializeField] private float demonPlaneJumpHeight = 0f;
+    [SerializeField] private float demonPlaneJumpHeight = 1f;
     [SerializeField] private float artificialGravity = 5f;
     private float jumpHeight;
     public GameState gameState;
@@ -93,19 +93,10 @@ public class PlayerSC : MonoBehaviour
         switch (planeMode)
         {
             case GameState.PlaneMode.Dream:
-                jumpHeight = dreamPlaneJumpHeight;
-                walkSpeed = 4;
-                runSpeed = 8;
                 break;
             case GameState.PlaneMode.Ghost:
-                jumpHeight = ghostPlaneJumpHeight;
-                walkSpeed = 4;
-                runSpeed = 0;
                 break;
             case GameState.PlaneMode.Demon:
-                jumpHeight = demonPlaneJumpHeight;
-                walkSpeed = 10;
-                runSpeed = 0;
                 break;
         }
     }

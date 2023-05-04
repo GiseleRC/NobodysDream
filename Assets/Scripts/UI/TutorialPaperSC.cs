@@ -18,7 +18,7 @@ public class TutorialPaperSC : MonoBehaviour
     {
         if (show)
         {
-            paperTutorial.fillAmount += fillAmount * Time.deltaTime;
+            //paperTutorial.fillAmount += fillAmount * Time.deltaTime;
         }
     }
 }
