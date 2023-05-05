@@ -768,6 +768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatMovil1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493530038546662040, guid: 429b0b75ab6f2084d88ec522c86d508d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1493530038546662041, guid: 429b0b75ab6f2084d88ec522c86d508d, type: 3}
       propertyPath: m_RootOrder
       value: 4
