@@ -53,7 +53,7 @@ public class RotateObject : MonoBehaviour
             Destroy(actualObject);
         }
 
-        transform.position = mo.PosObject;
+        //transform.position = mo.PosObject;
         Collider[] col = Physics.OverlapBox(gameObject.GetComponent<Collider>().bounds.center, transform.localScale, transform.rotation, layerMask);
         Collider[] orderCol;
         Vector3 closestPoint;

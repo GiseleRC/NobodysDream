@@ -14,7 +14,7 @@ public class ChaseCharacter : MonoBehaviour
     float actualTime;
 
     // Start is called before the first frame update
-    private void OnEnable()
+    void OnEnable()
     {
         actualTime = 0;
         mRen.material = redEyes;
@@ -38,6 +38,7 @@ public class ChaseCharacter : MonoBehaviour
             if (AId.Distance < minDistanceChar)
             {
                 nma.SetDestination(transform.position);
+                gameObject.GetComponent<AIDecisions>().GhostAttack = true;
             }
             else
             {
