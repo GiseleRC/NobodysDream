@@ -7,22 +7,29 @@ public class TutorialPaperSC : MonoBehaviour
 {
 
     public bool showPaper = false;
+    public bool showTutorialMat = false;
     public float fillAmount = 1f;
-    public Image paperTutorial;
+    public Image paperTutorial, tutorialMaterialized;
 
     public AudioSource closeTutorial;
 
     void Update()
     {
-        ShowPaper(showPaper);
+        TutorialFlashligth(showPaper);
+        TutorialMaterialized(showTutorialMat);
 
         if (Input.GetButtonDown("Cancel") && showPaper == true)
         {
             closeTutorial.Play();
             showPaper = false;
         }
+        if (Input.GetButtonDown("Cancel") && showTutorialMat == true)
+        {
+            closeTutorial.Play();
+            showTutorialMat = false;
+        }
     }
-    public void ShowPaper(bool show)
+    public void TutorialFlashligth(bool show)
     {
         if (show)
         {
@@ -31,6 +38,17 @@ public class TutorialPaperSC : MonoBehaviour
         else
         {
             paperTutorial.fillAmount -= fillAmount * Time.deltaTime;
+        }
+    }
+    public void TutorialMaterialized(bool show)
+    {
+        if (show)
+        {
+            tutorialMaterialized.fillAmount += fillAmount * Time.deltaTime;
+        }
+        else
+        {
+            tutorialMaterialized.fillAmount -= fillAmount * Time.deltaTime;
         }
     }
 }

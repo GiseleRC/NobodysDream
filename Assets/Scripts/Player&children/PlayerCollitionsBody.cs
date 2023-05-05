@@ -29,6 +29,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (other == capC)
         {
             cap.SetActive(false);
+            tutorialPaperBool.showTutorialMat = true;
             gameObject.GetComponent<MaterializeObjects>().enabled = true;
             PickUp.Play();
         }

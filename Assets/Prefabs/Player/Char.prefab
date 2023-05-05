@@ -963,6 +963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 0}
   flashLightSC: {fileID: 6272776439929919671}
+  timerController: {fileID: 0}
   tutorialPaperBool: {fileID: 0}
   glasses: {fileID: 0}
   map: {fileID: 0}
@@ -973,6 +974,7 @@ MonoBehaviour:
   mapC: {fileID: 0}
   flashLightC: {fileID: 0}
   capC: {fileID: 0}
+  boosterC: {fileID: 0}
   openTutorial: {fileID: 0}
   PickUp: {fileID: 0}
 --- !u!114 &691922695422852397
@@ -1000,7 +1002,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8166849483277595108}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92620fc7e3cb2a147b2aa587e3cae73d, type: 3}
   m_Name: 
