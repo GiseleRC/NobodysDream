@@ -8,11 +8,11 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private Rigidbody playerRB;
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 8f;
-    [SerializeField] private float dreamPlaneJumpHeight = 1f;
-    [SerializeField] private float ghostPlaneJumpHeight = 1f;
-    [SerializeField] private float demonPlaneJumpHeight = 1f;
+    //[SerializeField] private float dreamPlaneJumpHeight = 1f;
+    //[SerializeField] private float ghostPlaneJumpHeight = 1f;
+    //[SerializeField] private float demonPlaneJumpHeight = 1f;
     [SerializeField] private float artificialGravity = 5f;
-    private float jumpHeight;
+    private float jumpHeight = 2f;
     public GameState gameState;
     public Transform orientation;
     private bool runEnabled = true;
@@ -21,7 +21,7 @@ public class PlayerSC : MonoBehaviour
 
     void Awake()
     {
-        jumpHeight = dreamPlaneJumpHeight;
+        //jumpHeight = dreamPlaneJumpHeight;
 
         ground = GetComponentInChildren<GroundCheck>();
         playerRB = GetComponent<Rigidbody>();
