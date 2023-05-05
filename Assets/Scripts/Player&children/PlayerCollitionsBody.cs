@@ -27,8 +27,9 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (other == capC)
         {
             cap.SetActive(false);
-            //capSC.capEnable= true;
+            gameObject.GetComponent<MaterializeObjects>().enabled = true;
         }
+
         if (other == glassesC)
         {
             gameState.GhostPlaneModeEnabled = true;
