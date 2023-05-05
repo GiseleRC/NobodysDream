@@ -37,6 +37,7 @@ public class TimerController : MonoBehaviour
         else
         {
             currTimeWait -= Time.deltaTime;
+            image.color = Color.white;
         }
         time.value = currTimeWait;
         if (currTimeWait <= 0)
@@ -46,10 +47,4 @@ public class TimerController : MonoBehaviour
             image.color = Color.white;
         }
     }
-
-    public void TimeRunFaster()
-    {
-
-    }
-
 }
