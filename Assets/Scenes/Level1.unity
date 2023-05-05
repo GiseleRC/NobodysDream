@@ -15848,7 +15848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1808508546903061097, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Shadows.m_Bias
-      value: 0.56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1808508546903061097, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_BounceIntensity
@@ -15860,11 +15860,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1808508546903061097, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Shadows.m_NearPlane
-      value: 0.74
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1808508546903061097, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Shadows.m_NormalBias
-      value: 0.97
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1808508546903061097, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Shadows.m_Resolution
