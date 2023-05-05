@@ -8,6 +8,7 @@ public class TimerController : MonoBehaviour
 {
     public float timeWait = 1000f;
     public float currTimeWait;
+    public bool pickBooster = false;
     public Image image;
     public Slider time;
     public Transform playerSC;
@@ -28,7 +29,11 @@ public class TimerController : MonoBehaviour
     void Update()
     {
         print(enemiesAttacking);
-
+        if (pickBooster)
+        {
+            currTimeWait += 50;
+            pickBooster = false;
+        }
         if (enemiesAttacking >= 1)
         {
             currTimeWait -= Time.deltaTime * 2;
