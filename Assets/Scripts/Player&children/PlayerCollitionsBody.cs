@@ -6,8 +6,9 @@ public class PlayerCollitionsBody : MonoBehaviour
 {
     public GameState gameState;
     public FlashLight flashLightSC;
+    public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, boosterGM;
+    public GameObject glasses, map, flashLigthArm, cap, flashLightPick;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC, boosterC;
     public AudioSource openTutorial, PickUp;
     void Update()
@@ -45,10 +46,10 @@ public class PlayerCollitionsBody : MonoBehaviour
             gameState.DemonPlaneModeEnabled = true;
             PickUp.Play();
         }
-        if (other == boosterC)
+        if (other.name == "zZz")
         {
-            boosterGM.SetActive(false);
-            //timeController.pickBooster = true;
+            other.gameObject.SetActive(false);
+            timerController.pickBooster = true;
             PickUp.Play();
         }
     }
