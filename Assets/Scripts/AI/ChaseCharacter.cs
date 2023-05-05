@@ -37,8 +37,8 @@ public class ChaseCharacter : MonoBehaviour
             mRen.material = redEyes;
             if (AId.Distance < minDistanceChar)
             {
-                nma.SetDestination(transform.position);
                 gameObject.GetComponent<AIDecisions>().GhostAttack = true;
+                nma.SetDestination(transform.position);
             }
             else
             {

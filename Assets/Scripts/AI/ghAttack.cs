@@ -28,13 +28,12 @@ public class ghAttack : MonoBehaviour
 
         if (distance > maxDistanceForAttack) 
         {
-            print("estoy lejos");
             timer -= Time.deltaTime;
         }
 
         if (timer <= 0)
         {
-            this.enabled = false;
+            GetComponent<ghAttack>().enabled = false;
         }
     }
 }

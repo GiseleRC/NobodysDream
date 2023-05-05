@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0506f5e7e0159f64382ccbbb7ed8016c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceChar: 2
+  minDistanceChar: 5
   redEyes: {fileID: 2100000, guid: 07018c737c314cf4ca4e22f282e0e25a, type: 2}
   whiteEyes: {fileID: 2100000, guid: 1fb686d76fce7514eaa0e3d9bfa50d66, type: 2}
 --- !u!54 &6710108228142256836
