@@ -25587,6 +25587,7 @@ GameObject:
   - component: {fileID: 2395939642467131385}
   - component: {fileID: 478754992100436787}
   - component: {fileID: 2395939642467131386}
+  - component: {fileID: 2395939642467131387}
   m_Layer: 13
   m_Name: Boina
   m_TagString: Untagged
@@ -25792,6 +25793,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 209.63383, y: 44.02843, z: 172.18945}
   m_Center: {x: -0.00000005839263, y: 3.9186325, z: 0.000060991362}
+--- !u!114 &2395939642467131387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135864355939994342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e609a806212984d8546b54ae2923ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeight: 0.05
+  velocityLevitation: 2
 --- !u!4 &2420185138478299932
 Transform:
   m_ObjectHideFlags: 0
@@ -30113,7 +30128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6785422315708402401, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 10.7170105
+      value: 10.717041
       objectReference: {fileID: 0}
     - target: {fileID: 6785422315708402401, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -30161,7 +30176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6785422315711831353, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2.999878
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6785422315711831353, guid: 289a5f3098844314fab953af05bfc698, type: 3}
       propertyPath: m_AnchoredPosition.y
