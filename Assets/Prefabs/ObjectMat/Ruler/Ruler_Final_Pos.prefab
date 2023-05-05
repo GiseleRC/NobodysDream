@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5569873941202770935}
   - component: {fileID: 8919555465623335028}
   - component: {fileID: 498199039605936490}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 3637495841266187385}
   - component: {fileID: 7778323825193382144}
   - component: {fileID: 2440143725352981500}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9635,7 +9635,7 @@ GameObject:
   - component: {fileID: 8415100867455641356}
   - component: {fileID: 8415100867455641359}
   - component: {fileID: 8415100867455641358}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ruler_Final_Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
