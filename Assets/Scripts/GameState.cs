@@ -108,7 +108,8 @@ public class GameState : MonoBehaviour
 
     public void Respawn(Transform transform)
     {
-
+        playerSpawn.transform.position = transform.position;
+        playerSpawn.transform.rotation = transform.rotation;
     }
     public void RespawnPlayer()
     {

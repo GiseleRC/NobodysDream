@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5020132192435726290
+--- !u!1 &2218164381872369306
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5020132192435726289}
-  - component: {fileID: 5020132192435726294}
-  - component: {fileID: 5020132192435726295}
-  - component: {fileID: 5020132192435726293}
-  - component: {fileID: 5020132192435726292}
-  - component: {fileID: 1053708622258676825}
-  m_Layer: 6
-  m_Name: Wheel
+  - component: {fileID: 1550171123014792224}
+  - component: {fileID: 2462496998336658309}
+  - component: {fileID: 416720064985861967}
+  m_Layer: 0
+  m_Name: Paleta-Rueda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5020132192435726289
+--- !u!4 &1550171123014792224
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5020132192435726290}
+  m_GameObject: {fileID: 2218164381872369306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.5e-14, y: -1.039, z: -0}
+  m_LocalScale: {x: 0.0012772059, y: 0.05274796, z: 0.0012772059}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5020132193217997865}
+  m_Father: {fileID: 5020132192435726289}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5020132192435726294
+--- !u!33 &2462496998336658309
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5020132192435726290}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5020132192435726295
+  m_GameObject: {fileID: 2218164381872369306}
+  m_Mesh: {fileID: -2764618287466103669, guid: dd78e7ed1c5ab6948b649bd3febe4d4c, type: 3}
+--- !u!23 &416720064985861967
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5020132192435726290}
+  m_GameObject: {fileID: 2218164381872369306}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9884f7bed0568aa4284097e1345a107b, type: 2}
+  - {fileID: 2100000, guid: b80c25a8af404b64289a60578e074c6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,6 +83,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5020132192435726290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5020132192435726289}
+  - component: {fileID: 5020132192435726293}
+  - component: {fileID: 5020132192435726292}
+  - component: {fileID: 1053708622258676825}
+  m_Layer: 6
+  m_Name: Wheel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5020132192435726289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020132192435726290}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1550171123014792224}
+  m_Father: {fileID: 5020132193217997865}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &5020132192435726293
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -154,7 +186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5020132193217997866}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 37.080048, y: -6.9700003, z: 2.310009}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 0.2, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children:
