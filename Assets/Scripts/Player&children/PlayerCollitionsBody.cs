@@ -9,7 +9,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TutorialPaperSC tutorialPaperBool;
     public GameObject glasses, map, flashLigthArm, cap, flashLightPick;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC;
-    public AudioSource openTutorial;
+    public AudioSource openTutorial, PickUp;
     void Update()
     {
     }
@@ -23,11 +23,13 @@ public class PlayerCollitionsBody : MonoBehaviour
             flashLigthArm.SetActive(true);//brazo
             flashLightPick.SetActive(false);//brazo
             cap.SetActive(true);
+            PickUp.Play();
         }
         if (other == capC)
         {
             cap.SetActive(false);
             gameObject.GetComponent<MaterializeObjects>().enabled = true;
+            PickUp.Play();
         }
 
         if (other == glassesC)
@@ -35,11 +37,13 @@ public class PlayerCollitionsBody : MonoBehaviour
             gameState.GhostPlaneModeEnabled = true;
             glasses.SetActive(false);
             map.SetActive(true);
+            PickUp.Play();
         }
         if (other == mapC)
         {
             map.SetActive(false);
             gameState.DemonPlaneModeEnabled = true;
+            PickUp.Play();
         }
     }
 }
