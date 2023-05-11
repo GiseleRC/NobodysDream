@@ -45,6 +45,7 @@ public class MaterializeObjects : MonoBehaviour
                 placingObject = true;
                 actualObject = newObject;
                 actualObject.transform.parent = gameObject.transform;
+                actualObject.transform.eulerAngles = new Vector3(actualObject.transform.eulerAngles.x, actualObject.transform.eulerAngles.y + 90, actualObject.transform.eulerAngles.z);
             }
             else
             {
