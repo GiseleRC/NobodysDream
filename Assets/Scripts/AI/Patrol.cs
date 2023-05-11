@@ -14,6 +14,7 @@ public class Patrol : MonoBehaviour
 
     private void OnEnable()
     {
+        nma.speed = 3.5f;
         actualTime = 0.1f;
         if (whiteEyes != null)
         {

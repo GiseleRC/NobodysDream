@@ -16,6 +16,9 @@ public class ChaseCharacter : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        nma = GetComponent<NavMeshAgent>();
+        nma.speed = 5;
+
         actualTime = 0;
         if(mRen != null)
         {
@@ -29,7 +32,6 @@ public class ChaseCharacter : MonoBehaviour
         {
             mRen = GameObject.Find("PM3D_Sphere3D1").GetComponent<MeshRenderer>();
         }
-        nma = GetComponent<NavMeshAgent>();
         AId = GetComponent<AIDecisions>();
         
     }
