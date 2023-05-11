@@ -4,22 +4,15 @@ using UnityEngine;
 
 public class WindowsMode : MonoBehaviour
 {
+    private void Start()
+    {
+        Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Screen.fullScreen)
-            {
-                Screen.fullScreen = false;
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Screen.fullScreen = true;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            Application.Quit();
         }
 
     }

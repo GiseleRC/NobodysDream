@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MatObject
+  - Cube
+  - Ruler
+  - MobilePlatforms
   layers:
   - Default
   - TransparentFX
@@ -16,11 +20,11 @@ TagManager:
   - PostProcessing
   - SensorPlayer
   - EnviromentDetails
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - MatObjs
+  - Pickeable
+  - Flashligth
+  - Lantern
   - 
   - 
   - 

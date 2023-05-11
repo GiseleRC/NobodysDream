@@ -1,31 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameState : MonoBehaviour
 {
-    private PlaneMode planeMode = PlaneMode.Dream;
+    [System.Serializable] public class PlaneModeChangedEvent : UnityEvent<PlaneMode> {}
+
+    [SerializeField] PlaneModeChangedEvent OnPlaneModeChanged;
+    [SerializeField] public GameObject playerSC;
+    [SerializeField] public Transform playerSpawn;
+    [SerializeField] public Transform inicialPos;
+    //[SerializeField] private float dreamPlaneTimeScale = 1f;
+    //[SerializeField] private float ghostPlaneTimeScale = 1f;
+    //[SerializeField] private float demonPlaneTimeScale = 1f;
+
+    public PlaneMode planeMode = PlaneMode.Dream;
     public bool DreamPlaneModeEnabled { get; set; } = true;
     public bool GhostPlaneModeEnabled { get; set; } = false;
     public bool DemonPlaneModeEnabled { get; set; } = false;
- 
+
     public enum PlaneMode
     {
         Dream,
         Ghost,
         Demon
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public PlaneMode GetPlaneMode()
@@ -45,8 +44,21 @@ public class GameState : MonoBehaviour
             return false;
 
         this.planeMode = planeMode;
-        Debug.Log("Cambiando a Plane Mode " + planeMode.ToString());
 
+        OnPlaneModeChanged.Invoke(this.planeMode);
+
+        //switch (planeMode)
+        //{
+        //    case PlaneMode.Dream:
+        //        Time.timeScale = dreamPlaneTimeScale;
+        //        break;
+        //    case PlaneMode.Ghost:
+        //        Time.timeScale = ghostPlaneTimeScale;
+        //        break;
+        //    case PlaneMode.Demon:
+        //        Time.timeScale = demonPlaneTimeScale;
+        //        break;
+        //}
         return true;
     }
 
@@ -88,4 +100,20 @@ public class GameState : MonoBehaviour
         }
     }
 
+    public void PositionInitial()
+    {
+        playerSpawn.transform.position = inicialPos.position;
+        playerSpawn.transform.rotation = inicialPos.rotation;
+    }
+
+    public void Respawn(Transform transform)
+    {
+        playerSpawn.transform.position = transform.position;
+        playerSpawn.transform.rotation = transform.rotation;
+    }
+    public void RespawnPlayer()
+    {
+        playerSC.transform.position = playerSpawn.position;
+        playerSC.transform.rotation = playerSpawn.rotation;
+    }
 }
