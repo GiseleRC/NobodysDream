@@ -8,12 +8,13 @@ public class FallingMovement : MonoBehaviour
     bool isFalling = false;
     float fallingVelocity = 0;
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collider.gameObject.name == "Char")
+        if (other.gameObject.name == "Char")
         {
             isFalling = true;
             Destroy(gameObject, 10);
+
         }
     }
     void Update()
@@ -21,7 +22,7 @@ public class FallingMovement : MonoBehaviour
         if (isFalling)
         {
             fallingVelocity += Time.deltaTime / 10;
-            transform.position = new Vector3(transform.position.x, transform.position.y - fallingVelocity, transform.position.z);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - fallingVelocity, gameObject.transform.position.z);
         }
     }
 }
