@@ -109,9 +109,6 @@ public class RotateObject : MonoBehaviour
                 transform.parent = collision.transform;
             }
             gameObject.layer = 6;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-            rb.isKinematic = true;
-            GetComponent<FollowObject>().enabled = true;
         }
     }
 
