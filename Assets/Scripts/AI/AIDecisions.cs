@@ -10,8 +10,8 @@ public class AIDecisions : MonoBehaviour
     protected NavMeshAgent nma;
     float distance;
     GameState gameState;
-    bool ghostAttack;
-    
+    bool ghostAttack, enemyStunned;
+
     public bool GhostAttack
     {
         set { ghostAttack = value; }
@@ -23,6 +23,11 @@ public class AIDecisions : MonoBehaviour
     {
         nma = GetComponent<NavMeshAgent>();
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
+    }
+
+    public bool EnemyStunned
+    {
+        set { enemyStunned = value; }
     }
 
     public Transform CharacterPos
@@ -45,6 +50,7 @@ public class AIDecisions : MonoBehaviour
     void Update()
     {
         print(ghostAttack);
+        print(enemyStunned);
 
         var mode = gameState.GetPlaneMode();
 
@@ -74,7 +80,7 @@ public class AIDecisions : MonoBehaviour
             else
             {
                 gameObject.GetComponent<StayPos>().enabled = false;
-                if (!ghostAttack)
+                if (!ghostAttack && !enemyStunned)
                 {
                     if (dot > 0.55 && distance < viewDistance || distance < viewDistance / 3)
                     {
@@ -89,11 +95,21 @@ public class AIDecisions : MonoBehaviour
                     }
 
                 }
-                else
+                
+                if(enemyStunned && !ghostAttack)
                 {
+                    gameObject.GetComponent<Stunned>().enabled = true;
                     gameObject.GetComponent<Patrol>().enabled = false;
                     gameObject.GetComponent<ChaseCharacter>().enabled = false;
+                    gameObject.GetComponent<ghAttack>().enabled = false;
+                }
+                
+                if(ghostAttack && !enemyStunned)
+                {
                     gameObject.GetComponent<ghAttack>().enabled = true;
+                    gameObject.GetComponent<Stunned>().enabled = false;
+                    gameObject.GetComponent<Patrol>().enabled = false;
+                    gameObject.GetComponent<ChaseCharacter>().enabled = false;
                 }
 
             }

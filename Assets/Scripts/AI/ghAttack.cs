@@ -5,13 +5,13 @@ using UnityEngine;
 public class ghAttack : MonoBehaviour
 {
     [SerializeField] float initialTimer, maxDistanceForAttack;
-    float distance, timer;
+    float distance;
+    public float timer;
     // Start is called before the first frame update
 
     void OnEnable()
     {
         timer = initialTimer;
-        distance = gameObject.GetComponent<AIDecisions>().Distance;
         GameObject.Find("TimerController").GetComponent<TimerController>().EnemiesAttacking = 1;
     }
     void OnDisable()
@@ -24,9 +24,10 @@ public class ghAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(GameObject.Find("Char").transform.position);
+        transform.LookAt(new Vector3(GameObject.Find("Char").GetComponent<Transform>().position.x,transform.position.y , GameObject.Find("Char").GetComponent<Transform>().position.z));
+        distance = GetComponent<AIDecisions>().Distance;
 
-        if (distance > maxDistanceForAttack) 
+        if (distance > maxDistanceForAttack)
         {
             timer -= Time.deltaTime;
         }

@@ -15,7 +15,11 @@ public class Patrol : MonoBehaviour
     private void OnEnable()
     {
         actualTime = 0.1f;
-        GameObject.Find("PM3D_Sphere3D1").GetComponent<MeshRenderer>().material = whiteEyes;
+        if (whiteEyes != null)
+        {
+            GameObject.Find("PM3D_Sphere3D1").GetComponent<MeshRenderer>().material = whiteEyes;
+
+        }
         nma.SetDestination(patrolPoints[currentPoint].position);
     }
     // Start is called before the first frame update
@@ -57,9 +61,9 @@ public class Patrol : MonoBehaviour
         }
     }
 
-    public void Stunned(float stunDuration)
+    /*public void Stunned(float stunDuration)
     {
         stunned = true;
         actualTime = stunDuration;
-    }
+    }*/
 }

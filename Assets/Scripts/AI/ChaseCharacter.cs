@@ -17,12 +17,18 @@ public class ChaseCharacter : MonoBehaviour
     void OnEnable()
     {
         actualTime = 0;
-        mRen.material = redEyes;
+        if(mRen != null)
+        {
+            mRen.material = redEyes;
+        }
     }
 
     void Start()
     {
-        mRen = GameObject.Find("PM3D_Sphere3D1").GetComponent<MeshRenderer>();
+        if (mRen != null)
+        {
+            mRen = GameObject.Find("PM3D_Sphere3D1").GetComponent<MeshRenderer>();
+        }
         nma = GetComponent<NavMeshAgent>();
         AId = GetComponent<AIDecisions>();
         
@@ -34,10 +40,15 @@ public class ChaseCharacter : MonoBehaviour
 
         if (!stunned)
         {
-            mRen.material = redEyes;
+            if (mRen != null)
+            {
+                mRen.material = redEyes;
+            }
+
             if (AId.Distance < minDistanceChar)
             {
-                gameObject.GetComponent<AIDecisions>().GhostAttack = true;
+                
+                GetComponent<AIDecisions>().GhostAttack = true;
                 nma.SetDestination(transform.position);
             }
             else
@@ -57,10 +68,13 @@ public class ChaseCharacter : MonoBehaviour
         }
     }
 
-    public void Stunned(float stunDuration)
+    /*public void Stunned(float stunDuration)
     {
         stunned = true;
         actualTime = stunDuration;
-        mRen.material = whiteEyes;
-    }
+        if (mRen != null)
+        {
+            mRen.material = whiteEyes;
+        }
+    }*/
 }
