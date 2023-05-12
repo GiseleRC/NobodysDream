@@ -8,7 +8,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door, level2Enable;
+    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door, level2Enable, IconFantasma;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC, boosterC;
     public AudioSource openTutorial, PickUp;
 
@@ -37,6 +37,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             gameState.GhostPlaneModeEnabled = true;
             glasses.SetActive(false);
+            IconFantasma.SetActive(true);
             map.SetActive(true);
             PickUp.Play();
         }
