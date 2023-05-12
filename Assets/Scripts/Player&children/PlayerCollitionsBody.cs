@@ -11,9 +11,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC, boosterC;
     public AudioSource openTutorial, PickUp;
-    void Update()
-    {
-    }
+
     private void OnTriggerEnter(Collider other)//hacerlo switch
     {
         if (other == flashLightC)

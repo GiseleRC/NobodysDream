@@ -992,8 +992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 8734371037959268166}
-  walkSpeed: 4
-  runSpeed: 8
+  walkSpeed: 6
+  runSpeed: 9
   artificialGravity: 5.5
   gameState: {fileID: 0}
   orientation: {fileID: 5579184150392987516}
