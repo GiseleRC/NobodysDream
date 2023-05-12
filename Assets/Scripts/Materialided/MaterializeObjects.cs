@@ -114,6 +114,7 @@ public class MaterializeObjects : MonoBehaviour
                     newObject = Instantiate(ruler, pos, transform.rotation);
                     actualObject = newObject;
                     actualObject.transform.parent = gameObject.transform;
+                    actualObject.transform.eulerAngles = new Vector3(actualObject.transform.eulerAngles.x, actualObject.transform.eulerAngles.y + 90, actualObject.transform.eulerAngles.z);
                 }
             }
             fallObj.Play();

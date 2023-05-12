@@ -7,7 +7,7 @@ public class ChaseCharacter : MonoBehaviour
 {
     NavMeshAgent nma;
     AIDecisions AId;
-    MeshRenderer mRen;
+    [SerializeField]MeshRenderer mRen;
     [SerializeField] float minDistanceChar;
     [SerializeField]Material redEyes, whiteEyes;
     bool stunned;
@@ -30,8 +30,10 @@ public class ChaseCharacter : MonoBehaviour
     {
         if (mRen != null)
         {
-            mRen = GameObject.Find("PM3D_Sphere3D1").GetComponent<MeshRenderer>();
+            mRen = transform.Find("PM3D_Sphere3D1").gameObject.GetComponent<MeshRenderer>();
         }
+
+        
         AId = GetComponent<AIDecisions>();
         
     }

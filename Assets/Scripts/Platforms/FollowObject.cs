@@ -23,22 +23,12 @@ public class FollowObject : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(checker.transform.position + (-transform.up * 0.5f),checker.transform.localScale) ;
-    }
-
     private void FixedUpdate()
     {
         if (!ray)
         {
             transform.Translate(0, -speed * Time.deltaTime, 0);
-            print("No choque");
 
-        }
-        else
-        {
-            print("choque");
         }
         
     }

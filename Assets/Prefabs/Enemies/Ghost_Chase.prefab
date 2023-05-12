@@ -265,7 +265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6408425375911668934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19836fd5b1a93cf43b079ece3270da60, type: 3}
   m_Name: 
@@ -289,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0506f5e7e0159f64382ccbbb7ed8016c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mRen: {fileID: 2429819213234004189}
   minDistanceChar: 5
   redEyes: {fileID: 2100000, guid: 07018c737c314cf4ca4e22f282e0e25a, type: 2}
   whiteEyes: {fileID: 2100000, guid: 1fb686d76fce7514eaa0e3d9bfa50d66, type: 2}
