@@ -893,6 +893,7 @@ GameObject:
   - component: {fileID: 926809389427515323}
   - component: {fileID: 9172787260233978953}
   - component: {fileID: 4471130259390780548}
+  - component: {fileID: 3045567177011180656}
   m_Layer: 7
   m_Name: Char
   m_TagString: Untagged
@@ -972,12 +973,14 @@ MonoBehaviour:
   cap: {fileID: 0}
   flashLightPick: {fileID: 0}
   door: {fileID: 0}
+  level2Enable: {fileID: 0}
+  IconFantasma: {fileID: 0}
   glassesC: {fileID: 0}
   mapC: {fileID: 0}
   flashLightC: {fileID: 0}
   capC: {fileID: 0}
   boosterC: {fileID: 0}
-  openTutorial: {fileID: 0}
+  openTutorial: {fileID: 9172787260233978953}
   PickUp: {fileID: 0}
 --- !u!114 &691922695422852397
 MonoBehaviour:
@@ -1500,6 +1503,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3045567177011180656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166849483277595108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f21c8d111c6d304e8433515bca4fc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ball: {fileID: 0}
 --- !u!1 &8489230671221386904
 GameObject:
   m_ObjectHideFlags: 0
