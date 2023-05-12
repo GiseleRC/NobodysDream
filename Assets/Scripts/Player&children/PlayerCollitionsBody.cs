@@ -8,7 +8,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject glasses, map, flashLigthArm, cap, flashLightPick;
+    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC, boosterC;
     public AudioSource openTutorial, PickUp;
     void Update()
@@ -29,6 +29,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (other == capC)
         {
             cap.SetActive(false);
+            door.SetActive(true);
             tutorialPaperBool.showTutorialMat = true;
             gameObject.GetComponent<MaterializeObjects>().enabled = true;
             PickUp.Play();
