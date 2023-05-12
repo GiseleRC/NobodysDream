@@ -38,6 +38,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             gameState.GhostPlaneModeEnabled = true;
             glasses.SetActive(false);
             IconFantasma.SetActive(true);
+            level2Enable.SetActive(true);
             map.SetActive(true);
             PickUp.Play();
         }
@@ -46,7 +47,6 @@ public class PlayerCollitionsBody : MonoBehaviour
             map.SetActive(false);
             //gameState.DemonPlaneModeEnabled = true;
             PickUp.Play();
-            level2Enable.SetActive(true);
         }
         if (other.name == "zZz")
         {
