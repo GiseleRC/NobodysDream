@@ -71,11 +71,13 @@ public class MaterializeObjects : MonoBehaviour
                         Destroy(cubesActive[0]);
                         cubesActive[0] = cubesActive[1];
                         cubesActive[1] = actualObject;
+                        actualObject.GetComponent<Collider>().enabled = true;
                     }
                     else
                     {
                         cubesActive.Add(actualObject);
                         objectCreated++;
+                        actualObject.GetComponent<Collider>().enabled = true;
                     }
                     lastObjectCreated = cube;
                 }
