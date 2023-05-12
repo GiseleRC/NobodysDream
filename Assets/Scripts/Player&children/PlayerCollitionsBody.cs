@@ -8,7 +8,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door;
+    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door, level2Enable;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC, boosterC;
     public AudioSource openTutorial, PickUp;
 
@@ -43,8 +43,9 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (other == mapC)
         {
             map.SetActive(false);
-            gameState.DemonPlaneModeEnabled = true;
+            //gameState.DemonPlaneModeEnabled = true;
             PickUp.Play();
+            level2Enable.SetActive(true);
         }
         if (other.name == "zZz")
         {
