@@ -49,8 +49,6 @@ public class AIDecisions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(ghostAttack);
-        print(enemyStunned);
 
         var mode = gameState.GetPlaneMode();
 

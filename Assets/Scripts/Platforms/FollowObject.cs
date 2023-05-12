@@ -4,33 +4,32 @@ using UnityEngine;
 
 public class FollowObject : MonoBehaviour
 {
+    RaycastHit hit;
+    [SerializeField] LayerMask layerMask;
+    [SerializeField] float speed;
+    [SerializeField] GameObject checker;
     Rigidbody rb;
+    bool ray;
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        checker.transform.rotation = transform.rotation;
+        ray = Physics.BoxCast(checker.GetComponent<Collider>().bounds.center, checker.transform.localScale, -transform.up, out hit, checker.transform.rotation, 0.5f, layerMask);
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (!ray)
+        {
+            transform.Translate(0, -speed * Time.deltaTime, 0);
+
+        }
         
     }
-
-    // Update is called once per frame
-
-    /*public void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject)
-        {
-            rb.constraints = RigidbodyConstraints.None;
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-            rb.velocity = new Vector3(0, 5f * Time.deltaTime, 0);
-            rb.isKinematic = false;
-        }
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {        
-        if (collision.gameObject)
-        {
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-            rb.isKinematic = true;
-        }
-    }*/
 }

@@ -45,6 +45,7 @@ public class MaterializeObjects : MonoBehaviour
                 placingObject = true;
                 actualObject = newObject;
                 actualObject.transform.parent = gameObject.transform;
+                actualObject.transform.eulerAngles = new Vector3(actualObject.transform.eulerAngles.x, actualObject.transform.eulerAngles.y + 90, actualObject.transform.eulerAngles.z);
             }
             else
             {
@@ -70,11 +71,13 @@ public class MaterializeObjects : MonoBehaviour
                         Destroy(cubesActive[0]);
                         cubesActive[0] = cubesActive[1];
                         cubesActive[1] = actualObject;
+                        actualObject.GetComponent<Collider>().enabled = true;
                     }
                     else
                     {
                         cubesActive.Add(actualObject);
                         objectCreated++;
+                        actualObject.GetComponent<Collider>().enabled = true;
                     }
                     lastObjectCreated = cube;
                 }
@@ -113,6 +116,7 @@ public class MaterializeObjects : MonoBehaviour
                     newObject = Instantiate(ruler, pos, transform.rotation);
                     actualObject = newObject;
                     actualObject.transform.parent = gameObject.transform;
+                    actualObject.transform.eulerAngles = new Vector3(actualObject.transform.eulerAngles.x, actualObject.transform.eulerAngles.y + 90, actualObject.transform.eulerAngles.z);
                 }
             }
             fallObj.Play();

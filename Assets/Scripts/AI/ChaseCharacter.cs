@@ -7,7 +7,7 @@ public class ChaseCharacter : MonoBehaviour
 {
     NavMeshAgent nma;
     AIDecisions AId;
-    MeshRenderer mRen;
+    [SerializeField]MeshRenderer mRen;
     [SerializeField] float minDistanceChar;
     [SerializeField]Material redEyes, whiteEyes;
     bool stunned;
@@ -16,6 +16,9 @@ public class ChaseCharacter : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        nma = GetComponent<NavMeshAgent>();
+        nma.speed = 5;
+
         actualTime = 0;
         if(mRen != null)
         {
@@ -27,9 +30,10 @@ public class ChaseCharacter : MonoBehaviour
     {
         if (mRen != null)
         {
-            mRen = GameObject.Find("PM3D_Sphere3D1").GetComponent<MeshRenderer>();
+            mRen = transform.Find("PM3D_Sphere3D1").gameObject.GetComponent<MeshRenderer>();
         }
-        nma = GetComponent<NavMeshAgent>();
+
+        
         AId = GetComponent<AIDecisions>();
         
     }
