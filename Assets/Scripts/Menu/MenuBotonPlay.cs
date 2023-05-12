@@ -20,6 +20,11 @@ public class MenuBotonPlay : MonoBehaviour
         Click.Play();
     }
 
+    public void ExiGame()
+    {
+        Application.Quit();
+    }
+
     private void Update()
     {
         if (Input.GetButtonDown("Cancel"))
