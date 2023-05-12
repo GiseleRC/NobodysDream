@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class MenuBotonPlay : MonoBehaviour
 {
     public AudioSource Click;
-  public void ChangeSceneStart(string LevelOne)
+  public void ChangeSceneStart(string EntregaProgramacion2)
     {
-        SceneManager.LoadScene(LevelOne);
+        SceneManager.LoadScene(EntregaProgramacion2);
         Click.Play();
     }
 }
