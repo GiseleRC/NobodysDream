@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class SpawnedBall : MonoBehaviour
 {
-    public GameObject Ball;
+    public GameObject ball, point;
+    public bool ballEnable = false;
 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
-       
-        if (Input.GetButtonDown("Flashlight"))
+
+        if (Input.GetButtonDown("Flashlight") && ballEnable)
         {
-            Instantiate(Ball, transform.position, transform.rotation);
-            Ball.GetComponent<Rigidbody>().isKinematic = false;
+            Instantiate(ball, point.transform.position, point.transform.rotation);
+            ball.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 }
