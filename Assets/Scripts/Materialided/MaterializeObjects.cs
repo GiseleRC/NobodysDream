@@ -83,12 +83,14 @@ public class MaterializeObjects : MonoBehaviour
                 RotateObject ro;
                 ro = actualObject.GetComponent<RotateObject>();
 
+
                 actualObject.transform.parent = null;
                 actualObject.GetComponent<Collider>().isTrigger = false;
                 actualObject.transform.position = ro.FinalPos;
                 actualObject.GetComponent<RotateObject>().FinalPosObject();
-                actualObject.GetComponent<RotateObject>().Spawn();
+                //actualObject.GetComponent<RotateObject>().Spawn();
                 placingObject = false;
+
 
             }
         }

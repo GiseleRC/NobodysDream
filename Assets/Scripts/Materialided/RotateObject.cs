@@ -108,20 +108,18 @@ public class RotateObject : MonoBehaviour
             {
                 transform.parent = collision.transform;
             }
-            gameObject.layer = 6;
+
         }
+        if(gameObject.tag == "Ruler")
+        {
+            rb.isKinematic = true;
+        }
+        gameObject.layer = 6;
     }
 
     public void Freeze()
     {
 
-    }
-
-    public void Spawn()
-    {
-        rb.constraints = RigidbodyConstraints.None;
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
-        //StartCoroutine(WaitPhysics());
     }
 
 

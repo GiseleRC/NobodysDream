@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0028074826, g: 0.0003438963, b: 0.00035845523, a: 1}
+  m_IndirectSpecularColor: {r: 0.0028074812, g: 0.00034389595, b: 0.000358455, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14338,6 +14338,7 @@ MonoBehaviour:
   - {fileID: 872936875}
   - {fileID: 546822061}
   - {fileID: 1518877175}
+  AmbientSound: {fileID: 0}
 --- !u!114 &885250769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19796,7 +19797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4048343901405467673, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4063438181940665769, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: camPos
@@ -24076,7 +24077,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.3
+  m_fontSize: 24.55
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -26304,6 +26305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostItems: {fileID: 165600698}
+  IconGhostEnable: {fileID: 0}
+  NewSpawnOBJ: {fileID: 0}
   colorGhostPlane: {r: 0.21549106, g: 0.18823427, b: 0.8867924, a: 0.4745098}
   colorDemonPlane: {r: 0.9339623, g: 0.23349057, b: 0.23349057, a: 0.44705883}
 --- !u!4 &2114164571
