@@ -6,6 +6,7 @@ public class Walls : MonoBehaviour
 {
     [SerializeField] private GameObject[] walls;
     private Vector3[] wallsRestorePos;
+    public AudioSource AmbientSound;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class Walls : MonoBehaviour
         {
             walls[i].GetComponent<Rigidbody>().isKinematic = false;
         }
+        AmbientSound.Play();
     }
     private void RestoreWalls()
     {

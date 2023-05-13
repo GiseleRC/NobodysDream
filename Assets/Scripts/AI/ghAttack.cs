@@ -7,6 +7,7 @@ public class ghAttack : MonoBehaviour
     [SerializeField] float initialTimer, maxDistanceForAttack;
     float distance;
     public float timer;
+    public AudioSource GhostAttack;
     // Start is called before the first frame update
 
     void OnEnable()
@@ -30,6 +31,7 @@ public class ghAttack : MonoBehaviour
         if (distance > maxDistanceForAttack)
         {
             timer -= Time.deltaTime;
+            GhostAttack.Play();
         }
 
         if (timer <= 0)
