@@ -171,6 +171,7 @@ MonoBehaviour:
   speed: 9.8
   rayDistance: 0.3
   checker: {fileID: 6897323383603959323}
+  parent: {fileID: 7811764423888174720}
 --- !u!1001 &2196785739440270369
 PrefabInstance:
   m_ObjectHideFlags: 0

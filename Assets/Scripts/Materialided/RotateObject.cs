@@ -107,7 +107,7 @@ public class RotateObject : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 0)
         {
@@ -115,15 +115,17 @@ public class RotateObject : MonoBehaviour
             {
                 transform.parent = collision.transform;
             }
-
         }
+            
+        print("colisione");
         gameObject.layer = 6;
-        if(parent != null)
+
+        if (parent != null)
         {
             parent.layer = 6;
         }
         
-    }
+    }*/
 
     public void Freeze()
     {

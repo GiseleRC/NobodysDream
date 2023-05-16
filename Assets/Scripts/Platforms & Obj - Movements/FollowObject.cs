@@ -7,7 +7,7 @@ public class FollowObject : MonoBehaviour
     RaycastHit hit;
     [SerializeField] LayerMask layerMask;
     [SerializeField] float speed, rayDistance;
-    [SerializeField] GameObject checker;
+    [SerializeField] GameObject checker, parent;
     bool ray;
     // Start is called before the first frame update
     void Start()
@@ -48,5 +48,19 @@ public class FollowObject : MonoBehaviour
         {
             Gizmos.DrawRay(transform.position, -transform.up * rayDistance);
         }
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        print("colisione");
+        if (parent != null)
+        {
+            parent.layer = 6;
+        }
+        else
+        {
+            gameObject.layer = 6;
+        }
+
     }
 }
