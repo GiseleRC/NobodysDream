@@ -6,30 +6,47 @@ public class FollowObject : MonoBehaviour
 {
     RaycastHit hit;
     [SerializeField] LayerMask layerMask;
-    [SerializeField] float speed;
+    [SerializeField] float speed, rayDistance;
     [SerializeField] GameObject checker;
-    Rigidbody rb;
     bool ray;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+
     }
 
     void Update()
     {
-        checker.transform.rotation = transform.rotation;
-        ray = Physics.BoxCast(checker.GetComponent<Collider>().bounds.center, checker.transform.localScale, -transform.up, out hit, checker.transform.rotation, 0.5f, layerMask);
+        if(checker != null)
+        {
+            checker.transform.rotation = transform.rotation;
+        }
 
-    }
-
-    private void FixedUpdate()
-    {
+        if(checker != null)
+        {
+            ray = Physics.BoxCast(checker.GetComponent<Collider>().bounds.center, checker.transform.localScale, -transform.up, out hit, checker.transform.rotation, rayDistance, layerMask);
+        }
+        else
+        {
+            ray = Physics.BoxCast(GetComponent<Collider>().bounds.center, transform.localScale, -transform.up, out hit, transform.rotation, rayDistance, layerMask);
+        }
+            
         if (!ray)
         {
             transform.Translate(0, -speed * Time.deltaTime, 0);
 
         }
-        
+    }
+
+    void OnDrawGizmos()
+    {
+        if(checker != null)
+        {
+            Gizmos.DrawRay(checker.transform.position,-transform.up * rayDistance);
+        }
+        else
+        {
+            Gizmos.DrawRay(transform.position, -transform.up * rayDistance);
+        }
     }
 }

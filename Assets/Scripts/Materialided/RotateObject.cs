@@ -7,7 +7,7 @@ public class RotateObject : MonoBehaviour
 {
     [SerializeField] float speedRotation;
     [SerializeField] LayerMask layerMask;
-    [SerializeField] GameObject finalPosObject, actualObject;
+    [SerializeField] GameObject finalPosObject, actualObject, parent;
     [SerializeField] bool cube;
     Vector3 finalPos;
     bool ray, destroyFinalPosObject;
@@ -41,7 +41,14 @@ public class RotateObject : MonoBehaviour
         actualObject = Instantiate(finalPosObject, transform.position,transform.rotation);
         destroyFinalPosObject = false;
         mo = GameObject.Find("Char").GetComponent<MaterializeObjects>();
-        rb = GetComponent<Rigidbody>();
+        if (gameObject.GetComponent<Rigidbody>() != null)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
+        else
+        {
+            rb = GetComponentInChildren<Rigidbody>();
+        }
 
     }
 
@@ -110,11 +117,12 @@ public class RotateObject : MonoBehaviour
             }
 
         }
-        if(gameObject.tag == "Ruler")
-        {
-            rb.isKinematic = true;
-        }
         gameObject.layer = 6;
+        if(parent != null)
+        {
+            parent.layer = 6;
+        }
+        
     }
 
     public void Freeze()

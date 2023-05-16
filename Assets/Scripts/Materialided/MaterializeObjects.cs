@@ -24,7 +24,7 @@ public class MaterializeObjects : MonoBehaviour
         //tal vez se podriubicar dandole un rango  de distancia y si se pasa de ese rango ubicar el pre objeto
         RaycastHit hit;
 
-        bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 6f, layerMask);
+        bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 7f, layerMask);
 
         if (ray)
         {
@@ -32,7 +32,7 @@ public class MaterializeObjects : MonoBehaviour
         }
         else
         {
-            pos = camPos.transform.position + camPos.transform.forward * 6f;
+            pos = camPos.transform.position + camPos.transform.forward * 7f;
         }
 
         if (Input.GetButtonDown("Action1")) 
@@ -85,7 +85,14 @@ public class MaterializeObjects : MonoBehaviour
 
 
                 actualObject.transform.parent = null;
-                actualObject.GetComponent<Collider>().isTrigger = false;
+                if (actualObject.GetComponent<Collider>() != null)
+                {
+                    actualObject.GetComponent<Collider>().isTrigger = false;
+                }
+                else
+                {
+                    actualObject.GetComponentInChildren<Collider>().isTrigger = false;
+                }
                 actualObject.transform.position = ro.FinalPos;
                 actualObject.GetComponent<RotateObject>().FinalPosObject();
                 //actualObject.GetComponent<RotateObject>().Spawn();

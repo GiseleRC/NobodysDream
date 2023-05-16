@@ -207,6 +207,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4161
   speed: 9.8
+  rayDistance: 0.45
   checker: {fileID: 1129026931541379970}
 --- !u!1001 &242005899452813632
 PrefabInstance:
