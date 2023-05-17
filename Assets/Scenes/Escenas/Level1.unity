@@ -9823,6 +9823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: silla1
       objectReference: {fileID: 0}
+    - target: {fileID: 7187443213428988197, guid: 5412e6b1008b128418e4391d8dd58b32, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5412e6b1008b128418e4391d8dd58b32, type: 3}
 --- !u!4 &639005419 stripped
@@ -10265,6 +10269,10 @@ PrefabInstance:
     - target: {fileID: 1675530986995362943, guid: 22ca6190671d77946b8e4b3dc916b2fd, type: 3}
       propertyPath: m_Name
       value: silla3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675530986995362943, guid: 22ca6190671d77946b8e4b3dc916b2fd, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5984319144465047557, guid: 22ca6190671d77946b8e4b3dc916b2fd, type: 3}
       propertyPath: m_RootOrder
@@ -36972,6 +36980,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: silla
       objectReference: {fileID: 0}
+    - target: {fileID: 5203970394930221211, guid: 8db8a715368dfb64a8f21952ea1e4a02, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8db8a715368dfb64a8f21952ea1e4a02, type: 3}
 --- !u!4 &1769317894 stripped
@@ -37338,6 +37350,10 @@ PrefabInstance:
     - target: {fileID: 7187443213428988197, guid: 5412e6b1008b128418e4391d8dd58b32, type: 3}
       propertyPath: m_Name
       value: silla1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7187443213428988197, guid: 5412e6b1008b128418e4391d8dd58b32, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5412e6b1008b128418e4391d8dd58b32, type: 3}
@@ -38120,7 +38136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1865530466
 Transform:
   m_ObjectHideFlags: 0
@@ -53917,20 +53933,24 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5936797172219641615, guid: 4579e00deb4fa1f48bbb7a7c45c54901, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 21.616455
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936797172219641615, guid: 4579e00deb4fa1f48bbb7a7c45c54901, type: 3}
       propertyPath: m_LocalScale.z
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5936797172219641615, guid: 4579e00deb4fa1f48bbb7a7c45c54901, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.000000022352
       objectReference: {fileID: 0}
     - target: {fileID: 5936797172219641615, guid: 4579e00deb4fa1f48bbb7a7c45c54901, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.029999733
+      value: -0.26
       objectReference: {fileID: 0}
     - target: {fileID: 5936797172219641615, guid: 4579e00deb4fa1f48bbb7a7c45c54901, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0000000055879
       objectReference: {fileID: 0}
     - target: {fileID: 5936797172219641615, guid: 4579e00deb4fa1f48bbb7a7c45c54901, type: 3}
       propertyPath: m_LocalRotation.w
