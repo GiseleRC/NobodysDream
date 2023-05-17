@@ -8,15 +8,16 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door, level2Enable, IconFantasma, level1Enable;
+    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door, level2Enable, IconFantasma, level1Enable, ballBucket;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC, boosterC;
     public AudioSource openTutorial, PickUp;
+    public bool ballEnable = false;
 
     private void OnTriggerEnter(Collider other)//hacerlo switch
     {
         if (other == flashLightC)
         {
-            openTutorial.Play();
+            //openTutorial.Play();
             tutorialPaperBool.showPaper = true;
             flashLightSC.hasFlashlight = true;
             flashLigthArm.SetActive(true);//brazo
@@ -35,6 +36,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other == glassesC)
         {
             gameState.GhostPlaneModeEnabled = true;
+            tutorialPaperBool.showTutorialGlasses = true;
             glasses.SetActive(false);
             IconFantasma.SetActive(true);
             level2Enable.SetActive(true);
@@ -60,6 +62,14 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "BallBucket")
         {
             GetComponent<PlayerSC>().PickupBalls();
+        }
+        else if (other.name == "BallPickable")
+        {
+            ballEnable = true;
+            ballBucket.SetActive(true);
+            other.gameObject.SetActive(false);
+            tutorialPaperBool.showTutorialBall = true;
+            PickUp.Play();
         }
     }
 }

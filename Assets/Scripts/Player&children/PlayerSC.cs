@@ -15,6 +15,7 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private GameObject ballPF;
     [SerializeField] private float ballThrowForce = 5f;
     [SerializeField] private Transform hand;
+    public PlayerCollitionsBody playerC;
     private float jumpHeight = 2f;
     public GameState gameState;
     public Transform orientation;
@@ -39,7 +40,11 @@ public class PlayerSC : MonoBehaviour
     {
         Jump();
         PlaneChange();
-        BallGrabAndThrow();
+        if (playerC.ballEnable)
+        {
+            BallGrabAndThrow();
+        }
+
         if (Input.GetButtonDown("Reinicio"))
         {
             ReloadScene();
