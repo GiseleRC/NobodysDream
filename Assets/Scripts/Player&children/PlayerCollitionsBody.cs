@@ -24,7 +24,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             cap.SetActive(true);
             PickUp.Play();
         }
-        if (other == capC)
+        else if (other == capC)
         {
             cap.SetActive(false);
             door.SetActive(true);
@@ -32,8 +32,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             gameObject.GetComponent<MaterializeObjects>().enabled = true;
             PickUp.Play();
         }
-
-        if (other == glassesC)
+        else if (other == glassesC)
         {
             gameState.GhostPlaneModeEnabled = true;
             glasses.SetActive(false);
@@ -42,22 +41,25 @@ public class PlayerCollitionsBody : MonoBehaviour
             map.SetActive(true);
             PickUp.Play();
         }
-        if (other == mapC)
+        else if (other == mapC)
         {
             map.SetActive(false);
             //gameState.DemonPlaneModeEnabled = true;
             PickUp.Play();
         }
-        if (other.name == "zZz")
+        else if (other.name == "zZz")
         {
             other.gameObject.SetActive(false);
             timerController.pickBooster = true;
             PickUp.Play();
         }
-
-        if (other.name == "SabanaLvl1Off")
+        else if (other.name == "SabanaLvl1Off")
         {
             level1Enable.SetActive(false);
+        }
+        else if (other.name == "BallBucket")
+        {
+            GetComponent<PlayerSC>().PickupBalls();
         }
     }
 }
