@@ -6714,7 +6714,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452652908}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.799988, y: 1.04, z: 3.01}
+  m_LocalPosition: {x: -5.9627686, y: 0.207632, z: 4.2577653}
   m_LocalScale: {x: 0.5, y: 0.25, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9215,8 +9215,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 239.60817, y: 419.48602, z: 243.85886}
-  m_Center: {x: 23.580246, y: 109.98719, z: -0.00024976447}
+  m_Size: {x: 160.4703, y: 419.486, z: 243.85883}
+  m_Center: {x: 17.749699, y: 109.98718, z: 0.69162935}
 --- !u!1 &608943200
 GameObject:
   m_ObjectHideFlags: 0
@@ -29551,7 +29551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08447917, y: 0.8776091}
   m_AnchorMax: {x: 0.3364792, y: 0.9250001}
-  m_AnchoredPosition: {x: -0.8000488, y: -0.89990234}
+  m_AnchoredPosition: {x: -0.79992676, y: -0.89990234}
   m_SizeDelta: {x: -385.8, y: 47.21344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1275054125
@@ -55854,6 +55854,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 595045785}
     m_Modifications:
+    - target: {fileID: 1090441638365980808, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: ShapeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
       propertyPath: m_RootOrder
       value: 0
