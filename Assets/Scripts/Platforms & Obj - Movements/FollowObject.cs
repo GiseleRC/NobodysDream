@@ -21,7 +21,7 @@ public class FollowObject : MonoBehaviour
         ray = Physics.BoxCast(checker.transform.position, checker.transform.localScale/2, -transform.up, out hit, transform.rotation, rayDistance, layerMask);
             
         if (ray)
-            print(hit.collider.name);
+            //print(hit.collider.name);
 
         if (!ray)
         {
