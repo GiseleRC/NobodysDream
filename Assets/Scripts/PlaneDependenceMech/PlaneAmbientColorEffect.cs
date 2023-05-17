@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaneAmbientColorEffect : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject ghostItems, IconGhostEnable, NewSpawnOBJ, trueSteps;
+    public GameObject ghostItems, IconGhostEnable, NewSpawnOBJ, trueSteps,IconLinternaOn, IconLinternaOff;
     private GameState.PlaneMode lastAppliedPlaneMode;
     private Color colorDreamPlane;
     [SerializeField, ColorUsageAttribute(true, true)] private Color colorGhostPlane;
@@ -32,11 +32,15 @@ public class PlaneAmbientColorEffect : MonoBehaviour
                 RenderSettings.ambientLight = colorDreamPlane;
                 ghostItems.SetActive(false);
                 IconGhostEnable.SetActive(false);
+                IconLinternaOn.SetActive(true);
+                IconLinternaOff.SetActive(false);
                 //NewSpawnOBJ.SetActive(false);
                 break;
             case GameState.PlaneMode.Ghost:
                 ghostItems.SetActive(true); 
                 IconGhostEnable.SetActive(true);
+                IconLinternaOn.SetActive(false);
+                IconLinternaOff.SetActive(true);
                 //NewSpawnOBJ.SetActive(true);
                 RenderSettings.ambientLight = colorGhostPlane;
                 break;

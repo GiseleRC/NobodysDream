@@ -8,7 +8,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door, level2Enable, IconFantasma, level1Enable, ballBucket;
+    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door, level2Enable, IconFantasma, level1Enable, ballBucket,IconFantasmaLinterna;
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC, boosterC;
     public AudioSource openTutorial, PickUp;
     public bool ballEnable = false;
@@ -22,6 +22,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             flashLightSC.hasFlashlight = true;
             flashLigthArm.SetActive(true);//brazo
             flashLightPick.SetActive(false);//brazo
+            IconFantasmaLinterna.SetActive(true);
             cap.SetActive(true);
             PickUp.Play();
         }
