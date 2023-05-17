@@ -59,7 +59,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (other.name == "BallBucket")
         {
-
+            GetComponent<PlayerSC>().PickupBalls();
         }
     }
 }

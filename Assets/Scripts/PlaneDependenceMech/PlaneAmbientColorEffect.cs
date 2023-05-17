@@ -32,12 +32,12 @@ public class PlaneAmbientColorEffect : MonoBehaviour
                 RenderSettings.ambientLight = colorDreamPlane;
                 ghostItems.SetActive(false);
                 IconGhostEnable.SetActive(false);
-                NewSpawnOBJ.SetActive(false);
+                //NewSpawnOBJ.SetActive(false);
                 break;
             case GameState.PlaneMode.Ghost:
                 ghostItems.SetActive(true); 
                 IconGhostEnable.SetActive(true);
-                NewSpawnOBJ.SetActive(true);
+                //NewSpawnOBJ.SetActive(true);
                 RenderSettings.ambientLight = colorGhostPlane;
                 break;
             case GameState.PlaneMode.Demon:

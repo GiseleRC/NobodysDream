@@ -13,10 +13,15 @@ public class PlayerSC : MonoBehaviour
     //[SerializeField] private float demonPlaneJumpHeight = 1f;
     [SerializeField] private float artificialGravity = 5f;
     [SerializeField] private GameObject ballPF;
+    [SerializeField] private float ballThrowForce = 5f;
+    [SerializeField] private Transform hand;
     private float jumpHeight = 2f;
     public GameState gameState;
     public Transform orientation;
     private bool runEnabled = true;
+    private bool canThrowBall = false;
+    private int ballCount = 0;
+    private GameObject ball = null;
 
     GroundCheck ground;
 
@@ -34,13 +39,10 @@ public class PlayerSC : MonoBehaviour
     {
         Jump();
         PlaneChange();
+        BallGrabAndThrow();
         if (Input.GetButtonDown("Reinicio"))
         {
             ReloadScene();
-        }
-        if (Input.GetButtonDown("Fire1"))
-        {
-
         }
 
         if (transform.position.y < -35)
@@ -94,6 +96,7 @@ public class PlayerSC : MonoBehaviour
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         runEnabled = planeMode != GameState.PlaneMode.Ghost;
+        canThrowBall = planeMode == GameState.PlaneMode.Ghost;
 
         switch (planeMode)
         {
@@ -104,5 +107,33 @@ public class PlayerSC : MonoBehaviour
             case GameState.PlaneMode.Demon:
                 break;
         }
+    }
+    private void BallGrabAndThrow()
+    {
+        if (!canThrowBall)
+        {
+            if (ball != null)
+                Destroy(ball);
+            return;
+        }
+
+        if (ball == null && ballCount > 0)
+        {
+            ball = Instantiate(ballPF, hand);
+            ball.GetComponent<Rigidbody>().isKinematic = true;
+        }
+
+        if (ball != null && Input.GetButtonDown("Fire1"))
+        {
+            ballCount--;
+            ball.transform.parent = null;
+            ball.GetComponent<Rigidbody>().isKinematic = false;
+            ball.GetComponent<Rigidbody>().AddForce(hand.transform.forward * ballThrowForce, ForceMode.Impulse);
+            ball = null;
+        }
+    }
+    public void PickupBalls()
+    {
+        ballCount = 3;
     }
 }
