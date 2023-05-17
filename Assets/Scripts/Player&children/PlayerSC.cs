@@ -12,6 +12,7 @@ public class PlayerSC : MonoBehaviour
     //[SerializeField] private float ghostPlaneJumpHeight = 1f;
     //[SerializeField] private float demonPlaneJumpHeight = 1f;
     [SerializeField] private float artificialGravity = 5f;
+    [SerializeField] private GameObject ballPF;
     private float jumpHeight = 2f;
     public GameState gameState;
     public Transform orientation;
@@ -36,6 +37,10 @@ public class PlayerSC : MonoBehaviour
         if (Input.GetButtonDown("Reinicio"))
         {
             ReloadScene();
+        }
+        if (Input.GetButtonDown("Fire1"))
+        {
+
         }
 
         if (transform.position.y < -35)
