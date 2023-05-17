@@ -17,7 +17,7 @@ public class RotateObject : MonoBehaviour
 
     public void FinalPosObject()
     {
-        GetComponentInChildren<BoxCollider>().enabled = true;
+        //GetComponentInChildren<BoxCollider>().enabled = true;
         if(gameObject.GetComponent<MeshRenderer>() != null)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = true;
@@ -26,6 +26,7 @@ public class RotateObject : MonoBehaviour
         {
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
         }
+        GetComponentInChildren<FollowObject>().enabled = true;
         Destroy(actualObject);
         this.enabled = false;
     }
@@ -93,7 +94,10 @@ public class RotateObject : MonoBehaviour
             //actualObject.transform.position = new Vector3(transform.position.x, closestPoint.y, transform.position.z);
         }
 
+
+
         actualObject.transform.rotation = transform.rotation;
+
 
         finalPos = actualObject.transform.position;
 
@@ -107,7 +111,7 @@ public class RotateObject : MonoBehaviour
         }
     }
 
-    /*void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 0)
         {
@@ -116,16 +120,8 @@ public class RotateObject : MonoBehaviour
                 transform.parent = collision.transform;
             }
         }
-            
-        print("colisione");
-        gameObject.layer = 6;
-
-        if (parent != null)
-        {
-            parent.layer = 6;
-        }
         
-    }*/
+    }
 
     public void Freeze()
     {

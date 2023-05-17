@@ -8,7 +8,7 @@ public class FollowObject : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     [SerializeField] float speed, rayDistance;
     [SerializeField] GameObject checker, parent;
-    bool ray;
+    bool ray, dontMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,50 +17,45 @@ public class FollowObject : MonoBehaviour
 
     void Update()
     {
-        if(checker != null)
-        {
-            checker.transform.rotation = transform.rotation;
-        }
-
-        if(checker != null)
-        {
-            ray = Physics.BoxCast(checker.GetComponent<Collider>().bounds.center, checker.transform.localScale, -transform.up, out hit, checker.transform.rotation, rayDistance, layerMask);
-        }
-        else
-        {
-            ray = Physics.BoxCast(GetComponent<Collider>().bounds.center, transform.localScale, -transform.up, out hit, transform.rotation, rayDistance, layerMask);
-        }
+        print(dontMove);
+        ray = Physics.BoxCast(checker.transform.position, checker.transform.localScale/2, -transform.up, out hit, transform.rotation, rayDistance, layerMask);
             
+        if (ray)
+            print(hit.collider.name);
+
         if (!ray)
         {
             transform.Translate(0, -speed * Time.deltaTime, 0);
+            parent.GetComponent<BoxCollider>().isTrigger = true;
 
         }
+        else if(ray && hit.collider == parent)
+        {
+            transform.Translate(0, -speed * Time.deltaTime, 0);
+        }
+        else
+        {
+            parent.GetComponent<BoxCollider>().isTrigger = false;
+
+            if (parent != null)
+            {
+                parent.layer = 6;
+            }
+            else
+            {
+                gameObject.layer = 6;
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     void OnDrawGizmos()
     {
-        if(checker != null)
-        {
-            Gizmos.DrawRay(checker.transform.position,-transform.up * rayDistance);
-        }
-        else
-        {
-            Gizmos.DrawRay(transform.position, -transform.up * rayDistance);
-        }
+        Gizmos.DrawRay(transform.position, -transform.up * rayDistance);
     }
 
-    void OnTriggerEnter(Collider collision)
-    {
-        print("colisione");
-        if (parent != null)
-        {
-            parent.layer = 6;
-        }
-        else
-        {
-            gameObject.layer = 6;
-        }
-
-    }
 }
