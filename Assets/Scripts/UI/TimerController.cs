@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
-    public float timeWait = 1000f;
+    public float timeWait = 100f;
     public float currTimeWait;
     public bool pickBooster = false;
     public Image image;

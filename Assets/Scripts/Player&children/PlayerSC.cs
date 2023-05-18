@@ -8,9 +8,6 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private Rigidbody playerRB;
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 8f;
-    //[SerializeField] private float dreamPlaneJumpHeight = 1f;
-    //[SerializeField] private float ghostPlaneJumpHeight = 1f;
-    //[SerializeField] private float demonPlaneJumpHeight = 1f;
     [SerializeField] private float artificialGravity = 5f;
     [SerializeField] private GameObject ballPF;
     [SerializeField] private float ballThrowForce = 5f;
@@ -28,8 +25,6 @@ public class PlayerSC : MonoBehaviour
 
     void Awake()
     {
-        //jumpHeight = dreamPlaneJumpHeight;
-
         ground = GetComponentInChildren<GroundCheck>();
         playerRB = GetComponent<Rigidbody>();
     }
@@ -113,6 +108,7 @@ public class PlayerSC : MonoBehaviour
                 break;
         }
     }
+    //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
     private void BallGrabAndThrow()
     {
         if (!canThrowBall)
@@ -121,7 +117,6 @@ public class PlayerSC : MonoBehaviour
                 Destroy(ball);
             return;
         }
-
         if (ball == null && ballCount > 0)
         {
             ball = Instantiate(ballPF, hand);
