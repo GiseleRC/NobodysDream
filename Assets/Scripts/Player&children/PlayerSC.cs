@@ -17,8 +17,8 @@ public class PlayerSC : MonoBehaviour
     public GameState gameState;
     public Transform orientation;
     private bool runEnabled = true;
+    public bool ballInHand = false;
     private bool canThrowBall = false;
-    public bool fireBall = false;
     private int ballCount = 0;
     private GameObject ball = null;
 
@@ -113,7 +113,7 @@ public class PlayerSC : MonoBehaviour
     //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
     private void BallGrabAndThrow()
     {
-        if (!canThrowBall)
+        if (!canThrowBall && ballInHand)
         {
             if (ball != null)
                 Destroy(ball);

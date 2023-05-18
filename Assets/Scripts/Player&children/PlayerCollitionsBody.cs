@@ -63,6 +63,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "BallBucket")
         {
             GetComponent<PlayerSC>().PickupBalls();
+            GetComponent<PlayerSC>().ballInHand = true;
         }
         else if (other.name == "BallPickable")
         {
