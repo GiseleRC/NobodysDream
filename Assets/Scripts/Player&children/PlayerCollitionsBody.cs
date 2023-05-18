@@ -60,7 +60,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             level1Enable.SetActive(false);
         }
-        else if (other.name == "BallBucket")
+        else if (other.name == "BallBucket" && GetComponent<PlayerSC>().canThrowBall)
         {
             GetComponent<PlayerSC>().PickupBalls();
             GetComponent<PlayerSC>().ballInHand = true;

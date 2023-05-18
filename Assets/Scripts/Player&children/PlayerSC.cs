@@ -18,7 +18,7 @@ public class PlayerSC : MonoBehaviour
     public Transform orientation;
     private bool runEnabled = true;
     public bool ballInHand = false;
-    private bool canThrowBall = false;
+    public bool canThrowBall = false;
     private int ballCount = 0;
     private GameObject ball = null;
 
