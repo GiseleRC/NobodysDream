@@ -7,6 +7,7 @@ public class Walls : MonoBehaviour
     [SerializeField] private GameObject[] walls;
     private Vector3[] wallsRestorePos;
     public AudioSource AmbientSound, FallingWalls;
+    [SerializeField] private GameObject sensor;
 
     private void Start()
     {
@@ -44,6 +45,7 @@ public class Walls : MonoBehaviour
         }
         AmbientSound.Play();
         FallingWalls.Play();
+        sensor.SetActive(false);
     }
     private void RestoreWalls()
     {
