@@ -20,7 +20,6 @@ public class Ball : MonoBehaviour
         if (currTimeWait >= timeWait)
         {
             Destroy(gameObject);
-            Debug.Log("Destruida");
         }
     }
 }
