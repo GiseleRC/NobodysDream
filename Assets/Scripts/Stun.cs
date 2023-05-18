@@ -30,6 +30,8 @@ public class Stun : MonoBehaviour
                 
             }
 
+            GetComponentInParent<FlashLight>().ActualBattery = 0;
+
 
             fl.gameObject.GetComponent<Light>().color = stunColor;
         }

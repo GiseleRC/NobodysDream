@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlashLight : MonoBehaviour
 {
     Light flashLight;
     public AudioSource flashLightOn, flashLightOff;
     public GameObject linterna;
-
-
     public float MinTime;
     public float MaxTime;
     public float Timer;
@@ -16,6 +15,9 @@ public class FlashLight : MonoBehaviour
     bool flicker;
     public bool hasFlashlight = false;
     bool canUseFlashlight = false;//pregunte si puede usar la linterna en el plano
+    [SerializeField] float maxBattery, dischargeAmount, baseDischargeAmount, rechargeAmount, rechargeAmountDeadBattery;
+    float actualBattery, flickerDuration, switchLight;
+    bool usingFL, canUseFL, batteryDead;
 
 
     public bool FlashLightEnabled
@@ -31,14 +33,52 @@ public class FlashLight : MonoBehaviour
         return flicker = flickerState;
     }
 
+    public float ActualBattery
+    {
+        get
+        {
+            return actualBattery;
+        }
+        set
+        {
+            actualBattery = value;
+        }
+    }
+
+    public float MaxBattery
+    {
+        get
+        {
+            return maxBattery;
+        }
+    }
+
+    public bool BatteryDead
+    {
+        get
+        {
+            return batteryDead;
+        }
+    }
+
     void Start()
     {
         flashLight = GetComponent<Light>();
         Timer = Random.Range(MinTime, MaxTime);
+        actualBattery = maxBattery;
     }
 
     void Update()
     {
+        if(!batteryDead && actualBattery > 0)
+        {
+            canUseFL = true;
+        }
+        else
+        {
+            canUseFL = false;
+        }
+
         if (hasFlashlight)
         {
             canUseFlashlight = hasFlashlight;
@@ -51,41 +91,60 @@ public class FlashLight : MonoBehaviour
         {
             flashLight.enabled = false;
         }
-        else if (Input.GetButtonDown("Flashlight"))
+        else if (Input.GetButtonDown("Flashlight") && canUseFL)
         {
             if (flashLight.enabled)
             {
                 flashLight.enabled = false;
                 flashLightOff.Play();
+                usingFL = false;
             }
             else
             {
+                usingFL = true;
                 flashLight.enabled = true;
                 flashLightOn.Play();
+                actualBattery -= baseDischargeAmount;
             }
         }
 
-        posibility = Random.Range(0f, 1f);
+        if (usingFL)
+        {
+            actualBattery -= dischargeAmount * Time.deltaTime;
+        }
 
-        if (flicker)
+        if (actualBattery <= 0)
         {
-            FlickerLight();
+            batteryDead = true;
         }
-    }
-    void FlickerLight()
-    {
-        if (Timer > 0)
+        else if (actualBattery > 0 && flashLight.enabled == false && actualBattery < maxBattery)
         {
-            Timer -= Time.deltaTime;
+            actualBattery += rechargeAmount * Time.deltaTime;
         }
-        if (posibility <= 0.01)
+
+        if(actualBattery > maxBattery)
         {
-            if (Timer <= 0)
+            actualBattery = maxBattery;
+        }
+
+        if (batteryDead)
+        {
+            usingFL = false;
+            flashLight.enabled = false;
+            actualBattery += rechargeAmountDeadBattery * Time.deltaTime;
+            if (actualBattery >= maxBattery)
             {
-                flashLight.enabled = !flashLight.enabled;
-                Timer = Random.Range(MinTime, MaxTime);
+                actualBattery = maxBattery;
+                batteryDead = false;
             }
         }
+
+        print(batteryDead);
+    }
+
+    void RechargeDeadBattery()
+    {
+
     }
 
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
