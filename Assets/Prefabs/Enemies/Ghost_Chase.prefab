@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialTimer: 2
-  maxDistanceForAttack: 4
+  maxDistanceForAttack: 5
   timer: 0
   GhostAttack: {fileID: 0}
 --- !u!114 &7988301793664745185
