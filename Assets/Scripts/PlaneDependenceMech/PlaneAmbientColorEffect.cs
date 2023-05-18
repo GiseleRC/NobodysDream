@@ -8,6 +8,7 @@ public class PlaneAmbientColorEffect : MonoBehaviour
     public GameObject ghostItems, IconGhostEnable, NewSpawnOBJ, trueSteps,IconLinternaOn, IconLinternaOff;
     private GameState.PlaneMode lastAppliedPlaneMode;
     private Color colorDreamPlane;
+    public AudioSource SwitchMode;
     [SerializeField, ColorUsageAttribute(true, true)] private Color colorGhostPlane;
     [SerializeField, ColorUsageAttribute(true, true)] private Color colorDemonPlane;
 
@@ -34,6 +35,7 @@ public class PlaneAmbientColorEffect : MonoBehaviour
                 IconGhostEnable.SetActive(false);
                 IconLinternaOn.SetActive(true);
                 IconLinternaOff.SetActive(false);
+                SwitchMode.Play();
                 //NewSpawnOBJ.SetActive(false);
                 break;
             case GameState.PlaneMode.Ghost:
@@ -41,6 +43,7 @@ public class PlaneAmbientColorEffect : MonoBehaviour
                 IconGhostEnable.SetActive(true);
                 IconLinternaOn.SetActive(false);
                 IconLinternaOff.SetActive(true);
+                SwitchMode.Play();
                 //NewSpawnOBJ.SetActive(true);
                 RenderSettings.ambientLight = colorGhostPlane;
                 break;
