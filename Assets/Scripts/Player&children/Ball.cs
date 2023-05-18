@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private float timeWait = 10f;
+    [SerializeField] private float timeWait = 0f;
     [SerializeField] private float currTimeWait;
     void Start()
     {
         currTimeWait = timeWait;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        currTimeWait += Time.deltaTime;
+        if (currTimeWait >= 10)
+        {
+            Destroy(this);
+        }
     }
 }
