@@ -22,7 +22,7 @@ public class FlaslightUI : MonoBehaviour
     {
         slider.value = flashlight.ActualBattery;
 
-        if (flashlight.BatteryDead || disableBool == false)
+        if (flashlight.BatteryDead || disableBool == true)
         {
             disable.SetActive(true);
         }
