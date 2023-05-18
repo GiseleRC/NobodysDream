@@ -36,7 +36,7 @@ public class TimerController : MonoBehaviour
         if (enemiesAttacking >= 1)
         {
             currTimeWait -= Time.deltaTime * 2;
-            image.color = Color.red;
+            image.color = Color.blue;
         }
         else
         {

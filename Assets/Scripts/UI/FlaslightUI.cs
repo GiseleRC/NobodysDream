@@ -8,6 +8,7 @@ public class FlaslightUI : MonoBehaviour
     Slider slider;
     FlashLight flashlight;
     [SerializeField] GameObject disable;
+    bool disableBool;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class FlaslightUI : MonoBehaviour
     {
         slider.value = flashlight.ActualBattery;
 
-        if (flashlight.BatteryDead)
+        if (flashlight.BatteryDead || disableBool == false)
         {
             disable.SetActive(true);
         }
@@ -29,5 +30,10 @@ public class FlaslightUI : MonoBehaviour
         {
             disable.SetActive(false);
         }
+    }
+
+    public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
+    {
+        disableBool = planeMode == GameState.PlaneMode.Dream;
     }
 }
