@@ -7,18 +7,24 @@ public class ghAttack : MonoBehaviour
     [SerializeField] float initialTimer, maxDistanceForAttack;
     float distance;
     public float timer;
-    public AudioSource GhostAttack;
+    public AudioSource GhostAttack, ClockSlow, ClockFast;
     // Start is called before the first frame update
 
     void OnEnable()
     {
         timer = initialTimer;
         GameObject.Find("TimerController").GetComponent<TimerController>().EnemiesAttacking = 1;
+        GhostAttack.Play();
+        ClockSlow.Stop();
+        ClockFast.Play();
     }
     void OnDisable()
     {
         GameObject.Find("TimerController").GetComponent<TimerController>().EnemiesAttacking = -1;
         gameObject.GetComponent<AIDecisions>().GhostAttack = false;
+        GhostAttack.Stop();
+        ClockSlow.Play();
+        ClockFast.Stop();
 
     }
 
@@ -31,7 +37,6 @@ public class ghAttack : MonoBehaviour
         if (distance > maxDistanceForAttack)
         {
             timer -= Time.deltaTime;
-            GhostAttack.Play();
         }
 
         if (timer <= 0)
