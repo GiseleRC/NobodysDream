@@ -18,6 +18,7 @@ public class PlayerSC : MonoBehaviour
     public Transform orientation;
     private bool runEnabled = true;
     private bool canThrowBall = false;
+    public bool fireBall = false;
     private int ballCount = 0;
     private GameObject ball = null;
 
@@ -35,6 +36,7 @@ public class PlayerSC : MonoBehaviour
     {
         Jump();
         PlaneChange();
+
         if (playerC.ballEnable)
         {
             BallGrabAndThrow();

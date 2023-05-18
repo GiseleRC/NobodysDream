@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private float timeWait = 0f;
-    [SerializeField] private float currTimeWait;
+    [SerializeField] private float timeWait = 5f;
+    private float currTimeWait;
     void Start()
     {
-        currTimeWait = timeWait;
+        currTimeWait = 0f;
     }
 
     void Update()
     {
+        if (transform.parent != null )
+            return;
         currTimeWait += Time.deltaTime;
-        if (currTimeWait >= 10)
+
+        if (currTimeWait >= timeWait)
         {
-            Destroy(this);
+            Destroy(gameObject);
+            Debug.Log("Destruida");
         }
     }
 }
