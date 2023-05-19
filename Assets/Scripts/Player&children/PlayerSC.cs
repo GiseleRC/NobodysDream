@@ -99,7 +99,6 @@ public class PlayerSC : MonoBehaviour
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         canThrowBall = planeMode == GameState.PlaneMode.Ghost;
-        canMaterialized = planeMode != GameState.PlaneMode.Ghost;
     }
     //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
     private void BallGrabAndThrow()
