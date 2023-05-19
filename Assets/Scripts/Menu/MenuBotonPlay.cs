@@ -27,15 +27,11 @@ public class MenuBotonPlay : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("CancelTutorial&Pause"))
         {
             Click.Play();
             controls.SetActive(false);
         }
-        if (Input.GetButtonDown("ClickIz"))
-        {
-            Click.Play();
-            controls.SetActive(false);
-        }
+        
     }
 }
