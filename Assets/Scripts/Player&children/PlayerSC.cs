@@ -8,21 +8,25 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private Rigidbody playerRB;
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 8f;
-    //[SerializeField] private float dreamPlaneJumpHeight = 1f;
-    //[SerializeField] private float ghostPlaneJumpHeight = 1f;
-    //[SerializeField] private float demonPlaneJumpHeight = 1f;
     [SerializeField] private float artificialGravity = 5f;
+    [SerializeField] private GameObject ballPF;
+    [SerializeField] private float ballThrowForce = 5f;
+    [SerializeField] private Transform hand;
+    public PlayerCollitionsBody playerC;
+    public MaterializeObjects mtSC;
     private float jumpHeight = 2f;
     public GameState gameState;
     public Transform orientation;
-    private bool runEnabled = true;
+    public bool ballInHand = false;
+    public bool canThrowBall = false;
+    public bool canMaterialized = false;
+    private int ballCount = 0;
+    private GameObject ball = null;
 
     GroundCheck ground;
 
     void Awake()
     {
-        //jumpHeight = dreamPlaneJumpHeight;
-
         ground = GetComponentInChildren<GroundCheck>();
         playerRB = GetComponent<Rigidbody>();
     }
@@ -33,6 +37,12 @@ public class PlayerSC : MonoBehaviour
     {
         Jump();
         PlaneChange();
+
+        if (playerC.ballEnable)
+        {
+            BallGrabAndThrow();
+        }
+
         if (Input.GetButtonDown("Reinicio"))
         {
             ReloadScene();
@@ -73,7 +83,7 @@ public class PlayerSC : MonoBehaviour
         Vector3 input = new Vector3(inputX, 0f, inputY);
         input.Normalize();
 
-        float speed = (runEnabled && Input.GetButton("Fire3")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
+        float speed = (Input.GetButton("Fire3")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
 
         Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
         transform.position += velocity;
@@ -88,16 +98,35 @@ public class PlayerSC : MonoBehaviour
     }
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
-        runEnabled = planeMode != GameState.PlaneMode.Ghost;
-
-        switch (planeMode)
+        canThrowBall = planeMode == GameState.PlaneMode.Ghost;
+        canMaterialized = planeMode != GameState.PlaneMode.Ghost;
+    }
+    //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
+    private void BallGrabAndThrow()
+    {
+        if (!canThrowBall && ballInHand)
         {
-            case GameState.PlaneMode.Dream:
-                break;
-            case GameState.PlaneMode.Ghost:
-                break;
-            case GameState.PlaneMode.Demon:
-                break;
+            if (ball != null)
+                Destroy(ball);
+            return;
         }
+        if (ball == null && ballCount > 0)
+        {
+            ball = Instantiate(ballPF, hand);
+            ball.GetComponent<Rigidbody>().isKinematic = true;
+        }
+
+        if (ball != null && Input.GetButtonDown("Fire1"))
+        {
+            ballCount--;
+            ball.transform.parent = null;
+            ball.GetComponent<Rigidbody>().isKinematic = false;
+            ball.GetComponent<Rigidbody>().AddForce(hand.transform.forward * ballThrowForce, ForceMode.Impulse);
+            ball = null;
+        }
+    }
+    public void PickupBalls()
+    {
+        ballCount = 3;
     }
 }

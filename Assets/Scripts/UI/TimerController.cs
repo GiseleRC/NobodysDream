@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
-    public float timeWait = 1000f;
+    public float timeWait = 100f;
     public float currTimeWait;
     public bool pickBooster = false;
     public Image image;
     public Slider time;
     public Transform playerSC;
     int enemiesAttacking;
+    public AudioSource clock;
+    public AudioClip clockSlow, clockFast;
 
     public int EnemiesAttacking
     {
@@ -28,21 +30,35 @@ public class TimerController : MonoBehaviour
 
     void Update()
     {
+        //print(enemiesAttacking);
         if (pickBooster)
         {
             currTimeWait += 50;
             pickBooster = false;
         }
+
         if (enemiesAttacking >= 1)
         {
             currTimeWait -= Time.deltaTime * 2;
-            image.color = Color.red;
+            image.color = Color.blue;
+            if (clock.clip != clockFast)
+            {
+                clock.clip = clockFast;
+                clock.Play();
+            }
+            
         }
         else
         {
             currTimeWait -= Time.deltaTime;
             image.color = Color.white;
+            if(clock.clip != clockSlow)
+            {
+                clock.clip = clockSlow;
+                clock.Play();
+            }
         }
+
         time.value = currTimeWait;
         if (currTimeWait <= 0)
         {

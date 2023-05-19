@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3267121509518385303}
   m_Layer: 12
   m_Name: checker
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,6 +174,7 @@ MonoBehaviour:
     m_Bits: 65
   finalPosObject: {fileID: 5885717844043559547, guid: 996e64be41554b642a944501fc0301de, type: 3}
   actualObject: {fileID: 0}
+  parent: {fileID: 0}
   cube: 1
 --- !u!54 &3043374784525011741
 Rigidbody:
@@ -198,16 +199,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5885717844043559547}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80dc90d2aa1702a44ab101a6d50b06bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 4161
+    m_Bits: 65
   speed: 9.8
+  rayDistance: 0.45
   checker: {fileID: 1129026931541379970}
+  parent: {fileID: 5885717844043559547}
 --- !u!1001 &242005899452813632
 PrefabInstance:
   m_ObjectHideFlags: 0

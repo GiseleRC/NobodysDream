@@ -8,8 +8,10 @@ public class TutorialPaperSC : MonoBehaviour
 
     public bool showPaper = false;
     public bool showTutorialMat = false;
+    public bool showTutorialGlasses = false;
+    public bool showTutorialBall = false;
     public float fillAmount = 1f;
-    public Image paperTutorial, tutorialMaterialized;
+    public Image tutorialFlashligth, tutorialMaterialized, tutorialGlasses, tutorialBall;
 
     public AudioSource closeTutorial;
 
@@ -17,27 +19,39 @@ public class TutorialPaperSC : MonoBehaviour
     {
         TutorialFlashligth(showPaper);
         TutorialMaterialized(showTutorialMat);
+        TutorialGlasses(showTutorialGlasses);
+        TutorialBall(showTutorialBall);
 
-        if (Input.GetButtonDown("Cancel") && showPaper == true)
+        if (Input.GetButtonDown("CancelTutorial&Pause") && showPaper == true)
         {
             closeTutorial.Play();
             showPaper = false;
         }
-        if (Input.GetButtonDown("Cancel") && showTutorialMat == true)
+        else if (Input.GetButtonDown("CancelTutorial&Pause") && showTutorialMat == true)
         {
             closeTutorial.Play();
             showTutorialMat = false;
+        }
+        else if (Input.GetButtonDown("CancelTutorial&Pause") && showTutorialGlasses == true)
+        {
+            closeTutorial.Play();
+            showTutorialGlasses = false;
+        }
+        else if (Input.GetButtonDown("CancelTutorial&Pause") && showTutorialBall == true)
+        {
+            closeTutorial.Play();
+            showTutorialBall = false;
         }
     }
     public void TutorialFlashligth(bool show)
     {
         if (show)
         {
-            paperTutorial.fillAmount += fillAmount * Time.deltaTime;
+            tutorialFlashligth.fillAmount += fillAmount * Time.deltaTime;
         }
         else
         {
-            paperTutorial.fillAmount -= fillAmount * Time.deltaTime;
+            tutorialFlashligth.fillAmount -= fillAmount * Time.deltaTime;
         }
     }
     public void TutorialMaterialized(bool show)
@@ -49,6 +63,28 @@ public class TutorialPaperSC : MonoBehaviour
         else
         {
             tutorialMaterialized.fillAmount -= fillAmount * Time.deltaTime;
+        }
+    }
+    public void TutorialGlasses(bool show)
+    {
+        if (show)
+        {
+            tutorialGlasses.fillAmount += fillAmount * Time.deltaTime;
+        }
+        else
+        {
+            tutorialGlasses.fillAmount -= fillAmount * Time.deltaTime;
+        }
+    }
+    public void TutorialBall(bool show)
+    {
+        if (show)
+        {
+            tutorialBall.fillAmount += fillAmount * Time.deltaTime;
+        }
+        else
+        {
+            tutorialBall.fillAmount -= fillAmount * Time.deltaTime;
         }
     }
 }

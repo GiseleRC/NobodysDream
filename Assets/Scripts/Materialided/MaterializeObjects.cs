@@ -24,7 +24,7 @@ public class MaterializeObjects : MonoBehaviour
         //tal vez se podriubicar dandole un rango  de distancia y si se pasa de ese rango ubicar el pre objeto
         RaycastHit hit;
 
-        bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 6f, layerMask);
+        bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 7f, layerMask);
 
         if (ray)
         {
@@ -32,7 +32,7 @@ public class MaterializeObjects : MonoBehaviour
         }
         else
         {
-            pos = camPos.transform.position + camPos.transform.forward * 6f;
+            pos = camPos.transform.position + camPos.transform.forward * 7f;
         }
 
         if (Input.GetButtonDown("Action1")) 
@@ -40,58 +40,11 @@ public class MaterializeObjects : MonoBehaviour
 
             if (!placingObject) // Spawnea
             {
-                spawnPosition.Play();
-                newObject = Instantiate(lastObjectCreated, pos, transform.rotation);
-                placingObject = true;
-                actualObject = newObject;
-                actualObject.transform.parent = gameObject.transform;
-                actualObject.transform.eulerAngles = new Vector3(actualObject.transform.eulerAngles.x, actualObject.transform.eulerAngles.y + 90, actualObject.transform.eulerAngles.z);
+                PrevSpawn();
             }
             else
             {
-                if (actualObject.tag == "Ruler")
-                {
-                    if (rulersActive.Count == 2)
-                    {
-                        Destroy(rulersActive[0]);
-                        rulersActive[0] = rulersActive[1];
-                        rulersActive[1] = actualObject;
-                    }
-                    else
-                    {
-                        rulersActive.Add(actualObject);
-                        objectCreated++;
-                    }
-                    lastObjectCreated = ruler;
-                }
-                else //Posiciona el item
-                {
-                    if (cubesActive.Count == 2)
-                    {
-                        Destroy(cubesActive[0]);
-                        cubesActive[0] = cubesActive[1];
-                        cubesActive[1] = actualObject;
-                    }
-                    else
-                    {
-                        cubesActive.Add(actualObject);
-                        objectCreated++;
-                    }
-                    lastObjectCreated = cube;
-                }
-
-                RotateObject ro;
-                ro = actualObject.GetComponent<RotateObject>();
-
-
-                actualObject.transform.parent = null;
-                actualObject.GetComponent<Collider>().isTrigger = false;
-                actualObject.transform.position = ro.FinalPos;
-                actualObject.GetComponent<RotateObject>().FinalPosObject();
-                //actualObject.GetComponent<RotateObject>().Spawn();
-                placingObject = false;
-
-
+                PlaceObject();
             }
         }
 
@@ -99,36 +52,15 @@ public class MaterializeObjects : MonoBehaviour
         {
             if (Input.GetButtonDown("SwitchItem")) //Cambia de item
             {
-                if(actualObject.tag == "Ruler")
-                {
-                    spawnObj.Play();
-                    actualObject.GetComponent<RotateObject>().CancelObject();
-                    Destroy(newObject);
-                    newObject = Instantiate(cube, pos, transform.rotation);
-                    actualObject = newObject;
-                    actualObject.transform.parent = gameObject.transform;
-                }
-                else
-                {
-                    spawnObj.Play();
-                    actualObject.GetComponent<RotateObject>().CancelObject();
-                    Destroy(newObject);
-                    newObject = Instantiate(ruler, pos, transform.rotation);
-                    actualObject = newObject;
-                    actualObject.transform.parent = gameObject.transform;
-                    actualObject.transform.eulerAngles = new Vector3(actualObject.transform.eulerAngles.x, actualObject.transform.eulerAngles.y + 90, actualObject.transform.eulerAngles.z);
-                }
+                SwitchItem();
             }
             fallObj.Play();
         }
 
         if(Input.GetButtonDown("Cancel") && placingObject) //Cancela
         {
-            actualObject.GetComponent<RotateObject>().CancelObject();
-            placingObject = false;
+            CancelObject();
         }
-
-        //print(hit.collider);
     }
 
     public Vector3 PosObject
@@ -139,8 +71,99 @@ public class MaterializeObjects : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.DrawRay(camPos.transform.position, camPos.transform.forward.normalized * 6f);
+    }*/
+
+    void PrevSpawn()
+    {
+        spawnPosition.Play();
+        newObject = Instantiate(lastObjectCreated, pos, transform.rotation);
+        placingObject = true;
+        actualObject = newObject;
+        actualObject.transform.parent = gameObject.transform;
+        actualObject.transform.eulerAngles = new Vector3(actualObject.transform.eulerAngles.x, actualObject.transform.eulerAngles.y + 90, actualObject.transform.eulerAngles.z);
+    }
+
+    void PlaceObject()
+    {
+        if (actualObject.tag == "Ruler")
+        {
+            if (rulersActive.Count == 2)
+            {
+                Destroy(rulersActive[0]);
+                rulersActive[0] = rulersActive[1];
+                rulersActive[1] = actualObject;
+            }
+            else
+            {
+                rulersActive.Add(actualObject);
+                objectCreated++;
+            }
+            lastObjectCreated = ruler;
+        }
+        else //Posiciona el item
+        {
+            if (cubesActive.Count == 2)
+            {
+                Destroy(cubesActive[0]);
+                cubesActive[0] = cubesActive[1];
+                cubesActive[1] = actualObject;
+            }
+            else
+            {
+                cubesActive.Add(actualObject);
+                objectCreated++;
+            }
+            lastObjectCreated = cube;
+        }
+
+        RotateObject ro;
+        ro = actualObject.GetComponent<RotateObject>();
+
+
+        actualObject.transform.parent = null;
+        if (actualObject.GetComponent<Collider>() != null)
+        {
+            actualObject.GetComponent<Collider>().isTrigger = false;
+        }
+        else
+        {
+            actualObject.GetComponentInChildren<Collider>().isTrigger = false;
+        }
+        actualObject.transform.position = ro.FinalPos;
+        actualObject.GetComponent<RotateObject>().FinalPosObject();
+        //actualObject.GetComponent<RotateObject>().Spawn();
+        placingObject = false;
+    }
+
+    void SwitchItem()
+    {
+        if (actualObject.tag == "Ruler")
+        {
+            spawnObj.Play();
+            actualObject.GetComponent<RotateObject>().CancelObject();
+            Destroy(newObject);
+            newObject = Instantiate(cube, pos, transform.rotation);
+            actualObject = newObject;
+            actualObject.transform.parent = gameObject.transform;
+        }
+        else
+        {
+            spawnObj.Play();
+            actualObject.GetComponent<RotateObject>().CancelObject();
+            Destroy(newObject);
+            newObject = Instantiate(ruler, pos, transform.rotation);
+            actualObject = newObject;
+            actualObject.transform.parent = gameObject.transform;
+            actualObject.transform.eulerAngles = new Vector3(actualObject.transform.eulerAngles.x, actualObject.transform.eulerAngles.y + 90, actualObject.transform.eulerAngles.z);
+        }
+    }
+
+    void CancelObject()
+    {
+            actualObject.GetComponent<RotateObject>().CancelObject();
+            placingObject = false;
     }
 }

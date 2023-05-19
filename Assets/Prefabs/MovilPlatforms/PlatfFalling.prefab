@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2680808594642639555
+--- !u!1 &584127834799491151
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2680808594642639554}
-  - component: {fileID: 2680808594642640191}
-  - component: {fileID: 2680808594642640188}
-  - component: {fileID: 2680808594642640185}
-  - component: {fileID: 2680808594642640184}
-  - component: {fileID: 2680808594642640187}
-  m_Layer: 6
-  m_Name: PlatfFalling
+  - component: {fileID: 238951945838269173}
+  - component: {fileID: 3818830460442320208}
+  - component: {fileID: 1376906711805979034}
+  m_Layer: 0
+  m_Name: CUboChocolate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2680808594642639554
+--- !u!4 &238951945838269173
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2680808594642639555}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.4200068, y: -9.23, z: 177.09001}
-  m_LocalScale: {x: 6.4822206, y: 0.6064607, z: 7.856525}
+  m_GameObject: {fileID: 584127834799491151}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: -0.5, z: 0}
+  m_LocalScale: {x: 0.0050592027, y: 0.021392366, z: 0.010028833}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2680808594642639554}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!33 &2680808594642640191
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!33 &3818830460442320208
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2680808594642639555}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2680808594642640188
+  m_GameObject: {fileID: 584127834799491151}
+  m_Mesh: {fileID: -4046118911417097833, guid: 9b32ca0fa44b85045acd2594398983e0, type: 3}
+--- !u!23 &1376906711805979034
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2680808594642639555}
+  m_GameObject: {fileID: 584127834799491151}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c854f70cdc72bf0418adedb2aceb7fae, type: 2}
+  - {fileID: 2100000, guid: a7958cac0f36a0c4dbd767b98444f014, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,6 +83,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2680808594642639555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2680808594642639554}
+  - component: {fileID: 2680808594642640185}
+  - component: {fileID: 2680808594642640184}
+  - component: {fileID: 2680808594642640187}
+  m_Layer: 6
+  m_Name: PlatfFalling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2680808594642639554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680808594642639555}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 4.4200068, y: -9.23, z: 177.09001}
+  m_LocalScale: {x: 6.4822206, y: 0.6064607, z: 7.856525}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 238951945838269173}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &2680808594642640185
 BoxCollider:
   m_ObjectHideFlags: 0

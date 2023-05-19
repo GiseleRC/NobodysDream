@@ -14,11 +14,14 @@ public class ghAttack : MonoBehaviour
     {
         timer = initialTimer;
         GameObject.Find("TimerController").GetComponent<TimerController>().EnemiesAttacking = 1;
+        GhostAttack.Play();
     }
     void OnDisable()
     {
         GameObject.Find("TimerController").GetComponent<TimerController>().EnemiesAttacking = -1;
         gameObject.GetComponent<AIDecisions>().GhostAttack = false;
+        GhostAttack.Stop();
+
 
     }
 
@@ -31,11 +34,11 @@ public class ghAttack : MonoBehaviour
         if (distance > maxDistanceForAttack)
         {
             timer -= Time.deltaTime;
-            GhostAttack.Play();
         }
 
         if (timer <= 0)
         {
+            print("disable");
             GetComponent<ghAttack>().enabled = false;
         }
     }
