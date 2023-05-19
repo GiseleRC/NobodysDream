@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlaneAmbientColorEffect : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject signWindowRight, disableWindow, IconGhostEnable, trueSteps,IconLinternaOn, IconLinternaOff;
+    public GameObject signWindowRight, disableWindow, IconGhostEnable, trueSteps, IconLinternaOn, IconLinternaOff;
+    public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
     private Color colorDreamPlane;
     public AudioSource SwitchMode;

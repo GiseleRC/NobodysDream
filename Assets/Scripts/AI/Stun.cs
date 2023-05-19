@@ -31,7 +31,7 @@ public class Stun : MonoBehaviour
             timeForStun = initialTimeForStun;
         }
 
-        print(timeForStun);
+        //print(timeForStun);
     }
 
     void OnTriggerStay(Collider other)

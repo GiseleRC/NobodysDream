@@ -49913,6 +49913,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1940499741}
     - target: {fileID: 691922695422852397, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: mtSC
+      value: 
+      objectReference: {fileID: 1769828745}
+    - target: {fileID: 691922695422852397, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: doorC
       value: 
       objectReference: {fileID: 1899438558}
@@ -55963,6 +55967,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eaeef40de99b7942bd6d634d3d456c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1769828745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4063438181940665769, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+  m_PrefabInstance: {fileID: 1455116961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769828706}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92620fc7e3cb2a147b2aa587e3cae73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1779725285
 GameObject:
   m_ObjectHideFlags: 0
@@ -60970,6 +60985,7 @@ MonoBehaviour:
   trueSteps: {fileID: 453960182}
   IconLinternaOn: {fileID: 243238847}
   IconLinternaOff: {fileID: 1679610282}
+  playerSC: {fileID: 1769828715}
   SwitchMode: {fileID: 2114164572}
   colorGhostPlane: {r: 0.22581004, g: 0.20879316, b: 0.6415094, a: 0.5019608}
   colorDemonPlane: {r: 0.6509434, g: 0.35924706, b: 0.35924706, a: 0.48235294}

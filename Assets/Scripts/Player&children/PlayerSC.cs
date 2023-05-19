@@ -13,12 +13,13 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private float ballThrowForce = 5f;
     [SerializeField] private Transform hand;
     public PlayerCollitionsBody playerC;
+    public MaterializeObjects mtSC;
     private float jumpHeight = 2f;
     public GameState gameState;
     public Transform orientation;
-    private bool runEnabled = true;
     public bool ballInHand = false;
     public bool canThrowBall = false;
+    public bool canMaterialized = false;
     private int ballCount = 0;
     private GameObject ball = null;
 
@@ -82,7 +83,7 @@ public class PlayerSC : MonoBehaviour
         Vector3 input = new Vector3(inputX, 0f, inputY);
         input.Normalize();
 
-        float speed = (runEnabled && Input.GetButton("Fire3")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
+        float speed = (Input.GetButton("Fire3")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
 
         Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
         transform.position += velocity;
@@ -97,19 +98,8 @@ public class PlayerSC : MonoBehaviour
     }
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
-        runEnabled = planeMode != GameState.PlaneMode.Ghost;
         canThrowBall = planeMode == GameState.PlaneMode.Ghost;
-
-        switch (planeMode)
-        {
-            case GameState.PlaneMode.Dream:
-                gameObject.GetComponent<MaterializeObjects>().enabled = playerC.canMaterialized;
-                break;
-            case GameState.PlaneMode.Ghost:
-                break;
-            case GameState.PlaneMode.Demon:
-                break;
-        }
+        canMaterialized = planeMode != GameState.PlaneMode.Ghost;
     }
     //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
     private void BallGrabAndThrow()

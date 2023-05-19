@@ -30,7 +30,7 @@ public class TimerController : MonoBehaviour
 
     void Update()
     {
-        print(enemiesAttacking);
+        //print(enemiesAttacking);
         if (pickBooster)
         {
             currTimeWait += 50;

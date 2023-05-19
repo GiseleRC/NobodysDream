@@ -139,7 +139,7 @@ public class FlashLight : MonoBehaviour
             }
         }
 
-        print(batteryDead);
+        //print(batteryDead);
     }
 
     void RechargeDeadBattery()

@@ -5773,6 +5773,7 @@ GameObject:
   - component: {fileID: 8166849483277595109}
   - component: {fileID: 8734371037959268166}
   - component: {fileID: 2507740949718719874}
+  - component: {fileID: 1927097810434656124}
   - component: {fileID: 15092383332247294}
   - component: {fileID: 691922695422852397}
   - component: {fileID: 4063438181940665769}
@@ -5838,6 +5839,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1927097810434656124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166849483277595108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0320ab500964b44aef6ea61c28bcd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSC: {fileID: 8166849483277595108}
 --- !u!114 &15092383332247294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5873,6 +5887,7 @@ MonoBehaviour:
   openTutorial: {fileID: 9172787260233978953}
   PickUp: {fileID: 0}
   ballEnable: 0
+  iHaveCap: 0
 --- !u!114 &691922695422852397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5893,10 +5908,12 @@ MonoBehaviour:
   ballThrowForce: 5
   hand: {fileID: 0}
   playerC: {fileID: 0}
+  mtSC: {fileID: 0}
   gameState: {fileID: 0}
   orientation: {fileID: 5579184150392987516}
   ballInHand: 0
   canThrowBall: 0
+  canMaterialized: 0
 --- !u!114 &4063438181940665769
 MonoBehaviour:
   m_ObjectHideFlags: 0
