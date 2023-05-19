@@ -291,8 +291,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunDuration: 5
+  intensityModifier: 15
+  startIntensity: 0
+  startAngle: 0
+  angleModifier: 15
+  timeForStun: 0.4
+  initialTimeForStun: 0
   standardColor: {r: 0.99215686, g: 0.87058824, b: 0.6392157, a: 0}
-  stunColor: {r: 0.16642933, g: 0.41509432, b: 0.26313236, a: 0.50980395}
+  stunColor: {r: 0.16642933, g: 0.41509432, b: 0.26313236, a: 0.3254902}
 --- !u!1 &3322943901203963114
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +450,11 @@ MonoBehaviour:
   Timer: 0
   posibility: 0
   hasFlashlight: 0
+  maxBattery: 0
+  dischargeAmount: 0
+  baseDischargeAmount: 0
+  rechargeAmount: 0
+  rechargeAmountDeadBattery: 0
 --- !u!82 &9139861461604076440
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5852,6 +5863,8 @@ MonoBehaviour:
   level2Enable: {fileID: 0}
   IconFantasma: {fileID: 0}
   level1Enable: {fileID: 0}
+  ballBucket: {fileID: 0}
+  IconFantasmaLinterna: {fileID: 0}
   glassesC: {fileID: 0}
   mapC: {fileID: 0}
   flashLightC: {fileID: 0}
@@ -5859,6 +5872,7 @@ MonoBehaviour:
   boosterC: {fileID: 0}
   openTutorial: {fileID: 9172787260233978953}
   PickUp: {fileID: 0}
+  ballEnable: 0
 --- !u!114 &691922695422852397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5876,9 +5890,13 @@ MonoBehaviour:
   runSpeed: 9
   artificialGravity: 5.5
   ballPF: {fileID: 0}
+  ballThrowForce: 5
   hand: {fileID: 0}
+  playerC: {fileID: 0}
   gameState: {fileID: 0}
   orientation: {fileID: 5579184150392987516}
+  ballInHand: 0
+  canThrowBall: 0
 --- !u!114 &4063438181940665769
 MonoBehaviour:
   m_ObjectHideFlags: 0
