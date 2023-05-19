@@ -20,11 +20,11 @@ public class Puzzle2 : MonoBehaviour
         {
             particle1.SetActive(true);
         }
-        else if (doorEnable2)
+        if (doorEnable2)
         {
             particle2.SetActive(true);
         }
-        else if (doorEnable3)
+        if (doorEnable3)
         {
             particle3.SetActive(true);
         }

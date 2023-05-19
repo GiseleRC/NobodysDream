@@ -17,12 +17,10 @@ public class Dianas : MonoBehaviour
             else if (gameObject.name == "Diana2")
             {
                 puzzle2.doorEnable2 = true;
-
             }
             else if (gameObject.name == "Diana3")
             {
                 puzzle2.doorEnable3 = true;
-
             }
 
         }
