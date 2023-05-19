@@ -103,6 +103,7 @@ public class PlayerSC : MonoBehaviour
         switch (planeMode)
         {
             case GameState.PlaneMode.Dream:
+                gameObject.GetComponent<MaterializeObjects>().enabled = playerC.canMaterialized;
                 break;
             case GameState.PlaneMode.Ghost:
                 break;

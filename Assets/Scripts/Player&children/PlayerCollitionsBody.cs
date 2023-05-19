@@ -12,6 +12,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     [SerializeField] private Collider glassesC, mapC, flashLightC, capC, boosterC;
     public AudioSource openTutorial, PickUp;
     public bool ballEnable = false;
+    public bool canMaterialized = false;
 
     private void OnTriggerEnter(Collider other)//hacerlo switch
     {
@@ -31,7 +32,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             cap.SetActive(false);
             door.SetActive(true);
             tutorialPaperBool.showTutorialMat = true;
-            gameObject.GetComponent<MaterializeObjects>().enabled = true;
+            canMaterialized = true;
             PickUp.Play();
         }
         else if (other == glassesC)
