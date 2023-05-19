@@ -954,6 +954,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1769828748}
+        m_TargetAssemblyTypeName: EnableMaterialized, Assembly-CSharp
+        m_MethodName: OnPlaneModeChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerSC: {fileID: 1769828706}
   playerSpawn: {fileID: 671613698}
   inicialPos: {fileID: 1584006290}
@@ -50048,6 +50060,10 @@ PrefabInstance:
       propertyPath: m_Shadows.m_Resolution
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1927097810434656124, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+      propertyPath: playerC
+      value: 
+      objectReference: {fileID: 1769828739}
     - target: {fileID: 2219538013026312101, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_LocalScale.x
       value: -0.1067924
@@ -55976,6 +55992,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92620fc7e3cb2a147b2aa587e3cae73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1769828748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1927097810434656124, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
+  m_PrefabInstance: {fileID: 1455116961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769828706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0320ab500964b44aef6ea61c28bcd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1779725285
