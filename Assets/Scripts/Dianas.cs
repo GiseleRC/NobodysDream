@@ -5,8 +5,7 @@ using UnityEngine;
 public class Dianas : MonoBehaviour
 {
     public Puzzle2 puzzle2;
-    public GameObject pivotBook;
-    public GameObject particle1, particle2, particle3;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Ball(Clone)")
@@ -14,7 +13,6 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Diana1")
             {
                 puzzle2.doorEnable1 = true;
-
             }
             else if (gameObject.name == "Diana2")
             {

@@ -10346,7 +10346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle2: {fileID: 428212820}
-  pivotBook: {fileID: 0}
 --- !u!4 &259466986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5717200327717602660, guid: 4b5426ce657c66048b6773cfea22efc7, type: 3}
@@ -10830,6 +10829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7538291151217991452, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8980930331210442608, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
       propertyPath: ShapeModule.enabled
       value: 0
@@ -10951,6 +10954,11 @@ PrefabInstance:
 --- !u!4 &269004405 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7194134749787571622, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
+  m_PrefabInstance: {fileID: 269004404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &269004406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7538291151217991452, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
   m_PrefabInstance: {fileID: 269004404}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &272090803
@@ -12204,6 +12212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7538291151217991452, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8980930331210442608, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
       propertyPath: ShapeModule.enabled
       value: 0
@@ -12309,6 +12321,11 @@ PrefabInstance:
 --- !u!4 &333725047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7194134749787571622, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
+  m_PrefabInstance: {fileID: 333725046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &333725048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7538291151217991452, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
   m_PrefabInstance: {fileID: 333725046}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &334705968
@@ -13656,6 +13673,9 @@ MonoBehaviour:
   doorEnable2: 0
   doorEnable3: 0
   wallDisable: {fileID: 625257980}
+  particle1: {fileID: 1761428946}
+  particle2: {fileID: 269004406}
+  particle3: {fileID: 333725048}
 --- !u!1 &433062720
 GameObject:
   m_ObjectHideFlags: 0
@@ -28285,15 +28305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787998224335977801, guid: c2952876f4876734d918d041b5644119, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.18
+      value: 8.62
       objectReference: {fileID: 0}
     - target: {fileID: 5787998224335977801, guid: c2952876f4876734d918d041b5644119, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.98
+      value: 10.7
       objectReference: {fileID: 0}
     - target: {fileID: 5787998224335977801, guid: c2952876f4876734d918d041b5644119, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.409996
+      value: 8.67
       objectReference: {fileID: 0}
     - target: {fileID: 5787998224335977801, guid: c2952876f4876734d918d041b5644119, type: 3}
       propertyPath: m_LocalRotation.w
@@ -40576,7 +40596,7 @@ GameObject:
   - component: {fileID: 1081240423}
   - component: {fileID: 1081240422}
   m_Layer: 13
-  m_Name: BallBucket (1)
+  m_Name: BallBucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41264,7 +41284,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle2: {fileID: 428212820}
-  pivotBook: {fileID: 0}
 --- !u!1 &1123609539
 GameObject:
   m_ObjectHideFlags: 0
@@ -58023,6 +58042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7538291151217991452, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8980930331210442608, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
       propertyPath: ShapeModule.enabled
       value: 0
@@ -58128,6 +58151,11 @@ PrefabInstance:
 --- !u!4 &1761428945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7194134749787571622, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
+  m_PrefabInstance: {fileID: 1761428944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1761428946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7538291151217991452, guid: 6cc2e784ee20349479c9a2c4f215e6a2, type: 3}
   m_PrefabInstance: {fileID: 1761428944}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1761673164
@@ -65651,7 +65679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148880673347}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.88, y: 2.9, z: -61.47}
+  m_LocalPosition: {x: 4.59, y: 1.28, z: -60.44}
   m_LocalScale: {x: 130.07004, y: 130.07004, z: 130.07004}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75851,7 +75879,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzle2: {fileID: 428212820}
-  pivotBook: {fileID: 0}
 --- !u!33 &3469287836642756781
 MeshFilter:
   m_ObjectHideFlags: 0
