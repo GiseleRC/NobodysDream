@@ -25,6 +25,7 @@ public class MenuBotonPlay : MonoBehaviour
         Application.Quit();
     }
 
+
     private void Update()
     {
         if (Input.GetButtonDown("CancelTutorial&Pause"))
