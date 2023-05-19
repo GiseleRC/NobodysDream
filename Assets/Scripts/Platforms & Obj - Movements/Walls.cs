@@ -17,7 +17,6 @@ public class Walls : MonoBehaviour
             wallsRestorePos[i] = walls[i].transform.localPosition;
         }
     }
-
     private void FixedUpdate()
     {
         for (int i = 0; i < walls.Length; i++)
