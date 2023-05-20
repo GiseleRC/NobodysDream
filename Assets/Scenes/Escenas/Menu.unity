@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controls: {fileID: 1301904095}
-  Click: {fileID: 347339252}
+  click: {fileID: 347339252}
 --- !u!4 &347339251
 Transform:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &347339252
 AudioSource:
@@ -180,10 +180,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a168f1cff99324b44b3855194da50cf5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3fa1c6998b388fb45847a500e2d5f93e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
-  m_Pitch: 1
+  m_Volume: 0.05
+  m_Pitch: 0.7
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -364,7 +364,7 @@ RectTransform:
   - {fileID: 1330142043}
   - {fileID: 1301904096}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -440,9 +440,9 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 816440795, guid: 033adc938cac4bd4c952e0adb4434979, type: 3}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 816440795, guid: 033adc938cac4bd4c952e0adb4434979, type: 3}
+    m_SelectedSprite: {fileID: 816440795, guid: 033adc938cac4bd4c952e0adb4434979, type: 3}
+    m_DisabledSprite: {fileID: -1446335657, guid: 07d10b6910fd82d49920aeaedb651ec6, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -626,7 +626,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 347339250}
         m_TargetAssemblyTypeName: MenuBotonPlay, Assembly-CSharp
-        m_MethodName: ExiGame
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1033,7 +1033,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1881954516
 GameObject:

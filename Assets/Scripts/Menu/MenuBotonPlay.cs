@@ -7,30 +7,26 @@ using UnityEngine.SceneManagement;
 public class MenuBotonPlay : MonoBehaviour
 {
     public GameObject controls;
-    public AudioSource Click;
-  public void ChangeSceneStart(string Level1)
+    public AudioSource click;
+    public void ChangeSceneStart(string Level1)
     {
         SceneManager.LoadScene(Level1);
-        Click.Play();
+        click.Play();
     }
-
     public void ShowControls()
     {
         controls.SetActive(true);
-        Click.Play();
+        click.Play();
     }
-
-    public void ExiGame()
+    public void ExitGame()
     {
         Application.Quit();
     }
-
-
     private void Update()
     {
         if (Input.GetButtonDown("CancelTutorial&Pause"))
         {
-            Click.Play();
+            click.Play();
             controls.SetActive(false);
         }
         
