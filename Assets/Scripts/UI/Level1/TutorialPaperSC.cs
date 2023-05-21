@@ -51,7 +51,7 @@ public class TutorialPaperSC : MonoBehaviour
             closeTutorial.Play();
             showTutorialRuller = false;
         }
-        else if (Input.GetButtonDown("CancelTutorial&Pause") && showTutorialCube == true)
+        else if (Input.GetButtonDown("Escape") && showTutorialCube == true)
         {
             closeTutorial.Play();
             showTutorialCube = false;

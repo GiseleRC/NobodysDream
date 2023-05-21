@@ -91,7 +91,7 @@ public class FlashLight : MonoBehaviour
         {
             flashLight.enabled = false;
         }
-        else if (Input.GetButtonDown("Flashlight") && canUseFL)
+        else if (Input.GetButtonDown("LeftClick") && canUseFL)
         {
             if (flashLight.enabled)
             {

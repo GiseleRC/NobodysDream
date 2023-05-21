@@ -8,7 +8,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject flashLigthArm, flashLightGM, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, cubePick;
+    public GameObject glassesGO, flashLigthArm, flashLightGM, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, cubePick;
     [SerializeField] private Collider capC, boosterC;
     public AudioSource openTutorial, PickUp;
     public bool ballEnable = false;
@@ -67,7 +67,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             tutorialPaperBool.showTutorialGlasses = true;//booleano del Script tutorial ANTEOJOS
             gameState.GhostPlaneModeEnabled = true;//Activa PLANE GHOST
 
-            other.gameObject.SetActive(false);//anteojos pickeable
+            glassesGO.SetActive(false);//anteojos pickeable
             IconFantasma.SetActive(true);//UI PLANE GHOST
             level2Enable.SetActive(true);//Se activa LEVEL2
 
@@ -105,6 +105,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (rullerEnable && cubeEnable && capEnable)
         {
             iHaveCap = true;//booleano cuando tiene la gorra
+            capEnable = false;
         }
     }
 }

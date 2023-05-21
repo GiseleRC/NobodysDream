@@ -7,9 +7,6 @@ public class EnableMaterialized : MonoBehaviour
     public PlayerCollitionsBody playerC;
     bool canUseMaterialized = false;
 
-    void Awake()
-    {
-    }
     void Update()
     {
         if (playerC.iHaveCap)

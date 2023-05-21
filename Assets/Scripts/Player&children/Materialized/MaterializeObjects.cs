@@ -34,9 +34,9 @@ public class MaterializeObjects : MonoBehaviour
             pos = camPos.transform.position + camPos.transform.forward * 7f;
         }
 
-        if (Input.GetButtonDown("Action1")) 
+        if (Input.GetButtonDown("RightClick")) 
         {
-
+            materializanding = true;
             if (!placingObject) // Spawnea
             {
                 PrevSpawn();
@@ -44,12 +44,18 @@ public class MaterializeObjects : MonoBehaviour
             else
             {
                 PlaceObject();
+                materializanding = false;
             }
         }
 
         if (placingObject)
         {
-            if (Input.GetButtonDown("SwitchItem")) //Cambia de item
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (scroll > 0f)
+            {
+                SwitchItem();
+            }
+            else if (scroll < 0f)
             {
                 SwitchItem();
             }
@@ -59,6 +65,11 @@ public class MaterializeObjects : MonoBehaviour
         if(Input.GetButtonDown("Escape") && placingObject) //Cancela
         {
             CancelObject();
+            materializanding = false;
+        }
+        else if (Input.GetButtonDown("Escape"))
+        {
+            materializanding = false;
         }
     }
 
@@ -121,7 +132,6 @@ public class MaterializeObjects : MonoBehaviour
         RotateObject ro;
         ro = actualObject.GetComponent<RotateObject>();
 
-
         actualObject.transform.parent = null;
         if (actualObject.GetComponent<Collider>() != null)
         {
@@ -162,7 +172,8 @@ public class MaterializeObjects : MonoBehaviour
 
     void CancelObject()
     {
-            actualObject.GetComponent<RotateObject>().CancelObject();
-            placingObject = false;
+        actualObject.GetComponent<RotateObject>().CancelObject();
+        placingObject = false;
+        materializanding = false;
     }
 }

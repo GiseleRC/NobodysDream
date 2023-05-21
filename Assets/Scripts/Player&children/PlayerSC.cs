@@ -115,7 +115,7 @@ public class PlayerSC : MonoBehaviour
             ball.GetComponent<Rigidbody>().isKinematic = true;
         }
 
-        if (ball != null && Input.GetButtonDown("Fire1"))
+        if (ball != null && Input.GetButtonDown("LeftClick"))
         {
             ballCount--;
             ball.transform.parent = null;
