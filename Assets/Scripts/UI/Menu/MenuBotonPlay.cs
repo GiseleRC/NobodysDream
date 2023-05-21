@@ -24,11 +24,10 @@ public class MenuBotonPlay : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButtonDown("CancelTutorial&Pause"))
+        if (Input.GetButtonDown("Escape"))
         {
             click.Play();
             controls.SetActive(false);
         }
-        
     }
 }

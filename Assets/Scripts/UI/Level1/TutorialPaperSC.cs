@@ -26,27 +26,27 @@ public class TutorialPaperSC : MonoBehaviour
         TutorialGlasses(showTutorialGlasses);
         TutorialBall(showTutorialBall);
 
-        if (Input.GetButtonDown("CancelTutorial&Pause") && showTuturialFlash == true)
+        if (Input.GetButtonDown("Escape") && showTuturialFlash == true)
         {
             closeTutorial.Play();
             showTuturialFlash = false;
         }
-        else if (Input.GetButtonDown("CancelTutorial&Pause") && showTutorialGlasses == true)
+        else if (Input.GetButtonDown("Escape") && showTutorialGlasses == true)
         {
             closeTutorial.Play();
             showTutorialGlasses = false;
         }
-        else if (Input.GetButtonDown("CancelTutorial&Pause") && showTutorialBall == true)
+        else if (Input.GetButtonDown("Escape") && showTutorialBall == true)
         {
             closeTutorial.Play();
             showTutorialBall = false;
         }
-        else if (Input.GetButtonDown("CancelTutorial&Pause") && showGuideTutorialPlane == true)// falta guia de boina
+        else if (Input.GetButtonDown("Escape") && showGuideTutorialPlane == true)// falta guia de boina
         {
             closeTutorial.Play();
             showGuideTutorialPlane = false;
         }
-        else if (Input.GetButtonDown("CancelTutorial&Pause") && showTutorialRuller == true)
+        else if (Input.GetButtonDown("Escape") && showTutorialRuller == true)
         {
             closeTutorial.Play();
             showTutorialRuller = false;

@@ -30,13 +30,14 @@ public class PlayerSC : MonoBehaviour
         ground = GetComponentInChildren<GroundCheck>();
         playerRB = GetComponent<Rigidbody>();
     }
-    void Start()
-    {
-    }
     private void Update()
     {
         Jump();
-        PlaneChange();
+
+        if (mtSC.materializanding == false)
+        {
+            PlaneChange();
+        }
 
         if (playerC.ballEnable)
         {
@@ -58,7 +59,6 @@ public class PlayerSC : MonoBehaviour
         PlayerMovement();
         playerRB.AddForce(Vector3.down * artificialGravity);
     }
-
     public void ReloadScene()
     {
         SceneManager.LoadScene("Level1");
@@ -83,7 +83,7 @@ public class PlayerSC : MonoBehaviour
         Vector3 input = new Vector3(inputX, 0f, inputY);
         input.Normalize();
 
-        float speed = (Input.GetButton("Fire3")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
+        float speed = (Input.GetButton("Left Shift")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
 
         Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
         transform.position += velocity;
