@@ -9,7 +9,7 @@ public class FlaslightUI : MonoBehaviour
     FlashLight flashlight;
     [SerializeField] GameObject disable;
     bool disableBool;
-    // Start is called before the first frame update
+
     void Start()
     {
         flashlight = GameObject.Find("Char").GetComponentInChildren<FlashLight>();
@@ -17,7 +17,6 @@ public class FlaslightUI : MonoBehaviour
         slider.maxValue = flashlight.MaxBattery;
     }
 
-    // Update is called once per frame
     void Update()
     {
         slider.value = flashlight.ActualBattery;
