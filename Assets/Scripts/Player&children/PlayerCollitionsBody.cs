@@ -8,58 +8,82 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject glasses, map, flashLigthArm, cap, flashLightPick, door, level2Enable, IconFantasma, level1Enable, ballBucket,IconFantasmaLinterna;
-    [SerializeField] private Collider glassesC, mapC, flashLightC, capC, boosterC;
+    public GameObject flashLigthArm, flashLightGM, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, cubePick;
+    [SerializeField] private Collider capC, boosterC;
     public AudioSource openTutorial, PickUp;
     public bool ballEnable = false;
     public bool iHaveCap = false;
+    private bool rullerEnable = false;
+    private bool cubeEnable = false;
+    private bool capEnable = false;
 
-    private void OnTriggerEnter(Collider other)//hacerlo switch
+    private void OnTriggerEnter(Collider other)
     {
-        if (other == flashLightC)
+        if (other.name == "Model&Collider")
         {
-            //openTutorial.Play();
-            tutorialPaperBool.showPaper = true;
-            flashLightSC.hasFlashlight = true;
-            flashLigthArm.SetActive(true);//brazo
-            flashLightPick.SetActive(false);//brazo
-            IconFantasmaLinterna.SetActive(true);
-            cap.SetActive(true);
-            PickUp.Play();
+            tutorialPaperBool.showTuturialFlash = true;//booleano del Script tutorial LINTERNA
+            flashLightSC.hasFlashlight = true;//booleano del Script flashligth
+
+            flashLightGM.SetActive(false);//linterna pickeable
+            flashLigthUI.SetActive(true);//UI de linterna
+            flashLigthArm.SetActive(true);//linterna del brazo
+            cap.SetActive(true);//Se activa boina
+
+            PickUp.Play();//Sonido de PICKEABLE
         }
-        else if (other == capC)
+        else if (other.name == "Boina")
         {
-            cap.SetActive(false);
-            door.SetActive(true);
-            tutorialPaperBool.showTutorialMat = true;
-            iHaveCap = true;
-            PickUp.Play();
+            //tutorialPaperBool.showGuideTutorialPlane = true;//booleano del Script guia de tutoriales BOINA/MODO
+            capEnable = true;
+
+            cap.SetActive(false);//Se desactiva boina
+            rullerPick.SetActive(true);//Se activa RULLER
+            cubePick.SetActive(true);//Se activa CUBE
+            door.SetActive(true);//Se activa puerta
+            IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
+
+            PickUp.Play();//Sonido de PICKEABLE
         }
-        else if (other == glassesC)
+        else if (other.name == "RulerPickeable")
         {
-            gameState.GhostPlaneModeEnabled = true;
-            tutorialPaperBool.showTutorialGlasses = true;
-            glasses.SetActive(false);
-            IconFantasma.SetActive(true);
-            level2Enable.SetActive(true);
-            map.SetActive(true);
-            PickUp.Play();
+            tutorialPaperBool.showTutorialRuller = true;//booleano del Script tutorial REGLA
+            rullerEnable = true;//booleano para I HAVE CAP
+
+            other.gameObject.SetActive(false);//ruller pickeable
+
+            PickUp.Play();//Sonido de PICKEABLE
         }
-        else if (other == mapC)
+        else if (other.name == "CubePickeable")
         {
-            map.SetActive(false);
-            //gameState.DemonPlaneModeEnabled = true;
-            PickUp.Play();
+            tutorialPaperBool.showTutorialCube = true;//booleano del Script tutorial CUBO
+            cubeEnable = true;//booleano para I HAVE CAP
+
+            other.gameObject.SetActive(false);//cube pickeable
+
+            PickUp.Play();//Sonido de PICKEABLE
+        }
+        else if (other.name == "Glasses")
+        {
+            tutorialPaperBool.showTutorialGlasses = true;//booleano del Script tutorial ANTEOJOS
+            gameState.GhostPlaneModeEnabled = true;//Activa PLANE GHOST
+
+            other.gameObject.SetActive(false);//anteojos pickeable
+            IconFantasma.SetActive(true);//UI PLANE GHOST
+            level2Enable.SetActive(true);//Se activa LEVEL2
+
+            PickUp.Play();//Sonido de PICKEABLE
         }
         else if (other.name == "zZz")
         {
-            other.gameObject.SetActive(false);
-            timerController.pickBooster = true;
-            PickUp.Play();
+            timerController.pickBooster = true;//booleano del Script TimerController
+
+            other.gameObject.SetActive(false);//Booster pickeable
+
+            PickUp.Play();//Sonido de PICKEABLE
         }
         else if (other.name == "SabanaLvl1Off")
         {
-            level1Enable.SetActive(false);
+            level1Enable.SetActive(false);//--------------------------no se esta aplicando
         }
         else if (other.name == "BallBucket" && GetComponent<PlayerSC>().canThrowBall)
         {
@@ -73,6 +97,14 @@ public class PlayerCollitionsBody : MonoBehaviour
             other.gameObject.SetActive(false);
             tutorialPaperBool.showTutorialBall = true;
             PickUp.Play();
+        }
+    }
+
+    private void Update()
+    {
+        if (rullerEnable && cubeEnable && capEnable)
+        {
+            iHaveCap = true;//booleano cuando tiene la gorra
         }
     }
 }
