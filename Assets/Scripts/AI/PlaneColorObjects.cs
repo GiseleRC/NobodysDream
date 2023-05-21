@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlaneColorObjects : MonoBehaviour
 {
     private Color colorDreamPlane;
+    public GameObject particles;
     [SerializeField] private Color colorGhostPlane;
     [SerializeField] private Color colorDemonPlane;
 
@@ -17,10 +18,12 @@ public class PlaneColorObjects : MonoBehaviour
         switch (planeMode)
         {
             case GameState.PlaneMode.Dream:
+                particles.SetActive(false);
                 foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
                     renderer.material.color = colorDreamPlane;
                 break;
             case GameState.PlaneMode.Ghost:
+                particles.SetActive(true);
                 foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
                     renderer.material.color = colorGhostPlane;
                 break;
