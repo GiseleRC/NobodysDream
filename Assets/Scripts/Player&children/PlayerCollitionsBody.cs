@@ -8,7 +8,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject glassesGO, flashLigthArm, flashLightGM, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, cubePick;
+    public GameObject glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, cubePick;
     [SerializeField] private Collider capC, boosterC;
     public AudioSource openTutorial, PickUp;
     public bool ballEnable = false;
@@ -24,7 +24,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             tutorialPaperBool.showTuturialFlash = true;//booleano del Script tutorial LINTERNA
             flashLightSC.hasFlashlight = true;//booleano del Script flashligth
 
-            flashLightGM.SetActive(false);//linterna pickeable
+            flashLightPickGO.SetActive(false);//linterna pickeable
             flashLigthUI.SetActive(true);//UI de linterna
             flashLigthArm.SetActive(true);//linterna del brazo
             cap.SetActive(true);//Se activa boina

@@ -7,7 +7,7 @@ public class FlashLight : MonoBehaviour
 {
     Light flashLight;
     public AudioSource flashLightOn, flashLightOff;
-    public GameObject linterna;
+    public GameObject flashLightModelGO;
     public float MinTime;
     public float MaxTime;
     public float Timer;
@@ -84,8 +84,7 @@ public class FlashLight : MonoBehaviour
             canUseFlashlight = hasFlashlight;
             hasFlashlight = false;
         }
-
-        linterna.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
+        flashLightModelGO.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
 
         if (!canUseFlashlight)
         {
@@ -122,7 +121,7 @@ public class FlashLight : MonoBehaviour
             actualBattery += rechargeAmount * Time.deltaTime;
         }
 
-        if(actualBattery > maxBattery)
+        if (actualBattery > maxBattery)
         {
             actualBattery = maxBattery;
         }
@@ -138,13 +137,7 @@ public class FlashLight : MonoBehaviour
                 batteryDead = false;
             }
         }
-
         //print(batteryDead);
-    }
-
-    void RechargeDeadBattery()
-    {
-
     }
 
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
