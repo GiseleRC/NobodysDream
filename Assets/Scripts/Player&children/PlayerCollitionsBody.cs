@@ -10,7 +10,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TutorialPaperSC tutorialPaperBool;
     public GameObject glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, cubePick;
     [SerializeField] private Collider capC, boosterC;
-    public AudioSource openTutorial, PickUp;
+    public AudioSource openTutorial, pickUp, booster;
     public bool ballEnable = false;
     public bool iHaveCap = false;
     private bool rullerEnable = false;
@@ -29,7 +29,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             flashLigthArm.SetActive(true);//linterna del brazo
             cap.SetActive(true);//Se activa boina
 
-            PickUp.Play();//Sonido de PICKEABLE
+            pickUp.Play();//Sonido de PICKEABLE
         }
         else if (other.name == "Boina")
         {
@@ -42,7 +42,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             door.SetActive(true);//Se activa puerta
             IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
 
-            PickUp.Play();//Sonido de PICKEABLE
+            pickUp.Play();//Sonido de PICKEABLE
         }
         else if (other.name == "RulerPickeable")
         {
@@ -51,7 +51,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 
             other.gameObject.SetActive(false);//ruller pickeable
 
-            PickUp.Play();//Sonido de PICKEABLE
+            pickUp.Play();//Sonido de PICKEABLE
         }
         else if (other.name == "CubePickeable")
         {
@@ -60,7 +60,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 
             other.gameObject.SetActive(false);//cube pickeable
 
-            PickUp.Play();//Sonido de PICKEABLE
+            pickUp.Play();//Sonido de PICKEABLE
         }
         else if (other.name == "Glasses")
         {
@@ -71,7 +71,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             IconFantasma.SetActive(true);//UI PLANE GHOST
             level2Enable.SetActive(true);//Se activa LEVEL2
 
-            PickUp.Play();//Sonido de PICKEABLE
+            pickUp.Play();//Sonido de PICKEABLE
         }
         else if (other.name == "zZz")
         {
@@ -79,7 +79,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 
             other.gameObject.SetActive(false);//Booster pickeable
 
-            PickUp.Play();//Sonido de PICKEABLE
+            booster.Play();//Sonido de PICKEABLE
         }
         else if (other.name == "SabanaLvl1Off")
         {
@@ -89,6 +89,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             GetComponent<PlayerSC>().PickupBalls();
             GetComponent<PlayerSC>().ballInHand = true;
+            pickUp.Play();
         }
         else if (other.name == "BallPickable")
         {
@@ -96,7 +97,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             ballBucket.SetActive(true);
             other.gameObject.SetActive(false);
             tutorialPaperBool.showTutorialBall = true;
-            PickUp.Play();
+            pickUp.Play();
         }
     }
 
