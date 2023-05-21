@@ -69,6 +69,7 @@ public class MaterializeObjects : MonoBehaviour
         }
         else if (Input.GetButtonDown("Escape"))
         {
+            CancelObject();
             materializanding = false;
         }
     }
