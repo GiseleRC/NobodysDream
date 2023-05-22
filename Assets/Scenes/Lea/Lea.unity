@@ -13551,6 +13551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968c793f34217434d96eeb5de95ada30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 0}
   colorGhostPlane: {r: 1, g: 0.9728836, b: 0, a: 1}
   colorDemonPlane: {r: 0.6792453, g: 0, b: 0, a: 0}
 --- !u!1 &467288699
@@ -18474,7 +18475,7 @@ Transform:
   - {fileID: 190223366}
   - {fileID: 753653245}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &718971011
 GameObject:
@@ -51955,6 +51956,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74a205ff769c2fb42b87c2e66f43e15d, type: 3}
+--- !u!1001 &1547536128
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 112417507514033943, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.023462
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.9915786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 175.67528
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053823235945095219, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865826160013687433, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
+      propertyPath: m_Name
+      value: BallPickable
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1428a13b9f4665445a49d3e86926f902, type: 3}
 --- !u!1 &1553036982
 GameObject:
   m_ObjectHideFlags: 0
@@ -56956,7 +57018,7 @@ Transform:
   - {fileID: 1439416792}
   - {fileID: 721000000}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1870775504
 PrefabInstance:
@@ -60864,6 +60926,7 @@ MonoBehaviour:
   trueSteps: {fileID: 453960182}
   IconLinternaOn: {fileID: 243238847}
   IconLinternaOff: {fileID: 1679610282}
+  playerSC: {fileID: 0}
   SwitchMode: {fileID: 2114164572}
   colorGhostPlane: {r: 0.22581004, g: 0.20879316, b: 0.6415094, a: 0.5019608}
   colorDemonPlane: {r: 0.6509434, g: 0.35924706, b: 0.35924706, a: 0.48235294}

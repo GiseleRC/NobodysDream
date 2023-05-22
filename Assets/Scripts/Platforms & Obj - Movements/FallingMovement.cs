@@ -20,7 +20,6 @@ public class FallingMovement : MonoBehaviour
     {
         if (startTimer)
         {
-            GetComponent<PlatformMove>().enabled = true;
             currentTimer += Time.deltaTime;
         }
 
@@ -32,7 +31,6 @@ public class FallingMovement : MonoBehaviour
         if (gameObject.transform.position.y <= -40)
         {
             startTimer = false;
-            GetComponent<PlatformMove>().enabled = false;
             currentTimer = 0;
             fallingVelocity = 0;
         }

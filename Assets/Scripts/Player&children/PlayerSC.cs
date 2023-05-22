@@ -22,6 +22,7 @@ public class PlayerSC : MonoBehaviour
     public bool canMaterialized = false;
     private int ballCount = 0;
     private GameObject ball = null;
+    GameObject ps;
 
     GroundCheck ground;
 
@@ -121,6 +122,7 @@ public class PlayerSC : MonoBehaviour
             ball.transform.parent = null;
             ball.GetComponent<Rigidbody>().isKinematic = false;
             ball.GetComponent<Rigidbody>().AddForce(hand.transform.forward * ballThrowForce, ForceMode.Impulse);
+            ball.transform.GetChild(0).gameObject.SetActive(true);
             ball = null;
         }
     }
