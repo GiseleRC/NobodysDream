@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0028074812, g: 0.00034389595, b: 0.000358455, a: 1}
+  m_IndirectSpecularColor: {r: 0.0028074826, g: 0.0003438963, b: 0.00035845523, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -80821,7 +80821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 691922695422852397, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 691922695422852397, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: flashLight
@@ -80981,7 +80981,7 @@ PrefabInstance:
       objectReference: {fileID: 1443927677}
     - target: {fileID: 4063438181940665769, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4063438181940665769, guid: 9497e1f866898664bb72be078894aaf1, type: 3}
       propertyPath: materializanding
@@ -106333,7 +106333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1455116961}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769828706}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c316e1a6b61769a488f1ea7af0410482, type: 3}
   m_Name: 
