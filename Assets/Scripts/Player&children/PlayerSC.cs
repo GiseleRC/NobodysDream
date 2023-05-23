@@ -9,12 +9,14 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float artificialGravity = 5f;
+    [SerializeField] private float ballReloadTime = 1f;
     [SerializeField] private GameObject ballPF;
     [SerializeField] private float ballThrowForce = 5f;
     [SerializeField] private Transform hand;
     public PlayerCollitionsBody playerC;
     public MaterializeObjects mtSC;
     private float jumpHeight = 2f;
+    private float ballReload = 0f;
     public GameState gameState;
     public Transform orientation;
     public bool ballInHand = false;
@@ -112,13 +114,18 @@ public class PlayerSC : MonoBehaviour
         }
         if (ball == null && ballCount > 0)
         {
-            ball = Instantiate(ballPF, hand);
-            ball.GetComponent<Rigidbody>().isKinematic = true;
+            if (ballReload < ballReloadTime)
+                ballReload += Time.deltaTime;
+            else
+            {
+                ball = Instantiate(ballPF, hand);
+                ball.GetComponent<Rigidbody>().isKinematic = true;
+            }
         }
-
         if (ball != null && Input.GetButtonDown("LeftClick"))
         {
             ballCount--;
+            ballReload = 0f;
             ball.transform.parent = null;
             ball.GetComponent<Rigidbody>().isKinematic = false;
             ball.GetComponent<Rigidbody>().AddForce(hand.transform.forward * ballThrowForce, ForceMode.Impulse);

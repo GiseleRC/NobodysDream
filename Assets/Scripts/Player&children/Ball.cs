@@ -22,4 +22,9 @@ public class Ball : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Estoy colisionando con " + collision.gameObject.name);  
+    }
 }
