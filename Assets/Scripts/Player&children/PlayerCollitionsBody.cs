@@ -77,7 +77,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             timerController.pickBooster = true;//booleano del Script TimerController
 
-            Instantiate(collectPickeable, other.gameObject.transform.position, other.gameObject.transform.rotation);
+            Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
             other.gameObject.SetActive(false);//Booster pickeable
 
             booster.Play();//Sonido de PICKEABLE
