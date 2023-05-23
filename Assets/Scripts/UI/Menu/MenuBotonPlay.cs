@@ -8,6 +8,7 @@ public class MenuBotonPlay : MonoBehaviour
 {
     public GameObject controls;
     public AudioSource click;
+    bool controlsTutorial;
     public void ChangeSceneStart(string Level1)
     {
         SceneManager.LoadScene(Level1);
@@ -17,6 +18,14 @@ public class MenuBotonPlay : MonoBehaviour
     {
         controls.SetActive(true);
         click.Play();
+    }
+    public void HideControls()
+    {
+        if(controls.activeInHierarchy)
+        {
+            controls.SetActive(false);
+            click.Play();
+        }
     }
     public void ExitGame()
     {

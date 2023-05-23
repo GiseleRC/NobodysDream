@@ -8,7 +8,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, cubePick;
+    public GameObject glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, cubePick, collectPickeable;
     [SerializeField] private Collider capC, boosterC;
     public AudioSource openTutorial, pickUp, booster;
     public bool ballEnable = false;
@@ -77,6 +77,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             timerController.pickBooster = true;//booleano del Script TimerController
 
+            Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
             other.gameObject.SetActive(false);//Booster pickeable
 
             booster.Play();//Sonido de PICKEABLE
