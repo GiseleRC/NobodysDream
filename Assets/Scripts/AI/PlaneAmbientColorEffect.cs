@@ -5,20 +5,20 @@ using UnityEngine;
 public class PlaneAmbientColorEffect : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject signWindowRight, disableWindow, IconGhostEnable, trueSteps, IconLinternaOn, IconLinternaOff;
+    public GameObject sensorFalse, sensorTrue, IconGhostEnable, trueSteps, IconLinternaOn, IconLinternaOff;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
-    private Color colorDreamPlane;
+    //private Color colorDreamPlane;
     public AudioSource SwitchMode;
-    [SerializeField, ColorUsageAttribute(true, true)] private Color colorGhostPlane;
-    [SerializeField, ColorUsageAttribute(true, true)] private Color colorDemonPlane;
+    //[SerializeField, ColorUsageAttribute(true, true)] private Color colorGhostPlane;
+    //[SerializeField, ColorUsageAttribute(true, true)] private Color colorDemonPlane;
 
     void Awake()
     {
         gameState = FindObjectOfType<GameState>();
         lastAppliedPlaneMode = gameState.GetPlaneMode();
 
-        colorDreamPlane = RenderSettings.ambientLight;//lo que estoy queriendo cambiar guardandolo, valor inicial del mundo de los sueños
+        //colorDreamPlane = RenderSettings.ambientLight;//lo que estoy queriendo cambiar guardandolo, valor inicial del mundo de los sueños
     }
     void Update()
     {
@@ -31,25 +31,23 @@ public class PlaneAmbientColorEffect : MonoBehaviour
         switch (currAppliedPlaneMode)
         {
             case GameState.PlaneMode.Dream:
-                RenderSettings.ambientLight = colorDreamPlane;
-                signWindowRight.SetActive(false);
-                disableWindow.SetActive(true);
+                //RenderSettings.ambientLight = colorDreamPlane;
                 IconGhostEnable.SetActive(false);
                 IconLinternaOn.SetActive(true);
                 IconLinternaOff.SetActive(false);
                 SwitchMode.Play();
                 break;
             case GameState.PlaneMode.Ghost:
-                signWindowRight.SetActive(true);
-                disableWindow.SetActive(false);
+                sensorFalse.SetActive(false);
+                sensorTrue.SetActive(true);
                 IconGhostEnable.SetActive(true);
                 IconLinternaOn.SetActive(false);
                 IconLinternaOff.SetActive(true);
                 SwitchMode.Play();
-                RenderSettings.ambientLight = colorGhostPlane;
+                //RenderSettings.ambientLight = colorGhostPlane;
                 break;
             case GameState.PlaneMode.Demon:
-                RenderSettings.ambientLight = colorDemonPlane;
+                //RenderSettings.ambientLight = colorDemonPlane;
                 break;
         }
     }

@@ -1069,6 +1069,7 @@ MonoBehaviour:
   flashLigthUI: {fileID: 0}
   rullerPick: {fileID: 0}
   cubePick: {fileID: 0}
+  collectPickeable: {fileID: 879996424598425317, guid: eb9158d471985f34f89f538c5f38c54d, type: 3}
   capC: {fileID: 0}
   boosterC: {fileID: 0}
   openTutorial: {fileID: 9172787260233978953}
@@ -1092,6 +1093,7 @@ MonoBehaviour:
   walkSpeed: 6
   runSpeed: 9
   artificialGravity: 5.5
+  ballReloadTime: 0.1
   ballPF: {fileID: 6865826160013687433, guid: 01a4f54d5a2331141b89bab8bb9d156e, type: 3}
   ballThrowForce: 5
   hand: {fileID: 9130373160256011350}
