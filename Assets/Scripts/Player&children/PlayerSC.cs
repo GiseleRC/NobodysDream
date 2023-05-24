@@ -22,7 +22,8 @@ public class PlayerSC : MonoBehaviour
     public bool ballInHand = false;
     public bool canThrowBall = false;
     public bool canMaterialized = false;
-    private int ballCount = 0;
+    public int ballCount = 0;
+    public int currBallsInHand;
     private GameObject ball = null;
     GameObject ps;
 
@@ -35,6 +36,7 @@ public class PlayerSC : MonoBehaviour
     }
     private void Update()
     {
+        currBallsInHand = ballCount;
         Jump();
 
         if (mtSC.materializanding == false)
@@ -106,6 +108,7 @@ public class PlayerSC : MonoBehaviour
     //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
     private void BallGrabAndThrow()
     {
+        
         if (!canThrowBall && ballInHand)
         {
             if (ball != null)
@@ -131,10 +134,15 @@ public class PlayerSC : MonoBehaviour
             ball.GetComponent<Rigidbody>().AddForce(hand.transform.forward * ballThrowForce, ForceMode.Impulse);
             ball.transform.GetChild(0).gameObject.SetActive(true);
             ball = null;
+            currBallsInHand = ballCount;
+            Debug.Log(" A tiraR, Tengo " + currBallsInHand + " pelotas de " + ballCount);
         }
+        
     }
     public void PickupBalls()
     {
         ballCount = 3;
+        currBallsInHand = ballCount;
+        Debug.Log(" A la agarrar, Tengo " + currBallsInHand + " pelotas de " + ballCount);
     }
 }
