@@ -9,11 +9,13 @@ public class TutorialPaperSC : MonoBehaviour
     public bool showTuturialFlash = false;
     public bool showTutorialGlasses = false;
     public bool showTutorialBall = false;
-    public bool showTutorialCube = false;
-    public bool showTutorialRuller = false;
+    public bool showTutorialMat2 = false;
+    public bool showTutorialMat1 = false;
+    private bool nextTutorial = false;
     public bool showGuideTutorialPlane = false;
+    private float timeDelay = 1f;
     public float fillAmount = 1f;
-    public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialCube, tutorialRuller/*, guideTutorialPlane*/;
+    public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1/*, guideTutorialPlane*/;
 
     public AudioSource closeTutorial;
 
@@ -21,10 +23,10 @@ public class TutorialPaperSC : MonoBehaviour
     {
         TutorialFlashligth(showTuturialFlash);
         //GuideTutorialPlane(showGuideTutorialPlane);
-        TutorialRuller(showTutorialRuller);
-        TutorialCube(showTutorialCube);
+        TutorialMaterialized1(showTutorialMat1);
         TutorialGlasses(showTutorialGlasses);
         TutorialBall(showTutorialBall);
+        TutorialMaterialized2(showTutorialMat2);
 
         if (Input.GetButtonDown("Escape") && showTuturialFlash == true)
         {
@@ -46,16 +48,29 @@ public class TutorialPaperSC : MonoBehaviour
             closeTutorial.Play();
             showGuideTutorialPlane = false;
         }
-        else if (Input.GetButtonDown("Escape") && showTutorialRuller == true)
+        else if (Input.GetButtonDown("Escape") && showTutorialMat1 == true)
         {
             closeTutorial.Play();
-            showTutorialRuller = false;
+            showTutorialMat1 = false;
+            nextTutorial = true;
         }
-        else if (Input.GetButtonDown("Escape") && showTutorialCube == true)
+        else if (Input.GetButtonDown("Escape") && showTutorialMat2 == true)
         {
             closeTutorial.Play();
-            showTutorialCube = false;
+            showTutorialMat2 = false;
         }
+
+        if (nextTutorial)
+        {
+            timeDelay -= Time.deltaTime;
+            if (timeDelay <= 0f)
+            {
+                showTutorialMat2 = true;
+                nextTutorial = false;
+                timeDelay = 2f;
+            }
+        }
+
     }
     public void TutorialFlashligth(bool show)
     {
@@ -101,26 +116,26 @@ public class TutorialPaperSC : MonoBehaviour
             //guideTutorialPlane.fillAmount -= fillAmount * Time.deltaTime;// falta guia de boina
         }
     }
-    public void TutorialRuller(bool show)
+    public void TutorialMaterialized1(bool show)
     {
         if (show)
         {
-            tutorialRuller.fillAmount += fillAmount * Time.deltaTime;
+            tutorialMat1.fillAmount += fillAmount * Time.deltaTime;
         }
         else
         {
-            tutorialRuller.fillAmount -= fillAmount * Time.deltaTime;
+            tutorialMat1.fillAmount -= fillAmount * Time.deltaTime;
         }
     }
-    public void TutorialCube(bool show)
+    public void TutorialMaterialized2(bool show)
     {
         if (show)
         {
-            tutorialCube.fillAmount += fillAmount * Time.deltaTime;
+            tutorialMat2.fillAmount += fillAmount * Time.deltaTime;
         }
         else
         {
-            tutorialCube.fillAmount -= fillAmount * Time.deltaTime;
+            tutorialMat2.fillAmount -= fillAmount * Time.deltaTime;
         }
     }
 }

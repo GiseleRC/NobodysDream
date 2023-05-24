@@ -59,15 +59,15 @@ MonoBehaviour:
   showTuturialFlash: 0
   showTutorialGlasses: 0
   showTutorialBall: 0
-  showTutorialCube: 0
-  showTutorialRuller: 0
+  showTutorialMat2: 0
+  showTutorialMat1: 0
   showGuideTutorialPlane: 0
   fillAmount: 2
   tutorialFlashligth: {fileID: 212250773431794796}
   tutorialGlasses: {fileID: 6255173559883816835}
   tutorialBall: {fileID: 3514850068939007784}
-  tutorialCube: {fileID: 0}
-  tutorialRuller: {fileID: 0}
+  tutorialMat2: {fileID: 7009767363879628273}
+  tutorialMat1: {fileID: 4647214484049930196}
   closeTutorial: {fileID: 7830367353651036439}
 --- !u!82 &7830367353651036439
 AudioSource:
@@ -200,7 +200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18536614, y: 0}
   m_AnchorMax: {x: 0.91426784, y: 1}
-  m_AnchoredPosition: {x: -36.00006, y: -2}
+  m_AnchoredPosition: {x: -36.000122, y: -2}
   m_SizeDelta: {x: 1552, y: 1296}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &212250773431794795
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 1069710488981652878}
   - component: {fileID: 4647214484049930196}
   m_Layer: 5
-  m_Name: RullerPaper
+  m_Name: TutorialMat1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,7 +276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.9996948, y: 14.5}
+  m_AnchoredPosition: {x: -0.99975586, y: 14.5}
   m_SizeDelta: {x: 1338, y: 1279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1069710488981652878
@@ -352,7 +352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.9996948, y: 14.5}
+  m_AnchoredPosition: {x: -0.99975586, y: 14.5}
   m_SizeDelta: {x: 1338, y: 1279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2818434621168380924
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 771542731996369930}
   - component: {fileID: 7009767363879628273}
   m_Layer: 5
-  m_Name: CubePaper
+  m_Name: TutorialMat2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,7 +459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.9996948, y: 14.5}
+  m_AnchoredPosition: {x: -0.99975586, y: 14.5}
   m_SizeDelta: {x: 1338, y: 1279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &771542731996369930

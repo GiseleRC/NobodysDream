@@ -32,7 +32,10 @@ public class PlaneAmbientColorEffect : MonoBehaviour
         {
             case GameState.PlaneMode.Dream:
                 //RenderSettings.ambientLight = colorDreamPlane;
-                canvasBallCount.SetActive(false);
+                if (playerSC.ballInHand)
+                {
+                    canvasBallCount.SetActive(false);
+                }
                 IconGhostEnable.SetActive(false);
                 IconLinternaOn.SetActive(true);
                 IconLinternaOff.SetActive(false);
