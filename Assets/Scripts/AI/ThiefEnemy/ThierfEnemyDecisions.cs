@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class ThierfEnemyDecisions : MonoBehaviour
 {
-    Transform characterPos;
+    Transform characterPos, objectPos;
     [SerializeField] float viewDistance;
     protected NavMeshAgent nma;
     float distance;
     GameState gameState;
-    bool enemyStunned;
+    bool enemyStunned, objectToSteal;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,14 @@ public class ThierfEnemyDecisions : MonoBehaviour
         get
         {
             return characterPos;
+        }
+    }    
+    
+    public Transform ObjectPos
+    {
+        get
+        {
+            return objectPos;
         }
     }
 
@@ -60,22 +68,45 @@ public class ThierfEnemyDecisions : MonoBehaviour
                 {
                     gameObject.GetComponent<Patrol>().enabled = false;
                 }
-
             }
             else
             {
                 gameObject.GetComponent<StayPos>().enabled = false;
                 if (!enemyStunned)
                 {
-                    gameObject.GetComponent<Patrol>().enabled = true;
+                    if (objectToSteal)
+                    {
+                        GetComponent<MoveToMatObject>().enabled = true;
+                        GetComponent<Patrol>().enabled = false;
+
+                    }
+                    else
+                    {
+                        GetComponent<Patrol>().enabled = true;
+                        GetComponent<MoveToMatObject>().enabled = false;
+                    }
                 }
 
                 if (enemyStunned)
                 {
-                    gameObject.GetComponent<Stunned>().enabled = true;
-                    gameObject.GetComponent<Patrol>().enabled = false;
+                    GetComponent<Stunned>().enabled = true;
+                    GetComponent<Patrol>().enabled = false;
+                    GetComponent<MoveToMatObject>().enabled = false;
                 }
             }
+        }
+    }
+
+    public void CheckPosObject(Transform pos)
+    {
+        print("ejecute");
+        NavMeshPath navMeshStatus = new NavMeshPath();
+        nma.CalculatePath(pos.position, navMeshStatus);
+
+        if (navMeshStatus.status == NavMeshPathStatus.PathComplete)
+        {
+            objectToSteal = true;
+            objectPos = pos;
         }
     }
 }

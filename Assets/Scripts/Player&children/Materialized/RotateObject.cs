@@ -26,6 +26,14 @@ public class RotateObject : MonoBehaviour
         {
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
         }
+
+        var thiefs = FindObjectsOfType<ThierfEnemyDecisions>();
+
+        foreach (var thief in thiefs)
+        {
+            thief.CheckPosObject(transform);
+        }
+
         GetComponentInChildren<FollowObject>().enabled = true;
         Destroy(actualObject);
         this.enabled = false;

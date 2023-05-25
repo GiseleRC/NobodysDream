@@ -36,6 +36,7 @@ public class PlayerSC : MonoBehaviour
     }
     private void Update()
     {
+
         currBallsInHand = ballCount;
         Jump();
 
