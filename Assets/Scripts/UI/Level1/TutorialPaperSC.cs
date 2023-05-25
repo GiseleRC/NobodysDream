@@ -13,7 +13,7 @@ public class TutorialPaperSC : MonoBehaviour
     public bool showTutorialMat1 = false;
     private bool nextTutorial = false;
     public bool showGuideTutorialPlane = false;
-    private float timeDelay = 1f;
+    private float timeDelay = 0.5f;
     public float fillAmount = 1f;
     public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1/*, guideTutorialPlane*/;
 
