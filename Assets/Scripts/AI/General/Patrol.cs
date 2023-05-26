@@ -17,7 +17,10 @@ public class Patrol : MonoBehaviour
             nma = GetComponent<NavMeshAgent>();
         }
         nma.SetDestination(patrolPoints[currentPoint].position);
-        nma.speed = 3.5f;
+        if (gameObject.tag != "Thief") 
+        {
+            nma.speed = 3.5f;  
+        }
         if (whiteEyes != null)
         {
             GameObject.Find("PM3D_Sphere3D1").GetComponent<MeshRenderer>().material = whiteEyes;

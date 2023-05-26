@@ -38,7 +38,6 @@ public class ghAttack : MonoBehaviour
 
         if (timer <= 0)
         {
-            print("disable");
             GetComponent<ghAttack>().enabled = false;
         }
     }
