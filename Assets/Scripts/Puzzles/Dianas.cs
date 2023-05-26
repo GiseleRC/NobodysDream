@@ -6,7 +6,7 @@ public class Dianas : MonoBehaviour
 {
     public Puzzle2 puzzle2;
     public Puzzle3 puzzle3;
-    public GameObject tabGO, firstPos;
+    public GameObject tabGO, firstPos, facesGO1, facesGO2, facesGO3;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,14 +28,17 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Nose1")
             {
                 puzzle3.showGuess1 = true;
+                facesGO1.transform.Rotate(0, 180, 0);
             }
             if (gameObject.name == "Nose2")
             {
                 puzzle3.showGuess2 = true;
+                facesGO2.transform.Rotate(0, 180, 0);
             }
             if (gameObject.name == "Nose3")
             {
                 puzzle3.showGuess3 = true;
+                facesGO3.transform.Rotate(0, 180, 0);
             }
 
             if (gameObject.name == "Option1")
