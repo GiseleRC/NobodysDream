@@ -13,6 +13,7 @@ public class Dianas : MonoBehaviour
     {
         position1 = tabGO.transform.position;
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Ball(Clone)")
@@ -33,30 +34,27 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Nose1")
             {
                 puzzle3.showGuess1 = true;
-                facesGO1.transform.Rotate(0, 180, 0);
             }
             if (gameObject.name == "Nose2")
             {
                 puzzle3.showGuess2 = true;
-                facesGO2.transform.Rotate(0, 180, 0);
             }
             if (gameObject.name == "Nose3")
             {
                 puzzle3.showGuess3 = true;
-                facesGO3.transform.Rotate(0, 180, 0);
             }
 
-            if (gameObject.name == "Option1")
+            if (other.gameObject.name == "Option1")
             {
-                gameObject.SetActive(false);
+                other.gameObject.SetActive(false);
             }
-            if (gameObject.name == "Option2")
+            if (other.gameObject.name == "Option2")
             {
-                gameObject.SetActive(false);
+                other.gameObject.SetActive(false);
             }
-            if (gameObject.name == "Option3")
+            if (other.gameObject.name == "Option3")
             {
-                gameObject.SetActive(false);
+                other.gameObject.SetActive(false);
                 position1 = new Vector3(position1.x, 5f, position1.z);
             }
         }

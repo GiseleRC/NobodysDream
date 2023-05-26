@@ -17,17 +17,20 @@ public class Puzzle3 : MonoBehaviour
             option1GO.SetActive(true);
             option2GO.SetActive(true);
             option3GO.SetActive(true);
-            showGuess1 = false;
         }
         if (showGuess2)
         {
-            guess2GO.SetActive(showGuess2);
-            showGuess2 = false;
+            //guess2GO.SetActive(showGuess2);
+            //option1GO.SetActive(true);
+            //option2GO.SetActive(true);
+            //option3GO.SetActive(true);
         }
-        if (showGuess1)
+        if (showGuess3)
         {
-            guess3GO.SetActive(showGuess3);
-            showGuess3 = false;
+            //guess3GO.SetActive(showGuess3);
+            //option1GO.SetActive(true);
+            //option2GO.SetActive(true);
+            //option3GO.SetActive(true);
         }
     }
 
