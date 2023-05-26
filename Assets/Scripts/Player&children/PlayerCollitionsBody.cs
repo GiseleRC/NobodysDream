@@ -8,7 +8,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject lightBed, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, collectPickeable;
+    public GameObject bookEnableUIGO, lightBed, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, collectPickeable;
     [SerializeField] private Collider capC, boosterC;
     public AudioSource openTutorial, pickUp, booster;
     public bool ballEnable = false;
@@ -88,6 +88,11 @@ public class PlayerCollitionsBody : MonoBehaviour
             ballBucket.SetActive(true);
             other.gameObject.SetActive(false);
             tutorialPaperBool.showTutorialBall = true;
+            pickUp.Play();
+        }
+        else if (other.name == "BookEnableUI")
+        {
+            bookEnableUIGO.SetActive(true);
             pickUp.Play();
         }
     }
