@@ -7,7 +7,7 @@ public class Puzzle3 : MonoBehaviour
     public bool showGuess1 = false;
     public bool showGuess2 = false;
     public bool showGuess3 = false;
-    public GameObject guess1GO, guess2GO, guess3GO, face1GO, face2GO, face3GO;
+    public GameObject guess1GO, guess2GO, guess3GO, face1GO, face2GO, face3GO, option1GO, option2GO, option3GO;
 
     private void Update()
     {
@@ -15,6 +15,9 @@ public class Puzzle3 : MonoBehaviour
         {
             face1GO.transform.Rotate(0, 180, 0);
             guess1GO.SetActive(showGuess1);
+            option1GO.SetActive(true);
+            option2GO.SetActive(true);
+            option3GO.SetActive(true);
             showGuess1 = false;
         }
         if (showGuess2)

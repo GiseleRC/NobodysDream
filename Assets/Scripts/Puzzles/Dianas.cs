@@ -6,6 +6,7 @@ public class Dianas : MonoBehaviour
 {
     public Puzzle2 puzzle2;
     public Puzzle3 puzzle3;
+    public GameObject tabGO, firstPos;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,17 +28,28 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Nose1")
             {
                 puzzle3.showGuess1 = true;
-                Debug.Log("Le pegue a la PRIMERA Nariz");
             }
             if (gameObject.name == "Nose2")
             {
                 puzzle3.showGuess2 = true;
-                Debug.Log("Le pegue a la SEGUNDA Nariz");
             }
             if (gameObject.name == "Nose3")
             {
                 puzzle3.showGuess3 = true;
-                Debug.Log("Le pegue a la TERCERA Nariz");
+            }
+
+            if (gameObject.name == "Option1")
+            {
+                gameObject.SetActive(false);
+            }
+            if (gameObject.name == "Option2")
+            {
+                gameObject.SetActive(false);
+            }
+            if (gameObject.name == "Option3")
+            {
+                gameObject.SetActive(false);
+                tabGO.transform.position = firstPos.transform.position;
             }
         }
     }
