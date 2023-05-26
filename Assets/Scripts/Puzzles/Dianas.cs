@@ -6,8 +6,13 @@ public class Dianas : MonoBehaviour
 {
     public Puzzle2 puzzle2;
     public Puzzle3 puzzle3;
+    private Vector3 position1;
     public GameObject tabGO, firstPos, facesGO1, facesGO2, facesGO3;
 
+    private void Start()
+    {
+        position1 = tabGO.transform.position;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Ball(Clone)")
@@ -52,7 +57,7 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Option3")
             {
                 gameObject.SetActive(false);
-                tabGO.transform.position = firstPos.transform.position;
+                position1 = new Vector3(position1.x, 5f, position1.z);
             }
         }
     }
