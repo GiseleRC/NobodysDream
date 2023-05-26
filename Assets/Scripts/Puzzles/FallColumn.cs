@@ -18,6 +18,7 @@ public class FallColumn : MonoBehaviour
         if (bookWheelSC.transform.rotation.z >= 0.2764)
         {
             bookWheelSC.GetComponent<Wheel>().enabled = false;
+            bookWheelSC.GetComponentInChildren<Collider>().isTrigger = false;
         }
     }
 }
