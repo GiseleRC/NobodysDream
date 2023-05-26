@@ -7,7 +7,7 @@ public class Dianas : MonoBehaviour
     public Puzzle2 puzzle2;
     public Puzzle3 puzzle3;
     private Vector3 position1;
-    public GameObject tabGO, firstPos, facesGO1, facesGO2, facesGO3;
+    public GameObject tabGO, facesGO1, facesGO2, facesGO3;
 
     private void Start()
     {
