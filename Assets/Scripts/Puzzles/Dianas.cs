@@ -22,8 +22,6 @@ public class Dianas : MonoBehaviour
             {
                 puzzle2.doorEnable3 = true;
             }
-
         }
-
     }
 }
