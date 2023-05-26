@@ -34,6 +34,13 @@ public class FollowObject : MonoBehaviour
         {
             parent.GetComponent<BoxCollider>().isTrigger = false;
 
+            var thiefs = FindObjectsOfType<ThierfEnemyDecisions>();
+
+            foreach (var thief in thiefs)
+            {
+                thief.CheckPosObject(transform);
+            }
+
             if (parent != null)
             {
                 parent.layer = 6;

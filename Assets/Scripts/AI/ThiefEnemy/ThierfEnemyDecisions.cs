@@ -10,13 +10,21 @@ public class ThierfEnemyDecisions : MonoBehaviour
     protected NavMeshAgent nma;
     float distance;
     GameState gameState;
-    bool enemyStunned, objectToSteal;
+    bool enemyStunned, objectToSteal, stealObject, objectGrabbed;
 
     // Start is called before the first frame update
     void Start()
     {
         nma = GetComponent<NavMeshAgent>();
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
+    }
+
+    public bool ObjectToSteal
+    {
+        set
+        {
+            objectToSteal = value;
+        }
     }
 
     public bool EnemyStunned
@@ -46,12 +54,37 @@ public class ThierfEnemyDecisions : MonoBehaviour
         {
             return distance;
         }
+    }    
+    
+    public bool StealObject
+    {
+        get
+        {
+            return stealObject;
+        }
+
+        set
+        {
+            stealObject = value;
+        }
+    }    
+    
+    public bool ObjectGrabbed
+    {
+        get
+        {
+            return objectGrabbed;
+        }
+
+        set
+        {
+            objectGrabbed = value;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
         var mode = gameState.GetPlaneMode();
 
         characterPos = GameObject.Find("Char").GetComponent<Transform>();
@@ -68,23 +101,46 @@ public class ThierfEnemyDecisions : MonoBehaviour
                 {
                     gameObject.GetComponent<Patrol>().enabled = false;
                 }
+
+                if (gameObject.GetComponent<MoveToMatObject>().enabled == true)
+                {
+                    gameObject.GetComponent<MoveToMatObject>().enabled = false;
+                }
+
+
             }
             else
             {
                 gameObject.GetComponent<StayPos>().enabled = false;
-                if (!enemyStunned)
+                if (!enemyStunned && !objectGrabbed)
                 {
                     if (objectToSteal)
                     {
-                        GetComponent<MoveToMatObject>().enabled = true;
-                        GetComponent<Patrol>().enabled = false;
+                        if (stealObject)
+                        {
+                            GetComponent<StoleItem>().enabled = true;
+                            GetComponent<MoveToMatObject>().enabled = false;
+                            GetComponent<Patrol>().enabled = false;
+                        }
+                        else
+                        {
+                            GetComponent<MoveToMatObject>().enabled = true;
+                            GetComponent<Patrol>().enabled = false;
+                            GetComponent<StoleItem>().enabled = false;
+                        }
 
                     }
                     else
                     {
                         GetComponent<Patrol>().enabled = true;
                         GetComponent<MoveToMatObject>().enabled = false;
+                        GetComponent<StoleItem>().enabled = false;
+                        
                     }
+                }
+                else if(!enemyStunned && objectGrabbed)
+                {
+                    GetComponent<Escape>().enabled = true;
                 }
 
                 if (enemyStunned)
@@ -92,6 +148,9 @@ public class ThierfEnemyDecisions : MonoBehaviour
                     GetComponent<Stunned>().enabled = true;
                     GetComponent<Patrol>().enabled = false;
                     GetComponent<MoveToMatObject>().enabled = false;
+                    GetComponent<StoleItem>().enabled = false;
+                    GetComponent<Escape>().enabled = false;
+                    objectGrabbed = false;
                 }
             }
         }
@@ -99,7 +158,6 @@ public class ThierfEnemyDecisions : MonoBehaviour
 
     public void CheckPosObject(Transform pos)
     {
-        print("ejecute");
         NavMeshPath navMeshStatus = new NavMeshPath();
         nma.CalculatePath(pos.position, navMeshStatus);
 

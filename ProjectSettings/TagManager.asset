@@ -8,6 +8,7 @@ TagManager:
   - Cube
   - Ruler
   - MobilePlatforms
+  - Thief
   layers:
   - Default
   - TransparentFX

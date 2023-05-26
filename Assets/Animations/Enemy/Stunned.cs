@@ -7,6 +7,7 @@ public class Stunned : MonoBehaviour
 {
     float actualTime;
     NavMeshAgent nma;
+    [SerializeField] GameObject rulerGrabbed, cubeGrabbed;
 
     // Start is called before the first frame update
 
@@ -17,13 +18,30 @@ public class Stunned : MonoBehaviour
 
     void OnEnable()
     {
-        GetComponent<AIDecisions>().EnemyStunned = true;
-        GetComponent<AIDecisions>().GhostAttack = false;
+        if(gameObject.tag != "Thief")
+        {
+            GetComponent<AIDecisions>().EnemyStunned = true;
+            GetComponent<AIDecisions>().GhostAttack = false;
+        }
+        else
+        {
+            GetComponent<ThierfEnemyDecisions>().EnemyStunned = true;
+            rulerGrabbed.SetActive(false);
+            cubeGrabbed.SetActive(false);
+
+        }
     }
 
     void OnDisable()
     {
-        GetComponent<AIDecisions>().EnemyStunned = false;
+        if(gameObject.tag != "Thief")
+        {
+            GetComponent<AIDecisions>().EnemyStunned = false;
+        }
+        else
+        {
+            GetComponent<ThierfEnemyDecisions>().EnemyStunned = false;
+        }
     }
 
     // Update is called once per frame

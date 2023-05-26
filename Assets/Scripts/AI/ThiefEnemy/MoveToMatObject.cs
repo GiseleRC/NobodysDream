@@ -13,6 +13,12 @@ public class MoveToMatObject : MonoBehaviour
         objectPos = GetComponent<ThierfEnemyDecisions>().ObjectPos;
     }
 
+    private void OnDisable()
+    {
+        GetComponent<ThierfEnemyDecisions>().StealObject = false;
+        
+    }
+
     void Start()
     {
         nma = GetComponent<NavMeshAgent>();
@@ -21,6 +27,17 @@ public class MoveToMatObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nma.SetDestination(objectPos.position);
+        float distance = Vector3.Distance(transform.position, objectPos.position);
+
+        if(distance < 1)
+        {
+            nma.SetDestination(transform.position);
+            GetComponent<ThierfEnemyDecisions>().StealObject = true;
+        }
+        else
+        {
+            GetComponent<ThierfEnemyDecisions>().StealObject = false;
+            nma.SetDestination(objectPos.position);
+        }
     }
 }
