@@ -92,6 +92,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (other.name == "BookEnableUI")
         {
+            other.gameObject.SetActive(false);
             bookEnableUIGO.SetActive(true);
             pickUp.Play();
         }
