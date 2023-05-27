@@ -7,7 +7,8 @@ public class Dianas : MonoBehaviour
     public Puzzle2 puzzle2;
     public Puzzle3 puzzle3;
     private Vector3 position1;
-    public GameObject tabGO, facesGO1, facesGO2, facesGO3;
+    public GameObject tabGO, facesGO1, facesGO2, facesGO3, facesGO1A, facesGO2A, facesGO3A;
+    public TimerController timerController;
 
     private void Start()
     {
@@ -34,28 +35,40 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Nose1")
             {
                 puzzle3.showGuess1 = true;
+                facesGO1.SetActive(false);
+                facesGO1A.SetActive(true);
             }
             if (gameObject.name == "Nose2")
             {
                 puzzle3.showGuess2 = true;
+                facesGO2.SetActive(false);
+                facesGO2A.SetActive(true);
             }
             if (gameObject.name == "Nose3")
             {
                 puzzle3.showGuess3 = true;
+                facesGO3.SetActive(false);
+                facesGO3A.SetActive(true);
             }
 
-            if (other.gameObject.name == "Option1")
+            if (gameObject.name == "Option1")
             {
-                other.gameObject.SetActive(false);
+                puzzle3.option1GO.SetActive(false);
+                timerController.currTimeWait -= 100;
             }
-            if (other.gameObject.name == "Option2")
+            if (gameObject.name == "Option2")
             {
-                other.gameObject.SetActive(false);
+                puzzle3.option2GO.SetActive(false);
+                timerController.currTimeWait -= 100;
             }
-            if (other.gameObject.name == "Option3")
+            if (gameObject.name == "Option3")
             {
-                other.gameObject.SetActive(false);
-                position1 = new Vector3(position1.x, 5f, position1.z);
+                puzzle3.option3GO.SetActive(false);
+                puzzle3.option2GO.SetActive(false);
+                puzzle3.option1GO.SetActive(false);
+                puzzle3.guess1GO.SetActive(false);
+                position1 = new Vector3(position1.x, 2f, position1.z);
+                tabGO.transform.position = position1;
             }
         }
     }

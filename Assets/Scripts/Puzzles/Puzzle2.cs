@@ -7,14 +7,14 @@ public class Puzzle2 : MonoBehaviour
     public bool doorEnable1 = false;
     public bool doorEnable2 = false;
     public bool doorEnable3 = false;
-    public GameObject wallDisable;
+    public Animator animatorWall;
     public GameObject particle1, particle2, particle3;
 
     void Update()
     {
         if (doorEnable1 && doorEnable2 && doorEnable3)
         {
-            wallDisable.SetActive(false);
+            animatorWall.SetBool("EnableMove", true);
         }
         if (doorEnable1)
         {

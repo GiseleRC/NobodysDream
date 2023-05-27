@@ -17,6 +17,7 @@ public class Puzzle3 : MonoBehaviour
             option1GO.SetActive(true);
             option2GO.SetActive(true);
             option3GO.SetActive(true);
+            showGuess1 = false;
         }
         if (showGuess2)
         {
