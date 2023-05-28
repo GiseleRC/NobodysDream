@@ -8,6 +8,7 @@ public class Walls : MonoBehaviour
     private Vector3[] wallsRestorePos;
     public AudioSource AmbientSound, FallingWalls;
     [SerializeField] private GameObject sensor;
+    private float waitFor = 5f;
 
     private void Start()
     {

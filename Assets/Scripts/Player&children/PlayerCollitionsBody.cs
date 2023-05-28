@@ -8,7 +8,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject bookEnableUIGO, lightBed, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, collectPickeable;
+    public GameObject light1, light2, light3, bookEnableUIGO, lightBed, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, collectPickeable;
     [SerializeField] private Collider capC, boosterC;
     public AudioSource openTutorial, pickUp, booster;
     public bool ballEnable = false;
@@ -35,10 +35,8 @@ public class PlayerCollitionsBody : MonoBehaviour
             //tutorialPaperBool.showGuideTutorialPlane = true;//booleano del Script guia de tutoriales BOINA/MODO
             capEnable = true;
 
-            lightBed.SetActive(true);//Se desactiva boina
             cap.SetActive(false);//Se desactiva boina
             flashLightPickGO.SetActive(true);//Se activa la LINTERNA
-            door.SetActive(true);//Se activa puerta
             IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
 
             pickUp.Play();//Sonido de PICKEABLE
@@ -49,6 +47,11 @@ public class PlayerCollitionsBody : MonoBehaviour
             objEnable = true;//booleano para I HAVE CAP
 
             other.gameObject.SetActive(false);//ruller pickeable
+            light2.SetActive(false);//Se activa puerta
+            light3.SetActive(false);//Se activa puerta
+            lightBed.SetActive(false);
+            door.SetActive(true);//Se activa puerta
+            light1.SetActive(true);//Se activa puerta
 
             pickUp.Play();//Sonido de PICKEABLE
         }
