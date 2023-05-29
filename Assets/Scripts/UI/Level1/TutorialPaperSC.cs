@@ -10,6 +10,7 @@ public class TutorialPaperSC : MonoBehaviour
     public bool showTutorialGlasses = false;
     public bool showTutorialBall = false;
     public bool showTutorialMat2 = false;
+    public bool tutorialMat2Finishing = false;
     public bool showTutorialMat1 = false;
     private bool nextTutorial = false;
     public bool showGuideTutorialPlane = false;
@@ -58,6 +59,7 @@ public class TutorialPaperSC : MonoBehaviour
         {
             closeTutorial.Play();
             showTutorialMat2 = false;
+            tutorialMat2Finishing = true;
         }
 
         if (nextTutorial)

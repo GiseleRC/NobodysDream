@@ -7,7 +7,7 @@ public class Walls : MonoBehaviour
     [SerializeField] private GameObject[] walls;
     private Vector3[] wallsRestorePos;
     public AudioSource AmbientSound, FallingWalls;
-    [SerializeField] private GameObject sensor;
+    [SerializeField] private TutorialPaperSC tutorialPaperSC;
     private float waitFor = 5f;
 
     private void Start()
@@ -27,11 +27,14 @@ public class Walls : MonoBehaviour
                 walls[i].SetActive(false);
             }
         }
+
+        if (tutorialPaperSC.tutorialMat2Finishing)
+        {
+            DropWalls();
+            tutorialPaperSC.tutorialMat2Finishing = false;
+        }
     }
-    public void EventDropWalls()
-    {
-        DropWalls();
-    }
+
     public void EventRestoreWalls()
     {
         RestoreWalls();
@@ -45,7 +48,6 @@ public class Walls : MonoBehaviour
         }
         AmbientSound.Play();
         FallingWalls.Play();
-        sensor.SetActive(false);
     }
     private void RestoreWalls()
     {
