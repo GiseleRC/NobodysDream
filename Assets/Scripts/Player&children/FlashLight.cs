@@ -14,10 +14,10 @@ public class FlashLight : MonoBehaviour
     public float posibility;
     bool flicker;
     public bool hasFlashlight = false;
-    bool canUseFlashlight = false;//pregunte si puede usar la linterna en el plano
     [SerializeField] float maxBattery, dischargeAmount, baseDischargeAmount, rechargeAmount, rechargeAmountDeadBattery;
     float actualBattery, flickerDuration, switchLight;
     bool usingFL, canUseFL, batteryDead;
+    bool canUseFlashlight = false;//TP2 - Caamaño Romina - pregunta si puede usar la linterna segun el plano
 
 
     public bool FlashLightEnabled
@@ -137,9 +137,9 @@ public class FlashLight : MonoBehaviour
                 batteryDead = false;
             }
         }
-        //print(batteryDead);
     }
 
+    //TP2 - Caamaño Romina - Segun el plano determinado en el Game State se habilita el uso de la linterna
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         canUseFlashlight = planeMode == GameState.PlaneMode.Dream;
