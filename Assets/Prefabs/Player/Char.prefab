@@ -1043,7 +1043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8166849483277595109}
   - component: {fileID: 8734371037959268166}
-  - component: {fileID: 2507740949718719874}
+  - component: {fileID: 5100290805559102209}
   - component: {fileID: 1927097810434656124}
   - component: {fileID: 15092383332247294}
   - component: {fileID: 691922695422852397}
@@ -1097,7 +1097,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!136 &2507740949718719874
+--- !u!136 &5100290805559102209
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1140,6 +1140,10 @@ MonoBehaviour:
   flashLightSC: {fileID: 6272776439929919671}
   timerController: {fileID: 0}
   tutorialPaperBool: {fileID: 0}
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  light3: {fileID: 0}
+  bookEnableUIGO: {fileID: 0}
   lightBed: {fileID: 0}
   glassesGO: {fileID: 0}
   flashLigthArm: {fileID: 339931611260082497}
@@ -1427,7 +1431,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 46854.75
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1523,7 +1527,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 2087
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1619,7 +1623,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 7246.375
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1715,7 +1719,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 113241.875
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
