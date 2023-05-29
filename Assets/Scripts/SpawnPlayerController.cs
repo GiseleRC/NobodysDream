@@ -14,7 +14,7 @@ public class SpawnPlayerController : MonoBehaviour
         if (playerGO.transform.position.y <= maxDistanceY)
         {
             RespawnPlayer();
-            playerGO.GetComponent<PlayerSC>().Spawn();
+            playerGO.GetComponent<PlayerSC>().ResetSpawnPlayer();
         }
     }
     public void InitialPosition()

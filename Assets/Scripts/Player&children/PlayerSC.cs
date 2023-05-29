@@ -60,9 +60,9 @@ public class PlayerSC : MonoBehaviour
         PlayerMovement();
         playerRB.AddForce(Vector3.down * artificialGravity);
     }
-    public void Spawn()
+    public void ResetSpawnPlayer()
     {
-       
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
     public void ReloadScene()
     {
