@@ -54,16 +54,15 @@ public class PlayerSC : MonoBehaviour
         {
             ReloadScene();
         }
-
-        if (transform.position.y < -35)
-        {
-            gameState.RespawnPlayer();
-        }
     }
     void FixedUpdate()
     {
         PlayerMovement();
         playerRB.AddForce(Vector3.down * artificialGravity);
+    }
+    public void Spawn()
+    {
+       
     }
     public void ReloadScene()
     {

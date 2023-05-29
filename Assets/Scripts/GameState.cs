@@ -6,29 +6,22 @@ using UnityEngine.Events;
 public class GameState : MonoBehaviour
 {
     [System.Serializable] public class PlaneModeChangedEvent : UnityEvent<PlaneMode> {}
-
     [SerializeField] PlaneModeChangedEvent OnPlaneModeChanged;
-    [SerializeField] public GameObject playerSC;
-    [SerializeField] public Transform playerSpawn;
-    [SerializeField] public Transform inicialPos;
 
     public PlaneMode planeMode = PlaneMode.Dream;
     public bool DreamPlaneModeEnabled { get; set; } = true;
     public bool GhostPlaneModeEnabled { get; set; } = false;
     public bool DemonPlaneModeEnabled { get; set; } = false;
-
     public enum PlaneMode
     {
         Dream,
         Ghost,
         Demon
     }
-
     public PlaneMode GetPlaneMode()
     {
         return planeMode;
     }
-
     public bool SetPlaneMode(PlaneMode planeMode)
     {
         if (planeMode == this.planeMode)
@@ -45,7 +38,6 @@ public class GameState : MonoBehaviour
         OnPlaneModeChanged.Invoke(this.planeMode);
         return true;
     }
-
     public void SetNextPlaneMode()
     {
         switch (planeMode)
@@ -64,7 +56,6 @@ public class GameState : MonoBehaviour
                 break;
         }
     }
-
     public void SetPrevPlaneMode()
     {
         switch (planeMode)
@@ -82,22 +73,5 @@ public class GameState : MonoBehaviour
                     SetPlaneMode(PlaneMode.Dream);
                 break;
         }
-    }
-
-    public void PositionInitial()
-    {
-        playerSpawn.transform.position = inicialPos.position;
-        playerSpawn.transform.rotation = inicialPos.rotation;
-    }
-
-    public void Respawn(Transform transform)
-    {
-        playerSpawn.transform.position = transform.position;
-        playerSpawn.transform.rotation = transform.rotation;
-    }
-    public void RespawnPlayer()
-    {
-        playerSC.transform.position = playerSpawn.position;
-        playerSC.transform.rotation = playerSpawn.rotation;
     }
 }
