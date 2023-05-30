@@ -6,32 +6,39 @@ using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
-    public float timeWait = 100f;
-    public float currTimeWait;
+    //TP2 - Caamaño Romina - Este script controla el tiempo de todo el nivel, no se resetea amenos que reinicies la escena y le tranfiere infromaicon al time del canvas
+    [SerializeField] private float timeWait = 600f;
+    [SerializeField] private float minTimeForPickBooster = 550f;
     public bool pickBooster = false;
+    private int enemiesAttacking;
     public Image image;
     public Slider time;
     public Transform playerSC;
-    int enemiesAttacking;
     public AudioSource clock;
     public AudioClip clockSlow, clockFast;
+    private float currTimeWait;
 
     public int EnemiesAttacking
     {
         set { enemiesAttacking += value; }
         get { return enemiesAttacking; }
     }
-
+    public float GetCurrTme()
+    {
+        return currTimeWait;
+    }
+    public void AddTime(float time)
+    {
+        currTimeWait += time;
+    }
     void Start()
     {
         currTimeWait = timeWait;
         time.value = timeWait;
     }
-
     void Update()
     {
-        //print(enemiesAttacking);
-        if (pickBooster)
+        if (pickBooster && currTimeWait <= minTimeForPickBooster)
         {
             currTimeWait += 50;
             pickBooster = false;

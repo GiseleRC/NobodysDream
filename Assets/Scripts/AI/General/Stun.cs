@@ -6,7 +6,8 @@ public class Stun : MonoBehaviour
 {
     FlashLight fl;
     Light flLight;
-    bool flashlightOn, stunnedAvaible;
+    bool flashlightOn;
+    bool stunnedAvaible;
     [SerializeField] float stunDuration, intensityModifier, startIntensity, startAngle, angleModifier, timeForStun, initialTimeForStun;
     [SerializeField] Color standardColor, stunColor;
 
@@ -30,8 +31,6 @@ public class Stun : MonoBehaviour
             flLight.spotAngle = startAngle;
             timeForStun = initialTimeForStun;
         }
-
-        //print(timeForStun);
     }
 
     void OnTriggerStay(Collider other)

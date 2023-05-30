@@ -10,7 +10,6 @@ public class Ball : MonoBehaviour
     {
         currTimeWait = 0f;
     }
-
     void Update()
     {
         if (transform.parent != null )
@@ -22,7 +21,6 @@ public class Ball : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("Estoy colisionando con " + collision.gameObject.name);  

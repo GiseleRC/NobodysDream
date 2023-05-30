@@ -54,12 +54,12 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Option1")
             {
                 puzzle3.option1GO.SetActive(false);
-                timerController.currTimeWait -= 100;
+                timerController.AddTime(-100f);
             }
             if (gameObject.name == "Option2")
             {
                 puzzle3.option2GO.SetActive(false);
-                timerController.currTimeWait -= 100;
+                timerController.AddTime(-100f);
             }
             if (gameObject.name == "Option3")
             {

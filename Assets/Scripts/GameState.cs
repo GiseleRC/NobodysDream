@@ -6,30 +6,23 @@ using UnityEngine.Events;
 public class GameState : MonoBehaviour
 {
     [System.Serializable] public class PlaneModeChangedEvent : UnityEvent<PlaneMode> {}
-
     [SerializeField] PlaneModeChangedEvent OnPlaneModeChanged;
-    [SerializeField] public GameObject playerSC;
-    [SerializeField] public Transform playerSpawn;
-    [SerializeField] public Transform inicialPos;
 
     public PlaneMode planeMode = PlaneMode.Dream;
     public bool DreamPlaneModeEnabled { get; set; } = true;
     public bool GhostPlaneModeEnabled { get; set; } = false;
     public bool DemonPlaneModeEnabled { get; set; } = false;
-
     public enum PlaneMode
     {
         Dream,
         Ghost,
         Demon
     }
-
     public PlaneMode GetPlaneMode()
     {
         return planeMode;
     }
-
-    public bool SetPlaneMode(PlaneMode planeMode)
+    public bool SetPlaneMode(PlaneMode planeMode)//Setter - estoy chequeando antes de hacer alguna modificacion si el plano que recibo es mismo en el que ya estoy o si esta habilitado
     {
         if (planeMode == this.planeMode)
             return false;
@@ -40,12 +33,13 @@ public class GameState : MonoBehaviour
         if (planeMode == PlaneMode.Demon && !DemonPlaneModeEnabled)
             return false;
 
-        this.planeMode = planeMode;
+        this.planeMode = planeMode;// si pasa esos chequeos, hace el cambio
 
-        OnPlaneModeChanged.Invoke(this.planeMode);
+        OnPlaneModeChanged.Invoke(this.planeMode);// y llama a los eventos por plano
         return true;
     }
 
+    //SWITCHEO DE PLANOS
     public void SetNextPlaneMode()
     {
         switch (planeMode)
@@ -64,7 +58,6 @@ public class GameState : MonoBehaviour
                 break;
         }
     }
-
     public void SetPrevPlaneMode()
     {
         switch (planeMode)
@@ -82,22 +75,5 @@ public class GameState : MonoBehaviour
                     SetPlaneMode(PlaneMode.Dream);
                 break;
         }
-    }
-
-    public void PositionInitial()
-    {
-        playerSpawn.transform.position = inicialPos.position;
-        playerSpawn.transform.rotation = inicialPos.rotation;
-    }
-
-    public void Respawn(Transform transform)
-    {
-        playerSpawn.transform.position = transform.position;
-        playerSpawn.transform.rotation = transform.rotation;
-    }
-    public void RespawnPlayer()
-    {
-        playerSC.transform.position = playerSpawn.position;
-        playerSC.transform.rotation = playerSpawn.rotation;
     }
 }
