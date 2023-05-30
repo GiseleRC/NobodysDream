@@ -23,7 +23,7 @@ public class MaterializeObjects : MonoBehaviour
     {
         RaycastHit hit;
 
-        bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 7f, layerMask);
+        bool ray = Physics.Raycast(camPos.transform.position, camPos.transform.forward, out hit, 3f, layerMask);
 
         if (ray)
         {
@@ -31,7 +31,7 @@ public class MaterializeObjects : MonoBehaviour
         }
         else
         {
-            pos = camPos.transform.position + camPos.transform.forward * 7f;
+            pos = camPos.transform.position + camPos.transform.forward * 3f;
         }
 
         if (Input.GetButtonDown("RightClick")) 
