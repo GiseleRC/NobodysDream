@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FallingMovement : MonoBehaviour
 {
-    bool isFalling = false, startTimer;
+    //bool isFalling = false;
+    bool startTimer;
     float fallingVelocity = 0, currentTimer;
     [SerializeField] float timeToFall;
 

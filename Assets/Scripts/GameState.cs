@@ -22,7 +22,7 @@ public class GameState : MonoBehaviour
     {
         return planeMode;
     }
-    public bool SetPlaneMode(PlaneMode planeMode)
+    public bool SetPlaneMode(PlaneMode planeMode)//Setter - estoy chequeando antes de hacer alguna modificacion si el plano que recibo es mismo en el que ya estoy o si esta habilitado
     {
         if (planeMode == this.planeMode)
             return false;
@@ -33,11 +33,13 @@ public class GameState : MonoBehaviour
         if (planeMode == PlaneMode.Demon && !DemonPlaneModeEnabled)
             return false;
 
-        this.planeMode = planeMode;
+        this.planeMode = planeMode;// si pasa esos chequeos, hace el cambio
 
-        OnPlaneModeChanged.Invoke(this.planeMode);
+        OnPlaneModeChanged.Invoke(this.planeMode);// y llama a los eventos por plano
         return true;
     }
+
+    //SWITCHEO DE PLANOS
     public void SetNextPlaneMode()
     {
         switch (planeMode)
