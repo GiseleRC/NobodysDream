@@ -18,10 +18,11 @@ public class PlayerCollitionsBody : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Model&Collider")
+        if (other.name == "Model&Collider" && !tutorialPaperBool.anyTutorialOpen)
         {
             tutorialPaperBool.showTuturialFlash = true;//booleano del Script tutorial LINTERNA
             flashLightSC.hasFlashlight = true;//booleano del Script flashligth
+            tutorialPaperBool.anyTutorialOpen = true;
 
             flashLightPickGO.SetActive(false);//linterna pickeable
             flashLigthUI.SetActive(true);//UI de linterna
@@ -41,10 +42,11 @@ public class PlayerCollitionsBody : MonoBehaviour
 
             pickUp.Play();//Sonido de PICKEABLE
         }
-        else if (other.name == "RulerPickeable")
+        else if (other.name == "RulerPickeable" && !tutorialPaperBool.anyTutorialOpen)
         {
             tutorialPaperBool.showTutorialMat1 = true;//booleano del Script tutorial REGLA
             objEnable = true;//booleano para I HAVE CAP
+            tutorialPaperBool.anyTutorialOpen = true;
 
             other.gameObject.SetActive(false);//ruller pickeable
             light2.SetActive(false);//Se activa puerta
@@ -55,7 +57,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 
             pickUp.Play();//Sonido de PICKEABLE
         }
-        else if (other.name == "Glasses")
+        else if (other.name == "Glasses" && !tutorialPaperBool.anyTutorialOpen)
         {
             tutorialPaperBool.showTutorialGlasses = true;//booleano del Script tutorial ANTEOJOS
             gameState.GhostPlaneModeEnabled = true;//Activa PLANE GHOST
@@ -77,7 +79,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (other.name == "SabanaLvl1Off")
         {
-            level1Enable.SetActive(false);//--------------------------no se esta aplicando
+            level1Enable.SetActive(false);
         }
         else if (other.name == "BallBucket" && GetComponent<PlayerSC>().canThrowBall)
         {
@@ -85,7 +87,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             GetComponent<PlayerSC>().ballInHand = true;
             pickUp.Play();
         }
-        else if (other.name == "BallPickable")
+        else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
             ballEnable = true;
             ballBucket.SetActive(true);

@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class TutorialPaperSC : MonoBehaviour
 {
-
+    public bool anyTutorialOpen = false;
     public bool showTuturialFlash = false;
     public bool showTutorialGlasses = false;
     public bool showTutorialBall = false;
     public bool showTutorialMat2 = false;
     public bool tutorialMat2Finishing = false;
     public bool showTutorialMat1 = false;
-    private bool nextTutorial = false;
     public bool showGuideTutorialPlane = false;
+    private bool nextTutorial = false;
     private float timeDelay = 0.5f;
     public float fillAmount = 1f;
     public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1/*, guideTutorialPlane*/;
@@ -33,16 +33,19 @@ public class TutorialPaperSC : MonoBehaviour
         {
             closeTutorial.Play();
             showTuturialFlash = false;
+            anyTutorialOpen = false;
         }
         else if (Input.GetButtonDown("Escape") && showTutorialGlasses == true)
         {
             closeTutorial.Play();
             showTutorialGlasses = false;
+            anyTutorialOpen = false;
         }
         else if (Input.GetButtonDown("Escape") && showTutorialBall == true)
         {
             closeTutorial.Play();
             showTutorialBall = false;
+            anyTutorialOpen = false;
         }
         else if (Input.GetButtonDown("Escape") && showGuideTutorialPlane == true)// falta guia de boina
         {
@@ -60,6 +63,7 @@ public class TutorialPaperSC : MonoBehaviour
             closeTutorial.Play();
             showTutorialMat2 = false;
             tutorialMat2Finishing = true;
+            anyTutorialOpen = false;
         }
 
         if (nextTutorial)
@@ -72,7 +76,6 @@ public class TutorialPaperSC : MonoBehaviour
                 timeDelay = 2f;
             }
         }
-
     }
     public void TutorialFlashligth(bool show)
     {
@@ -112,6 +115,7 @@ public class TutorialPaperSC : MonoBehaviour
         if (show)
         {
             //guideTutorialPlane.fillAmount += fillAmount * Time.deltaTime;// falta guia de boina
+            //anyTutorialOpen = true;
         }
         else
         {
