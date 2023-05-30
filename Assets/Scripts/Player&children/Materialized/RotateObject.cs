@@ -91,7 +91,7 @@ public class RotateObject : MonoBehaviour
         }
         else
         {
-            actualObject.transform.position = transform.position;
+            actualObject.transform.position = parent.transform.position;
             //actualObject.transform.position = new Vector3(transform.position.x, closestPoint.y, transform.position.z);
         }
 
@@ -99,8 +99,14 @@ public class RotateObject : MonoBehaviour
 
         actualObject.transform.rotation = transform.rotation;
 
-
-        finalPos = actualObject.transform.position;
+        if(parent != null)
+        {
+            finalPos = transform.position;
+        }
+        else
+        {
+            finalPos = actualObject.transform.position;
+        }
 
     }
 
