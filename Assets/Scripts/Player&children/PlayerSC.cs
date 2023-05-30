@@ -27,7 +27,9 @@ public class PlayerSC : MonoBehaviour
     private GameObject ball = null;
     GameObject ps;
     float coyoteTime = 0.2f;
-    float coyoteTimeCounter;
+    float coyoteTimeCounter;    
+    float jumpBufferTime = 0.2f;
+    float jumpBufferCounter;
 
     GroundCheck ground;
 
@@ -41,6 +43,7 @@ public class PlayerSC : MonoBehaviour
 
         currBallsInHand = ballCount;
         CoyoteTime();
+        BufferTime();
         Jump();
 
         if (mtSC.materializanding == false)
@@ -107,14 +110,29 @@ public class PlayerSC : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
+
+    }
+    
+    void BufferTime()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
     }
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0)
+        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
         {
             float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
             playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
+            jumpBufferCounter = 0;
+            coyoteTimeCounter = 0;
         }
     }
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
