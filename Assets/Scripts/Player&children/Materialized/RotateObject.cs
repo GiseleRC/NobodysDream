@@ -40,7 +40,14 @@ public class RotateObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actualObject = Instantiate(finalPosObject, transform.position,transform.rotation);
+        if(gameObject.tag == "Cube")
+        {
+            actualObject = Instantiate(finalPosObject, transform.position,transform.rotation);
+        }
+        else
+        {
+            actualObject = Instantiate(finalPosObject, parent.transform.position,transform.rotation);
+        }
         destroyFinalPosObject = false;
         mo = GameObject.Find("Char").GetComponent<MaterializeObjects>();
         if (gameObject.GetComponent<Rigidbody>() != null)
