@@ -26,6 +26,8 @@ public class PlayerSC : MonoBehaviour
     public int currBallsInHand;
     private GameObject ball = null;
     GameObject ps;
+    float coyoteTime = 0.2f;
+    float coyoteTimeCounter;
 
     GroundCheck ground;
 
@@ -38,6 +40,7 @@ public class PlayerSC : MonoBehaviour
     {
 
         currBallsInHand = ballCount;
+        CoyoteTime();
         Jump();
 
         if (mtSC.materializanding == false)
@@ -93,9 +96,22 @@ public class PlayerSC : MonoBehaviour
         Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
         transform.position += velocity;
     }
+
+    void CoyoteTime()
+    {
+        if (ground.IsGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+    }
+
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && ground.IsGrounded)
+        if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0)
         {
             float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
             playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
