@@ -23,6 +23,9 @@ public class Ball : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("Estoy colisionando con " + collision.gameObject.name);  
+        if (collision.gameObject.layer == 16)//Colisone contra la layer TriggerButtons
+        {
+            Destroy(gameObject);
+        }  
     }
 }

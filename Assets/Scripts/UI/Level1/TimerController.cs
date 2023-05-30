@@ -52,8 +52,7 @@ public class TimerController : MonoBehaviour
             {
                 clock.clip = clockFast;
                 clock.Play();
-            }
-            
+            } 
         }
         else
         {
