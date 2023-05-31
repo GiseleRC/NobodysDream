@@ -16,17 +16,18 @@ public class PlatformMove : MonoBehaviour
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        PlatformShake.Play();
     }
 
     private void Start()
     {
         origin = transform.position;
+        PlatformShake.Play();
     }
 
     private void FixedUpdate()
     {
         t += Time.deltaTime;
         rigidBody.MovePosition(origin + dir.normalized * amp * Mathf.Sin(2f * Mathf.PI * freq * t));
-       // PlatformShake.Play();
     }
 }

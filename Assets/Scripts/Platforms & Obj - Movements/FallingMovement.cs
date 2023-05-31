@@ -37,6 +37,7 @@ public class FallingMovement : MonoBehaviour
             startTimer = false;
             currentTimer = 0;
             fallingVelocity = 0;
+            PlatformFalling.Stop();
         }
     }
 }
