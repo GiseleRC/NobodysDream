@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
-    //TP2 - Caamaño Romina - Este script controla el tiempo de todo el nivel, no se resetea amenos que reinicies la escena y le tranfiere infromaicon al time del canvas
+    //- Este script controla el tiempo de todo el nivel, no se resetea a menos que reinicies la escena y le tranfiere informacion al time del canvas
     [SerializeField] private float timeWait = 600f;
     [SerializeField] private float minTimeForPickBooster = 550f;
     public bool pickBooster = false;

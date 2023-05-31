@@ -12,6 +12,7 @@ public class SpawnPlayerController : MonoBehaviour
     [SerializeField] public GameObject playerGO;
     [SerializeField] public Transform playerSpawn;
     [SerializeField] public Transform initialPos;
+    //TP2 - Caamaño Romina - Encapsular max distance
     private float maxDistanceY = -35f;
     void Update()
     {
