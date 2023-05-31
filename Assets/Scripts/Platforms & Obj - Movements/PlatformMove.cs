@@ -27,6 +27,6 @@ public class PlatformMove : MonoBehaviour
     {
         t += Time.deltaTime;
         rigidBody.MovePosition(origin + dir.normalized * amp * Mathf.Sin(2f * Mathf.PI * freq * t));
-        PlatformShake.Play();
+       // PlatformShake.Play();
     }
 }
