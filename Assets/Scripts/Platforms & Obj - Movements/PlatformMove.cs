@@ -11,18 +11,16 @@ public class PlatformMove : MonoBehaviour
     private Vector3 origin;
     private Rigidbody rigidBody;
     public float t = 0f;
-    public AudioSource PlatformShake;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        PlatformShake.Play();
+        
     }
 
     private void Start()
     {
         origin = transform.position;
-        PlatformShake.Play();
     }
 
     private void FixedUpdate()
