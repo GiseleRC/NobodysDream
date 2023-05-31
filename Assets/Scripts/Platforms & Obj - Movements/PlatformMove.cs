@@ -11,6 +11,7 @@ public class PlatformMove : MonoBehaviour
     private Vector3 origin;
     private Rigidbody rigidBody;
     public float t = 0f;
+    public AudioSource PlatformShake;
 
     private void Awake()
     {
@@ -26,5 +27,6 @@ public class PlatformMove : MonoBehaviour
     {
         t += Time.deltaTime;
         rigidBody.MovePosition(origin + dir.normalized * amp * Mathf.Sin(2f * Mathf.PI * freq * t));
+        PlatformShake.Play();
     }
 }

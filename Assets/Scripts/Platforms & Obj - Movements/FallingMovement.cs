@@ -7,13 +7,15 @@ public class FallingMovement : MonoBehaviour
     //bool isFalling = false;
     bool startTimer;
     float fallingVelocity = 0, currentTimer;
-    [SerializeField] float timeToFall;
+    [SerializeField] float timeToFall; 
+    public AudioSource PlatformFalling;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Char")
         {
             startTimer = true;
+            PlatformFalling.Play();
         }
     }
 
@@ -28,6 +30,7 @@ public class FallingMovement : MonoBehaviour
         {
             fallingVelocity += Time.deltaTime / 10;
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - fallingVelocity, gameObject.transform.position.z);
+            
         }
         if (gameObject.transform.position.y <= -40)
         {
