@@ -73,12 +73,12 @@ public class MaterializeObjects : MonoBehaviour
             fallObj.Play();
         }
 
-        if(Input.GetButtonDown("Escape") && placingObject) //Cancela
+        if(Input.GetButtonDown("CancelMat") && placingObject) //Cancela
         {
             CancelObject();
             materializanding = false;
         }
-        else if (Input.GetButtonDown("Escape"))
+        else if (Input.GetButtonDown("CancelMat"))
         {
             materializanding = false;
         }
