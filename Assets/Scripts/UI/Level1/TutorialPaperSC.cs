@@ -29,36 +29,36 @@ public class TutorialPaperSC : MonoBehaviour
         TutorialBall(showTutorialBall);
         TutorialMaterialized2(showTutorialMat2);
 
-        if (Input.GetButtonDown("Escape") && showTuturialFlash == true)
+        if (Input.GetButtonDown("CancelMat") && showTuturialFlash == true)
         {
             closeTutorial.Play();
             showTuturialFlash = false;
             anyTutorialOpen = false;
         }
-        else if (Input.GetButtonDown("Escape") && showTutorialGlasses == true)
+        else if (Input.GetButtonDown("CancelMat") && showTutorialGlasses == true)
         {
             closeTutorial.Play();
             showTutorialGlasses = false;
             anyTutorialOpen = false;
         }
-        else if (Input.GetButtonDown("Escape") && showTutorialBall == true)
+        else if (Input.GetButtonDown("CancelMat") && showTutorialBall == true)
         {
             closeTutorial.Play();
             showTutorialBall = false;
             anyTutorialOpen = false;
         }
-        else if (Input.GetButtonDown("Escape") && showGuideTutorialPlane == true)// falta guia de boina
+        else if (Input.GetButtonDown("CancelMat") && showGuideTutorialPlane == true)// falta guia de boina
         {
             closeTutorial.Play();
             showGuideTutorialPlane = false;
         }
-        else if (Input.GetButtonDown("Escape") && showTutorialMat1 == true)
+        else if (Input.GetButtonDown("CancelMat") && showTutorialMat1 == true)
         {
             closeTutorial.Play();
             showTutorialMat1 = false;
             nextTutorial = true;
         }
-        else if (Input.GetButtonDown("Escape") && showTutorialMat2 == true)
+        else if (Input.GetButtonDown("CancelMat") && showTutorialMat2 == true)
         {
             closeTutorial.Play();
             showTutorialMat2 = false;
