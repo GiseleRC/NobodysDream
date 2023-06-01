@@ -29,6 +29,17 @@ public class AIDecisions : MonoBehaviour
         PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
     }
 
+    private void OnEnable()
+    {
+        if (nma != null)
+        {
+            if (nma.isStopped)
+            {
+                nma.isStopped = false;
+            }
+        }
+    }
+
     void Start()
     {
         nma = GetComponent<NavMeshAgent>();
@@ -58,6 +69,7 @@ public class AIDecisions : MonoBehaviour
 
     private void OnDisable()
     {
+        nma.isStopped = true;
         gameObject.GetComponent<Stunned>().enabled = false;
         gameObject.GetComponent<Patrol>().enabled = false;
         gameObject.GetComponent<ChaseCharacter>().enabled = false;

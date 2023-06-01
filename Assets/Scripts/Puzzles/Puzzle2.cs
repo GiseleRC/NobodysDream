@@ -9,12 +9,20 @@ public class Puzzle2 : MonoBehaviour
     public bool doorEnable3 = false;
     public Animator animatorWall;
     public GameObject particle1, particle2, particle3;
+    public AudioSource audioSource;
+    public AudioClip openWall;
+    bool playSound;
 
     void Update()
     {
         if (doorEnable1 && doorEnable2 && doorEnable3)
         {
             animatorWall.SetBool("EnableMove", true);
+            if (!playSound)
+            {
+                audioSource.PlayOneShot(openWall);
+                playSound = true;
+            }
         }
         if (doorEnable1)
         {

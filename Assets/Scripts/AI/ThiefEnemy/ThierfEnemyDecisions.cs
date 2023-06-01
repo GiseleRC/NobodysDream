@@ -92,8 +92,20 @@ public class ThierfEnemyDecisions : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if(nma != null)
+        {
+            if (nma.isStopped)
+            {
+                nma.isStopped = false;
+            }
+        }
+    }
+
     private void OnDisable()
     {
+        nma.isStopped = true;
         GetComponent<StoleItem>().enabled = false;
         GetComponent<MoveToMatObject>().enabled = false;
         GetComponent<Patrol>().enabled = false;
