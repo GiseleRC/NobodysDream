@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1493530038546662042}
   - component: {fileID: 6498574745531562588}
   - component: {fileID: 8835512895768744319}
+  - component: {fileID: 2448784629118187700}
   m_Layer: 6
   m_Name: PlatformMovil
   m_TagString: MobilePlatforms
@@ -78,3 +79,15 @@ MonoBehaviour:
   dir: {x: 1, y: 0, z: 0}
   amp: 5
   freq: 0.15
+--- !u!114 &2448784629118187700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493530038546662040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c031918053437c646a4d0270a78dcb36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
