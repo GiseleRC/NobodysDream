@@ -8,13 +8,14 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject light1, light2, light3, bookEnableUIGO, lightBed, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, collectPickeable;
+    public GameObject light1, light2, light3, bookEnableUIGO, lightBed, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, collectPickeable, interactiveButton;
     [SerializeField] private Collider capC, boosterC;
     public AudioSource openTutorial, pickUp, booster;
     public bool ballEnable = false;
     public bool iHaveCap = false;
     private bool objEnable = false;
     private bool capEnable = false;
+    bool canInteractWithItem;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,18 +45,12 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (other.name == "RulerPickeable" && !tutorialPaperBool.anyTutorialOpen)
         {
-            tutorialPaperBool.showTutorialMat1 = true;//booleano del Script tutorial REGLA
-            objEnable = true;//booleano para I HAVE CAP
-            tutorialPaperBool.anyTutorialOpen = true;
+            other.transform.GetChild(2).gameObject.SetActive(true);
+            canInteractWithItem = true;
 
-            other.gameObject.SetActive(false);//ruller pickeable
-            light2.SetActive(false);//Se activa puerta
-            light3.SetActive(false);//Se activa puerta
-            lightBed.SetActive(false);
-            door.SetActive(true);//Se activa puerta
-            light1.SetActive(true);//Se activa puerta
 
-            pickUp.Play();//Sonido de PICKEABLE
+
+
         }
         else if (other.name == "Glasses" && !tutorialPaperBool.anyTutorialOpen)
         {
@@ -100,6 +95,36 @@ public class PlayerCollitionsBody : MonoBehaviour
             other.gameObject.SetActive(false);
             bookEnableUIGO.SetActive(true);
             pickUp.Play();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.name == "RulerPickeable")
+        {
+            if (canInteractWithItem && Input.GetButtonDown("Interact"))
+            {
+            tutorialPaperBool.showTutorialMat1 = true;//booleano del Script tutorial REGLA
+            objEnable = true;//booleano para I HAVE CAP
+            tutorialPaperBool.anyTutorialOpen = true;
+
+            other.gameObject.SetActive(false);//ruller pickeable
+            light2.SetActive(false);//Se activa puerta
+            light3.SetActive(false);//Se activa puerta
+            lightBed.SetActive(false);
+            door.SetActive(true);//Se activa puerta
+            light1.SetActive(true);//Se activa puerta
+            pickUp.Play();//Sonido de PICKEABLE
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.name == "RulerPickeable")
+        {
+            other.transform.GetChild(2).gameObject.SetActive(false);
+            canInteractWithItem = false;
         }
     }
 
