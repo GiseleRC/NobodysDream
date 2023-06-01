@@ -15,6 +15,7 @@ public class OscillatingPlatformMovement : PlatformMovement
     private void Awake()
     {
         PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnDestroy()

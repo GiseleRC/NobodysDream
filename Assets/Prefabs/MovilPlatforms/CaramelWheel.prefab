@@ -93,8 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5020132192435726289}
   - component: {fileID: 5020132192435726293}
-  - component: {fileID: 5020132192435726292}
-  - component: {fileID: 1053708622258676825}
+  - component: {fileID: 3568746630391537545}
+  - component: {fileID: 8412884879427648609}
   m_Layer: 6
   m_Name: Wheel
   m_TagString: Untagged
@@ -132,21 +132,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5020132192435726292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5020132192435726290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c90a095c060a3458cb9bae0677e086, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationAxis: {x: 0, y: 1, z: 0}
-  angularVelocity: 15
---- !u!54 &1053708622258676825
+--- !u!54 &3568746630391537545
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,6 +148,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8412884879427648609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020132192435726290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac05218b37e21a54ca7b734b2e3bd231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAxis: {x: 0, y: 1, z: 0}
+  angularVelocity: 6
 --- !u!1 &5020132193217997866
 GameObject:
   m_ObjectHideFlags: 0

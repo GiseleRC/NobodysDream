@@ -10,15 +10,6 @@ public class FallingMovement : MonoBehaviour
     [SerializeField] float timeToFall; 
     public AudioSource PlatformFalling;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "Char")
-        {
-            startTimer = true;
-            PlatformFalling.Play();
-        }
-    }
-
     private void Awake()
     {
         PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
@@ -29,13 +20,20 @@ public class FallingMovement : MonoBehaviour
         PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Char")
+        {
+            startTimer = true;
+            PlatformFalling.Play();
+        }
+    }
     void Update()
     {
         if (startTimer)
         {
             currentTimer += Time.deltaTime;
         }
-
         if (currentTimer > timeToFall)
         {
             fallingVelocity += Time.deltaTime / 10;
