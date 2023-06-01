@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuBotonPlay : MonoBehaviour
 {
-    public GameObject controls;
+    public GameObject controls, arrow, backArrow, closeControls;
+    public GameObject[] controlPapers;
+    int actualControl;
     public AudioSource click;
     bool controlsTutorial;
     public void ChangeSceneStart(string Level1)
@@ -53,5 +55,67 @@ public class MenuBotonPlay : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void MenuControls()
+    {
+        actualControl = 0;
+        controlPapers[actualControl].SetActive(true);
+        arrow.SetActive(true);
+        backArrow.SetActive(false);
+        actualControl = 0;
+        closeControls.SetActive(true);
+    }
+
+    public void NextControl()
+    {
+        controlPapers[actualControl].SetActive(false);
+        actualControl++;
+        controlPapers[actualControl].SetActive(true);
+
+        if (actualControl == controlPapers.Length - 1)
+            arrow.SetActive(false);
+
+        if(actualControl > 0)
+        {
+            backArrow.SetActive(true);
+        }
+        else
+        {
+            backArrow.SetActive(false);
+        }
+
+        print(actualControl);
+    }
+
+    public void BackControl()
+    {
+        print(actualControl);
+        controlPapers[actualControl].SetActive(false);
+        actualControl--;
+        controlPapers[actualControl].SetActive(true);
+
+        if (actualControl > 0)
+        {
+            backArrow.SetActive(true);
+        }
+        else
+        {
+            backArrow.SetActive(false);
+        }
+
+        if (actualControl == controlPapers.Length - 1)
+            arrow.SetActive(false);
+        else
+            arrow.SetActive(true);
+    }
+
+    public void CloseControlMenu()
+    {
+        controlPapers[actualControl].SetActive(false);
+        actualControl = 0;
+        arrow.SetActive(false);
+        backArrow.SetActive(false);
+        closeControls.SetActive(false);
     }
 }
