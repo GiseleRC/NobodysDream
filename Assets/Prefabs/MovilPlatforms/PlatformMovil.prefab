@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1493530038546662041}
   - component: {fileID: 1493530038546662042}
   - component: {fileID: 1493530038546662021}
-  - component: {fileID: -1375413372007714519}
+  - component: {fileID: 1768278126382951452}
+  - component: {fileID: 6195342933175222164}
   m_Layer: 6
   m_Name: PlatformMovil
   m_TagString: MobilePlatforms
@@ -63,7 +64,7 @@ MonoBehaviour:
   amp: 12
   freq: 0.15
   t: 0
---- !u!54 &-1375413372007714519
+--- !u!54 &1768278126382951452
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,4 +79,19 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
+--- !u!114 &6195342933175222164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493530038546662040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b3fc4c90ff3c542a0b9eda425eaf8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: {x: 1, y: 0, z: 0}
+  amp: 12
+  freq: 0.04
