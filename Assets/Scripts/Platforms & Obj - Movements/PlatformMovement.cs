@@ -11,5 +11,16 @@ public abstract class PlatformMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         enabled = false;
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

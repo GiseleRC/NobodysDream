@@ -19,6 +19,16 @@ public class FallingMovement : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     void Update()
     {
         if (startTimer)
@@ -39,5 +49,10 @@ public class FallingMovement : MonoBehaviour
             fallingVelocity = 0;
             PlatformFalling.Stop();
         }
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

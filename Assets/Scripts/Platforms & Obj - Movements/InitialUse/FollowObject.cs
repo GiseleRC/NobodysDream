@@ -10,9 +10,16 @@ public class FollowObject : MonoBehaviour
     [SerializeField] GameObject checker, parent;
     bool ray, dontMove;
     // Start is called before the first frame update
-    void Start()
-    {
 
+
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
     }
 
     void Update()
@@ -60,6 +67,11 @@ public class FollowObject : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.DrawRay(transform.position, -transform.up * rayDistance);
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 
 }

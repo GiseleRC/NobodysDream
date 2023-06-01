@@ -9,6 +9,16 @@ public class ReactionPlatform : Platform
     private float delay = 0f;
     private bool active = false;
 
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Char")
@@ -25,5 +35,10 @@ public class ReactionPlatform : Platform
         {
             StartMovement();
         }
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

@@ -9,6 +9,17 @@ public class PatrolPoints : MonoBehaviour
     float distance;
     int actualPoint;
     public bool enemyDown;
+
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,4 +69,10 @@ public class PatrolPoints : MonoBehaviour
             enemyDown = true;
         }
     }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
+
 }

@@ -61,6 +61,16 @@ public class FlashLight : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     void Start()
     {
         flashLight = GetComponent<Light>();
@@ -144,4 +154,10 @@ public class FlashLight : MonoBehaviour
     {
         canUseFlashlight = planeMode == GameState.PlaneMode.Dream;
     }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
+
 }

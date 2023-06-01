@@ -7,6 +7,16 @@ public class DoorAnim : MonoBehaviour
     public Animator animatorDoor;
     public AudioSource DoorSound;
 
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     public void EventAnimOpenDoor()
     {
         animatorDoor.Play("Open");
@@ -17,5 +27,10 @@ public class DoorAnim : MonoBehaviour
     {
         animatorDoor.Play("Close");
         DoorSound.Play();
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

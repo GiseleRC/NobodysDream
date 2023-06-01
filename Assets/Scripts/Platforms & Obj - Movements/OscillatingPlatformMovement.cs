@@ -11,6 +11,17 @@ public class OscillatingPlatformMovement : PlatformMovement
     private Vector3 origin;
     private float t = 0f;
 
+
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     private void Start()
     {
         origin = transform.position;
@@ -20,5 +31,10 @@ public class OscillatingPlatformMovement : PlatformMovement
     {
         t += Time.deltaTime;
         rb.MovePosition(origin + dir.normalized * amp * Mathf.Sin(2f * Mathf.PI * freq * t));
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

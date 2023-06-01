@@ -16,6 +16,16 @@ public class RestorePlatfroms : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     private void FixedUpdate()
     {
         for (int i = 0; i < platforms.Length; i++)
@@ -25,5 +35,10 @@ public class RestorePlatfroms : MonoBehaviour
                 platforms[i].transform.localPosition = platformsRestorePos[i];
             }
         }
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

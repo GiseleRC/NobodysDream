@@ -24,6 +24,13 @@ public class Shaking : MonoBehaviour
         {
             camTransform = GetComponent(typeof(Transform)) as Transform;
         }
+
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
     }
 
     void OnEnable()
@@ -48,4 +55,11 @@ public class Shaking : MonoBehaviour
             camTransform.localPosition = originalPos;
         }
     }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
+
+
 }

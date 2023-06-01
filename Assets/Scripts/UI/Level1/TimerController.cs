@@ -31,6 +31,17 @@ public class TimerController : MonoBehaviour
     {
         currTimeWait += time;
     }
+
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     void Start()
     {
         currTimeWait = timeWait;
@@ -72,5 +83,10 @@ public class TimerController : MonoBehaviour
             currTimeWait = timeWait;
             image.color = Color.white;
         }
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

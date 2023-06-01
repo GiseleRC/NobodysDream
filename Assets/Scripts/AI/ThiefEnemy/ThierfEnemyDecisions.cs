@@ -12,6 +12,16 @@ public class ThierfEnemyDecisions : MonoBehaviour
     GameState gameState;
     bool enemyStunned, objectToSteal, stealObject, objectGrabbed;
 
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +90,15 @@ public class ThierfEnemyDecisions : MonoBehaviour
         {
             objectGrabbed = value;
         }
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<StoleItem>().enabled = false;
+        GetComponent<MoveToMatObject>().enabled = false;
+        GetComponent<Patrol>().enabled = false;
+        GetComponent<Escape>().enabled = false;
+        GetComponent<Stunned>().enabled = false;
     }
 
     // Update is called once per frame
@@ -166,5 +185,10 @@ public class ThierfEnemyDecisions : MonoBehaviour
             objectToSteal = true;
             objectPos = pos;
         }
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

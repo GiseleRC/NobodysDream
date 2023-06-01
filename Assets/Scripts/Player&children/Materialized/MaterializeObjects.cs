@@ -14,6 +14,17 @@ public class MaterializeObjects : MonoBehaviour
     public AudioSource fallObj, spawnObj, spawnPosition;
     bool placingObject, test;
     int objectCreated;
+
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     void Start()
     {
         objectCreated = 0;
@@ -175,5 +186,10 @@ public class MaterializeObjects : MonoBehaviour
         actualObject.GetComponent<RotateObject>().CancelObject();
         placingObject = false;
         materializanding = false;
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

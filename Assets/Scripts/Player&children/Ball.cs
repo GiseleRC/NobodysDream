@@ -6,6 +6,17 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] private float timeWait = 5f;
     private float currTimeWait;
+
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     void Start()
     {
         currTimeWait = 0f;
@@ -27,5 +38,10 @@ public class Ball : MonoBehaviour
         {
             Destroy(gameObject);
         }  
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

@@ -6,6 +6,17 @@ public class MoveCamera : MonoBehaviour
 {
     Transform cameraPos;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     void Start()
     {
         cameraPos = GameObject.Find("cameraPos").GetComponent<Transform>();
@@ -15,5 +26,10 @@ public class MoveCamera : MonoBehaviour
     void LateUpdate()
     {
         transform.position = cameraPos.position;
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

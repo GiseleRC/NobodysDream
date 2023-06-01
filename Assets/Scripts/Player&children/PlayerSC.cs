@@ -37,6 +37,23 @@ public class PlayerSC : MonoBehaviour
     {
         ground = GetComponentInChildren<GroundCheck>();
         playerRB = GetComponent<Rigidbody>();
+
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+    private void OnEnable()
+    {
+        playerRB.constraints = RigidbodyConstraints.None;
+        playerRB.constraints = RigidbodyConstraints.FreezeRotation;
+    }
+
+    private void OnDisable()
+    {
+        playerRB.constraints = RigidbodyConstraints.FreezeAll;
     }
     private void Update()
     {
@@ -178,5 +195,10 @@ public class PlayerSC : MonoBehaviour
         ballCount = 3;
         currBallsInHand = ballCount;
         Debug.Log(" A la agarrar, Tengo " + currBallsInHand + " pelotas de " + ballCount);
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

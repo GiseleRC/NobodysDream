@@ -20,6 +20,16 @@ public class Stun : MonoBehaviour
         initialTimeForStun = timeForStun;
     }
 
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     void Update()
     {
         fl = GetComponentInParent<FlashLight>();
@@ -74,4 +84,10 @@ public class Stun : MonoBehaviour
         flLight.spotAngle = startAngle;
         timeForStun = initialTimeForStun;
     }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
+
 }

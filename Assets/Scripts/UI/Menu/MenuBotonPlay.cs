@@ -39,4 +39,19 @@ public class MenuBotonPlay : MonoBehaviour
             controls.SetActive(false);
         }
     }
+
+    public void Continue()
+    {
+        PauseState currentPauseState = PauseStateManager.Instance.CurrentPauseState;
+        PauseState newPauseState = currentPauseState == PauseState.Paused
+            ? PauseState.Gameplay
+            : PauseState.Paused;
+
+        PauseStateManager.Instance.SetState(newPauseState);
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }

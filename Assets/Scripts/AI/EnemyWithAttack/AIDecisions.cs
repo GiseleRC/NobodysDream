@@ -19,6 +19,16 @@ public class AIDecisions : MonoBehaviour
     }
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     void Start()
     {
         nma = GetComponent<NavMeshAgent>();
@@ -44,6 +54,15 @@ public class AIDecisions : MonoBehaviour
         {
             return distance;
         }
+    }
+
+    private void OnDisable()
+    {
+        gameObject.GetComponent<Stunned>().enabled = false;
+        gameObject.GetComponent<Patrol>().enabled = false;
+        gameObject.GetComponent<ChaseCharacter>().enabled = false;
+        gameObject.GetComponent<ghAttack>().enabled = false;
+        gameObject.GetComponent<StayPos>().enabled = false;
     }
 
     // Update is called once per frame
@@ -112,5 +131,10 @@ public class AIDecisions : MonoBehaviour
 
             }
         }
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }
