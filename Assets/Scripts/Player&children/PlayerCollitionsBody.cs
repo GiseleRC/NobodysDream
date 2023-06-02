@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCollitionsBody : MonoBehaviour
 {
+    public Animator reloj;
     public GameState gameState;
     public FlashLight flashLightSC;
     public TimerController timerController;
@@ -44,7 +45,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "zZz")
         {
             timerController.AddTime(15f);
-
+            reloj.enabled = true;
             Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
             other.gameObject.SetActive(false);//Booster pickeable
 
