@@ -66,7 +66,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             ballBucket.SetActive(true);
             ligthPractice.SetActive(true);
             ligthKaki.SetActive(false);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             tutorialPaperBool.showTutorialBall = true;
             pickUp.Play();
         }
@@ -82,7 +82,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     {
         if (other.name == "RulerPickeable")
         {
-            if (canInteractWithItem && Input.GetButton("Interact"))
+            if (canInteractWithItem && Input.GetButton("Interact") && !tutorialPaperBool.anyTutorialOpen)
             {
             tutorialPaperBool.showTutorialMat1 = true;//booleano del Script tutorial REGLA
             objEnable = true;//booleano para I HAVE CAP
@@ -115,7 +115,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 
         if(other.name == "Model&Collider")
         {
-            if (canInteractWithItem && Input.GetButton("Interact"))
+            if (canInteractWithItem && Input.GetButton("Interact") && !tutorialPaperBool.anyTutorialOpen)
             {
                 tutorialPaperBool.showTuturialFlash = true;//booleano del Script tutorial LINTERNA
                 flashLightSC.hasFlashlight = true;//booleano del Script flashligth

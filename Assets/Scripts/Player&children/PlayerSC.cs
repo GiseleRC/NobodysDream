@@ -66,7 +66,7 @@ public class PlayerSC : MonoBehaviour
             PlaneChange();
         }
 
-        if (playerC.ballEnable)
+        if (playerC.ballEnable && gameState.GhostPlaneModeEnabled)
         {
             BallGrabAndThrow();
         }
