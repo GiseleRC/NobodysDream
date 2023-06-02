@@ -9,11 +9,10 @@ public class Wheel : MonoBehaviour
 
     private Rigidbody rigidBody;
 
-    //private void Awake()
-    //{
-    //    rigidBody = GetComponent<Rigidbody>();
-    //    PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
-    //}
+    private void Awake()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+    }
 
     //private void OnDestroy()
     //{

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallColumn : MonoBehaviour
 {
-    public GameObject bookWheelSC, book;
+    public GameObject bookWheelSC;
     public AudioSource audioSource;
 
     private void OnTriggerEnter(Collider other)
