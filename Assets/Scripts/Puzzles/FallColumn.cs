@@ -14,7 +14,7 @@ public class FallColumn : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
             bookWheelSC.GetComponent<Wheel>().enabled = true;
             audioSource.Play();
-            book.GetComponent<Collider>().enabled = true;
+            book.GetComponent<Rigidbody>().isKinematic = false;
             
         }
     }
