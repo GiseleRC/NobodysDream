@@ -59,7 +59,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             other.transform.GetChild(0).gameObject.SetActive(true);
             canInteractWithItem = true;
         }
-        else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen && gameState.GhostPlaneModeEnabled)
+        else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
             justOneWhenPick = true;
             ballEnable = true;
