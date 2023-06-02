@@ -34,8 +34,8 @@ public class EnvAccordToPlane : MonoBehaviour
                 IconLinternaOn.SetActive(true);
                 IconLinternaOff.SetActive(false);
                 bucket.SetActive(false);
-                disableball.SetActive(true);
-                disableFlashlight.SetActive(false);
+                //disableball.SetActive(true);
+                //disableFlashlight.SetActive(false);
 
                 SwitchMode.Play();
                 break;
@@ -46,8 +46,8 @@ public class EnvAccordToPlane : MonoBehaviour
                 IconGhostEnable.SetActive(true);
                 IconLinternaOn.SetActive(false);
                 IconLinternaOff.SetActive(true);
-                disableFlashlight.SetActive(true);
-                disableball.SetActive(false);
+                //disableFlashlight.SetActive(true);
+                //disableball.SetActive(false);
 
                 bucket.SetActive(true);
                 SwitchMode.Play();
