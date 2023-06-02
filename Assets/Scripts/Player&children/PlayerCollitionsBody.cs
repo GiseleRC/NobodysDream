@@ -43,7 +43,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (other.name == "zZz")
         {
-            timerController.AddTime(50f);
+            timerController.AddTime(15f);
 
             Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
             other.gameObject.SetActive(false);//Booster pickeable
