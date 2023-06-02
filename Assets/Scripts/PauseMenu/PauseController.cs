@@ -15,7 +15,7 @@ public class PauseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(PauseStateManager.Instance.CurrentPauseState);
+        //print(PauseStateManager.Instance.CurrentPauseState);
         if (Input.GetButtonDown("Escape"))
         {
             PauseState currentPauseState = PauseStateManager.Instance.CurrentPauseState;

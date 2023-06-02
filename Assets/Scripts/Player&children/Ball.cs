@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.layer == 16)//Colisone contra la layer TriggerButtons
         {
             Destroy(gameObject);
-        }  
+        }
     }
 
     private void OnPauseStateChanged(PauseState newPauseState)

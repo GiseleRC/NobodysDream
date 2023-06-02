@@ -127,7 +127,6 @@ public class PlayerSC : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
-
     }
     
     void BufferTime()
@@ -192,7 +191,7 @@ public class PlayerSC : MonoBehaviour
     }
     public void PickupBalls()
     {
-        ballCount = 3;
+        ballCount = 5;
         currBallsInHand = ballCount;
         Debug.Log(" A la agarrar, Tengo " + currBallsInHand + " pelotas de " + ballCount);
     }
