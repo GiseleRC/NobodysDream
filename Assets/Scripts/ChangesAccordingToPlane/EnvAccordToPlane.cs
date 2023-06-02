@@ -2,23 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneAmbientColorEffect : MonoBehaviour
+public class EnvAccordToPlane : MonoBehaviour
 {
     private GameState gameState;
     public GameObject sensorFalse, sensorTrue, IconGhostEnable, trueSteps, IconLinternaOn, IconLinternaOff, canvasBallCount;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
-    //private Color colorDreamPlane;
     public AudioSource SwitchMode;
-    //[SerializeField, ColorUsageAttribute(true, true)] private Color colorGhostPlane;
-    //[SerializeField, ColorUsageAttribute(true, true)] private Color colorDemonPlane;
 
     void Awake()
     {
         gameState = FindObjectOfType<GameState>();
         lastAppliedPlaneMode = gameState.GetPlaneMode();
-
-        //colorDreamPlane = RenderSettings.ambientLight;//lo que estoy queriendo cambiar guardandolo, valor inicial del mundo de los sueños
     }
     void Update()
     {
@@ -31,7 +26,6 @@ public class PlaneAmbientColorEffect : MonoBehaviour
         switch (currAppliedPlaneMode)
         {
             case GameState.PlaneMode.Dream:
-                //RenderSettings.ambientLight = colorDreamPlane;
                 if (playerSC.ballInHand)
                 {
                     canvasBallCount.SetActive(false);
@@ -49,10 +43,8 @@ public class PlaneAmbientColorEffect : MonoBehaviour
                 IconLinternaOn.SetActive(false);
                 IconLinternaOff.SetActive(true);
                 SwitchMode.Play();
-                //RenderSettings.ambientLight = colorGhostPlane;
                 break;
             case GameState.PlaneMode.Demon:
-                //RenderSettings.ambientLight = colorDemonPlane;
                 break;
         }
     }

@@ -25,7 +25,7 @@ public class PlaneColorObjects : MonoBehaviour
             case GameState.PlaneMode.Ghost:
                 particles.SetActive(true);
                 foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
-                    renderer.material.color = colorGhostPlane;
+                    renderer.material.color = colorDreamPlane;
                 break;
             case GameState.PlaneMode.Demon:
                 foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
