@@ -33,7 +33,6 @@ public class EnvAccordToPlane : MonoBehaviour
                 IconGhostEnable.SetActive(false);
                 IconLinternaOn.SetActive(true);
                 IconLinternaOff.SetActive(false);
-                ballPick.SetActive(false);
                 bucket.SetActive(false);
                 SwitchMode.Play();
                 break;

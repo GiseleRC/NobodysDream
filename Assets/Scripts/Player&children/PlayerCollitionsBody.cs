@@ -66,7 +66,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             ballBucket.SetActive(true);
             ligthPractice.SetActive(true);
             ligthKaki.SetActive(false);
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
             tutorialPaperBool.showTutorialBall = true;
             pickUp.Play();
         }
