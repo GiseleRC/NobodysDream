@@ -8,7 +8,7 @@ public class CountBall : MonoBehaviour
     [SerializeField] public GameState gameState;
     [SerializeField] public PlayerCollitionsBody playerC;
     [SerializeField] private int currBall;
-    [SerializeField] public GameObject zeroBall, oneBall, twoBalls, threeBalls, fourBalls, fiveBalls;
+    [SerializeField] public GameObject zeroBall, oneBall, twoBalls, threeBalls, fourBalls, fiveBalls, disable;
     void Update()
     {
         currBall = playerData.currBallsInHand;
@@ -68,6 +68,16 @@ public class CountBall : MonoBehaviour
                 fourBalls.SetActive(false);
                 fiveBalls.SetActive(true);
             }
-        } 
+        }
+        else if(playerC.ballEnable && currBall == 0)
+        {
+            disable.SetActive(true);
+            zeroBall.SetActive(true);
+            oneBall.SetActive(false);
+            twoBalls.SetActive(false);
+            threeBalls.SetActive(false);
+            fourBalls.SetActive(false);
+            fiveBalls.SetActive(false);
+        }
     }
 }

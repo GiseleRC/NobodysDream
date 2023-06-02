@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnvAccordToPlane : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject sensorFalse, sensorTrue, IconGhostEnable, trueSteps, IconLinternaOn, IconLinternaOff, canvasBallCount, bucket;
+    public GameObject sensorFalse, sensorTrue, IconGhostEnable, trueSteps, IconLinternaOn, IconLinternaOff, canvasBallCount, bucket, disableFlashlight, disableball;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
     public AudioSource SwitchMode;
@@ -26,23 +26,29 @@ public class EnvAccordToPlane : MonoBehaviour
         switch (currAppliedPlaneMode)
         {
             case GameState.PlaneMode.Dream:
-                if (playerSC.ballInHand)
-                {
-                    canvasBallCount.SetActive(false);
-                }
+                //if (playerSC.ballInHand)
+                //{
+                //    canvasBallCount.SetActive(false);
+                //}
                 IconGhostEnable.SetActive(false);
                 IconLinternaOn.SetActive(true);
                 IconLinternaOff.SetActive(false);
                 bucket.SetActive(false);
+                disableball.SetActive(true);
+                disableFlashlight.SetActive(false);
+
                 SwitchMode.Play();
                 break;
             case GameState.PlaneMode.Ghost:
                 sensorFalse.SetActive(false);
                 sensorTrue.SetActive(true);
-                canvasBallCount.SetActive(true);
+                //canvasBallCount.SetActive(true);
                 IconGhostEnable.SetActive(true);
                 IconLinternaOn.SetActive(false);
                 IconLinternaOff.SetActive(true);
+                disableFlashlight.SetActive(true);
+                disableball.SetActive(false);
+
                 bucket.SetActive(true);
                 SwitchMode.Play();
                 break;
