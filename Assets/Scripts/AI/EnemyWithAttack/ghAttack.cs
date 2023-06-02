@@ -21,8 +21,6 @@ public class ghAttack : MonoBehaviour
         GameObject.Find("TimerController").GetComponent<TimerController>().EnemiesAttacking = -1;
         gameObject.GetComponent<AIDecisions>().GhostAttack = false;
         GhostAttack.Stop();
-
-
     }
 
     // Update is called once per frame

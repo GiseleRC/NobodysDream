@@ -6,8 +6,10 @@ public class Animation : MonoBehaviour
 {
     float Timer;
     public Animator reloj;
+    TimerController tc;
     void Start()
     {
+        tc = GameObject.Find("TimerController").GetComponent<TimerController>();
         Timer = 2f;
         reloj = GetComponent<Animator>();
     }
@@ -23,6 +25,12 @@ public class Animation : MonoBehaviour
                 reloj.enabled = false;
                 Timer = 2f;
             }
+        }
+
+        if(tc.EnemiesAttacking > 0)
+        {
+            reloj.enabled = true;
+            Timer = 2f;
         }
     }
 }
