@@ -9,6 +9,7 @@ public class Dianas : MonoBehaviour
     private Vector3 position1;
     public GameObject tabGO, facesGO1, facesGO2, facesGO3, facesGO1A, facesGO2A, facesGO3A;
     public TimerController timerController;
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -69,6 +70,22 @@ public class Dianas : MonoBehaviour
                 puzzle3.guess1GO.SetActive(false);
                 position1 = new Vector3(position1.x, 2f, position1.z);
                 tabGO.transform.position = position1;
+            }
+
+            if (gameObject.name == "Practica1")
+            {
+                puzzle2.practice1 = true;
+                audioSource.Play();
+            }
+            if (gameObject.name == "Practica2")
+            {
+                puzzle2.practice2 = true;
+                audioSource.Play();
+            }
+            if (gameObject.name == "Practica3")
+            {
+                puzzle2.practice3 = true;
+                audioSource.Play();
             }
         }
     }

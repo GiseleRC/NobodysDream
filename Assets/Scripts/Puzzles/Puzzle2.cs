@@ -11,8 +11,8 @@ public class Puzzle2 : MonoBehaviour
     public bool practice2 = false;
     public bool practice3 = false;
     public Animator animatorWall;
-    public GameObject particle1, particle2, particle3, diana1, diana2, diana3;
-    public AudioSource audioSource;
+    public GameObject particle1, particle2, particle3, diana1, diana2, diana3, ligthOff;
+    public AudioSource audioSource, primeraDiana;
     public AudioClip openWall;
     bool playSound;
 
@@ -44,7 +44,9 @@ public class Puzzle2 : MonoBehaviour
 
         if (practice1 && practice2 && practice3)
         {
+            ligthOff.SetActive(false);
             diana2.SetActive(true);
+            primeraDiana.Play();
         }
     }
 }

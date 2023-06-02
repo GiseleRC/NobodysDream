@@ -11,7 +11,7 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private float artificialGravity = 5f;
     [SerializeField] private float ballReloadTime = 1f;
     [SerializeField] private GameObject ballPF;
-    [SerializeField] private float ballThrowForce = 5f;
+    [SerializeField] private float ballThrowForce = 6f;
     [SerializeField] private Transform hand;
     public PlayerCollitionsBody playerC;
     public MaterializeObjects mtSC;
