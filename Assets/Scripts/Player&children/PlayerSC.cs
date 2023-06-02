@@ -57,8 +57,6 @@ public class PlayerSC : MonoBehaviour
     }
     private void Update()
     {
-
-        currBallsInHand = ballCount;
         CoyoteTime();
         BufferTime();
         Jump();
@@ -71,6 +69,11 @@ public class PlayerSC : MonoBehaviour
         if (playerC.ballEnable)
         {
             BallGrabAndThrow();
+        }
+        if (playerC.justOneWhenPick)
+        {
+            currBallsInHand++;
+            playerC.justOneWhenPick = false;
         }
 
         if (Input.GetButtonDown("Reinicio"))
@@ -158,13 +161,13 @@ public class PlayerSC : MonoBehaviour
     //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
     private void BallGrabAndThrow()
     {
-        
         if (!canThrowBall && ballInHand)
         {
             if (ball != null)
                 Destroy(ball);
             return;
         }
+        ballCount = currBallsInHand;
         if (ball == null && ballCount > 0)
         {
             if (ballReload < ballReloadTime)

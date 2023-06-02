@@ -12,6 +12,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     [SerializeField] private Collider capC, boosterC;
     public AudioSource openTutorial, pickUp, booster;
     public bool ballEnable = false;
+    public bool justOneWhenPick = false;
     public bool iHaveCap = false;
     private bool objEnable = false;
     private bool capEnable = false;
@@ -58,8 +59,9 @@ public class PlayerCollitionsBody : MonoBehaviour
             other.transform.GetChild(0).gameObject.SetActive(true);
             canInteractWithItem = true;
         }
-        else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
+        else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen && gameState.GhostPlaneModeEnabled)
         {
+            justOneWhenPick = true;
             ballEnable = true;
             ballBucket.SetActive(true);
             other.gameObject.SetActive(false);

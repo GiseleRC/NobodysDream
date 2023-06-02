@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnvAccordToPlane : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject sensorFalse, sensorTrue, IconGhostEnable, trueSteps, IconLinternaOn, IconLinternaOff, canvasBallCount;
+    public GameObject sensorFalse, sensorTrue, IconGhostEnable, trueSteps, IconLinternaOn, IconLinternaOff, canvasBallCount, ballPick, bucket;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
     public AudioSource SwitchMode;
@@ -33,6 +33,8 @@ public class EnvAccordToPlane : MonoBehaviour
                 IconGhostEnable.SetActive(false);
                 IconLinternaOn.SetActive(true);
                 IconLinternaOff.SetActive(false);
+                ballPick.SetActive(false);
+                bucket.SetActive(false);
                 SwitchMode.Play();
                 break;
             case GameState.PlaneMode.Ghost:
@@ -42,6 +44,8 @@ public class EnvAccordToPlane : MonoBehaviour
                 IconGhostEnable.SetActive(true);
                 IconLinternaOn.SetActive(false);
                 IconLinternaOff.SetActive(true);
+                ballPick.SetActive(true);
+                bucket.SetActive(true);
                 SwitchMode.Play();
                 break;
             case GameState.PlaneMode.Demon:

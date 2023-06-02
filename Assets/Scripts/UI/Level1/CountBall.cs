@@ -8,7 +8,7 @@ public class CountBall : MonoBehaviour
     [SerializeField] public GameState gameState;
     [SerializeField] public PlayerCollitionsBody playerC;
     [SerializeField] private int currBall;
-    [SerializeField] public GameObject zeroBall, oneBall, twoBalls, threeBalls;
+    [SerializeField] public GameObject zeroBall, oneBall, twoBalls, threeBalls, fourBalls, fiveBalls;
     void Update()
     {
         currBall = playerData.currBallsInHand;
@@ -20,6 +20,8 @@ public class CountBall : MonoBehaviour
                 oneBall.SetActive(false);
                 twoBalls.SetActive(false);
                 threeBalls.SetActive(false);
+                fourBalls.SetActive(false);
+                fiveBalls.SetActive(false);
             }
             else if (currBall == 1)
             {
@@ -27,6 +29,8 @@ public class CountBall : MonoBehaviour
                 oneBall.SetActive(true);
                 twoBalls.SetActive(false);
                 threeBalls.SetActive(false);
+                fourBalls.SetActive(false);
+                fiveBalls.SetActive(false);
             }
             else if (currBall == 2)
             {
@@ -34,6 +38,8 @@ public class CountBall : MonoBehaviour
                 oneBall.SetActive(false);
                 twoBalls.SetActive(true);
                 threeBalls.SetActive(false);
+                fourBalls.SetActive(false);
+                fiveBalls.SetActive(false);
             }
             else if (currBall == 3)
             {
@@ -41,6 +47,26 @@ public class CountBall : MonoBehaviour
                 oneBall.SetActive(false);
                 twoBalls.SetActive(false);
                 threeBalls.SetActive(true);
+                fourBalls.SetActive(false);
+                fiveBalls.SetActive(false);
+            }
+            else if (currBall == 4)
+            {
+                zeroBall.SetActive(false);
+                oneBall.SetActive(false);
+                twoBalls.SetActive(false);
+                threeBalls.SetActive(false);
+                fourBalls.SetActive(true);
+                fiveBalls.SetActive(false);
+            }
+            else if (currBall == 5)
+            {
+                zeroBall.SetActive(false);
+                oneBall.SetActive(false);
+                twoBalls.SetActive(false);
+                threeBalls.SetActive(false);
+                fourBalls.SetActive(false);
+                fiveBalls.SetActive(true);
             }
         } 
     }
