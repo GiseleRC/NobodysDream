@@ -222,6 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controls: {fileID: 1301904095}
+  arrow: {fileID: 0}
+  backArrow: {fileID: 0}
+  closeControls: {fileID: 0}
+  controlPapers: []
   click: {fileID: 347339252}
 --- !u!4 &347339251
 Transform:
@@ -884,7 +888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1355095497, guid: 6507d2ba7ef9e4045a363c139b1e11ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6507d2ba7ef9e4045a363c139b1e11ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
