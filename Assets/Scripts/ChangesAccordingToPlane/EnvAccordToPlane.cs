@@ -40,7 +40,6 @@ public class EnvAccordToPlane : MonoBehaviour
                 SwitchMode.Play();
                 break;
             case GameState.PlaneMode.Ghost:
-                sensorFalse.SetActive(false);
                 sensorTrue.SetActive(true);
                 //canvasBallCount.SetActive(true);
                 IconGhostEnable.SetActive(true);
