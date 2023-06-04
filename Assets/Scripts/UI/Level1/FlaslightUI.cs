@@ -8,7 +8,7 @@ public class FlaslightUI : MonoBehaviour
     Slider slider;
     FlashLight flashlight;
     [SerializeField] GameObject disable;
-    bool disableBool;
+    bool disableBool = false;
 
     void Start()
     {
@@ -33,6 +33,6 @@ public class FlaslightUI : MonoBehaviour
 
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
-        disableBool = planeMode == GameState.PlaneMode.Dream;
+        disableBool = planeMode == GameState.PlaneMode.Ghost;
     }
 }
