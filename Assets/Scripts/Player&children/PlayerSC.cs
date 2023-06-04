@@ -13,6 +13,7 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private float artificialGravity = 5f;
     [SerializeField] private float ballReloadTime = 1f;
     [SerializeField] private float ballThrowForce = 6f;
+    [SerializeField] public PhysicMaterial physicMaterial;
     [SerializeField] public int maxCapacityOfBalls = 5;
     private GameObject ball = null;
     GameObject ps;
@@ -84,16 +85,29 @@ public class PlayerSC : MonoBehaviour
         {
             ReloadScene();
         }
+
     }
     void FixedUpdate()
     {
         PlayerMovement();
+
+        if (Input.GetAxisRaw("Horizontal") == 0f && Input.GetAxisRaw("Vertical") == 0 && !Input.GetButtonDown("Jump"))
+        {
+            ResetSpawnPlayer();
+            physicMaterial.staticFriction = 0.6f;
+        }
+        else
+        {
+            physicMaterial.staticFriction = 0.3f;
+        }
+
         playerRB.AddForce(Vector3.down * artificialGravity);
     }
 
     public void ResetSpawnPlayer()
     {
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        //GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().velocity = new Vector3(0f, playerRB.velocity.y, 0f);
     }
 
     public void ReloadScene()
