@@ -9,7 +9,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject rubbers, canvasBallCount, ligthKaki, ligthPractice, light1, light2, light3, bookEnableUIGO, lightBed, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, collectPickeable, interactiveButton;
+    public GameObject canvasBallCount, bookEnableUIGO, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
