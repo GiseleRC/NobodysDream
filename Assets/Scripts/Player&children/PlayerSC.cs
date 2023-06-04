@@ -6,17 +6,17 @@ using UnityEngine.SceneManagement;
 public class PlayerSC : MonoBehaviour
 {
     [SerializeField] private Rigidbody playerRB;
+    [SerializeField] private GameObject ballPF;
+    [SerializeField] private Transform hand;
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float artificialGravity = 5f;
     [SerializeField] private float ballReloadTime = 1f;
-    [SerializeField] private GameObject ballPF;
     [SerializeField] private float ballThrowForce = 6f;
-    [SerializeField] private Transform hand;
+    private GameObject ball = null;
+    GameObject ps;
     public PlayerCollitionsBody playerC;
     public MaterializeObjects mtSC;
-    private float jumpHeight = 2f;
-    private float ballReload = 0f;
     public GameState gameState;
     public Transform orientation;
     public bool ballInHand = false;
@@ -24,8 +24,8 @@ public class PlayerSC : MonoBehaviour
     public bool canMaterialized = false;
     public int ballCount = 0;
     public int currBallsInHand;
-    private GameObject ball = null;
-    GameObject ps;
+    private float jumpHeight = 2f;
+    private float ballReload = 0f;
     float coyoteTime = 0.2f;
     float coyoteTimeCounter;    
     float jumpBufferTime = 0.2f;
@@ -45,6 +45,7 @@ public class PlayerSC : MonoBehaviour
     {
         PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
     }
+
     private void OnEnable()
     {
         playerRB.constraints = RigidbodyConstraints.None;
@@ -55,6 +56,7 @@ public class PlayerSC : MonoBehaviour
     {
         playerRB.constraints = RigidbodyConstraints.FreezeAll;
     }
+
     private void Update()
     {
         CoyoteTime();
@@ -70,6 +72,7 @@ public class PlayerSC : MonoBehaviour
         {
             BallGrabAndThrow();
         }
+
         if (playerC.justOneWhenPick)
         {
             currBallsInHand++;
@@ -86,74 +89,17 @@ public class PlayerSC : MonoBehaviour
         PlayerMovement();
         playerRB.AddForce(Vector3.down * artificialGravity);
     }
+
     public void ResetSpawnPlayer()
     {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
+
     public void ReloadScene()
     {
         SceneManager.LoadScene("Level1");
     }
-    void PlaneChange()
-    {
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        if (scroll > 0f)
-        {
-            gameState.SetNextPlaneMode();
-        }
-        else if (scroll < 0f)
-        {
-            gameState.SetPrevPlaneMode();
-        }
-    }
-    void PlayerMovement()
-    {
-        float inputX = Input.GetAxisRaw("Horizontal");
-        float inputY = Input.GetAxisRaw("Vertical");
 
-        Vector3 input = new Vector3(inputX, 0f, inputY);
-        input.Normalize();
-
-        float speed = (Input.GetButton("Left Shift")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
-
-        Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
-        transform.position += velocity;
-    }
-
-    void CoyoteTime()
-    {
-        if (ground.IsGrounded)
-        {
-            coyoteTimeCounter = coyoteTime;
-        }
-        else
-        {
-            coyoteTimeCounter -= Time.deltaTime;
-        }
-    }
-    
-    void BufferTime()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpBufferCounter = jumpBufferTime;
-        }
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
-        }
-    }
-
-    void Jump()
-    {
-        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
-        {
-            float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
-            playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
-            jumpBufferCounter = 0;
-            coyoteTimeCounter = 0;
-        }
-    }
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         canThrowBall = planeMode == GameState.PlaneMode.Ghost;
@@ -192,11 +138,74 @@ public class PlayerSC : MonoBehaviour
         }
         
     }
+
     public void PickupBalls()
     {
         ballCount = 5;
         currBallsInHand = ballCount;
         Debug.Log(" A la agarrar, Tengo " + currBallsInHand + " pelotas de " + ballCount);
+    }
+
+    void PlaneChange()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0f)
+        {
+            gameState.SetNextPlaneMode();
+        }
+        else if (scroll < 0f)
+        {
+            gameState.SetPrevPlaneMode();
+        }
+    }
+
+    void PlayerMovement()
+    {
+        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputY = Input.GetAxisRaw("Vertical");
+
+        Vector3 input = new Vector3(inputX, 0f, inputY);
+        input.Normalize();
+
+        float speed = (Input.GetButton("Left Shift")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
+
+        Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
+        transform.position += velocity;
+    }
+
+    void Jump()
+    {
+        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
+        {
+            float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
+            playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
+            jumpBufferCounter = 0;
+            coyoteTimeCounter = 0;
+        }
+    }
+
+    void CoyoteTime()
+    {
+        if (ground.IsGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+    }
+
+    void BufferTime()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
     }
 
     private void OnPauseStateChanged(PauseState newPauseState)

@@ -16,6 +16,27 @@ public class Dianas : MonoBehaviour
         position1 = tabGO.transform.position;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Ball(Clone)")
+        {
+            if (gameObject.name == "Practica1")
+            {
+                puzzle2.practice1 = true;
+                audioSource.Play();
+            }
+            if (gameObject.name == "Practica2")
+            {
+                puzzle2.practice2 = true;
+                audioSource.Play();
+            }
+            if (gameObject.name == "Practica3")
+            {
+                puzzle2.practice3 = true;
+                audioSource.Play();
+            }
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Ball(Clone)")
@@ -72,21 +93,7 @@ public class Dianas : MonoBehaviour
                 tabGO.transform.position = position1;
             }
 
-            if (gameObject.name == "Practica1")
-            {
-                puzzle2.practice1 = true;
-                audioSource.Play();
-            }
-            if (gameObject.name == "Practica2")
-            {
-                puzzle2.practice2 = true;
-                audioSource.Play();
-            }
-            if (gameObject.name == "Practica3")
-            {
-                puzzle2.practice3 = true;
-                audioSource.Play();
-            }
+
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnvAccordToPlane : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject sensorFalse, sensorTrue, IconGhostEnable, trueSteps, IconLinternaOn, IconLinternaOff, canvasBallCount, bucket, disableFlashlight, disableball;
+    public GameObject trueSteps, iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, bucket, disableFlashlight, disableball;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
     public AudioSource SwitchMode;
@@ -30,9 +30,10 @@ public class EnvAccordToPlane : MonoBehaviour
                 //{
                 //    canvasBallCount.SetActive(false);
                 //}
-                IconGhostEnable.SetActive(false);
-                IconLinternaOn.SetActive(true);
-                IconLinternaOff.SetActive(false);
+                iconGhostOn.SetActive(false);
+                iconGhostOff.SetActive(true);
+                iconDreamOn.SetActive(true);
+                iconDreamOff.SetActive(true);
                 bucket.SetActive(false);
                 //disableball.SetActive(true);
                 //disableFlashlight.SetActive(false);
@@ -40,15 +41,15 @@ public class EnvAccordToPlane : MonoBehaviour
                 SwitchMode.Play();
                 break;
             case GameState.PlaneMode.Ghost:
-                sensorTrue.SetActive(true);
                 //canvasBallCount.SetActive(true);
-                IconGhostEnable.SetActive(true);
-                IconLinternaOn.SetActive(false);
-                IconLinternaOff.SetActive(true);
+                iconGhostOn.SetActive(true);
+                iconGhostOff.SetActive(false);
+                iconDreamOn.SetActive(false);
+                iconDreamOff.SetActive(true);
+                bucket.SetActive(true);
                 //disableFlashlight.SetActive(true);
                 //disableball.SetActive(false);
 
-                bucket.SetActive(true);
                 SwitchMode.Play();
                 break;
             case GameState.PlaneMode.Demon:

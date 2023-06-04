@@ -10,24 +10,24 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public GameObject rubbers, canvasBallCount, ligthKaki, ligthPractice, light1, light2, light3, bookEnableUIGO, lightBed, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, IconFantasma, level1Enable, ballBucket, IconFantasmaLinterna, flashLigthUI, rullerPick, collectPickeable, interactiveButton;
-    [SerializeField] private Collider capC, boosterC;
     public AudioSource openTutorial, pickUp, booster;
+    [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
     public bool justOneWhenPick = false;
     public bool iHaveCap = false;
     private bool objEnable = false;
     private bool capEnable = false;
+    private float addTime = 15f;
     bool canInteractWithItem;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Model&Collider" && !tutorialPaperBool.anyTutorialOpen)
+        if (other.name == "Boina")
         {
-            other.transform.GetChild(0).gameObject.SetActive(true);
+            other.transform.GetChild(0).gameObject.SetActive(true);// Activa la linterna? no se como lo hace
             canInteractWithItem = true;
-
         }
-        else if (other.name == "Boina")
+        else if (other.name == "Model&Collider" && !tutorialPaperBool.anyTutorialOpen)// Activa la regla y el cubo?
         {
             other.transform.GetChild(0).gameObject.SetActive(true);
             canInteractWithItem = true;
@@ -42,41 +42,53 @@ public class PlayerCollitionsBody : MonoBehaviour
             other.transform.GetChild(0).gameObject.SetActive(true);
             canInteractWithItem = true;
         }
-        else if (other.name == "zZz")
-        {
-            timerController.AddTime(15f);
-            reloj.enabled = true;
-            Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
-            other.gameObject.SetActive(false);//Booster pickeable
-
-            booster.Play();//Sonido de PICKEABLE
-        }
-        else if (other.name == "SabanaLvl1Off")
-        {
-            level1Enable.SetActive(false);
-        }
         else if (other.name == "BallBucket" && GetComponent<PlayerSC>().canThrowBall)
         {
             other.transform.GetChild(0).gameObject.SetActive(true);
             canInteractWithItem = true;
         }
+        //Habilita acceso a tutoriales
+        else if (other.name == "BookEnableUI")
+        {
+            //Activa/Desactiva gameobject
+            other.gameObject.SetActive(false);
+            bookEnableUIGO.SetActive(true);
+            rubbers.SetActive(true);
+            //Play
+            pickUp.Play();
+        }
+        //Booster pickeable
+        else if (other.name == "zZz")
+        {
+            //Suma al tiempo
+            timerController.AddTime(addTime);
+            //Activa/Desactiva gameobject
+            other.gameObject.SetActive(false);
+            //Particula
+            Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
+            //Play
+            reloj.enabled = true;
+            booster.Play();
+        }
+        //Desactiva el nivel 1
+        else if (other.name == "SabanaLvl1Off")
+        {
+            level1Enable.SetActive(false);
+        }
+        //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
+            //Activa boleanos
             justOneWhenPick = true;
             ballEnable = true;
+            tutorialPaperBool.showTutorialBall = true;
+            //Activa/Desactiva gameobject
             ballBucket.SetActive(true);
             canvasBallCount.SetActive(true);
             ligthPractice.SetActive(true);
             ligthKaki.SetActive(false);
             other.gameObject.SetActive(false);
-            tutorialPaperBool.showTutorialBall = true;
-            pickUp.Play();
-        }
-        else if (other.name == "BookEnableUI")
-        {
-            other.gameObject.SetActive(false);
-            bookEnableUIGO.SetActive(true);
-            rubbers.SetActive(true);
+            //Play
             pickUp.Play();
         }
     }
