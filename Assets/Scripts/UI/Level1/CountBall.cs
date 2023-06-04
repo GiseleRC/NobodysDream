@@ -9,6 +9,7 @@ public class CountBall : MonoBehaviour
     [SerializeField] public PlayerCollitionsBody playerC;
     [SerializeField] private int currBall;
     [SerializeField] public GameObject zeroBall, oneBall, twoBalls, threeBalls, fourBalls, fiveBalls, disable;
+    private bool disableBool = false;
     void Update()
     {
         currBall = playerData.currBallsInHand;
@@ -79,5 +80,18 @@ public class CountBall : MonoBehaviour
             fourBalls.SetActive(false);
             fiveBalls.SetActive(false);
         }
+
+        if (disableBool == true)
+        {
+            disable.SetActive(true);
+        }
+        else
+        {
+            disable.SetActive(false);
+        }
+    }
+    public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
+    {
+        disableBool = planeMode == GameState.PlaneMode.Dream;
     }
 }
