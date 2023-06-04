@@ -1003,7 +1003,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8166849483277595109}
   - component: {fileID: 8734371037959268166}
-  - component: {fileID: 5100290805559102209}
   - component: {fileID: 1927097810434656124}
   - component: {fileID: 15092383332247294}
   - component: {fileID: 691922695422852397}
@@ -1014,6 +1013,7 @@ GameObject:
   - component: {fileID: 9172787260233978953}
   - component: {fileID: 4471130259390780548}
   - component: {fileID: 6973739633257124419}
+  - component: {fileID: 4348606896880530194}
   m_Layer: 7
   m_Name: Char
   m_TagString: Untagged
@@ -1058,20 +1058,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!136 &5100290805559102209
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8166849483277595108}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1927097810434656124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1763,6 +1749,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &4348606896880530194
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166849483277595108}
+  m_Material: {fileID: 13400000, guid: 21bdc1dadf98a8c48ad45989331ee850, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &8489230671221386904
 GameObject:
   m_ObjectHideFlags: 0
