@@ -7,15 +7,30 @@ public class Dianas : MonoBehaviour
     public Puzzle2 puzzle2;
     public Puzzle3 puzzle3;
     private Vector3 position1;
-    public GameObject tabGO, facesGO1, facesGO2, facesGO3, facesGO1A, facesGO2A, facesGO3A;
+    public GameObject tabGO, facesGO1, facesGO2, facesGO3, facesGO1A, facesGO2A, facesGO3A, currGO;
     public TimerController timerController;
     public AudioSource audioSource;
+    private float timeWait = 1f;
+    private bool startCount = false;
 
     private void Start()
     {
         position1 = tabGO.transform.position;
     }
 
+    private void Update()
+    {
+        if (startCount)
+        {
+            timeWait -= Time.deltaTime;
+        }
+        if (timeWait <= 0f)
+        {
+            currGO.SetActive(false);
+            startCount = false;
+            timeWait = 1f;
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Ball(Clone)")
@@ -23,18 +38,20 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Practica1")
             {
                 puzzle2.practice1 = true;
-                audioSource.Play();
+                currGO = gameObject;
             }
             if (gameObject.name == "Practica2")
             {
                 puzzle2.practice2 = true;
-                audioSource.Play();
+                currGO = gameObject;
             }
             if (gameObject.name == "Practica3")
             {
                 puzzle2.practice3 = true;
-                audioSource.Play();
+                currGO = gameObject;
             }
+            audioSource.Play();
+            startCount = true;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -92,8 +109,6 @@ public class Dianas : MonoBehaviour
                 position1 = new Vector3(position1.x, 2f, position1.z);
                 tabGO.transform.position = position1;
             }
-
-
         }
     }
 }
