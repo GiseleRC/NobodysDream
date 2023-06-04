@@ -95,6 +95,21 @@ public class PlayerCollitionsBody : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if(other.name == "Boina")
+        {
+            if (canInteractWithItem && Input.GetButton("Interact"))
+            {
+                //tutorialPaperBool.showGuideTutorialPlane = true;//booleano del Script guia de tutoriales BOINA/MODO
+                capEnable = true;
+
+                cap.SetActive(false);//Se desactiva boina
+                flashLightPickGO.SetActive(true);//Se activa la LINTERNA
+                IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
+
+                pickUp.Play();//Sonido de PICKEABLE
+            }
+        }
+
         if (other.name == "RulerPickeable")
         {
             if (canInteractWithItem && Input.GetButton("Interact") && !tutorialPaperBool.anyTutorialOpen)
@@ -113,20 +128,6 @@ public class PlayerCollitionsBody : MonoBehaviour
             }
         }
 
-        if(other.name == "Boina")
-        {
-            if (canInteractWithItem && Input.GetButton("Interact"))
-            {
-                //tutorialPaperBool.showGuideTutorialPlane = true;//booleano del Script guia de tutoriales BOINA/MODO
-                capEnable = true;
-
-                cap.SetActive(false);//Se desactiva boina
-                flashLightPickGO.SetActive(true);//Se activa la LINTERNA
-                IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
-
-                pickUp.Play();//Sonido de PICKEABLE
-            }
-        }
 
         if(other.name == "Model&Collider")
         {
@@ -159,10 +160,10 @@ public class PlayerCollitionsBody : MonoBehaviour
                 pickUp.Play();//Sonido de PICKEABLE
             }
         }
-        
+
         if(other.name == "BallBucket")
         {
-            if (canInteractWithItem && Input.GetButton("Interact"))
+            if (canInteractWithItem && Input.GetButton("Interact") && GetComponent<PlayerSC>().currBallsInHand != GetComponent<PlayerSC>().maxCapacityOfBalls)
             {
                 GetComponent<PlayerSC>().PickupBalls();
                 GetComponent<PlayerSC>().ballInHand = true;

@@ -13,6 +13,7 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private float artificialGravity = 5f;
     [SerializeField] private float ballReloadTime = 1f;
     [SerializeField] private float ballThrowForce = 6f;
+    [SerializeField] public int maxCapacityOfBalls = 5;
     private GameObject ball = null;
     GameObject ps;
     public PlayerCollitionsBody playerC;
@@ -141,9 +142,9 @@ public class PlayerSC : MonoBehaviour
 
     public void PickupBalls()
     {
-        ballCount = 5;
-        currBallsInHand = ballCount;
-        Debug.Log(" A la agarrar, Tengo " + currBallsInHand + " pelotas de " + ballCount);
+            ballCount = maxCapacityOfBalls;
+            currBallsInHand = ballCount;
+            //Debug.Log(" A la agarrar, Tengo " + currBallsInHand + " pelotas de " + ballCount);
     }
 
     void PlaneChange()
