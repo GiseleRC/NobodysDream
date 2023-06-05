@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerSC : MonoBehaviour
 {
     [SerializeField] private Rigidbody playerRB;
-    [SerializeField] private GameObject ballPF;
+    [SerializeField] private GameObject ballPF, ballPickeableGO;
     [SerializeField] private Transform hand;
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 8f;
@@ -118,6 +118,7 @@ public class PlayerSC : MonoBehaviour
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         canThrowBall = planeMode == GameState.PlaneMode.Ghost;
+        ballPickeableGO.SetActive(planeMode == GameState.PlaneMode.Ghost);
     }
     //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
     private void BallGrabAndThrow()
