@@ -12,7 +12,7 @@ public class CountBall : MonoBehaviour
     private bool disableBool = false;
     void Update()
     {
-        currBall = playerData.currBallsInHand;
+        currBall = playerData.BallCount;
         if (gameState.GhostPlaneModeEnabled && playerC.ballEnable)
         {
             if (currBall == 0)

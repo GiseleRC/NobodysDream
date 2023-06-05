@@ -80,8 +80,8 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
             //Activa boleanos
-            justOneWhenPick = true;
             ballEnable = true;
+            GetComponent<PlayerSC>().PickupBalls(1);
             tutorialPaperBool.showTutorialBall = true;
             //Activa/Desactiva gameobject
             ballBucket.SetActive(true);
@@ -169,12 +169,11 @@ public class PlayerCollitionsBody : MonoBehaviour
 
         if(other.name == "BallBucket")
         {
-            if (canInteractWithItem && Input.GetButton("Interact") && GetComponent<PlayerSC>().currBallsInHand != GetComponent<PlayerSC>().maxCapacityOfBalls)
+            if (canInteractWithItem && Input.GetButton("Interact"))
             {
-                GetComponent<PlayerSC>().PickupBalls();
-                GetComponent<PlayerSC>().ballInHand = true;
                 other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
-                pickUp.Play();
+                if (GetComponent<PlayerSC>().PickupBalls(5))
+                    pickUp.Play();
             }
         }
     }

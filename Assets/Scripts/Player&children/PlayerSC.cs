@@ -21,17 +21,16 @@ public class PlayerSC : MonoBehaviour
     public MaterializeObjects mtSC;
     public GameState gameState;
     public Transform orientation;
-    public bool ballInHand = false;
     public bool canThrowBall = false;
     public bool canMaterialized = false;
-    public int ballCount = 0;
-    public int currBallsInHand;
     private float jumpHeight = 2f;
     private float ballReload = 0f;
     float coyoteTime = 0.3f;
-    float coyoteTimeCounter;    
+    float coyoteTimeCounter;
     float jumpBufferTime = 0.2f;
     float jumpBufferCounter;
+
+    public int BallCount { get; private set; } = 0;
 
     GroundCheck ground;
 
@@ -72,16 +71,16 @@ public class PlayerSC : MonoBehaviour
             PlaneChange();
         }
 
-        if (playerC.ballEnable && gameState.GhostPlaneModeEnabled)
+        if (playerC.ballEnable)
         {
             BallGrabAndThrow();
         }
 
-        if (playerC.justOneWhenPick)
-        {
-            currBallsInHand++;
-            playerC.justOneWhenPick = false;
-        }
+        //if (playerC.justOneWhenPick)
+        //{
+        //    currBallsInHand++;
+        //    playerC.justOneWhenPick = false;
+        //}
 
         if (Input.GetButtonDown("Reinicio"))
         {
@@ -125,14 +124,13 @@ public class PlayerSC : MonoBehaviour
     //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
     private void BallGrabAndThrow()
     {
-        if (!canThrowBall && ballInHand)
+        if (!canThrowBall)
         {
             if (ball != null)
                 Destroy(ball);
             return;
         }
-        ballCount = currBallsInHand;
-        if (ball == null && ballCount > 0)
+        if (ball == null && BallCount > 0)
         {
             if (ballReload < ballReloadTime)
                 ballReload += Time.deltaTime;
@@ -144,24 +142,25 @@ public class PlayerSC : MonoBehaviour
         }
         if (ball != null && Input.GetButtonDown("LeftClick"))
         {
-            ballCount--;
+            BallCount--;
             ballReload = 0f;
             ball.transform.parent = null;
             ball.GetComponent<Rigidbody>().isKinematic = false;
             ball.GetComponent<Rigidbody>().AddForce(hand.transform.forward * ballThrowForce, ForceMode.Impulse);
             ball.transform.GetChild(0).gameObject.SetActive(true);
             ball = null;
-            currBallsInHand = ballCount;
-            Debug.Log(" A tiraR, Tengo " + currBallsInHand + " pelotas de " + ballCount);
+            Debug.Log(" A tiraR, Tengo " + BallCount + " pelotas de " + maxCapacityOfBalls);
         }
         
     }
 
-    public void PickupBalls()
+    public bool PickupBalls(int balls)
     {
-            ballCount = maxCapacityOfBalls;
-            currBallsInHand = ballCount;
-            //Debug.Log(" A la agarrar, Tengo " + currBallsInHand + " pelotas de " + ballCount);
+        if (BallCount >= maxCapacityOfBalls)
+            return false;
+        BallCount = Mathf.Min(BallCount + balls, maxCapacityOfBalls);
+        return true;
+        //Debug.Log(" A la agarrar, Tengo " + currBallsInHand + " pelotas de " + ballCount);
     }
 
     void PlaneChange()
