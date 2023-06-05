@@ -19,32 +19,33 @@ public class PlayerCollitionsBody : MonoBehaviour
     private bool capEnable = false;
     private float addTime = 15f;
     bool canInteractWithItem;
+    public GameObject[] pickeablesUI;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Boina")
         {
-            other.transform.GetChild(0).gameObject.SetActive(true);// Activa la linterna? no se como lo hace
+            pickeablesUI[0].SetActive(true);// Activa la linterna? no se como lo hace
             canInteractWithItem = true;
         }
         else if (other.name == "Model&Collider" && !tutorialPaperBool.anyTutorialOpen)// Activa la regla y el cubo?
         {
-            other.transform.GetChild(0).gameObject.SetActive(true);
+            pickeablesUI[1].SetActive(true);// Activa la linterna? no se como lo hace
             canInteractWithItem = true;
         }
         else if (other.name == "RulerPickeable" && !tutorialPaperBool.anyTutorialOpen)
         {
-            other.transform.GetChild(2).gameObject.SetActive(true);
+            pickeablesUI[2].SetActive(true);// Activa la linterna? no se como lo hace
             canInteractWithItem = true;
         }
         else if (other.name == "Glasses" && !tutorialPaperBool.anyTutorialOpen)
         {
-            other.transform.GetChild(0).gameObject.SetActive(true);
+            pickeablesUI[3].SetActive(true);// Activa la linterna? no se como lo hace
             canInteractWithItem = true;
         }
         else if (other.name == "BallBucket" && GetComponent<PlayerSC>().canThrowBall)
         {
-            other.transform.GetChild(0).gameObject.SetActive(true);
+            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
             canInteractWithItem = true;
         }
         //Habilita acceso a tutoriales
@@ -106,6 +107,8 @@ public class PlayerCollitionsBody : MonoBehaviour
                 flashLightPickGO.SetActive(true);//Se activa la LINTERNA
                 IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
 
+                pickeablesUI[0].SetActive(false);
+
                 pickUp.Play();//Sonido de PICKEABLE
             }
         }
@@ -114,17 +117,18 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if (canInteractWithItem && Input.GetButton("Interact") && !tutorialPaperBool.anyTutorialOpen)
             {
-            tutorialPaperBool.showTutorialMat1 = true;//booleano del Script tutorial REGLA
-            objEnable = true;//booleano para I HAVE CAP
-            tutorialPaperBool.anyTutorialOpen = true;
+                tutorialPaperBool.showTutorialMat1 = true;//booleano del Script tutorial REGLA
+                objEnable = true;//booleano para I HAVE CAP
+                tutorialPaperBool.anyTutorialOpen = true;
 
-            other.gameObject.SetActive(false);//ruller pickeable
-            light2.SetActive(false);//Se activa puerta
-            light3.SetActive(false);//Se activa puerta
-            lightBed.SetActive(false);
-            door.SetActive(true);//Se activa puerta
-            light1.SetActive(true);//Se activa puerta
-            pickUp.Play();//Sonido de PICKEABLE
+                other.gameObject.SetActive(false);//ruller pickeable
+                light2.SetActive(false);//Se activa puerta
+                light3.SetActive(false);//Se activa puerta
+                lightBed.SetActive(false);
+                door.SetActive(true);//Se activa puerta
+                light1.SetActive(true);//Se activa puerta
+                pickUp.Play();//Sonido de PICKEABLE
+                pickeablesUI[2].SetActive(false);
             }
         }
 
@@ -141,6 +145,7 @@ public class PlayerCollitionsBody : MonoBehaviour
                 flashLigthUI.SetActive(true);//UI de linterna
                 flashLigthArm.SetActive(true);//linterna del brazo
                 rullerPick.SetActive(true);//Se activa RULLER
+                pickeablesUI[1].SetActive(false);
 
                 pickUp.Play();//Sonido de PICKEABLE
             }
@@ -156,6 +161,7 @@ public class PlayerCollitionsBody : MonoBehaviour
                 glassesGO.SetActive(false);//anteojos pickeable
                 IconFantasma.SetActive(true);//UI PLANE GHOST
                 level2Enable.SetActive(true);//Se activa LEVEL2
+                pickeablesUI[3].SetActive(false);
 
                 pickUp.Play();//Sonido de PICKEABLE
             }
@@ -167,6 +173,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             {
                 GetComponent<PlayerSC>().PickupBalls();
                 GetComponent<PlayerSC>().ballInHand = true;
+                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
                 pickUp.Play();
             }
         }
@@ -176,31 +183,31 @@ public class PlayerCollitionsBody : MonoBehaviour
     {
         if(other.name == "RulerPickeable")
         {
-            other.transform.GetChild(2).gameObject.SetActive(false);
+            pickeablesUI[2].SetActive(false);
             canInteractWithItem = false;
         }
 
         if(other.name == "Boina")
         {
-            other.transform.GetChild(0).gameObject.SetActive(false);
+            pickeablesUI[0].SetActive(false);
             canInteractWithItem = false;
         }
 
         if(other.name == "Model&Collider")
         {
-            other.transform.GetChild(0).gameObject.SetActive(false);
+            pickeablesUI[1].SetActive(false);
             canInteractWithItem = false;
         }
 
         if (other.name == "Glasses")
         {
-            other.transform.GetChild(0).gameObject.SetActive(false);
+            pickeablesUI[3].SetActive(false);
             canInteractWithItem = false;
         }
 
         if(other.name == "BallBucket")
         {
-            other.transform.GetChild(0).gameObject.SetActive(false);
+            other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
             canInteractWithItem = false;
         }
     }

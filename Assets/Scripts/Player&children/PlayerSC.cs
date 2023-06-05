@@ -28,7 +28,7 @@ public class PlayerSC : MonoBehaviour
     public int currBallsInHand;
     private float jumpHeight = 2f;
     private float ballReload = 0f;
-    float coyoteTime = 0.2f;
+    float coyoteTime = 0.3f;
     float coyoteTimeCounter;    
     float jumpBufferTime = 0.2f;
     float jumpBufferCounter;
@@ -64,6 +64,8 @@ public class PlayerSC : MonoBehaviour
         CoyoteTime();
         BufferTime();
         Jump();
+
+        print(ground.IsGrounded);
 
         if (mtSC.materializanding == false)
         {
@@ -196,7 +198,6 @@ public class PlayerSC : MonoBehaviour
             float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
             playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
             jumpBufferCounter = 0;
-            coyoteTimeCounter = 0;
         }
     }
 
@@ -209,6 +210,12 @@ public class PlayerSC : MonoBehaviour
         else
         {
             coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if(Input.GetButtonUp("Jump") && playerRB.velocity.y > 0)
+        {
+            print("coyote");
+            coyoteTimeCounter = 0;
         }
     }
 
