@@ -35,10 +35,12 @@ public class FollowObject : MonoBehaviour
         }
         else if(ray && hit.collider == parent)
         {
+            parent.GetComponent<BoxCollider>().isTrigger = true;
             transform.Translate(0, -speed * Time.deltaTime, 0);
         }
         else
         {
+            print("khe");
             parent.GetComponent<BoxCollider>().isTrigger = false;
 
             var thiefs = FindObjectsOfType<ThierfEnemyDecisions>();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MaterializeObjects : MonoBehaviour
 {
-    [SerializeField] GameObject ruler,cube, camPos;
+    [SerializeField] GameObject ruler,cube, camPos, particleCube, particleRuler;
     [SerializeField] List<GameObject> rulersActive, cubesActive;
     GameObject actualObject, lastObjectCreated, newObject;
     [SerializeField] LayerMask layerMask;
@@ -82,6 +82,8 @@ public class MaterializeObjects : MonoBehaviour
         {
             materializanding = false;
         }
+
+        
     }
 
     public Vector3 PosObject
@@ -113,6 +115,8 @@ public class MaterializeObjects : MonoBehaviour
         {
             if (rulersActive.Count == 2)
             {
+                Instantiate(particleRuler, rulersActive[0].transform.GetChild(3).transform.position, rulersActive[0].transform.GetChild(3).rotation);
+                
                 Destroy(rulersActive[0]);
                 rulersActive[0] = rulersActive[1];
                 rulersActive[1] = actualObject;
@@ -128,6 +132,7 @@ public class MaterializeObjects : MonoBehaviour
         {
             if (cubesActive.Count == 2)
             {
+                Instantiate(particleCube, new Vector3(cubesActive[0].transform.position.x, cubesActive[0].transform.position.y - 0.5f, cubesActive[0].transform.position.z),cubesActive[0].transform.rotation);
                 Destroy(cubesActive[0]);
                 cubesActive[0] = cubesActive[1];
                 cubesActive[1] = actualObject;

@@ -27,7 +27,7 @@ public class RotateObject : MonoBehaviour
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
         }
 
-        GetComponentInChildren<FollowObject>().enabled = true;
+        GetComponent<FollowObject>().enabled = true;
         Destroy(actualObject);
         this.enabled = false;
     }
