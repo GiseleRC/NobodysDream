@@ -86,7 +86,7 @@ public class PlayerSC : MonoBehaviour
     {
         PlayerMovement();
 
-        if (Input.GetAxisRaw("Horizontal") == 0f && Input.GetAxisRaw("Vertical") == 0 && !Input.GetButtonDown("Jump"))
+        if (Input.GetAxisRaw("Horizontal") == 0f && Input.GetAxisRaw("Vertical") == 0 && !Input.GetButtonDown("Jump") && !GetComponent<CapsuleCollider>().enabled)
         {
             ResetSpawnPlayer();
             physicMaterial.staticFriction = 0.6f;
@@ -105,6 +105,16 @@ public class PlayerSC : MonoBehaviour
         GetComponent<Rigidbody>().velocity = new Vector3(0f, playerRB.velocity.y, 0f);
     }
 
+    public void EnableCollider()
+    {
+        GetComponent<CapsuleCollider>().enabled = true;
+        GetComponent<MeshCollider>().enabled = false;
+    }
+    public void DisableCollider()
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<MeshCollider>().enabled = true;
+    }
     public void ReloadScene()
     {
         SceneManager.LoadScene("Level1");
