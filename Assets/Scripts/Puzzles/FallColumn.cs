@@ -13,6 +13,7 @@ public class FallColumn : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
             bookWheelSC.GetComponent<Wheel>().enabled = true;
+            bookWheelSC.GetComponentInChildren<Collider>().enabled = true;
             audioSource.Play();
         }
     }
@@ -22,7 +23,6 @@ public class FallColumn : MonoBehaviour
         {
             audioSource.Stop();
             bookWheelSC.GetComponent<Wheel>().enabled = false;
-            bookWheelSC.GetComponentInChildren<Collider>().enabled = true;
         }
     }
 }

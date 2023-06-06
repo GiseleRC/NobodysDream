@@ -64,7 +64,7 @@ public class PlayerSC : MonoBehaviour
         BufferTime();
         Jump();
 
-        print(ground.IsGrounded);
+        //print(ground.IsGrounded);
 
         if (mtSC.materializanding == false)
         {
@@ -75,12 +75,6 @@ public class PlayerSC : MonoBehaviour
         {
             BallGrabAndThrow();
         }
-
-        //if (playerC.justOneWhenPick)
-        //{
-        //    currBallsInHand++;
-        //    playerC.justOneWhenPick = false;
-        //}
 
         if (Input.GetButtonDown("Reinicio"))
         {
