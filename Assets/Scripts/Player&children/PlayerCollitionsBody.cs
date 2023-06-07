@@ -9,7 +9,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public GameObject canvasBallCount, bookEnableUIGO, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable;
+    public GameObject dialogSystem, canvasBallCount, bookEnableUIGO, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
@@ -79,9 +79,9 @@ public class PlayerCollitionsBody : MonoBehaviour
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
+            GetComponent<PlayerSC>().PickupBalls(1);
             //Activa boleanos
             ballEnable = true;
-            GetComponent<PlayerSC>().PickupBalls(1);
             tutorialPaperBool.showTutorialBall = true;
             //Activa/Desactiva gameobject
             ballBucket.SetActive(true);
@@ -100,12 +100,13 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if (canInteractWithItem && Input.GetButton("Interact"))
             {
-                //tutorialPaperBool.showGuideTutorialPlane = true;//booleano del Script guia de tutoriales BOINA/MODO
+                //booleano del Script guia de tutoriales BOINA/MODO
                 capEnable = true;
 
                 cap.SetActive(false);//Se desactiva boina
                 flashLightPickGO.SetActive(true);//Se activa la LINTERNA
                 IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
+                dialogSystem.SetActive(true);//Se desactiva boina
 
                 pickeablesUI[0].SetActive(false);
 
