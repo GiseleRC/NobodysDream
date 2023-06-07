@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnvAccordToPlane : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject trueSteps, iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, bucket, disableFlashlight;
+    public GameObject trueSteps, iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, disableFlashlight;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
     public AudioSource SwitchMode;
@@ -34,7 +34,6 @@ public class EnvAccordToPlane : MonoBehaviour
                 iconGhostOff.SetActive(true);
                 iconDreamOn.SetActive(true);
                 iconDreamOff.SetActive(true);
-                bucket.SetActive(false);
                 //disableball.SetActive(true);
                 //disableFlashlight.SetActive(false);
 
@@ -46,7 +45,6 @@ public class EnvAccordToPlane : MonoBehaviour
                 iconGhostOff.SetActive(false);
                 iconDreamOn.SetActive(false);
                 iconDreamOff.SetActive(true);
-                bucket.SetActive(true);
                 //disableFlashlight.SetActive(true);
                 //disableball.SetActive(false);
 
