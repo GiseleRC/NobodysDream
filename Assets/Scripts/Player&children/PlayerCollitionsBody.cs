@@ -9,6 +9,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
+    public DialogSystem dialogS;
     public GameObject dialogSystem, canvasBallCount, bookEnableUIGO, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
@@ -106,7 +107,8 @@ public class PlayerCollitionsBody : MonoBehaviour
                 cap.SetActive(false);//Se desactiva boina
                 flashLightPickGO.SetActive(true);//Se activa la LINTERNA
                 IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
-                dialogSystem.SetActive(true);//Se desactiva boina
+                dialogSystem.SetActive(true);//Se activa SISTEMA DE DIALOGO
+                dialogS.capB = true;// bool dialogo
 
                 pickeablesUI[0].SetActive(false);
 
