@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5501142348729144717}
   m_Layer: 2
   m_Name: Checker
-  m_TagString: Ruler
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,6 +367,10 @@ PrefabInstance:
     - target: {fileID: 5725421286233614941, guid: dfd6c9789d20f4549a7dbab24da83b01, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5725421286233614941, guid: dfd6c9789d20f4549a7dbab24da83b01, type: 3}
+      propertyPath: m_TagString
+      value: Ruler
       objectReference: {fileID: 0}
     - target: {fileID: 6085546323388763016, guid: dfd6c9789d20f4549a7dbab24da83b01, type: 3}
       propertyPath: m_Enabled

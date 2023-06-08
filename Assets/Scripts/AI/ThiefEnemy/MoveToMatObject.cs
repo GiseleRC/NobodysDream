@@ -27,17 +27,26 @@ public class MoveToMatObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, objectPos.position);
-
-        if(distance < 1)
+        if(objectPos != null)
         {
-            nma.SetDestination(transform.position);
-            GetComponent<ThierfEnemyDecisions>().StealObject = true;
+            float distance = Vector3.Distance(transform.position, objectPos.position);
+
+            if(distance < 1)
+            {
+                nma.SetDestination(transform.position);
+                GetComponent<ThierfEnemyDecisions>().StealObject = true;
+            }
+            else
+            {
+                GetComponent<ThierfEnemyDecisions>().StealObject = false;
+                nma.SetDestination(objectPos.position);
+            }
         }
         else
         {
-            GetComponent<ThierfEnemyDecisions>().StealObject = false;
-            nma.SetDestination(objectPos.position);
+            GetComponent<ThierfEnemyDecisions>().ObjectToSteal = false;
+            this.enabled = false;
         }
+
     }
 }

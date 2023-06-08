@@ -17,7 +17,6 @@ public class ChaseCharacter : MonoBehaviour
     void OnEnable()
     {
         nma = GetComponent<NavMeshAgent>();
-        nma.speed = 5;
 
         actualTime = 0;
         if(mRen != null)

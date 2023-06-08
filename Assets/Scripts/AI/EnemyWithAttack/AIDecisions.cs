@@ -5,12 +5,15 @@ using UnityEngine.AI;
 
 public class AIDecisions : MonoBehaviour
 {
+    [SerializeField]ParticleSystem ps;
     Transform characterPos;
     [SerializeField] float viewDistance;
     protected NavMeshAgent nma;
     float distance;
     GameState gameState;
-    bool ghostAttack, enemyStunned;
+    bool ghostAttack, enemyStunned; 
+    public bool stucked;
+    GameObject matObj;
 
     public bool GhostAttack
     {
@@ -143,10 +146,50 @@ public class AIDecisions : MonoBehaviour
 
             }
         }
+
+        if(matObj == null && stucked)
+        {
+            ps.Pause();
+            nma.speed = 3.5f;
+            stucked = false;
+        }
+
+        if (!stucked)
+        {
+            if (GetComponent<ChaseCharacter>().enabled == true)
+            {
+                nma.speed = 6;
+            }
+            else
+            {
+                nma.speed = 3.5f;
+            }
+        }
     }
 
     private void OnPauseStateChanged(PauseState newPauseState)
     {
         enabled = newPauseState == PauseState.Gameplay;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Ruler" || other.gameObject.tag == "Cube")
+        {
+            matObj = other.gameObject;
+            ps.Play();
+            nma.speed = .3f;
+            stucked = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Ruler" || other.gameObject.tag == "Cube")
+        {
+            ps.Pause();
+            nma.speed = 3.5f;
+            stucked = false;
+        }
     }
 }
