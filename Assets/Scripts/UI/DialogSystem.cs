@@ -68,16 +68,16 @@ public class DialogSystem : MonoBehaviour
         }
         else if (bookB)
         {
-            slide.SetActive(true);
-            bkgrownd.SetActive(true);
-            waitTime -= Time.deltaTime;
-            if (waitTime <= 0)
-            {
-                slide.SetActive(false);
-                bkgrownd.SetActive(false);
-                slideB = false;
-                waitTime = 6f;
-            }
+            //slide.SetActive(true);
+            //bkgrownd.SetActive(true);
+            //waitTime -= Time.deltaTime;
+            //if (waitTime <= 0)
+            //{
+            //    slide.SetActive(false);
+            //    bkgrownd.SetActive(false);
+            //    slideB = false;
+            //    waitTime = 6f;
+            //}
         }
         else if (rubberB)
         {
@@ -163,16 +163,5 @@ public class DialogSystem : MonoBehaviour
         {
             cap.SetActive(true);
         }
-    }
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "Char")
-        {
-            if (gameObject.name == "ChocolateBlock")
-            {
-                slideB = true;
-            }
-        }
-
     }
 }

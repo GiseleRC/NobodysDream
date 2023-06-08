@@ -213,7 +213,14 @@ public class PlayerCollitionsBody : MonoBehaviour
             canInteractWithItem = false;
         }
     }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "ChocolateBlock")
+        {
+            dialogS.slideB = true;
+        }
 
+    }
     private void Update()
     {
         if (objEnable && capEnable)
