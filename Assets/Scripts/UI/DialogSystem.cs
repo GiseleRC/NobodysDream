@@ -5,10 +5,10 @@ using UnityEngine;
 public class DialogSystem : MonoBehaviour
 {
     [SerializeField] public bool capB, flashlB, rullerB, slideB, bookB, rubberB, boosterB, crayonsB, chocolatesB, ghostB,
-                                littleGB, candyWheelB, glassesB, pillsB, bottleB, fakeWindowB, trueWindowB, leve2B, ballpickeableB, 
+                                littleGB, candyWheelB, glassesB, pillsB, bottleB, fakeWindowB, trueWindowB, level2B, ballpickeableB, 
                                 bucketB, practiceB, firstDianaB, wallsB, darkB, fallB, respawnB;
-    [SerializeField] public GameObject cap, flashl, ruller, slide, book, rubber, booster, crayons, chocolates, ghost,
-                                littleG, candyWheel, glasses, pills, bottle, fakeWindow, trueWindow, leve2, ballpickeable,
+    [SerializeField] public GameObject bkgrownd, cap, flashl, ruller, slide, book, rubber, booster, crayons, chocolates, ghost,
+                                littleG, candyWheel, glasses, pills, bottle, fakeWindow, trueWindow, level2, ballpickeable,
                                 bucket, practice, firstDiana, walls, dark, fall, respawn;
     //CAP ACTIVO, 
     private float waitTime = 6f;
@@ -17,10 +17,12 @@ public class DialogSystem : MonoBehaviour
         if (capB)
         {
             cap.SetActive(true);
+            bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
             {
                 cap.SetActive(false);
+                bkgrownd.SetActive(false);
                 capB = false;
                 waitTime = 6f;
             }
@@ -28,10 +30,12 @@ public class DialogSystem : MonoBehaviour
         else if (flashlB)
         {
             flashl.SetActive(true);
+            bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
             {
                 flashl.SetActive(false);
+                bkgrownd.SetActive(false);
                 flashlB = false;
                 waitTime = 6f;
             }
@@ -39,10 +43,12 @@ public class DialogSystem : MonoBehaviour
         else if (rullerB)
         {
             ruller.SetActive(true);
+            bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
             {
                 ruller.SetActive(false);
+                bkgrownd.SetActive(false);
                 rullerB = false;
                 waitTime = 6f;
             }
@@ -50,10 +56,12 @@ public class DialogSystem : MonoBehaviour
         else if (slideB)
         {
             slide.SetActive(true);
+            bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
             {
                 slide.SetActive(false);
+                bkgrownd.SetActive(false);
                 slideB = false;
                 waitTime = 6f;
             }
@@ -61,10 +69,12 @@ public class DialogSystem : MonoBehaviour
         else if (bookB)
         {
             slide.SetActive(true);
+            bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
             {
                 slide.SetActive(false);
+                bkgrownd.SetActive(false);
                 slideB = false;
                 waitTime = 6f;
             }
@@ -117,7 +127,7 @@ public class DialogSystem : MonoBehaviour
         {
             cap.SetActive(true);
         }
-        else if (leve2B)
+        else if (level2B)
         {
             cap.SetActive(true);
         }
