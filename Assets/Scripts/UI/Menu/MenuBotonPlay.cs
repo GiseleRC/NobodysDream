@@ -118,4 +118,9 @@ public class MenuBotonPlay : MonoBehaviour
         backArrow.SetActive(false);
         closeControls.SetActive(false);
     }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
