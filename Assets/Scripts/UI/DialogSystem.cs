@@ -63,29 +63,47 @@ public class DialogSystem : MonoBehaviour
                 slide.SetActive(false);
                 bkgrownd.SetActive(false);
                 slideB = false;
-                waitTime = 6f;
+                waitTime = 3f;
             }
         }
         else if (bookB)
         {
-            //slide.SetActive(true);
-            //bkgrownd.SetActive(true);
-            //waitTime -= Time.deltaTime;
-            //if (waitTime <= 0)
-            //{
-            //    slide.SetActive(false);
-            //    bkgrownd.SetActive(false);
-            //    slideB = false;
-            //    waitTime = 6f;
-            //}
+            book.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                book.SetActive(false);
+                bkgrownd.SetActive(false);
+                bookB = false;
+                waitTime = 4f;
+            }
         }
         else if (rubberB)
         {
-            cap.SetActive(true);
+            rubber.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                rubber.SetActive(false);
+                bkgrownd.SetActive(false);
+                rubberB = false;
+                waitTime = 4f;
+            }
         }
         else if (boosterB)
         {
-            cap.SetActive(true);
+            booster.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                booster.SetActive(false);
+                bkgrownd.SetActive(false);
+                boosterB = false;
+                waitTime = 6f;
+            }
         }
         else if (crayonsB)
         {

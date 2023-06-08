@@ -7,6 +7,7 @@ public class Walls : MonoBehaviour
     [SerializeField] private GameObject[] walls;
     private Vector3[] wallsRestorePos;
     public AudioSource AmbientSound, FallingWalls;
+    public DialogSystem dialogS;
     [SerializeField] private TutorialPaperSC tutorialPaperSC;
 
     private void Start()
@@ -56,5 +57,6 @@ public class Walls : MonoBehaviour
             walls[i].GetComponent<Rigidbody>().isKinematic = true;
             walls[i].transform.localPosition = wallsRestorePos[i];
         }
+        dialogS.bookB = true;
     }
 }

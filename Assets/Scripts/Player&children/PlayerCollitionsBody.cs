@@ -52,6 +52,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         //Habilita acceso a tutoriales
         else if (other.name == "BookEnableUI")
         {
+            dialogS.rubberB = true;
             //Activa/Desactiva gameobject
             other.gameObject.SetActive(false);
             bookEnableUIGO.SetActive(true);
@@ -62,6 +63,8 @@ public class PlayerCollitionsBody : MonoBehaviour
         //Booster pickeable
         else if (other.name == "zZz")
         {
+            //bool 
+            reloj.enabled = true;
             //Suma al tiempo
             timerController.AddTime(addTime);
             //Activa/Desactiva gameobject
@@ -69,7 +72,20 @@ public class PlayerCollitionsBody : MonoBehaviour
             //Particula
             Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
             //Play
+            booster.Play();
+        }
+        else if (other.name == "zZz1")
+        {
+            //bool 
             reloj.enabled = true;
+            dialogS.boosterB = true;
+            //Suma al tiempo
+            timerController.AddTime(addTime);
+            //Activa/Desactiva gameobject
+            other.gameObject.SetActive(false);
+            //Particula
+            Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
+            //Play
             booster.Play();
         }
         //Desactiva el nivel 1
