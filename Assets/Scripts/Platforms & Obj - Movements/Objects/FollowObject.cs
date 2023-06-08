@@ -40,7 +40,6 @@ public class FollowObject : MonoBehaviour
         }
         else
         {
-            print("khe");
             parent.GetComponent<BoxCollider>().isTrigger = false;
 
             var thiefs = FindObjectsOfType<ThierfEnemyDecisions>();
@@ -58,6 +57,11 @@ public class FollowObject : MonoBehaviour
             {
                 gameObject.layer = 6;
             }
+
+            if(hit.transform.tag == "MobilePlatforms")
+            {
+                transform.parent = GameObject.Find(hit.collider.gameObject.name).GetComponent<Transform>();
+            }
         }
     }
 
@@ -65,6 +69,8 @@ public class FollowObject : MonoBehaviour
     {
         
     }
+
+
 
     void OnDrawGizmos()
     {

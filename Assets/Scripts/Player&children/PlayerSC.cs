@@ -238,4 +238,20 @@ public class PlayerSC : MonoBehaviour
     {
         enabled = newPauseState == PauseState.Gameplay;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "MobilePlatforms")
+        {
+            gameObject.transform.parent = collision.gameObject.transform;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "MobilePlatforms")
+        {
+            gameObject.transform.parent = null;
+        }
+    }
 }
