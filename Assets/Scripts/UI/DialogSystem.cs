@@ -141,7 +141,7 @@ public class DialogSystem : MonoBehaviour
                 ghost.SetActive(false);
                 bkgrownd.SetActive(false);
                 ghostB = false;
-                waitTime = 6f;
+                waitTime = 5f;
             }
         }
         else if (littleGB)
@@ -154,12 +154,21 @@ public class DialogSystem : MonoBehaviour
                 littleG.SetActive(false);
                 bkgrownd.SetActive(false);
                 littleGB = false;
-                waitTime = 6f;
+                waitTime = 4f;
             }
         }
         else if (candyWheelB)
         {
-            cap.SetActive(true);
+            candyWheel.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                candyWheel.SetActive(false);
+                bkgrownd.SetActive(false);
+                candyWheelB = false;
+                waitTime = 4f;
+            }
         }
         else if (glassesB)
         {

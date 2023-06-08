@@ -97,6 +97,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogS.chocolatesB = true;
         }
+        else if (other.name == "SensorPlayer - Candy")
+        {
+            dialogS.candyWheelB = true;
+        }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
