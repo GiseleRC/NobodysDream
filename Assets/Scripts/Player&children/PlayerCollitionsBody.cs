@@ -235,6 +235,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogS.slideB = true;
         }
+        else if (collision.gameObject.name == "Crayons")
+        {
+            dialogS.crayonsB = true;
+        }
 
     }
     private void Update()

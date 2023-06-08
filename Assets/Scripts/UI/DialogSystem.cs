@@ -107,15 +107,42 @@ public class DialogSystem : MonoBehaviour
         }
         else if (crayonsB)
         {
-            cap.SetActive(true);
+            crayons.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                crayons.SetActive(false);
+                bkgrownd.SetActive(false);
+                crayonsB = false;
+                waitTime = 6f;
+            }
         }
         else if (chocolatesB)
         {
-            cap.SetActive(true);
+            chocolates.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                chocolates.SetActive(false);
+                bkgrownd.SetActive(false);
+                chocolatesB = false;
+                waitTime = 6f;
+            }
         }
         else if (ghostB)
         {
-            cap.SetActive(true);
+            ghost.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                ghost.SetActive(false);
+                bkgrownd.SetActive(false);
+                ghostB = false;
+                waitTime = 6f;
+            }
         }
         else if (littleGB)
         {
