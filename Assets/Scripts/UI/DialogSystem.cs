@@ -11,7 +11,7 @@ public class DialogSystem : MonoBehaviour
                                 littleG, candyWheel, glasses, pills, bottle, fakeWindow, trueWindow, leve2, ballpickeable,
                                 bucket, practice, firstDiana, walls, dark, fall, respawn;
     //CAP ACTIVO, 
-    private float waitTime = 5f;
+    private float waitTime = 6f;
     private void Update()
     {
         if (capB)
@@ -22,12 +22,19 @@ public class DialogSystem : MonoBehaviour
             {
                 cap.SetActive(false);
                 capB = false;
-                waitTime = 5f;
+                waitTime = 6f;
             }
         }
         else if (flashlB)
         {
-            cap.SetActive(true);
+            flashl.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                flashl.SetActive(false);
+                flashlB = false;
+                waitTime = 6f;
+            }
         }
         else if (rullerB)
         {
