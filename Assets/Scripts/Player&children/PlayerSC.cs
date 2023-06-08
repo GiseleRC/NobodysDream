@@ -239,7 +239,7 @@ public class PlayerSC : MonoBehaviour
         enabled = newPauseState == PauseState.Gameplay;
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Wheel")
         {
@@ -248,7 +248,7 @@ public class PlayerSC : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider collision)
+    private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.name == "Wheel")
         {
