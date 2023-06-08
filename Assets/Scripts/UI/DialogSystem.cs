@@ -146,7 +146,16 @@ public class DialogSystem : MonoBehaviour
         }
         else if (littleGB)
         {
-            cap.SetActive(true);
+            littleG.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                littleG.SetActive(false);
+                bkgrownd.SetActive(false);
+                littleGB = false;
+                waitTime = 6f;
+            }
         }
         else if (candyWheelB)
         {

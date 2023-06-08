@@ -88,10 +88,14 @@ public class PlayerCollitionsBody : MonoBehaviour
             //Play
             booster.Play();
         }
-        //Desactiva el nivel 1
         else if (other.name == "SabanaLvl1Off")
         {
             level1Enable.SetActive(false);
+        }
+        //Desactiva el nivel 1
+        else if (other.name == "SensorPlayer - GhostB")
+        {
+            dialogS.chocolatesB = true;
         }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)

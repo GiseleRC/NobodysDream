@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StoleItem : MonoBehaviour
 {
+    [SerializeField] public DialogSystem dialogS;
     GameObject matObj;
     [SerializeField] GameObject rulerInEnemy, cubeInEnemy;
 
@@ -18,20 +19,10 @@ public class StoleItem : MonoBehaviour
         {
             rulerInEnemy.SetActive(true);
         }
+        dialogS.littleGB = true;
         GetComponent<ThierfEnemyDecisions>().ObjectGrabbed = true;
         GetComponent<ThierfEnemyDecisions>().ObjectToSteal = false;
         Destroy(matObj);
         this.enabled = false;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
