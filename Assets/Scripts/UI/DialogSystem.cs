@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DialogSystem : MonoBehaviour
 {
-    [SerializeField] public bool capB, flashlB, rullerB, doorB, slideB, bookB, rubberB, boosterB, crayonsB, chocolatesB, ghostB,
+    [SerializeField] public bool capB, flashlB, rullerB, slideB, bookB, rubberB, boosterB, crayonsB, chocolatesB, ghostB,
                                 littleGB, candyWheelB, glassesB, pillsB, bottleB, fakeWindowB, trueWindowB, leve2B, ballpickeableB, 
                                 bucketB, practiceB, firstDianaB, wallsB, darkB, fallB, respawnB;
-    [SerializeField] public GameObject cap, flashl, ruller, door, slide, book, rubber, booster, crayons, chocolates, ghost,
+    [SerializeField] public GameObject cap, flashl, ruller, slide, book, rubber, booster, crayons, chocolates, ghost,
                                 littleG, candyWheel, glasses, pills, bottle, fakeWindow, trueWindow, leve2, ballpickeable,
                                 bucket, practice, firstDiana, walls, dark, fall, respawn;
     //CAP ACTIVO, 
@@ -38,19 +38,36 @@ public class DialogSystem : MonoBehaviour
         }
         else if (rullerB)
         {
-            cap.SetActive(true);
-        }
-        else if (doorB)
-        {
-            cap.SetActive(true);
+            ruller.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                ruller.SetActive(false);
+                rullerB = false;
+                waitTime = 6f;
+            }
         }
         else if (slideB)
         {
-            cap.SetActive(true);
+            slide.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                slide.SetActive(false);
+                slideB = false;
+                waitTime = 6f;
+            }
         }
         else if (bookB)
         {
-            cap.SetActive(true);
+            slide.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                slide.SetActive(false);
+                slideB = false;
+                waitTime = 6f;
+            }
         }
         else if (rubberB)
         {
@@ -135,6 +152,16 @@ public class DialogSystem : MonoBehaviour
         else if (respawnB)
         {
             cap.SetActive(true);
+        }
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Char")
+        {
+            if (gameObject.name == "ChocolateBlock")
+            {
+                slideB = true;
+            }
         }
 
     }

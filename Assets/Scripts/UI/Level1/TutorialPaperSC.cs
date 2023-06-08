@@ -66,6 +66,7 @@ public class TutorialPaperSC : MonoBehaviour
             showTutorialMat2 = false;
             tutorialMat2Finishing = true;
             anyTutorialOpen = false;
+            dialogS.rullerB= true;
         }
 
         if (nextTutorial)
