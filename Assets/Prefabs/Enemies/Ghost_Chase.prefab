@@ -338,7 +338,7 @@ MonoBehaviour:
   initialTimer: 2
   maxDistanceForAttack: 5
   timer: 0
-  GhostAttack: {fileID: 0}
+  GhostAttack: {fileID: 5712994917605488977}
 --- !u!114 &7988301793664745185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5582956174ded1649b7c73adf329d97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rulerGrabbed: {fileID: 0}
+  cubeGrabbed: {fileID: 0}
 --- !u!82 &5712994917605488977
 AudioSource:
   m_ObjectHideFlags: 0
@@ -361,11 +363,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ca48ee70773a6214cb9b02aa1fcb1f79, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aca22d998549b8f46864ab9716c3a3d1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.08
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

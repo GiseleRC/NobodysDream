@@ -239,18 +239,20 @@ public class PlayerSC : MonoBehaviour
         enabled = newPauseState == PauseState.Gameplay;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "MobilePlatforms")
+        if (collision.gameObject.name == "Wheel")
         {
+            print("Entre");
             gameObject.transform.parent = collision.gameObject.transform;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "MobilePlatforms")
+        if (collision.gameObject.name == "Wheel")
         {
+            print("Sali");
             gameObject.transform.parent = null;
         }
     }

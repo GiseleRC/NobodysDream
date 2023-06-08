@@ -24,10 +24,6 @@ public class GroundCheck : MonoBehaviour
     {
         var colliders = Physics.OverlapSphere(transform.position, radius, ground);
         isGrounded = colliders.Length > 0;
-
-        bool ray = Physics.Raycast(transform.position, -transform.up, out hit, radius, ground);
-
-
     }
 
     private void OnDrawGizmos()
