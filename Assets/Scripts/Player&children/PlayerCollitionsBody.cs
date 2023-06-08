@@ -239,6 +239,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogS.crayonsB = true;
         }
+        else if (collision.gameObject.name == "SensorPlayerchocolate")
+        {
+            dialogS.chocolatesB = true;
+        }
 
     }
     private void Update()
