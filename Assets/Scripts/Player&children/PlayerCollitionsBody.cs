@@ -10,7 +10,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public DialogSystem dialogS;
-    public GameObject dialogSystem, canvasBallCount, bookEnableUIGO, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
+    public GameObject enableLightPuzzle3, dialogSystem, canvasBallCount, bookEnableUIGO, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
@@ -288,6 +288,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (collision.gameObject.name == "ConcreteF - Rubbers")
         {
             dialogS.rubberB = true;
+        }
+        else if (collision.gameObject.name == "ConcreteF - EnableLight")
+        {
+            enableLightPuzzle3 = true;
         }
     }
     private void Update()
