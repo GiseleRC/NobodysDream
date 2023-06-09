@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float timeWait = 5f;
+    [SerializeField] GameObject particleBall, ballPos, ballRot;
     private float currTimeWait;
 
     private void Awake()
@@ -29,6 +30,7 @@ public class Ball : MonoBehaviour
 
         if (currTimeWait >= timeWait)
         {
+            Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
             Destroy(gameObject);
         }
     }
@@ -36,6 +38,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.layer == 16 || collision.gameObject.layer == 10)//Colisone contra la layer TriggerButtons
         {
+            Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
             Destroy(gameObject);
         }
     }

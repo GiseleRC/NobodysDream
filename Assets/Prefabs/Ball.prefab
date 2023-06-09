@@ -4928,6 +4928,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeWait: 5
+  particleBall: {fileID: 7642163381361123407, guid: 2a775dde4f6a73e40acaf7ef5d48cc57, type: 3}
+  ballPos: {fileID: 6865826160013687433}
+  ballRot: {fileID: 6865826160013687433}
 --- !u!135 &-4472072787138484243
 SphereCollider:
   m_ObjectHideFlags: 0
