@@ -45,7 +45,7 @@ public class Dianas : MonoBehaviour
                 puzzle2.practice3 = true;
                 currGO = gameObject;
             }
-            audioSource.Play();
+            //audioSource.Play();
             startCount = true;
         }
     }
@@ -115,24 +115,21 @@ public class Dianas : MonoBehaviour
                     timerController.AddTime(-50f);
                 }
             }
-            if (gameObject.name == "Option3")
+            if (gameObject.name == "Option3" && puzzle3.showGuess1)
             {
-                if (puzzle3.showGuess1)
-                {
-                    puzzle3.option3 = true;
-                    timerController.AddTime(+50f);
-                }
-                if (puzzle3.showGuess2)
-                {
-                    puzzle3.option3 = true;
-                    timerController.AddTime(-50f);
-                }
-                if (puzzle3.showGuess3)
-                {
-                    puzzle3.option3 = true;
-                    timerController.AddTime(+50f);
-                }
+                puzzle3.option3 = true;
+                timerController.AddTime(+50f);
+                //if (puzzle3.showGuess2)
+                //{
+                //    puzzle3.option3 = true;
+                //    timerController.AddTime(-50f);
+                //}
+                //else if (puzzle3.showGuess3)
+                //{
+                //    puzzle3.option3 = true;
+                //    timerController.AddTime(+50f);
+                //}
             }
         }
     }
-}
+ }
