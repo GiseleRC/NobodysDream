@@ -30,6 +30,10 @@ public class TimerController : MonoBehaviour
     public void AddTime(float time)
     {
         currTimeWait += time;
+        if(currTimeWait > timeWait)
+        {
+            currTimeWait = timeWait;
+        }
     }
 
     private void Awake()
@@ -58,7 +62,6 @@ public class TimerController : MonoBehaviour
         if (enemiesAttacking >= 1)
         {
             currTimeWait -= Time.deltaTime * 2;
-            image.color = Color.blue;
             if (clock.clip != clockFast)
             {
                 clock.clip = clockFast;
@@ -68,7 +71,6 @@ public class TimerController : MonoBehaviour
         else
         {
             currTimeWait -= Time.deltaTime;
-            image.color = Color.white;
             if(clock.clip != clockSlow)
             {
                 clock.clip = clockSlow;
@@ -76,13 +78,16 @@ public class TimerController : MonoBehaviour
             }
         }
 
-        time.value = currTimeWait;
+        time.value = Mathf.Lerp(time.value, currTimeWait, 0.02f);
         if (currTimeWait <= 0)
         {
             SceneManager.LoadScene("Level1");
             currTimeWait = timeWait;
-            image.color = Color.white;
         }
+    }
+
+    private void LateUpdate()
+    {
     }
 
     private void OnPauseStateChanged(PauseState newPauseState)

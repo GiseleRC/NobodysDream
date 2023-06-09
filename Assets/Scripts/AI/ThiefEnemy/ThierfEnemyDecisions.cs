@@ -11,6 +11,8 @@ public class ThierfEnemyDecisions : MonoBehaviour
     float distance;
     GameState gameState;
     bool enemyStunned, objectToSteal, stealObject, objectGrabbed;
+    [SerializeField] AudioClip laugh;
+    AudioSource audioSource;
 
     private void Awake()
     {
@@ -94,7 +96,8 @@ public class ThierfEnemyDecisions : MonoBehaviour
 
     private void OnEnable()
     {
-        if(nma != null)
+        audioSource = GetComponent<AudioSource>();
+        if (nma != null)
         {
             if (nma.isStopped)
             {
@@ -152,6 +155,7 @@ public class ThierfEnemyDecisions : MonoBehaviour
                             GetComponent<StoleItem>().enabled = true;
                             GetComponent<MoveToMatObject>().enabled = false;
                             GetComponent<Patrol>().enabled = false;
+                            audioSource.PlayOneShot(laugh);
                         }
                         else
                         {

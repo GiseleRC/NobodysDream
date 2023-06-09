@@ -8,6 +8,12 @@ public class StoleItem : MonoBehaviour
     GameObject matObj;
     [SerializeField] GameObject rulerInEnemy, cubeInEnemy;
 
+
+    private void Start()
+    {
+
+    }
+
     void OnEnable()
     {
         matObj = GetComponent<ThierfEnemyDecisions>().ObjectPos.gameObject;
