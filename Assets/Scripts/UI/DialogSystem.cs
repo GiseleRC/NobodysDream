@@ -245,7 +245,7 @@ public class DialogSystem : MonoBehaviour
                 trueWindow.SetActive(false);
                 bkgrownd.SetActive(false);
                 trueWindowB = false;
-                waitTime = 6f;
+                waitTime = 3f;
             }
         }
         else if (level2B)

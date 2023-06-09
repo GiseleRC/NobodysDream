@@ -113,15 +113,15 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogS.glassesB = true;
         }
-        else if (other.name == "SensorPlayer - WindowWrong")
-        {
-            dialogS.fakeWindowB = true;
-            windowClosed2.Play("WindowMiddle");
-        }
         else if (other.name == "SensorPlayer - WindowWrong2")
         {
             dialogS.fakeWindowB = true;
             windowClosed.Play("WindowLeft");
+        }
+        else if (other.name == "SensorPlayer - WindowWrong")
+        {
+            dialogS.fakeWindowB = true;
+            windowClosed2.Play("WindowMiddle");
         }
         else if (other.name == "SensorPlayer - WindowCorrect")
         {
