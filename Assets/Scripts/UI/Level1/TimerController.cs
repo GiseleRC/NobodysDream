@@ -81,7 +81,7 @@ public class TimerController : MonoBehaviour
         time.value = Mathf.Lerp(time.value, currTimeWait, 0.02f);
         if (currTimeWait <= 0)
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             currTimeWait = timeWait;
         }
     }
