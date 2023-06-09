@@ -21,13 +21,14 @@ public class Puzzle2 : MonoBehaviour
     {
         if (doorEnable1 && doorEnable2 && doorEnable3)
         {
+            dialogS.wallsB = true;
+            doorEnable3 = false;
             animatorWall.SetBool("EnableMove", true);
             if (!playSound)
             {
                 audioSource.PlayOneShot(openWall);
                 playSound = true;
             }
-            dialogS.wallsB = true;
         }
         if (doorEnable1)
         {
@@ -50,6 +51,7 @@ public class Puzzle2 : MonoBehaviour
             ligthOff.SetActive(false);
             diana2.SetActive(true);
             primeraDiana.Play();
+            practice3 = false;
         }
     }
 }

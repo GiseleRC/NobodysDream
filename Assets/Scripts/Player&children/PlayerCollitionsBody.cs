@@ -54,7 +54,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         //Habilita acceso a tutoriales
         else if (other.name == "BookEnableUI")
         {
-            dialogS.rubberB = true;
+            dialogS.bookEnableB = true;
             //Activa/Desactiva gameobject
             other.gameObject.SetActive(false);
             bookEnableUIGO.SetActive(true);
@@ -94,6 +94,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogS.level2B = true;
             level1Enable.SetActive(false);
+            other.gameObject.GetComponent<Collider>().enabled = false;
         }
         else if (other.name == "SensorPlayerchocolate")
         {
@@ -223,7 +224,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             }
         }
 
-        if(other.name == "BallBucket")
+        if (other.name == "BallBucket")
         {
             if (canInteractWithItem && Input.GetButton("Interact"))
             {
@@ -277,6 +278,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogS.crayonsB = true;
         }
+        else if (collision.gameObject.name == "ConcreteF - Rubbers")
+        {
+            dialogS.rubberB = true;
+        }
     }
     private void Update()
     {
@@ -287,7 +292,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         if (!puzzle2.practice1 && !puzzle2.practice2 && !puzzle2.practice3 && firstTimeGrab)
         {
-            dialogS.bucketB = true;
+            dialogS.practiceB = true;
             firstTimeGrab = false;
         }
     }

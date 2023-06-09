@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class DialogSystem : MonoBehaviour
 {
-    [SerializeField] public GameState gameState;
-    [SerializeField] public bool capB, flashlB, rullerB, slideB, bookB, rubberB, boosterB, crayonsB, chocolatesB, ghostB,
+    [SerializeField] public bool capB, flashlB, rullerB, slideB, bookB, bookEnableB, rubberB, boosterB, crayonsB, chocolatesB, ghostB,
                                 littleGB, candyWheelB, glassesB, pillsB, bottleB, fakeWindowB, trueWindowB, level2B, ballpickeableB, 
                                 bucketB, practiceB, firstDianaB, wallsB, darkB, fallB, respawnB;
-    [SerializeField] public GameObject bkgrownd, cap, flashl, ruller, slide, book, rubber, booster, crayons, chocolates, ghost,
+    [SerializeField] public GameObject pickableBall, bkgrownd, cap, flashl, ruller, slide, book, bookEnable, rubber, booster, crayons, chocolates, ghost,
                                 littleG, candyWheel, glasses, pills, bottle, fakeWindow, trueWindow, level2, ballpickeable,
                                 bucket, practice, firstDiana, walls, dark, fall, respawn;
     //CAP ACTIVO, 
@@ -77,6 +76,19 @@ public class DialogSystem : MonoBehaviour
                 book.SetActive(false);
                 bkgrownd.SetActive(false);
                 bookB = false;
+                waitTime = 4f;
+            }
+        }
+        else if (bookEnableB)
+        {
+            bookEnable.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                bookEnable.SetActive(false);
+                bkgrownd.SetActive(false);
+                bookEnableB = false;
                 waitTime = 4f;
             }
         }
@@ -250,7 +262,7 @@ public class DialogSystem : MonoBehaviour
                 ballpickeableB = true;
             }
         }
-        else if (ballpickeableB && gameState.GhostPlaneModeEnabled)
+        else if (ballpickeableB && pickableBall.gameObject.activeInHierarchy)
         {
             ballpickeable.SetActive(true);
             bkgrownd.SetActive(true);
@@ -259,8 +271,8 @@ public class DialogSystem : MonoBehaviour
             {
                 ballpickeable.SetActive(false);
                 bkgrownd.SetActive(false);
+                waitTime = 4f;
                 ballpickeableB = false;
-                waitTime = 6f;
             }
         }
         else if (bucketB)
