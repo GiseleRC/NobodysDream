@@ -9,8 +9,8 @@ public class Puzzle3 : MonoBehaviour
     private Vector3 position3;
     public bool showGuess1, showGuess2, showGuess3, option1, option2, option3;
     private int currGuess = 0;
-    public GameObject guess1GO, guess2GO, guess3GO, option1GO, option2GO, option3GO, nose1Particle, nose2Particle, nose3Particle, nose1GO, nose2GO, nose3GO,
-                       option4GO, option5GO, option6GO, option7GO, option8GO, option9GO, ajedrezGO1, point2, point3;
+    public GameObject guess1GO, guess2GO, guess3GO, nose1Particle, nose2Particle, nose3Particle, nose1GO, nose2GO, nose3GO,
+                      option1GO, option2GO, option3GO, option4GO, option5GO, option6GO, option7GO, option8GO, option9GO, ajedrezGO1, point2, point3;
 
     private void Start()
     {

@@ -7,7 +7,7 @@ public class Dianas : MonoBehaviour
     public Puzzle2 puzzle2;
     public Puzzle3 puzzle3;
 
-    public GameObject tabGO, facesGO1, facesGO2, facesGO3, facesGO1A, facesGO2A, facesGO3A, currGO;
+    public GameObject currGO;
     public TimerController timerController;
     public AudioSource audioSource;
     private float timeWait = 1f;
