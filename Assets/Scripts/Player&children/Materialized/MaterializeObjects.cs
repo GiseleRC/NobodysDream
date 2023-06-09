@@ -116,9 +116,10 @@ public class MaterializeObjects : MonoBehaviour
             if (rulersActive.Count == 2)
             {
                 if (rulersActive[0] != null)
+                {
                     newParticle = Instantiate(particleRuler, rulersActive[0].transform.GetChild(3).transform.position, transform.rotation);
                     newParticle.transform.eulerAngles = new Vector3(rulersActive[0].transform.eulerAngles.x, rulersActive[0].transform.eulerAngles.y + 180f, rulersActive[0].transform.eulerAngles.z);
-
+                }
                 Destroy(rulersActive[0]);
                 rulersActive[0] = rulersActive[1];
                 rulersActive[1] = actualObject;
