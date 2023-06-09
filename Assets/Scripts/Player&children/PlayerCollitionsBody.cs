@@ -14,14 +14,15 @@ public class PlayerCollitionsBody : MonoBehaviour
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
-    public bool justOneWhenPick = false;
     public bool iHaveCap = false;
     private bool objEnable = false;
     private bool capEnable = false;
+    private bool firstTimeGrab = false;
     private float addTime = 15f;
     bool canInteractWithItem;
     public GameObject[] pickeablesUI;
     public AudioSource ClickLamp;
+    public Puzzle2 puzzle2;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -91,6 +92,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (other.name == "SabanaLvl1Off")
         {
+            dialogS.level2B = true;
             level1Enable.SetActive(false);
         }
         else if (other.name == "SensorPlayerchocolate")
@@ -225,6 +227,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if (canInteractWithItem && Input.GetButton("Interact"))
             {
+                firstTimeGrab = true;
                 other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
                 if (GetComponent<PlayerSC>().PickupBalls(5))
                     pickUp.Play();
@@ -281,6 +284,11 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             iHaveCap = true;//booleano cuando tiene la gorra
             capEnable = false;
+        }
+        if (!puzzle2.practice1 && !puzzle2.practice2 && !puzzle2.practice3 && firstTimeGrab)
+        {
+            dialogS.bucketB = true;
+            firstTimeGrab = false;
         }
     }
 }

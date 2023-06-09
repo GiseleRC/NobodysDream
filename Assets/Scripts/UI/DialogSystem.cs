@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DialogSystem : MonoBehaviour
 {
+    [SerializeField] public GameState gameState;
     [SerializeField] public bool capB, flashlB, rullerB, slideB, bookB, rubberB, boosterB, crayonsB, chocolatesB, ghostB,
                                 littleGB, candyWheelB, glassesB, pillsB, bottleB, fakeWindowB, trueWindowB, level2B, ballpickeableB, 
                                 bucketB, practiceB, firstDianaB, wallsB, darkB, fallB, respawnB;
@@ -245,10 +246,11 @@ public class DialogSystem : MonoBehaviour
                 level2.SetActive(false);
                 bkgrownd.SetActive(false);
                 level2B = false;
-                waitTime = 6f;
+                waitTime = 4f;
+                ballpickeableB = true;
             }
         }
-        else if (ballpickeableB)
+        else if (ballpickeableB && gameState.GhostPlaneModeEnabled)
         {
             ballpickeable.SetActive(true);
             bkgrownd.SetActive(true);

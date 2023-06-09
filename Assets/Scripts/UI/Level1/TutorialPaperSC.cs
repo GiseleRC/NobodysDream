@@ -46,6 +46,7 @@ public class TutorialPaperSC : MonoBehaviour
         }
         else if (Input.GetButtonDown("CancelMat") && showTutorialBall == true)
         {
+            dialogS.bucketB = true;
             closeTutorial.Play();
             showTutorialBall = false;
             anyTutorialOpen = false;
