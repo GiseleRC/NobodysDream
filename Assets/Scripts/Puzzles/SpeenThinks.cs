@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpeenThinks : MonoBehaviour
 {
     public float rotX, rotY, rotZ;
-    public GameObject ghost1, ghost, patrol, floor, level2;
-    private void OnCollisionEnter(Collision collision)
+    public GameObject ghost1, ghost, patrol, level2;
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.name == "Ball(Clone)")
+        if (other.name == "Ball(Clone)")
         {
             gameObject.transform.Rotate(rotX, rotY, rotZ);
 
@@ -17,8 +17,7 @@ public class SpeenThinks : MonoBehaviour
                 ghost.SetActive(true);
                 ghost1.SetActive(true);
                 patrol.SetActive(true);
-                floor.SetActive(true);
-                //level2.SetActive(true);
+                level2.SetActive(true);
             }
         }
     }
