@@ -6,17 +6,12 @@ public class Dianas : MonoBehaviour
 {
     public Puzzle2 puzzle2;
     public Puzzle3 puzzle3;
-    private Vector3 position1;
+
     public GameObject tabGO, facesGO1, facesGO2, facesGO3, facesGO1A, facesGO2A, facesGO3A, currGO;
     public TimerController timerController;
     public AudioSource audioSource;
     private float timeWait = 1f;
     private bool startCount = false;
-
-    private void Start()
-    {
-        position1 = tabGO.transform.position;
-    }
 
     private void Update()
     {
@@ -74,40 +69,69 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Nose1")
             {
                 puzzle3.showGuess1 = true;
-                facesGO1.SetActive(false);
-                facesGO1A.SetActive(true);
             }
             if (gameObject.name == "Nose2")
             {
                 puzzle3.showGuess2 = true;
-                facesGO2.SetActive(false);
-                facesGO2A.SetActive(true);
             }
             if (gameObject.name == "Nose3")
             {
                 puzzle3.showGuess3 = true;
-                facesGO3.SetActive(false);
-                facesGO3A.SetActive(true);
             }
 
             if (gameObject.name == "Option1")
             {
-                puzzle3.option1GO.SetActive(false);
-                timerController.AddTime(-100f);
+                if (puzzle3.showGuess1)
+                {
+                    puzzle3.option1 = true;
+                    timerController.AddTime(-50f);
+                }
+                else if (puzzle3.showGuess2)
+                {
+                    puzzle3.option1 = true;
+                    timerController.AddTime(-50f);
+                }
+                else if (puzzle3.showGuess3)
+                {
+                    puzzle3.option1 = true;
+                    timerController.AddTime(-50f);
+                }
             }
             if (gameObject.name == "Option2")
             {
-                puzzle3.option2GO.SetActive(false);
-                timerController.AddTime(-100f);
+                if (puzzle3.showGuess1)
+                {
+                    puzzle3.option2 = true;
+                    timerController.AddTime(-50f);
+                }
+                else if (puzzle3.showGuess2)
+                {
+                    puzzle3.option2 = true;
+                    timerController.AddTime(+50f);
+                }
+                else if (puzzle3.showGuess3)
+                {
+                    puzzle3.option2 = true;
+                    timerController.AddTime(-50f);
+                }
             }
             if (gameObject.name == "Option3")
             {
-                puzzle3.option3GO.SetActive(false);
-                puzzle3.option2GO.SetActive(false);
-                puzzle3.option1GO.SetActive(false);
-                puzzle3.guess1GO.SetActive(false);
-                position1 = new Vector3(position1.x, 2f, position1.z);
-                tabGO.transform.position = position1;
+                if (puzzle3.showGuess1)
+                {
+                    puzzle3.option3 = true;
+                    timerController.AddTime(+50f);
+                }
+                if (puzzle3.showGuess2)
+                {
+                    puzzle3.option3 = true;
+                    timerController.AddTime(-50f);
+                }
+                if (puzzle3.showGuess3)
+                {
+                    puzzle3.option3 = true;
+                    timerController.AddTime(+50f);
+                }
             }
         }
     }
