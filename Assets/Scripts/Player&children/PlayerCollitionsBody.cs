@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCollitionsBody : MonoBehaviour
 {
-    public Animator reloj;
+    public Animator reloj, windowClosed, windowClosed2, windowOpen;
     public GameState gameState;
     public FlashLight flashLightSC;
     public TimerController timerController;
@@ -116,10 +116,17 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "SensorPlayer - WindowWrong")
         {
             dialogS.fakeWindowB = true;
+            windowClosed2.Play("WindowMiddle");
+        }
+        else if (other.name == "SensorPlayer - WindowWrong2")
+        {
+            dialogS.fakeWindowB = true;
+            windowClosed.Play("WindowLeft");
         }
         else if (other.name == "SensorPlayer - WindowCorrect")
         {
             dialogS.trueWindowB = true;
+            //windowOpen.enabled = true;
         }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
