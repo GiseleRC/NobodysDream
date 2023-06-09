@@ -21,4 +21,12 @@ public class SpeenThinks : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Ball(Clone)")
+        {
+            gameObject.transform.Rotate(rotX, rotY, rotZ);
+        }
+    }
 }

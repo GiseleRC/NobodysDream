@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private float timeWait = 5f;
+    [SerializeField] private float timeWait = 3f;
     [SerializeField] GameObject particleBall, ballPos, ballRot;
     private float currTimeWait;
 
@@ -37,6 +37,14 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 16 || collision.gameObject.layer == 10)//Colisone contra la layer TriggerButtons
+        {
+            Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 16 || other.gameObject.layer == 10)//Colisone contra la layer TriggerButtons
         {
             Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
             Destroy(gameObject);

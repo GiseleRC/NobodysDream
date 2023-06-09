@@ -191,7 +191,6 @@ public class PlayerCollitionsBody : MonoBehaviour
             }
         }
 
-
         if(other.name == "Model&Collider")
         {
             if (canInteractWithItem && Input.GetButton("Interact") && !tutorialPaperBool.anyTutorialOpen)
@@ -291,7 +290,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (collision.gameObject.name == "ConcreteF - EnableLight")
         {
-            enableLightPuzzle3 = true;
+            enableLightPuzzle3.SetActive(true);
         }
     }
     private void Update()
