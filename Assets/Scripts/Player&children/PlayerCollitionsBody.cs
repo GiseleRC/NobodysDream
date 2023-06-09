@@ -126,7 +126,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "SensorPlayer - WindowCorrect")
         {
             dialogS.trueWindowB = true;
-            //windowOpen.enabled = true;
+            windowOpen.Play("WindowRight");
         }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
