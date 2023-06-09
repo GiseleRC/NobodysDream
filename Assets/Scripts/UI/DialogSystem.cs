@@ -185,64 +185,172 @@ public class DialogSystem : MonoBehaviour
         }
         else if (pillsB)
         {
-            glasses.SetActive(true);
+            pills.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
             {
-                glasses.SetActive(false);
+                pills.SetActive(false);
                 bkgrownd.SetActive(false);
-                glassesB = false;
+                pillsB = false;
                 waitTime = 6f;
             }
         }
         else if (bottleB)
         {
-            cap.SetActive(true);
+            bottle.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                bottle.SetActive(false);
+                bkgrownd.SetActive(false);
+                bottleB = false;
+                waitTime = 6f;
+            }
         }
         else if (fakeWindowB)
         {
-            cap.SetActive(true);
+            fakeWindow.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                fakeWindow.SetActive(false);
+                bkgrownd.SetActive(false);
+                fakeWindowB = false;
+                waitTime = 6f;
+            }
         }
         else if (trueWindowB)
         {
-            cap.SetActive(true);
+            trueWindow.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                trueWindow.SetActive(false);
+                bkgrownd.SetActive(false);
+                trueWindowB = false;
+                waitTime = 6f;
+            }
         }
         else if (level2B)
         {
-            cap.SetActive(true);
+            level2.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                level2.SetActive(false);
+                bkgrownd.SetActive(false);
+                level2B = false;
+                waitTime = 6f;
+            }
         }
         else if (ballpickeableB)
         {
-            cap.SetActive(true);
+            ballpickeable.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                ballpickeable.SetActive(false);
+                bkgrownd.SetActive(false);
+                ballpickeableB = false;
+                waitTime = 6f;
+            }
         }
         else if (bucketB)
         {
-            cap.SetActive(true);
+            bucket.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                bucket.SetActive(false);
+                bkgrownd.SetActive(false);
+                bucketB = false;
+                waitTime = 6f;
+            }
         }
         else if (practiceB)
         {
-            cap.SetActive(true);
+            practice.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                practice.SetActive(false);
+                bkgrownd.SetActive(false);
+                practiceB = false;
+                waitTime = 6f;
+            }
         }
         else if (firstDianaB)
         {
-            cap.SetActive(true);
+            firstDiana.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                firstDiana.SetActive(false);
+                bkgrownd.SetActive(false);
+                firstDianaB = false;
+                waitTime = 6f;
+            }
         }
         else if (wallsB)
         {
-            cap.SetActive(true);
+            walls.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                walls.SetActive(false);
+                bkgrownd.SetActive(false);
+                wallsB = false;
+                waitTime = 6f;
+            }
         }
         else if (darkB)
         {
-            cap.SetActive(true);
+            dark.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                dark.SetActive(false);
+                bkgrownd.SetActive(false);
+                darkB = false;
+                waitTime = 6f;
+            }
         }
         else if (fallB)
         {
-            cap.SetActive(true);
+            fall.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                fall.SetActive(false);
+                bkgrownd.SetActive(false);
+                fallB = false;
+                waitTime = 6f;
+            }
         }
         else if (respawnB)
         {
-            cap.SetActive(true);
+            respawn.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                respawn.SetActive(false);
+                bkgrownd.SetActive(false);
+                respawnB = false;
+                waitTime = 6f;
+            }
         }
     }
 }
