@@ -12,6 +12,7 @@ public class Dianas : MonoBehaviour
     public AudioSource audioSource;
     private float timeWait = 1f;
     private bool startCount = false;
+    private bool showGuess1, showGuess2, showGuess3;
 
     private void Update()
     {
@@ -69,14 +70,17 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Nose1")
             {
                 puzzle3.showGuess1 = true;
+                showGuess1 = true;
             }
             if (gameObject.name == "Nose2")
             {
                 puzzle3.showGuess2 = true;
+                showGuess2 = true;
             }
             if (gameObject.name == "Nose3")
             {
                 puzzle3.showGuess3 = true;
+                showGuess3 = true;
             }
 
             if (gameObject.name == "Option1")
@@ -115,20 +119,23 @@ public class Dianas : MonoBehaviour
                     timerController.AddTime(-50f);
                 }
             }
-            if (gameObject.name == "Option3" && puzzle3.showGuess1)
+            if (gameObject.name == "Option3")
             {
-                puzzle3.option3 = true;
-                timerController.AddTime(+50f);
-                //if (puzzle3.showGuess2)
-                //{
-                //    puzzle3.option3 = true;
-                //    timerController.AddTime(-50f);
-                //}
-                //else if (puzzle3.showGuess3)
-                //{
-                //    puzzle3.option3 = true;
-                //    timerController.AddTime(+50f);
-                //}
+                if (showGuess1)
+                {
+                    puzzle3.option3 = true;
+                    timerController.AddTime(+50f);
+                }
+                else if (showGuess2)
+                {
+                    puzzle3.option3 = true;
+                    timerController.AddTime(-50f);
+                }
+                else if (showGuess3)
+                {
+                    puzzle3.option3 = true;
+                    timerController.AddTime(+50f);
+                }
             }
         }
     }
