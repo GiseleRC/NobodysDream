@@ -93,10 +93,14 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             level1Enable.SetActive(false);
         }
+        else if (other.name == "SensorPlayerchocolate")
+        {
+            dialogS.chocolatesB = true;
+        }
         //Desactiva el nivel 1
         else if (other.name == "SensorPlayer - GhostB")
         {
-            dialogS.chocolatesB = true;
+            dialogS.ghostB = true;
         }
         else if (other.name == "SensorPlayer - Candy")
         {
@@ -262,11 +266,6 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogS.crayonsB = true;
         }
-        else if (collision.gameObject.name == "SensorPlayerchocolate")
-        {
-            dialogS.chocolatesB = true;
-        }
-
     }
     private void Update()
     {
