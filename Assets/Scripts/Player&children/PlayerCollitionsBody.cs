@@ -10,7 +10,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public DialogSystem dialogS;
-    public GameObject dialogSystem, canvasBallCount, bookEnableUIGO, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable;
+    public GameObject dialogSystem, canvasBallCount, bookEnableUIGO, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
@@ -21,6 +21,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     private float addTime = 15f;
     bool canInteractWithItem;
     public GameObject[] pickeablesUI;
+    public AudioSource ClickLamp;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -141,6 +142,11 @@ public class PlayerCollitionsBody : MonoBehaviour
                 pickeablesUI[0].SetActive(false);
 
                 pickUp.Play();//Sonido de PICKEABLE
+
+                light3.SetActive(false);
+                Light4.SetActive(true);
+                ClickLamp.Play();
+
             }
         }
 
@@ -157,7 +163,7 @@ public class PlayerCollitionsBody : MonoBehaviour
                 light3.SetActive(false);//Se activa puerta
                 lightBed.SetActive(false);
                 door.SetActive(true);//Se activa puerta
-                light1.SetActive(true);//Se activa puerta
+                light1.SetActive(false);//Se activa puerta
                 pickUp.Play();//Sonido de PICKEABLE
                 pickeablesUI[2].SetActive(false);
             }
@@ -179,6 +185,11 @@ public class PlayerCollitionsBody : MonoBehaviour
                 pickeablesUI[1].SetActive(false);
 
                 pickUp.Play();//Sonido de PICKEABLE
+
+                
+                Light4.SetActive(false);
+                light1.SetActive(true);
+                ClickLamp.Play();
             }
         }
 
