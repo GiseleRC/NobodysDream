@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class SpeenThinks : MonoBehaviour
 {
-    public GameObject platfGO;
     public float rotX, rotY, rotZ;
-    private void OnTriggerEnter(Collider other)
+    public GameObject ghost1, ghost, patrol, floor, level2;
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.name == "Ball(Clone)")
+        if (collision.gameObject.name == "Ball(Clone)")
         {
-            platfGO.transform.Rotate(rotX, rotY, rotZ);
+            gameObject.transform.Rotate(rotX, rotY, rotZ);
+
+            if (gameObject.name == "Pizarron")
+            {
+                ghost.SetActive(true);
+                ghost1.SetActive(true);
+                patrol.SetActive(true);
+                floor.SetActive(true);
+                //level2.SetActive(true);
+            }
         }
     }
 }
