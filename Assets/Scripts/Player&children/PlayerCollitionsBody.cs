@@ -110,6 +110,14 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogS.glassesB = true;
         }
+        else if (other.name == "SensorPlayer - WindowWrong")
+        {
+            dialogS.fakeWindowB = true;
+        }
+        else if (other.name == "SensorPlayer - WindowCorrect")
+        {
+            dialogS.trueWindowB = true;
+        }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {

@@ -39,6 +39,7 @@ public class TutorialPaperSC : MonoBehaviour
         }
         else if (Input.GetButtonDown("CancelMat") && showTutorialGlasses == true)
         {
+            dialogS.pillsB = true;
             closeTutorial.Play();
             showTutorialGlasses = false;
             anyTutorialOpen = false;
