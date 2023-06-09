@@ -172,11 +172,29 @@ public class DialogSystem : MonoBehaviour
         }
         else if (glassesB)
         {
-            cap.SetActive(true);
+            glasses.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                glasses.SetActive(false);
+                bkgrownd.SetActive(false);
+                glassesB = false;
+                waitTime = 6f;
+            }
         }
         else if (pillsB)
         {
-            cap.SetActive(true);
+            glasses.SetActive(true);
+            bkgrownd.SetActive(true);
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+            {
+                glasses.SetActive(false);
+                bkgrownd.SetActive(false);
+                glassesB = false;
+                waitTime = 6f;
+            }
         }
         else if (bottleB)
         {
