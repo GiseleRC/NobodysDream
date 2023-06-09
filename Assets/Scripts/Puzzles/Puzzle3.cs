@@ -30,6 +30,7 @@ public class Puzzle3 : MonoBehaviour
             nose1GO.GetComponent<Collider>().enabled = false;
             nose2GO.GetComponent<Collider>().enabled = false;
             nose3GO.GetComponent<Collider>().enabled = false;
+            nose1GO.GetComponentInChildren<ParticleSystem>().Pause();
 
             currGuess = 1;
             showGuess1 = false;
@@ -54,9 +55,10 @@ public class Puzzle3 : MonoBehaviour
             position1 = new Vector3(position1.x, 2f, position1.z);
             ajedrezGO1.transform.position = position1;
 
-            nose1GO.GetComponent<Collider>().enabled = true;
+            nose1GO.GetComponent<Collider>().enabled = false;
             nose2GO.GetComponent<Collider>().enabled = true;
-            nose3GO.GetComponent<Collider>().enabled = true;
+            nose3GO.GetComponent<Collider>().enabled = false;
+            nose2GO.GetComponentInChildren<ParticleSystem>().Play();
 
             option3 = false;
         }
@@ -72,6 +74,7 @@ public class Puzzle3 : MonoBehaviour
             nose1GO.GetComponent<Collider>().enabled = false;
             nose2GO.GetComponent<Collider>().enabled = false;
             nose3GO.GetComponent<Collider>().enabled = false;
+            nose2GO.GetComponentInChildren<ParticleSystem>().Pause();
 
             currGuess = 2;
             showGuess2 = false;
@@ -91,9 +94,10 @@ public class Puzzle3 : MonoBehaviour
 
             ajedrezGO1.transform.position = position2;
 
-            nose1GO.GetComponent<Collider>().enabled = true;
-            nose2GO.GetComponent<Collider>().enabled = true;
+            nose1GO.GetComponent<Collider>().enabled = false;
+            nose2GO.GetComponent<Collider>().enabled = false;
             nose3GO.GetComponent<Collider>().enabled = true;
+            nose3GO.GetComponentInChildren<ParticleSystem>().Play();
 
             option2 = false;
         }
@@ -115,6 +119,7 @@ public class Puzzle3 : MonoBehaviour
             nose1GO.GetComponent<Collider>().enabled = false;
             nose2GO.GetComponent<Collider>().enabled = false;
             nose3GO.GetComponent<Collider>().enabled = false;
+            nose3GO.GetComponentInChildren<ParticleSystem>().Pause();
 
             currGuess = 3;
             showGuess3 = false;
@@ -137,10 +142,6 @@ public class Puzzle3 : MonoBehaviour
             option9GO.SetActive(false);
             guess3GO.SetActive(false);
             ajedrezGO1.transform.position = position3;
-
-            nose1GO.GetComponent<Collider>().enabled = true;
-            nose2GO.GetComponent<Collider>().enabled = true;
-            nose3GO.GetComponent<Collider>().enabled = true;
 
             option3 = false;
         }
