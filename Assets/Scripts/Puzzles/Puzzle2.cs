@@ -24,6 +24,7 @@ public class Puzzle2 : MonoBehaviour
             dialogS.wallsB = true;
             doorEnable3 = false;
             animatorWall.SetBool("EnableMove", true);
+            particle3.SetActive(true);
             if (!playSound)
             {
                 audioSource.PlayOneShot(openWall);
@@ -39,10 +40,10 @@ public class Puzzle2 : MonoBehaviour
         {
             particle2.SetActive(true);
             diana1.SetActive(true);
+
         }
         if (doorEnable3)
         {
-            particle3.SetActive(true);
         }
 
         if (practice1 && practice2 && practice3)
