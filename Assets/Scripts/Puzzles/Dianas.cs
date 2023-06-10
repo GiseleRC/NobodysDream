@@ -5,14 +5,11 @@ using UnityEngine;
 public class Dianas : MonoBehaviour
 {
     public Puzzle2 puzzle2;
-    public Puzzle3 puzzle3;
 
     public GameObject currGO;
-    public TimerController timerController;
     public AudioSource audioSource;
     private float timeWait = 1f;
     private bool startCount = false;
-    private bool showGuess1, showGuess2, showGuess3;
 
     private void Update()
     {
@@ -46,7 +43,7 @@ public class Dianas : MonoBehaviour
                 puzzle2.practice3 = true;
                 currGO = gameObject;
             }
-            //audioSource.Play();
+            audioSource.Play();
             startCount = true;
         }
     }
@@ -65,77 +62,6 @@ public class Dianas : MonoBehaviour
             if (gameObject.name == "Diana3")
             {
                 puzzle2.doorEnable3 = true;
-            }
-
-            if (gameObject.name == "Nose1")
-            {
-                puzzle3.showGuess1 = true;
-                showGuess1 = true;
-            }
-            if (gameObject.name == "Nose2")
-            {
-                puzzle3.showGuess2 = true;
-                showGuess2 = true;
-            }
-            if (gameObject.name == "Nose3")
-            {
-                puzzle3.showGuess3 = true;
-                showGuess3 = true;
-            }
-
-            if (gameObject.name == "Option1")
-            {
-                if (puzzle3.showGuess1)
-                {
-                    puzzle3.option1 = true;
-                    timerController.AddTime(-50f);
-                }
-                else if (puzzle3.showGuess2)
-                {
-                    puzzle3.option1 = true;
-                    timerController.AddTime(-50f);
-                }
-                else if (puzzle3.showGuess3)
-                {
-                    puzzle3.option1 = true;
-                    timerController.AddTime(-50f);
-                }
-            }
-            if (gameObject.name == "Option2")
-            {
-                if (puzzle3.showGuess1)
-                {
-                    puzzle3.option2 = true;
-                    timerController.AddTime(-50f);
-                }
-                else if (puzzle3.showGuess2)
-                {
-                    puzzle3.option2 = true;
-                    timerController.AddTime(+50f);
-                }
-                else if (puzzle3.showGuess3)
-                {
-                    puzzle3.option2 = true;
-                    timerController.AddTime(-50f);
-                }
-            }
-            if (gameObject.name == "Option3")
-            {
-                if (showGuess1)
-                {
-                    puzzle3.option3 = true;
-                    timerController.AddTime(+50f);
-                }
-                else if (showGuess2)
-                {
-                    puzzle3.option3 = true;
-                    timerController.AddTime(-50f);
-                }
-                else if (showGuess3)
-                {
-                    puzzle3.option3 = true;
-                    timerController.AddTime(+50f);
-                }
             }
         }
     }

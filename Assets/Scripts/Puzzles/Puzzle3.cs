@@ -7,6 +7,7 @@ public class Puzzle3 : MonoBehaviour
     private Vector3 position1;
     private Vector3 position2;
     private Vector3 position3;
+    public TimerController timerController;
     public bool showGuess1, showGuess2, showGuess3, option1, option2, option3;
     private int currGuess = 0;
     public GameObject guess1GO, guess2GO, guess3GO, nose1Particle, nose2Particle, nose3Particle, nose1GO, nose2GO, nose3GO,
@@ -28,41 +29,34 @@ public class Puzzle3 : MonoBehaviour
             option3GO.SetActive(true);
 
             nose1GO.GetComponent<Collider>().enabled = false;
-            nose2GO.GetComponent<Collider>().enabled = false;
-            nose3GO.GetComponent<Collider>().enabled = false;
-            nose1GO.GetComponentInChildren<ParticleSystem>().Pause();
 
             currGuess = 1;
             showGuess1 = false;
         }
-
         if (option1 && currGuess == 1)
         {
-            option1GO.SetActive(false);
             option1 = false;
+            timerController.AddTime(-50f);
         }
         else if (option2 && currGuess == 1)
         {
-            option2GO.SetActive(false);
             option2 = false;
+            timerController.AddTime(-50f);
         }
         else if (option3 && currGuess == 1)
         {
-            option3GO.SetActive(false);
             option2GO.SetActive(false);
             option1GO.SetActive(false);
             guess1GO.SetActive(false);
+
             position1 = new Vector3(position1.x, 2f, position1.z);
             ajedrezGO1.transform.position = position1;
 
-            nose1GO.GetComponent<Collider>().enabled = false;
-            nose2GO.GetComponent<Collider>().enabled = true;
-            nose3GO.GetComponent<Collider>().enabled = false;
-            nose2GO.GetComponentInChildren<ParticleSystem>().Play();
-
             option3 = false;
-        }
+            timerController.AddTime(+50f);
 
+            nose2GO.GetComponent<Collider>().enabled = true;
+        }
 
         if (showGuess2)
         {
@@ -71,43 +65,35 @@ public class Puzzle3 : MonoBehaviour
             option5GO.SetActive(true);
             option6GO.SetActive(true);
 
-            nose1GO.GetComponent<Collider>().enabled = false;
             nose2GO.GetComponent<Collider>().enabled = false;
-            nose3GO.GetComponent<Collider>().enabled = false;
-            nose2GO.GetComponentInChildren<ParticleSystem>().Pause();
 
             currGuess = 2;
             showGuess2 = false;
         }
-
         if (option1 && currGuess == 2)
         {
-            option4GO.SetActive(false);
             option1 = false;
+            timerController.AddTime(-50f);
         }
         else if (option2 && currGuess == 2)
         {
+            guess2GO.SetActive(false);
             option4GO.SetActive(false);
             option5GO.SetActive(false);
             option6GO.SetActive(false);
-            guess2GO.SetActive(false);
 
             ajedrezGO1.transform.position = position2;
 
-            nose1GO.GetComponent<Collider>().enabled = false;
-            nose2GO.GetComponent<Collider>().enabled = false;
-            nose3GO.GetComponent<Collider>().enabled = true;
-            nose3GO.GetComponentInChildren<ParticleSystem>().Play();
-
             option2 = false;
+            timerController.AddTime(+50f);
+
+            nose3GO.GetComponent<Collider>().enabled = true;
         }
         else if (option3 && currGuess == 2)
         {
-            option6GO.SetActive(false);
-
             option3 = false;
+            timerController.AddTime(-50f);
         }
-
 
         if (showGuess3)
         {
@@ -116,24 +102,20 @@ public class Puzzle3 : MonoBehaviour
             option8GO.SetActive(true);
             option9GO.SetActive(true);
 
-            nose1GO.GetComponent<Collider>().enabled = false;
-            nose2GO.GetComponent<Collider>().enabled = false;
             nose3GO.GetComponent<Collider>().enabled = false;
-            nose3GO.GetComponentInChildren<ParticleSystem>().Pause();
 
             currGuess = 3;
             showGuess3 = false;
         }
-
         if (option1 && currGuess == 3)
         {
-            option7GO.SetActive(false);
             option1 = false;
+            timerController.AddTime(-50f);
         }
         else if (option2 && currGuess == 3)
         {
-            option8GO.SetActive(false);
             option2 = false;
+            timerController.AddTime(-50f);
         }
         else if (option3 && currGuess == 3)
         {
@@ -144,6 +126,7 @@ public class Puzzle3 : MonoBehaviour
             ajedrezGO1.transform.position = position3;
 
             option3 = false;
+            timerController.AddTime(+50f);
         }
     }
 }
