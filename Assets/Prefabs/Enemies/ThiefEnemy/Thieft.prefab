@@ -95,14 +95,13 @@ GameObject:
   - component: {fileID: 7676042821334758380}
   - component: {fileID: 6106802668122766700}
   - component: {fileID: 3359313575231238899}
-  - component: {fileID: 3129710273246923982}
   - component: {fileID: 3129710273246923981}
   - component: {fileID: 3129710273246923980}
   - component: {fileID: 3129710273246923983}
   - component: {fileID: 3129710273246923978}
   - component: {fileID: 6622347993355932906}
-  - component: {fileID: -2968480757910126711}
   - component: {fileID: 834318947231211807}
+  - component: {fileID: 4878651901082362928}
   m_Layer: 11
   m_Name: Thieft
   m_TagString: Thief
@@ -183,20 +182,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3129710273246923982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129710273246924017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d4668e63bc291041950dfd217c6f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewDistance: 0
-  laugh: {fileID: 8300000, guid: a9be3e4937601594eb831c3ddc0850d4, type: 3}
 --- !u!114 &3129710273246923981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,20 +258,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   minDistanceToRun: 20
---- !u!114 &-2968480757910126711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129710273246924017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5582956174ded1649b7c73adf329d97c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rulerGrabbed: {fileID: 854765919793076522}
-  cubeGrabbed: {fileID: 5848735127986768622}
 --- !u!82 &834318947231211807
 AudioSource:
   m_ObjectHideFlags: 0
@@ -383,6 +354,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4878651901082362928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129710273246924017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f356c1f0a8cb84ab6bd481f00def4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laugh: {fileID: 8300000, guid: a9be3e4937601594eb831c3ddc0850d4, type: 3}
+  rulerInEnemy: {fileID: 854765919793076522}
+  cubeInEnemy: {fileID: 5848735127986768622}
 --- !u!1 &3140185249128102028
 GameObject:
   m_ObjectHideFlags: 0

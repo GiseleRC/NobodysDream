@@ -5,9 +5,10 @@ using UnityEngine;
 public class ghAttack : MonoBehaviour
 {
     [SerializeField] float initialTimer, maxDistanceForAttack;
-    float distance;
     public float timer;
     public AudioSource GhostAttack;
+    Ghost ghost;
+
     // Start is called before the first frame update
 
     void OnEnable()
@@ -19,24 +20,28 @@ public class ghAttack : MonoBehaviour
     void OnDisable()
     {
         GameObject.Find("TimerController").GetComponent<TimerController>().EnemiesAttacking = -1;
-        gameObject.GetComponent<AIDecisions>().GhostAttack = false;
+        ghost.GhostAttack = false;
         GhostAttack.Stop();
+    }
+
+    void Start()
+    {
+        ghost = GetComponent<Ghost>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(new Vector3(GameObject.Find("Char").GetComponent<Transform>().position.x,transform.position.y , GameObject.Find("Char").GetComponent<Transform>().position.z));
-        distance = GetComponent<AIDecisions>().Distance;
+        transform.LookAt(new Vector3(GameObject.Find("Char").GetComponent<Transform>().position.x, transform.position.y, GameObject.Find("Char").GetComponent<Transform>().position.z));
 
-        if (distance > maxDistanceForAttack)
+        if (ghost.Distance > maxDistanceForAttack)
         {
             timer -= Time.deltaTime;
         }
 
         if (timer <= 0)
         {
-            GetComponent<ghAttack>().enabled = false;
+            ghost.GhostAttack = false;
         }
     }
 }

@@ -177,14 +177,13 @@ GameObject:
   - component: {fileID: 6027114006704043644}
   - component: {fileID: 1803535805798290395}
   - component: {fileID: 2827700569509666139}
-  - component: {fileID: 8112297046893572486}
+  - component: {fileID: 6710108228142256836}
+  - component: {fileID: 5712994917605488977}
   - component: {fileID: 4730416354267188804}
   - component: {fileID: 8045113459443339642}
-  - component: {fileID: 6710108228142256836}
   - component: {fileID: 6745991197744458417}
   - component: {fileID: 5913177162430384002}
-  - component: {fileID: 7988301793664745185}
-  - component: {fileID: 5712994917605488977}
+  - component: {fileID: 9053152212360703096}
   m_Layer: 11
   m_Name: Ghost_Chase
   m_TagString: Untagged
@@ -248,56 +247,6 @@ CapsuleCollider:
   m_Height: 0.04605078
   m_Direction: 1
   m_Center: {x: 0.00095361297, y: -0.0133841345, z: 2.13743e-12}
---- !u!114 &8112297046893572486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6408425375911668934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a25ff4682ac51e488c1ea6a2a3671f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ps: {fileID: 4577694509962836713}
-  viewDistance: 15
-  stucked: 0
---- !u!114 &4730416354267188804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6408425375911668934}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19836fd5b1a93cf43b079ece3270da60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  currentPoint: 0
-  whiteEyes: {fileID: 2100000, guid: 1fb686d76fce7514eaa0e3d9bfa50d66, type: 2}
---- !u!114 &8045113459443339642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6408425375911668934}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0506f5e7e0159f64382ccbbb7ed8016c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mRen: {fileID: 2429819213234004189}
-  minDistanceChar: 5
-  redEyes: {fileID: 2100000, guid: 07018c737c314cf4ca4e22f282e0e25a, type: 2}
-  whiteEyes: {fileID: 2100000, guid: 1fb686d76fce7514eaa0e3d9bfa50d66, type: 2}
 --- !u!54 &6710108228142256836
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -314,48 +263,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6745991197744458417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6408425375911668934}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2da3557ea1fd8a43beee22f2d35f21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5913177162430384002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6408425375911668934}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78ae7837d084d824984a187e6be9382d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTimer: 2
-  maxDistanceForAttack: 5
-  timer: 0
-  GhostAttack: {fileID: 5712994917605488977}
---- !u!114 &7988301793664745185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6408425375911668934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5582956174ded1649b7c73adf329d97c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rulerGrabbed: {fileID: 0}
-  cubeGrabbed: {fileID: 0}
 --- !u!82 &5712994917605488977
 AudioSource:
   m_ObjectHideFlags: 0
@@ -452,6 +359,83 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4730416354267188804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19836fd5b1a93cf43b079ece3270da60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentPoint: 0
+  whiteEyes: {fileID: 2100000, guid: 1fb686d76fce7514eaa0e3d9bfa50d66, type: 2}
+--- !u!114 &8045113459443339642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0506f5e7e0159f64382ccbbb7ed8016c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mRen: {fileID: 2429819213234004189}
+  minDistanceChar: 5
+  redEyes: {fileID: 2100000, guid: 07018c737c314cf4ca4e22f282e0e25a, type: 2}
+  whiteEyes: {fileID: 2100000, guid: 1fb686d76fce7514eaa0e3d9bfa50d66, type: 2}
+--- !u!114 &6745991197744458417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2da3557ea1fd8a43beee22f2d35f21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5913177162430384002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ae7837d084d824984a187e6be9382d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialTimer: 2
+  maxDistanceForAttack: 5
+  timer: 0
+  GhostAttack: {fileID: 5712994917605488977}
+--- !u!114 &9053152212360703096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408425375911668934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f83d1f61d609148be5da51113eba98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDistance: 15
+  ps: {fileID: 4577694509962836713}
 --- !u!1 &6651045717836449700
 GameObject:
   m_ObjectHideFlags: 0

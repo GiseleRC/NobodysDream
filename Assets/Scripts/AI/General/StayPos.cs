@@ -5,16 +5,22 @@ using UnityEngine.AI;
 
 public class StayPos : MonoBehaviour
 {
+    Ghost ghost;
+    Thief thief;
     NavMeshAgent nma;
     // Start is called before the first frame update
-    private void OnEnable()
+    private void Start()
     {
-        
-    }
-
-    void Start()
-    {
-        nma = GetComponent<NavMeshAgent>();
+        if (GetComponent<Ghost>() != null)
+        {
+            ghost = GetComponent<Ghost>();
+            nma = ghost.NMA;
+        }
+        else
+        {
+            thief = GetComponent<Thief>();
+            nma = thief.NMA;
+        }
     }
 
     // Update is called once per frame

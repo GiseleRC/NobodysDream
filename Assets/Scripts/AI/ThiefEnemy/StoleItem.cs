@@ -16,18 +16,18 @@ public class StoleItem : MonoBehaviour
 
     void OnEnable()
     {
-        matObj = GetComponent<ThierfEnemyDecisions>().ObjectPos.gameObject;
-        if (matObj.tag == "Cube") 
-        { 
+        matObj = GetComponent<Thief>().ObjectPos.gameObject;
+        if (matObj.tag == "Cube")
+        {
             cubeInEnemy.SetActive(true);
         }
-        else if(matObj.tag == "Ruler")
+        else if (matObj.tag == "Ruler")
         {
             rulerInEnemy.SetActive(true);
         }
         dialogS.littleGB = true;
-        GetComponent<ThierfEnemyDecisions>().ObjectGrabbed = true;
-        GetComponent<ThierfEnemyDecisions>().ObjectToSteal = false;
+        GetComponent<Thief>().ObjectGrabbed = true;
+        GetComponent<Thief>().ObjectToSteal = false;
         Destroy(matObj);
         this.enabled = false;
     }

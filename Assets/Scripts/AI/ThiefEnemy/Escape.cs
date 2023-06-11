@@ -10,17 +10,19 @@ public class Escape : MonoBehaviour
     float distance;
     int currentPoint;
     [SerializeField] float minDistanceToRun;
-    
+    Thief thief;
+
     // Start is called before the first frame update
     void Start()
     {
-        nma = GetComponent<NavMeshAgent>();
+        thief = GetComponent<Thief>();
+        nma = thief.NMA;
     }
 
     // Update is called once per frame
     void Update()
     {
-        distance = GetComponent<ThierfEnemyDecisions>().Distance;
+        distance = thief.Distance;
 
         if (!nma.pathPending && nma.hasPath && nma.remainingDistance < 0.5f)
         {
@@ -36,7 +38,7 @@ public class Escape : MonoBehaviour
             }
         }
 
-        if(distance > minDistanceToRun)
+        if (distance > minDistanceToRun)
         {
             nma.SetDestination(transform.position);
         }

@@ -8,7 +8,7 @@ public class FollowObject : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     [SerializeField] float speed, rayDistance;
     [SerializeField] GameObject checker, parent;
-    bool ray, dontMove;
+    bool ray, dontMove, dataSended;
     // Start is called before the first frame update
 
 
@@ -25,15 +25,16 @@ public class FollowObject : MonoBehaviour
     void Update()
     {
         //print(dontMove);
-        ray = Physics.BoxCast(checker.transform.position, checker.transform.localScale/2, -transform.up, out hit, transform.rotation, rayDistance, layerMask);
+        ray = Physics.BoxCast(checker.transform.position, checker.transform.localScale / 2, -transform.up, out hit, transform.rotation, rayDistance, layerMask);
 
         if (!ray)
         {
             transform.Translate(0, -speed * Time.deltaTime, 0);
             parent.GetComponent<BoxCollider>().isTrigger = true;
+            dataSended = false;
 
         }
-        else if(ray && hit.collider == parent)
+        else if (ray && hit.collider == parent)
         {
             parent.GetComponent<BoxCollider>().isTrigger = true;
             transform.Translate(0, -speed * Time.deltaTime, 0);
@@ -42,11 +43,14 @@ public class FollowObject : MonoBehaviour
         {
             parent.GetComponent<BoxCollider>().isTrigger = false;
 
-            var thiefs = FindObjectsOfType<ThierfEnemyDecisions>();
-
-            foreach (var thief in thiefs)
+            var thiefs = FindObjectsOfType<Thief>();
+            if (!dataSended)
             {
-                thief.CheckPosObject(transform);
+                foreach (var thief in thiefs)
+                {
+                    thief.CheckPosObject(gameObject.transform);
+                }
+                dataSended = true;
             }
 
             if (parent != null)
@@ -58,7 +62,7 @@ public class FollowObject : MonoBehaviour
                 gameObject.layer = 6;
             }
 
-            if(hit.transform.tag == "MobilePlatforms")
+            if (hit.transform.tag == "MobilePlatforms")
             {
                 transform.parent = GameObject.Find(hit.collider.gameObject.name).GetComponent<Transform>();
             }
@@ -67,7 +71,7 @@ public class FollowObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
     }
 
 

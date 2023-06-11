@@ -1,0 +1,138 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Ghost : Enemies, IEnemy
+{
+    MonoBehaviour patrol, stayPos, attack, chaseCharacter;
+    [SerializeField] float viewDistance;
+    protected bool ghostAttack, stucked;
+    float distance, dot;
+    GameObject matObj;
+    [SerializeField]ParticleSystem ps;
+
+    public float Distance
+    {
+        get
+        {
+            return distance;
+        }
+    }
+
+    public bool GhostAttack
+    {
+        get { return ghostAttack; }
+        set { ghostAttack = value; }
+    }
+
+    // Update is called once per frame
+    void Start()
+    {
+        Behaviors();
+    }
+
+    void Update()
+    {
+        mode = gameState.GetPlaneMode();
+        Transitions();
+    }
+
+    public void Behaviors()
+    {
+        patrol = gameObject.GetComponent<Patrol>();
+        stayPos = gameObject.GetComponent<StayPos>();
+        attack = gameObject.GetComponent<ghAttack>();
+        chaseCharacter = gameObject.GetComponent<ChaseCharacter>();
+    }
+
+    public void Stunned()
+    {
+        nma.SetDestination(transform.position);
+        actualTime -= Time.deltaTime;
+    }
+
+    public void Variables()
+    {
+        distance = Vector3.Distance(characterPos.position, transform.position);
+        Vector3 vectorAPJ = characterPos.position - transform.position;
+        vectorAPJ.Normalize();
+        dot = Vector3.Dot(transform.forward, vectorAPJ);
+    }
+
+    public void Transitions()
+    {
+        if (actualTime > 0)
+        {
+            Stunned();
+            patrol.enabled = false;
+            stayPos.enabled = false;
+            attack.enabled = false;
+            chaseCharacter.enabled = false;
+        }
+        else
+        {
+            Variables();
+
+            if (mode == GameState.PlaneMode.Ghost)
+            {
+                stayPos.enabled = true;
+                patrol.enabled = false;
+                attack.enabled = false;
+            }
+            else
+            {
+                stayPos.enabled = false;
+                if (!ghostAttack)
+                {
+                    attack.enabled = false;
+                    if (dot > 0.55 && distance < viewDistance || distance < viewDistance / 3)
+                    {
+                        chaseCharacter.enabled = true;
+                        patrol.enabled = false;
+                    }
+                    else if (distance > viewDistance)
+                    {
+                        patrol.enabled = true;
+                        chaseCharacter.enabled = false;
+                    }
+                }
+                else
+                {
+                    attack.enabled = true;
+                    patrol.enabled = false;
+                    chaseCharacter.enabled = false;
+                }
+            }
+        }
+
+        if (matObj == null && stucked)
+        {
+            ps.Pause();
+            nma.speed = 3.5f;
+            stucked = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Ruler" || other.gameObject.tag == "Cube")
+        {
+            matObj = other.gameObject;
+            ps.Play();
+            nma.speed = .3f;
+            stucked = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Ruler" || other.gameObject.tag == "Cube")
+        {
+            ps.Pause();
+            nma.speed = 3.5f;
+            stucked = false;
+        }
+    }
+
+
+}

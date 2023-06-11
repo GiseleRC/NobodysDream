@@ -6,45 +6,45 @@ using UnityEngine.AI;
 public class MoveToMatObject : MonoBehaviour
 {
     NavMeshAgent nma;
-    Transform objectPos;
+    Thief thief;
+    Transform objectPos, actualPos;
     // Start is called before the first frame update
-    private void OnEnable()
-    {
-        objectPos = GetComponent<ThierfEnemyDecisions>().ObjectPos;
-    }
 
     private void OnDisable()
     {
-        GetComponent<ThierfEnemyDecisions>().StealObject = false;
-        
+        thief.StealObject = false;
     }
 
     void Start()
     {
-        nma = GetComponent<NavMeshAgent>();
+        thief = GetComponent<Thief>();
+        nma = thief.NMA;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(objectPos != null)
+        if (thief.ObjectPos != null)
         {
-            float distance = Vector3.Distance(transform.position, objectPos.position);
-
-            if(distance < 1)
+            float distance = Vector3.Distance(transform.position, thief.ObjectPos.position);
+            if (distance < 1)
             {
                 nma.SetDestination(transform.position);
-                GetComponent<ThierfEnemyDecisions>().StealObject = true;
+                thief.StealObject = true;
             }
             else
             {
-                GetComponent<ThierfEnemyDecisions>().StealObject = false;
-                nma.SetDestination(objectPos.position);
+
+                if (thief.ObjectPos.hasChanged)
+                {
+                    thief.StealObject = false;
+                    nma.SetDestination(thief.ObjectPos.position);
+                }
             }
         }
         else
         {
-            GetComponent<ThierfEnemyDecisions>().ObjectToSteal = false;
+            thief.ObjectToSteal = false;
             this.enabled = false;
         }
 

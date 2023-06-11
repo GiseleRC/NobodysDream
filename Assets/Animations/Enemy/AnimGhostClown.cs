@@ -17,6 +17,5 @@ public class AnimGhostClown : MonoBehaviour
         animator.SetBool("Walk", GetComponent<Patrol>().enabled);
         animator.SetBool("Run", GetComponent<ChaseCharacter>().enabled);
         animator.SetBool("Attack", GetComponent<ghAttack>().enabled);
-        animator.SetBool("Stun", GetComponent<Stunned>().enabled);
     }
 }

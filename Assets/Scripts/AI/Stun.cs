@@ -47,7 +47,7 @@ public class Stun : MonoBehaviour
     {
         if (other.gameObject.layer == 11 && flashlightOn == true)
         {
-            if(timeForStun > 0)
+            if (timeForStun > 0)
             {
                 timeForStun -= Time.deltaTime;
                 flLight.intensity += intensityModifier * Time.deltaTime;
@@ -57,13 +57,7 @@ public class Stun : MonoBehaviour
             else
             {
 
-                if (!other.gameObject.GetComponent<Stunned>().enabled)
-                {
-                    other.gameObject.GetComponent<Stunned>().enabled = true;
-                    other.gameObject.GetComponent<Stunned>().StunEnemy(stunDuration);
-
-                }
-
+                other.gameObject.GetComponent<Enemies>().ReceiveStun(stunDuration);
                 stunnedAvaible = false;
 
                 GetComponentInParent<FlashLight>().ActualBattery = 0;
