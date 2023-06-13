@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TP2 - Leandro Fanelli - En este Script se instancia el Manager de la pausa, si es que no esta creado y luego se crea el evento.
 public class PauseStateManager
 {
     private static PauseStateManager _instance;

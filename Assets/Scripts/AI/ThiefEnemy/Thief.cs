@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+// TP2 - Leandro Fanelli - Este script contiene lo relacionado al enemigo llamado THIEF, el cual hereda de Enemies atributos y aplica Interfaces.
+// Ademas se hace uso de Getters y Setters para las transiciones de comportamientos.
 public class Thief : Enemies, IEnemy
 {
     MonoBehaviour patrol, stayPos, moveToMatObject, escape, stoleItem;
@@ -68,6 +70,7 @@ public class Thief : Enemies, IEnemy
             return objectPos;
         }
     }
+
     void Start()
     {
         Behaviors();
@@ -81,6 +84,7 @@ public class Thief : Enemies, IEnemy
         Transitions();
     }
 
+    //Se listan todos los comportamientos del enemigo y se guardan en variables
     public void Behaviors()
     {
         patrol = gameObject.GetComponent<Patrol>();
@@ -100,11 +104,13 @@ public class Thief : Enemies, IEnemy
 
     }
 
+    //Este enemigo solo necesita calcular la distancia del enemigo
     public void Variables()
     {
         distance = Vector3.Distance(characterPos.position, transform.position);
     }
 
+    //Contiene las transiciones de que comportamiento tiene que actuar en cierto momento
     public void Transitions()
     {
         if (actualTime > 0)
@@ -165,6 +171,7 @@ public class Thief : Enemies, IEnemy
         }
     }
 
+    //Al colocarse un objeto robable, calcula si hay un camino posible dentro del NavMesh, en caso que si se activa el comportamiento para ir a robarlo, pasandole la posicion del objeto
     public void CheckPosObject(Transform pos)
     {
         NavMeshPath navMeshStatus = new NavMeshPath();

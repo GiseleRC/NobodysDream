@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//TP2 - Leandro Fanelli - Este es el script padre de los enemigos, en el cual contiene las variables y metodos que van a ser iguales sin importar su comportamiento.
+
+
 public class Enemies : MonoBehaviour
 {
     protected NavMeshAgent nma;

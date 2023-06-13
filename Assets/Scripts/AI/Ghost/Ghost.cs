@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TP2 - Leandro Fanelli - Este script contiene lo relacionado al enemigo llamado GHOST, el cual hereda de Enemies atributos y aplica Interfaces.
+// Ademas se hace uso de Getters y Setters para las transiciones de comportamientos.
+
 public class Ghost : Enemies, IEnemy
 {
     MonoBehaviour patrol, stayPos, attack, chaseCharacter;
@@ -37,6 +40,7 @@ public class Ghost : Enemies, IEnemy
         Transitions();
     }
 
+    //Se listan todos los comportamientos del enemigo y se guardan en variables
     public void Behaviors()
     {
         patrol = gameObject.GetComponent<Patrol>();
@@ -51,6 +55,7 @@ public class Ghost : Enemies, IEnemy
         actualTime -= Time.deltaTime;
     }
 
+    //En este caso este enemigo tiene un rango de vision, que los demas enemigos no, por eso las variables unicas se setean aca.
     public void Variables()
     {
         distance = Vector3.Distance(characterPos.position, transform.position);
@@ -59,6 +64,7 @@ public class Ghost : Enemies, IEnemy
         dot = Vector3.Dot(transform.forward, vectorAPJ);
     }
 
+    //Contiene las transiciones de que comportamiento tiene que actuar en cierto momento
     public void Transitions()
     {
         if (actualTime > 0)
