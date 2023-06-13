@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DialogSystem : MonoBehaviour
 {
+    [SerializeField] private GameObject currDialog; 
     [SerializeField] public bool capB, flashlB, rullerB, slideB, bookB, bookEnableB, rubberB, boosterB, crayonsB, chocolatesB, ghostB,
                                 littleGB, candyWheelB, glassesB, pillsB, bottleB, fakeWindowB, trueWindowB, level2B, ballpickeableB, 
                                 bucketB, practiceB, firstDianaB, wallsB, darkB, fallB, respawnB;
@@ -11,12 +12,13 @@ public class DialogSystem : MonoBehaviour
                                 littleG, candyWheel, glasses, pills, bottle, fakeWindow, trueWindow, level2, ballpickeable,
                                 bucket, practice, firstDiana, walls, dark, fall, respawn;
     //CAP ACTIVO, 
-    private float waitTime = 6f;
+    private float waitTime = 10f;
     private void Update()
     {
         if (capB)
         {
             cap.SetActive(true);
+            currDialog = cap;
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
@@ -29,7 +31,9 @@ public class DialogSystem : MonoBehaviour
         }
         else if (flashlB)
         {
+            capB = false;
             flashl.SetActive(true);
+            currDialog = flashl;
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
             if (waitTime <= 0)
@@ -42,6 +46,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (rullerB)
         {
+            flashlB = false;
+            currDialog = ruller;
             ruller.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -55,6 +61,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (slideB)
         {
+            rullerB = false;
+            currDialog = slide;
             slide.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -68,6 +76,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (bookB)
         {
+            slideB = false;
+            currDialog = book;
             book.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -81,6 +91,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (bookEnableB)
         {
+            bookB = false;
+            currDialog = bookEnable;
             bookEnable.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -94,6 +106,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (rubberB)
         {
+            bookEnableB = false;
+            currDialog = rubber;
             rubber.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -107,6 +121,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (boosterB)
         {
+            rubberB = false;
+            currDialog = booster;
             booster.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -120,6 +136,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (crayonsB)
         {
+            boosterB = false;
+            currDialog = crayons;
             crayons.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -133,6 +151,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (chocolatesB)
         {
+            crayonsB = false;
+            currDialog = chocolates;
             chocolates.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -146,6 +166,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (ghostB)
         {
+            chocolatesB = false;
+            currDialog = ghost;
             ghost.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -159,6 +181,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (littleGB)
         {
+            ghostB = false;
+            currDialog = littleG;
             littleG.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -172,6 +196,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (candyWheelB)
         {
+            littleGB = false;
+            currDialog = candyWheel;
             candyWheel.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -185,6 +211,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (glassesB)
         {
+            candyWheelB = false;
+            currDialog = glasses;
             glasses.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -198,6 +226,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (pillsB)
         {
+            glassesB = false;
+            currDialog = pills;
             pills.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -211,6 +241,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (bottleB)
         {
+            pillsB = false;
+            currDialog = bottle;
             bottle.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -224,6 +256,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (fakeWindowB)
         {
+            bottleB = false;
+            currDialog = fakeWindow;
             fakeWindow.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -237,6 +271,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (trueWindowB)
         {
+            fakeWindowB = false;
+            currDialog = trueWindow;
             trueWindow.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -250,6 +286,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (level2B)
         {
+            trueWindowB = false;
+            currDialog = level2;
             level2.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -264,6 +302,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (ballpickeableB && pickableBall.gameObject.activeInHierarchy)
         {
+            level2B = false;
+            currDialog = ballpickeable;
             ballpickeable.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -277,6 +317,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (bucketB)
         {
+            ballpickeableB = false;
+            currDialog = bucket;
             bucket.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -290,6 +332,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (practiceB)
         {
+            bucketB = false;
+            currDialog = practice;
             practice.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -303,6 +347,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (firstDianaB)
         {
+            practiceB = false;
+            currDialog = firstDiana;
             firstDiana.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -316,6 +362,8 @@ public class DialogSystem : MonoBehaviour
         }
         else if (wallsB)
         {
+            firstDianaB = false;
+            currDialog = walls;
             walls.SetActive(true);
             bkgrownd.SetActive(true);
             waitTime -= Time.deltaTime;
@@ -365,6 +413,11 @@ public class DialogSystem : MonoBehaviour
                 respawnB = false;
                 waitTime = 6f;
             }
+        }
+        else
+        {
+            currDialog.SetActive(false);
+            bkgrownd.SetActive(false);
         }
     }
 }
