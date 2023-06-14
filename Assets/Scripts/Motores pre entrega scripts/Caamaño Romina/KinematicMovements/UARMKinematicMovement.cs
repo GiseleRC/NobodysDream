@@ -22,7 +22,7 @@ public class UARMKinematicMovement : KinematicMovement
         velocity += acceleration * dt;
         return velocity * dt;
     }
-
+    //TP2 - Caamaño Romina - sobreescribe el metodo llamado que no hace nada originalmente
     public override void ResetMovement()
     {
         velocity = initialVelocity;

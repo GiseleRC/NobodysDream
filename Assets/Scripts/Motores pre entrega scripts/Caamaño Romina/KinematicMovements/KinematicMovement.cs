@@ -4,7 +4,7 @@ using UnityEngine;
 //TP2 - Caamaño Romina - requiere el Kinematic Movement controller
 [RequireComponent(typeof(KinematicMovementController))]
 
-//TP2 - Caamaño Romina - clase abstracta de movimiento kinematico que puede ser o no nulo
+//TP2 - Caamaño Romina - clase abstracta para los que los distintos movimientos kinematicos sean movimientos kinemativos
 public abstract class KinematicMovement : MonoBehaviour
 {
     //TP2 - Caamaño Romina - metodos que devuelven los incrementos en el movimiento

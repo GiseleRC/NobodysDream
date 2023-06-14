@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TP2 - Caamaño Romina - Composicion: KinematicMovementController se compone de movimientos kinematicos varios,
+//los cuales heredaron de la clase abstracta kinematic movement.
+
+//TP2 - Caamaño Romina - requiere un rigidbody
 [RequireComponent(typeof(Rigidbody))]
 public class KinematicMovementController : MonoBehaviour
 {
+    //TP2 - Caamaño Romina - Encapsulamiento
     [SerializeField] protected float delayTime = 0f;
 
     protected Rigidbody rb;
@@ -37,12 +42,14 @@ public class KinematicMovementController : MonoBehaviour
 
         float dt = Time.fixedDeltaTime;
 
+        //para que el delay no se haga negativo
         if (delay > 0f)
         {
             delay = Mathf.Max(delay - dt, 0f);
             return;
         }
 
+        //variables que van acumulando los movimientos
         Vector3 positionDelta = rb.position;
         Quaternion rotationDelta = rb.rotation;
 
@@ -52,6 +59,7 @@ public class KinematicMovementController : MonoBehaviour
             rotationDelta *= kinematicMovement.GetRotationDelta(dt);
         }
 
+        //al final aplica al rigidbody los totales
         rb.MovePosition(positionDelta);
         rb.MoveRotation(rotationDelta);
     }
@@ -61,6 +69,8 @@ public class KinematicMovementController : MonoBehaviour
         movementEnabled = pauseState == PauseState.Gameplay;
     }
 
+    //TP2 - Caamaño Romina - Este metodo es un Reset movement distinto al de kinematic movement,
+    //llama al reset de cada movimiento kinematicos, entre los movimientos que hayan heredado de la clase abstracta kinematic movement
     public virtual void ResetMovement()
     {
         delay = delayTime;

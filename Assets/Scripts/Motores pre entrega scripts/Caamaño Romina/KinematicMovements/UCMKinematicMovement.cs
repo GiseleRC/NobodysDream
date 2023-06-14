@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TP2 - Caamaño Romina - Uniform circular motion hereda de Kinematic Movement
 public class UCMKinematicMovement : KinematicMovement
 {
     [SerializeField] private Vector3 rotationAxis = Vector3.up;
