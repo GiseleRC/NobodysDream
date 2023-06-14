@@ -101,7 +101,6 @@ MonoBehaviour:
   amp: 0.05
   freq: 3
   t: 0
-  PlatformShake: {fileID: 0}
 --- !u!54 &1979458240399757327
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,7 +127,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2680808594642639554}
   - component: {fileID: 2680808594642640185}
-  - component: {fileID: 2680808594642640184}
   - component: {fileID: 2680808594642640187}
   - component: {fileID: 3074514375014329709}
   m_Layer: 6
@@ -167,20 +165,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 2.4741583, z: 1.0000002}
   m_Center: {x: 0, y: 0.019482793, z: 0}
---- !u!114 &2680808594642640184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2680808594642639555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb3bd54dc50beeb4f8075bbcbec27d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToFall: 0.5
-  PlatformFalling: {fileID: 0}
 --- !u!65 &2680808594642640187
 BoxCollider:
   m_ObjectHideFlags: 0
