@@ -11,6 +11,8 @@ public class ReactionKinematicMovementController : KinematicMovementController
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
-        StartMovement();
+        // Ver una mejor forma de detectar el objecto que activa el movimiento
+        if (collision.gameObject.name == "Char")
+            StartMovement();
     }
 }
