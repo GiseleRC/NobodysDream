@@ -5,13 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class KinematicMovementController : MonoBehaviour
 {
+    [SerializeField] protected float delayTime = 0f;
+
     protected Rigidbody rb;
     protected KinematicMovement[] kinematicMovements;
     protected bool movementEnabled = false;
 
     private float delay = 0f;
-
-    [SerializeField] protected float delayTime = 0f;
 
     protected virtual void Awake()
     {
