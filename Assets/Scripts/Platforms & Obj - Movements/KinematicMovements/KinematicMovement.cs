@@ -14,4 +14,8 @@ public abstract class KinematicMovement : MonoBehaviour
     {
         return Quaternion.identity;
     }
+
+    public virtual void ResetMovement()
+    {
+    }
 }

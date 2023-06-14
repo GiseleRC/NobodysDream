@@ -33,6 +33,7 @@ public class RestorePlatfroms : MonoBehaviour
             if (platforms[i].transform.position.y < -40)
             {
                 platforms[i].transform.localPosition = platformsRestorePos[i];
+                platforms[i].GetComponent<KinematicMovementController>().ResetMovement();
             }
         }
     }

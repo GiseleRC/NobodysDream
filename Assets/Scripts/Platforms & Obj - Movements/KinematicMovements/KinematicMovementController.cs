@@ -61,6 +61,16 @@ public class KinematicMovementController : MonoBehaviour
         movementEnabled = pauseState == PauseState.Gameplay;
     }
 
+    public virtual void ResetMovement()
+    {
+        delay = delayTime;
+        movementEnabled = false;
+        foreach (KinematicMovement kinematicMovement in kinematicMovements)
+        {
+            kinematicMovement.ResetMovement();
+        }
+    }
+
     protected virtual void StartMovement()
     {
         delay = delayTime;

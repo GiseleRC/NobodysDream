@@ -11,12 +11,17 @@ public class UARMKinematicMovement : KinematicMovement
 
     protected virtual void Awake()
     {
-        velocity = initialVelocity;
+        ResetMovement();
     }
 
     public override Vector3 GetPositionDelta(float dt)
     {
         velocity += acceleration * dt;
         return velocity * dt;
+    }
+
+    public override void ResetMovement()
+    {
+        velocity = initialVelocity;
     }
 }

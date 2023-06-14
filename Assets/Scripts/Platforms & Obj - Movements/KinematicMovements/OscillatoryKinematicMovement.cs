@@ -13,7 +13,7 @@ public class OscillatoryKinematicMovement : KinematicMovement
 
     protected virtual void Start()
     {
-        origin = transform.position;
+        ResetMovement();
     }
 
     public override Vector3 GetPositionDelta(float dt)
@@ -22,5 +22,11 @@ public class OscillatoryKinematicMovement : KinematicMovement
         t += dt;
         Vector3 curr = direction.normalized * amplitude * Mathf.Sin(2f * Mathf.PI * frequency * t);
         return curr - prev;
+    }
+
+    public override void ResetMovement()
+    {
+        t = 0f;
+        origin = transform.position;
     }
 }
