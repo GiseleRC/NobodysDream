@@ -280,7 +280,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogS.slideB = true;
         }
-        else if (collision.gameObject.name == "Crayons")
+        else if (collision.gameObject.name == "CrayonsPlatform")
         {
             dialogS.crayonsB = true;
         }
