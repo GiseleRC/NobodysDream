@@ -92,6 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 388560333110261744}
+  - component: {fileID: 895088614916960725}
   m_Layer: 0
   m_Name: Cuaderno
   m_TagString: Untagged
@@ -115,6 +116,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &895088614916960725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022212923506322762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0475445, y: 2.2947578, z: 1}
+  m_Center: {x: -0.070174694, y: 0.16833949, z: 0}
 --- !u!1 &1234453932488436917
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +306,6 @@ GameObject:
   - component: {fileID: 4360661778908942766}
   - component: {fileID: 6236855504845528064}
   - component: {fileID: 1425078274768695214}
-  - component: {fileID: 6236855504845528065}
   m_Layer: 0
   m_Name: cuaderno
   m_TagString: Untagged
@@ -366,19 +379,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6236855504845528065
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438703693629664581}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.040191714, y: 0.019071208, z: 0.044830482}
-  m_Center: {x: 0.000170344, y: -0.00022365815, z: 0.0005707795}
 --- !u!1 &3169171218727118141
 GameObject:
   m_ObjectHideFlags: 0

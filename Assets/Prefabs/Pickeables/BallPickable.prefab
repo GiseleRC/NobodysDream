@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7182216376571686806}
   - component: {fileID: 4920372757874383708}
   - component: {fileID: 6053823235945095216}
+  - component: {fileID: 4705751129510377773}
   m_Layer: 13
   m_Name: BallPickable
   m_TagString: Untagged
@@ -98,6 +99,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.0025924332
   m_Center: {x: -0.000017618526, y: 0.0025605164, z: 0}
+--- !u!114 &4705751129510377773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865826160013687433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91837f58e4a5adb45a7b853acdabf611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 0}
 --- !u!1001 &5315062996893719601
 PrefabInstance:
   m_ObjectHideFlags: 0
