@@ -36,7 +36,7 @@ public class Ball : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 16 || collision.gameObject.layer == 10)//Colisone contra la layer TriggerButtons
+        if (collision.gameObject.layer != 16 || collision.gameObject.layer != 10)//Colisone contra la layer TriggerButtons
         {
             Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
             Destroy(gameObject);

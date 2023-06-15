@@ -7,16 +7,28 @@ public class BucketAnimator : MonoBehaviour
     public Animator bucketAnimator;
     public BoxCollider bc;
     public CapsuleCollider cc;
-
+    bool on;
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         if (planeMode == GameState.PlaneMode.Ghost)
         {
-            bucketAnimator.Play("BaldeUp");
+            on = true;
         }
         else if (planeMode == GameState.PlaneMode.Dream)
         {
-            bucketAnimator.Play("BaldeDown");
+            on = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (on)
+        {
+            bucketAnimator.SetBool("On", true);
+        }
+        else
+        {
+            bucketAnimator.SetBool("On", false);
         }
     }
 
