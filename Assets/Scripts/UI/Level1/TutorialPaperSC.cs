@@ -23,6 +23,20 @@ public class TutorialPaperSC : MonoBehaviour
 
     void Update()
     {
+        print(nextTutorial);
+        if(Input.GetButtonDown("CancelMat") && !showTutorialMat1)
+        {
+            if (anyTutorialOpen)
+            {
+                PauseState currentPauseState = PauseStateManager.Instance.CurrentPauseState;
+                PauseState newPauseState = currentPauseState == PauseState.Paused
+                    ? PauseState.Gameplay
+                    : PauseState.Paused;
+
+                PauseStateManager.Instance.SetState(newPauseState);
+            }
+        }
+
         TutorialFlashligth(showTuturialFlash);
         //GuideTutorialPlane(showGuideTutorialPlane);
         TutorialMaterialized1(showTutorialMat1);
@@ -81,6 +95,7 @@ public class TutorialPaperSC : MonoBehaviour
                 timeDelay = 2f;
             }
         }
+
     }
     public void TutorialFlashligth(bool show)
     {

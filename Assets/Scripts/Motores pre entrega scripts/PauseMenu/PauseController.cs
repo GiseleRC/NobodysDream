@@ -7,18 +7,20 @@ using UnityEngine;
 public class PauseController : MonoBehaviour
 {
     bool paused;
+    TutorialPaperSC tutorialPaperSC;
 
     // Start is called before the first frame update
     void Start()
     {
         PauseStateManager.Instance.CurrentPauseState = PauseState.Gameplay;
+        tutorialPaperSC = GameObject.Find("ToturialPaperIU").GetComponent<TutorialPaperSC>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //print(PauseStateManager.Instance.CurrentPauseState);
-        if (Input.GetButtonDown("Escape"))
+        if (Input.GetButtonDown("Escape") && !tutorialPaperSC.anyTutorialOpen)
         {
             PauseState currentPauseState = PauseStateManager.Instance.CurrentPauseState;
             PauseState newPauseState = currentPauseState == PauseState.Paused

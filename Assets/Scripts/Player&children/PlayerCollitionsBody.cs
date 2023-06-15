@@ -54,13 +54,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         //Habilita acceso a tutoriales
         else if (other.name == "BookEnableUI")
         {
-            dialogS.bookEnableB = true;
-            //Activa/Desactiva gameobject
-            other.gameObject.SetActive(false);
-            bookEnableUIGO.SetActive(true);
-            rubbers.SetActive(true);
-            //Play
-            pickUp.Play();
+            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
         }
         //Booster pickeable
         else if (other.name == "zZz")
@@ -131,18 +125,8 @@ public class PlayerCollitionsBody : MonoBehaviour
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
-            GetComponent<PlayerSC>().PickupBalls(1);
-            //Activa boleanos
-            ballEnable = true;
-            tutorialPaperBool.showTutorialBall = true;
-            //Activa/Desactiva gameobject
-            ballBucket.SetActive(true);
-            canvasBallCount.SetActive(true);
-            ligthPractice.SetActive(true);
-            ligthKaki.SetActive(false);
-            other.gameObject.SetActive(false);
-            //Play
-            pickUp.Play();
+            canInteractWithItem = true;
+            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
         }
     }
 
@@ -176,6 +160,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if (canInteractWithItem && Input.GetButton("Interact") && !tutorialPaperBool.anyTutorialOpen)
             {
+                PauseGame();
                 tutorialPaperBool.showTutorialMat1 = true;//booleano del Script tutorial REGLA
                 objEnable = true;//booleano para I HAVE CAP
                 tutorialPaperBool.anyTutorialOpen = true;
@@ -195,6 +180,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if (canInteractWithItem && Input.GetButton("Interact") && !tutorialPaperBool.anyTutorialOpen)
             {
+                PauseGame();
                 tutorialPaperBool.showTuturialFlash = true;//booleano del Script tutorial LINTERNA
                 flashLightSC.hasFlashlight = true;//booleano del Script flashligth
                 tutorialPaperBool.anyTutorialOpen = true;
@@ -218,8 +204,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if (canInteractWithItem && Input.GetButton("Interact"))
             {
+                PauseGame();
                 tutorialPaperBool.showTutorialGlasses = true;//booleano del Script tutorial ANTEOJOS
                 gameState.GhostPlaneModeEnabled = true;//Activa PLANE GHOST
+                tutorialPaperBool.anyTutorialOpen = true;
 
                 glassesGO.SetActive(false);//anteojos pickeable
                 IconFantasma.SetActive(true);//UI PLANE GHOST
@@ -238,6 +226,43 @@ public class PlayerCollitionsBody : MonoBehaviour
                 other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
                 if (GetComponent<PlayerSC>().PickupBalls(5))
                     pickUp.Play();
+            }
+        }
+
+        if(other.name == "BookEnableUI")
+        {
+            if (Input.GetButton("Interact"))
+            {
+                dialogS.bookEnableB = true;
+                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+                //Activa/Desactiva gameobject
+                other.gameObject.SetActive(false);
+                bookEnableUIGO.SetActive(true);
+                rubbers.SetActive(true);
+                //Play
+                pickUp.Play();
+            }
+        }
+
+        if(other.name == "BallPickable")
+        {
+            if(canInteractWithItem && Input.GetButton("Interact"))
+            {
+                PauseGame();
+                GetComponent<PlayerSC>().PickupBalls(1);
+                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+                //Activa boleanos
+                ballEnable = true;
+                tutorialPaperBool.anyTutorialOpen = true;
+                tutorialPaperBool.showTutorialBall = true;
+                //Activa/Desactiva gameobject
+                ballBucket.SetActive(true);
+                canvasBallCount.SetActive(true);
+                ligthPractice.SetActive(true);
+                ligthKaki.SetActive(false);
+                other.gameObject.SetActive(false);
+                //Play
+                pickUp.Play();
             }
         }
     }
@@ -269,6 +294,17 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
 
         if(other.name == "BallBucket")
+        {
+            other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+            canInteractWithItem = false;
+        }
+
+        if (other.name == "BookEnableUI")
+        {
+            other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+        }
+
+        if(other.name == "BallPickable")
         {
             other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
             canInteractWithItem = false;
@@ -305,5 +341,16 @@ public class PlayerCollitionsBody : MonoBehaviour
             dialogS.practiceB = true;
             firstTimeGrab = false;
         }
+    }
+
+    void PauseGame()
+    {
+        PauseState currentPauseState = PauseStateManager.Instance.CurrentPauseState;
+        PauseState newPauseState = currentPauseState == PauseState.Paused
+            ? PauseState.Gameplay
+            : PauseState.Paused;
+
+        PauseStateManager.Instance.SetState(newPauseState);
+        print(PauseStateManager.Instance.CurrentPauseState);
     }
 }
