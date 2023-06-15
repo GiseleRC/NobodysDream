@@ -18,7 +18,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     private bool objEnable = false;
     private bool capEnable = false;
     private bool firstTimeGrab = false;
-    private float addTime = 15f;
+    private float addTime = 25f;
     bool canInteractWithItem;
     public GameObject[] pickeablesUI;
     public AudioSource ClickLamp;
