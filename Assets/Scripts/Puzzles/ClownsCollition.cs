@@ -43,9 +43,6 @@ public class ClownsCollition : MonoBehaviour
 
     private void Update()
     {
-        if (puzzle3.showGuess1 == true)
-        {
 
-        }
     }
 }
