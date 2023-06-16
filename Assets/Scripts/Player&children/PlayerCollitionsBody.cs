@@ -23,6 +23,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public GameObject[] pickeablesUI;
     public AudioSource ClickLamp;
     public Puzzle2 puzzle2;
+    public GameObject psObject;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -263,6 +264,7 @@ public class PlayerCollitionsBody : MonoBehaviour
                 other.gameObject.SetActive(false);
                 //Play
                 pickUp.Play();
+                Destroy(psObject);
             }
         }
     }
