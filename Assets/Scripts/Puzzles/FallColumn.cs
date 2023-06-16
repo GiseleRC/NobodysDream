@@ -13,7 +13,10 @@ public class FallColumn : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
             bookWheelSC.GetComponent<Wheel>().enabled = true;
-            bookWheelSC.GetComponentInChildren<Collider>().enabled = true;
+            foreach (Collider collider in bookWheelSC.GetComponentsInChildren<Collider>())
+            {
+                collider.enabled = true;
+            }
             audioSource.Play();
         }
     }

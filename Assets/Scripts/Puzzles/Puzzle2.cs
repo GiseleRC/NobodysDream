@@ -10,7 +10,7 @@ public class Puzzle2 : MonoBehaviour
     public bool practice1 = false;
     public bool practice2 = false;
     public bool practice3 = false;
-    public DialogSystem dialogS;
+    public DialogManager dialogManager;
     public Animator animatorWall;
     public GameObject particle1, particle2, particle3, diana1, diana2, diana3, ligthOff;
     public AudioSource audioSource, primeraDiana;
@@ -21,7 +21,7 @@ public class Puzzle2 : MonoBehaviour
     {
         if (doorEnable1 && doorEnable2 && doorEnable3)
         {
-            dialogS.wallsB = true;
+            dialogManager.ShowDialog(DialogKey.Walls);
             doorEnable3 = false;
             animatorWall.SetBool("EnableMove", true);
             particle3.SetActive(true);
@@ -48,7 +48,7 @@ public class Puzzle2 : MonoBehaviour
 
         if (practice1 && practice2 && practice3)
         {
-            dialogS.firstDianaB = true;
+            dialogManager.ShowDialog(DialogKey.FirstDiana);
             ligthOff.SetActive(false);
             diana2.SetActive(true);
             primeraDiana.Play();

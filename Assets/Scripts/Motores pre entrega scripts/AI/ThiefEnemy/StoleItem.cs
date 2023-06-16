@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StoleItem : MonoBehaviour
 {
-    [SerializeField] public DialogSystem dialogS;
+    [SerializeField] public DialogManager dialogManager;
     GameObject matObj;
     MaterializeObjects matObjs;
     [SerializeField] GameObject rulerInEnemy, cubeInEnemy;
@@ -27,7 +27,7 @@ public class StoleItem : MonoBehaviour
         {
             rulerInEnemy.SetActive(true);
         }
-        dialogS.littleGB = true;
+        dialogManager.ShowDialog(DialogKey.LittleGhost);
         GetComponent<Thief>().ObjectGrabbed = true;
         GetComponent<Thief>().ObjectToSteal = false;
         Destroy(matObj);

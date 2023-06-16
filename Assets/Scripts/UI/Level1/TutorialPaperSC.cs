@@ -16,7 +16,7 @@ public class TutorialPaperSC : MonoBehaviour
     private bool nextTutorial = false;
     private float timeDelay = 0.5f;
     public float fillAmount = 1f;
-    public DialogSystem dialogS;
+    public DialogManager dialogManager;
     public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1/*, guideTutorialPlane*/;
 
     public AudioSource closeTutorial;
@@ -49,18 +49,18 @@ public class TutorialPaperSC : MonoBehaviour
             closeTutorial.Play();
             showTuturialFlash = false;
             anyTutorialOpen = false;
-            dialogS.flashlB = true;
+            dialogManager.ShowDialog(DialogKey.Flashlight);
         }
         else if (Input.GetButtonDown("CancelMat") && showTutorialGlasses == true)
         {
-            dialogS.pillsB = true;
+            dialogManager.ShowDialog(DialogKey.Pills);
             closeTutorial.Play();
             showTutorialGlasses = false;
             anyTutorialOpen = false;
         }
         else if (Input.GetButtonDown("CancelMat") && showTutorialBall == true)
         {
-            dialogS.bucketB = true;
+            dialogManager.ShowDialog(DialogKey.Bucket);
             closeTutorial.Play();
             showTutorialBall = false;
             anyTutorialOpen = false;
@@ -82,7 +82,7 @@ public class TutorialPaperSC : MonoBehaviour
             showTutorialMat2 = false;
             tutorialMat2Finishing = true;
             anyTutorialOpen = false;
-            dialogS.rullerB= true;
+            dialogManager.ShowDialog(DialogKey.RulerCube);
         }
 
         if (nextTutorial)
