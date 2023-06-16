@@ -141,7 +141,7 @@ public class DialogManager : MonoBehaviour
         // Mostramos el primer dialogo en la cola (si existe al menos uno)
         if (dialogQueue.Count > 0)
         {
-            int idx = dialogQueue.Peek(0);
+            int idx = dialogQueue.Peek();
             ShowDialog(dialogEntries[idx]);
         }
     }
