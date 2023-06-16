@@ -11,9 +11,15 @@ public class MaterializeObjects : MonoBehaviour
     public bool materializanding = false;
     Vector3 pos;
 
-    public AudioSource fallObj, spawnObj, spawnPosition;
-    bool placingObject, test;
+    public AudioSource fallObj, spawnObj, spawnPosition, cantMatSound;
+    bool placingObject, canMat;
     int objectCreated;
+
+    public bool CanMat
+    {
+        get { return canMat; }
+        set { canMat = value; }
+    }
 
     private void Awake()
     {
@@ -27,6 +33,7 @@ public class MaterializeObjects : MonoBehaviour
 
     void Start()
     {
+        canMat = true;
         objectCreated = 0;
         lastObjectCreated = ruler;
     }
@@ -111,60 +118,67 @@ public class MaterializeObjects : MonoBehaviour
 
     void PlaceObject()
     {
-        if (actualObject.tag == "Ruler")
+        if (canMat)
         {
-            if (rulersActive.Count == 2)
+            if (actualObject.tag == "Ruler")
             {
-                if (rulersActive[0] != null)
+                if (rulersActive.Count == 2)
                 {
-                    newParticle = Instantiate(particleRuler, rulersActive[0].transform.GetChild(3).transform.position, transform.rotation);
-                    newParticle.transform.eulerAngles = new Vector3(rulersActive[0].transform.eulerAngles.x, rulersActive[0].transform.eulerAngles.y + 180f, rulersActive[0].transform.eulerAngles.z);
+                    if (rulersActive[0] != null)
+                    {
+                        newParticle = Instantiate(particleRuler, rulersActive[0].transform.GetChild(3).transform.position, transform.rotation);
+                        newParticle.transform.eulerAngles = new Vector3(rulersActive[0].transform.eulerAngles.x, rulersActive[0].transform.eulerAngles.y + 180f, rulersActive[0].transform.eulerAngles.z);
+                    }
+                    Destroy(rulersActive[0]);
+                    rulersActive[0] = rulersActive[1];
+                    rulersActive[1] = actualObject;
                 }
-                Destroy(rulersActive[0]);
-                rulersActive[0] = rulersActive[1];
-                rulersActive[1] = actualObject;
+                else
+                {
+                    rulersActive.Add(actualObject);
+                    objectCreated++;
+                }
+                lastObjectCreated = ruler;
+            }
+            else //Posiciona el item
+            {
+                if (cubesActive.Count == 2)
+                {
+                    if (cubesActive[0] != null)
+                        Instantiate(particleCube, new Vector3(cubesActive[0].transform.position.x, cubesActive[0].transform.position.y - 0.5f, cubesActive[0].transform.position.z),cubesActive[0].transform.rotation);
+                    Destroy(cubesActive[0]);
+                    cubesActive[0] = cubesActive[1];
+                    cubesActive[1] = actualObject;
+                }
+                else
+                {
+                    cubesActive.Add(actualObject);
+                    objectCreated++;
+                }
+                lastObjectCreated = cube;
+            }
+
+            RotateObject ro;
+            ro = actualObject.GetComponent<RotateObject>();
+
+            actualObject.transform.parent = null;
+            if (actualObject.GetComponent<Collider>() != null)
+            {
+                actualObject.GetComponent<Collider>().isTrigger = false;
             }
             else
             {
-                rulersActive.Add(actualObject);
-                objectCreated++;
+                actualObject.GetComponentInChildren<Collider>().isTrigger = false;
             }
-            lastObjectCreated = ruler;
-        }
-        else //Posiciona el item
-        {
-            if (cubesActive.Count == 2)
-            {
-                if (cubesActive[0] != null)
-                    Instantiate(particleCube, new Vector3(cubesActive[0].transform.position.x, cubesActive[0].transform.position.y - 0.5f, cubesActive[0].transform.position.z),cubesActive[0].transform.rotation);
-                Destroy(cubesActive[0]);
-                cubesActive[0] = cubesActive[1];
-                cubesActive[1] = actualObject;
-            }
-            else
-            {
-                cubesActive.Add(actualObject);
-                objectCreated++;
-            }
-            lastObjectCreated = cube;
-        }
-
-        RotateObject ro;
-        ro = actualObject.GetComponent<RotateObject>();
-
-        actualObject.transform.parent = null;
-        if (actualObject.GetComponent<Collider>() != null)
-        {
-            actualObject.GetComponent<Collider>().isTrigger = false;
+            actualObject.transform.position = ro.FinalPos;
+            actualObject.GetComponent<RotateObject>().FinalPosObject();
+            //actualObject.GetComponent<RotateObject>().Spawn();
+            placingObject = false;
         }
         else
         {
-            actualObject.GetComponentInChildren<Collider>().isTrigger = false;
+            cantMatSound.Play();
         }
-        actualObject.transform.position = ro.FinalPos;
-        actualObject.GetComponent<RotateObject>().FinalPosObject();
-        //actualObject.GetComponent<RotateObject>().Spawn();
-        placingObject = false;
     }
 
     void SwitchItem()

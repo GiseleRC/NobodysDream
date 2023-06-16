@@ -9,6 +9,8 @@ public class RotateObject : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     [SerializeField] GameObject finalPosObject, actualObject, parent;
     [SerializeField] bool cube;
+    [SerializeField] Material blue, red;
+    MaterializeObjects matObjs;
     Vector3 finalPos;
     bool ray, destroyFinalPosObject;
     RaycastHit hit;
@@ -40,6 +42,8 @@ public class RotateObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        matObjs = GameObject.Find("Char").GetComponent<MaterializeObjects>();
+
         if(gameObject.tag == "Cube")
         {
             actualObject = Instantiate(finalPosObject, transform.position,transform.rotation);
@@ -48,6 +52,7 @@ public class RotateObject : MonoBehaviour
         {
             actualObject = Instantiate(finalPosObject, parent.transform.position,transform.rotation);
         }
+
         destroyFinalPosObject = false;
         mo = GameObject.Find("Char").GetComponent<MaterializeObjects>();
         if (gameObject.GetComponent<Rigidbody>() != null)
@@ -64,6 +69,16 @@ public class RotateObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (matObjs.CanMat == false && actualObject.GetComponent<Renderer>().material != red)
+        {
+            actualObject.GetComponent<Renderer>().material = red;
+        }
+        else if(matObjs.CanMat == true && actualObject.GetComponent<Renderer>().material != blue)
+        {
+            actualObject.GetComponent<Renderer>().material = blue;
+        }
+
         if (destroyFinalPosObject && actualObject != null)
         {
             Destroy(actualObject);
