@@ -50,7 +50,7 @@ public class Puzzle3 : MonoBehaviour
             guess1GO.SetActive(false);
             nose2Particle.SetActive(true);
 
-            position1 = new Vector3(position1.x, -0.2f, position1.z);
+            position1 = new Vector3(position1.x, -0.1f, position1.z);
             ajedrezGO1.transform.position = position1;
             Debug.Log("pos 1er gues" + ajedrezGO1.transform.position);
 
@@ -87,7 +87,7 @@ public class Puzzle3 : MonoBehaviour
             option6GO.SetActive(false);
             nose3Particle.SetActive(true);
 
-            position1 = new Vector3(position1.x, -1f, position1.z);
+            position1 = new Vector3(position1.x, -10f, position1.z);
             ajedrezGO1.transform.position = position1;
             Debug.Log("pos 2er gues" + ajedrezGO1.transform.position);
 
@@ -134,7 +134,7 @@ public class Puzzle3 : MonoBehaviour
             guess3GO.SetActive(false);
             finalGO.SetActive(true);
 
-            position1 = new Vector3(position1.x, -2f, position1.z);
+            position1 = new Vector3(position1.x, -15f, position1.z);
             ajedrezGO1.transform.position = position1;
             Debug.Log("pos 2er gues" + ajedrezGO1.transform.position);
 
