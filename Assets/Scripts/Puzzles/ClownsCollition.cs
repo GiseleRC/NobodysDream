@@ -41,8 +41,9 @@ public class ClownsCollition : MonoBehaviour
             }
             if (gameObject.name == "Rudolf")
             {
-                rudolfClown.SetActive(true);
-                rudolfHorse.SetActive(false);
+                rudolfClown.SetActive(true);//hermanito
+                rudolfHorse.SetActive(false);//caballo
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
             }
         }
     }
