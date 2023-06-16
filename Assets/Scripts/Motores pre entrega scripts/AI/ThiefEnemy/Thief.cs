@@ -82,6 +82,8 @@ public class Thief : Enemies, IEnemy
     // Update is called once per frame
     void Update()
     {
+        print(objectGrabbed);
+        print(objectToSteal);
         mode = gameState.GetPlaneMode();
         if(timeToSteal > 0)
         {
@@ -169,6 +171,7 @@ public class Thief : Enemies, IEnemy
                         patrol.enabled = true;
                         moveToMatObject.enabled = false;
                         stoleItem.enabled = false;
+                        escape.enabled = false;
                     }
 
                 }
