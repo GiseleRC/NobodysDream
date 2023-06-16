@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClownsCollition : MonoBehaviour
 {
     public Puzzle3 puzzle3;
+    public GameObject rudolfClown, rudolfHorse;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,6 +38,11 @@ public class ClownsCollition : MonoBehaviour
             {
                 puzzle3.option3 = true;
                 gameObject.SetActive(false);
+            }
+            if (gameObject.name == "Rudolf")
+            {
+                rudolfClown.SetActive(true);
+                rudolfHorse.SetActive(false);
             }
         }
     }

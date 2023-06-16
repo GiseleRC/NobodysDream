@@ -21,6 +21,7 @@ public class Puzzle3 : MonoBehaviour
     {
         if (showGuess1)
         {
+            Debug.Log("guess1 " + ajedrezGO1.transform.position.y);
             guess1GO.SetActive(true);
             option1GO.SetActive(true);
             option2GO.SetActive(true);
@@ -50,8 +51,9 @@ public class Puzzle3 : MonoBehaviour
             guess1GO.SetActive(false);
             nose2Particle.SetActive(true);
 
-            position1 = new Vector3(position1.x, 2f, position1.z);
+            position1 = new Vector3(position1.x, -0.05f, position1.z);
             ajedrezGO1.transform.position = position1;
+            Debug.Log("guess1 " + ajedrezGO1.transform.position.y);
 
             option3 = false;
             timerController.AddTime(+50f);
@@ -85,8 +87,9 @@ public class Puzzle3 : MonoBehaviour
             option6GO.SetActive(false);
             nose3Particle.SetActive(true);
 
-            position1 = new Vector3(position1.x, position1.y -= 2f, position1.z);
+            position1 = new Vector3(position1.x, -0.1f, position1.z);
             ajedrezGO1.transform.position = position1;
+            Debug.Log("guess1 " + ajedrezGO1.transform.position.y);
 
             option2 = false;
             timerController.AddTime(+50f);
@@ -130,8 +133,9 @@ public class Puzzle3 : MonoBehaviour
             guess3GO.SetActive(false);
             finalGO.SetActive(true);
 
-            position1 = new Vector3(position1.x, position1.y -= 2f, position1.z);
+            position1 = new Vector3(position1.x, -0.16f, position1.z);
             ajedrezGO1.transform.position = position1;
+            Debug.Log("guess1 " + ajedrezGO1.transform.position.y);
 
             option3 = false;
             timerController.AddTime(+50f);
