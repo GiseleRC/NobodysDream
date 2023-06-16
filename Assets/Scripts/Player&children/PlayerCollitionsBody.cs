@@ -106,10 +106,6 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogManager.ShowDialog(DialogKey.CandyWheel);
         }
-        else if (other.name == "SensorPlayer - Glasses")
-        {
-            dialogManager.ShowDialog(DialogKey.Glasses);
-        }
         else if (other.name == "SensorPlayer - WindowWrong2")
         {
             dialogManager.ShowDialog(DialogKey.FakeWindow);

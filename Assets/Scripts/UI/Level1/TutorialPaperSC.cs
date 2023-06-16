@@ -17,7 +17,7 @@ public class TutorialPaperSC : MonoBehaviour
     private float timeDelay = 0.5f;
     public float fillAmount = 1f;
     public DialogManager dialogManager;
-    public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1/*, guideTutorialPlane*/;
+    public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1;
 
     public AudioSource closeTutorial;
 
@@ -38,7 +38,6 @@ public class TutorialPaperSC : MonoBehaviour
         }
 
         TutorialFlashligth(showTuturialFlash);
-        //GuideTutorialPlane(showGuideTutorialPlane);
         TutorialMaterialized1(showTutorialMat1);
         TutorialGlasses(showTutorialGlasses);
         TutorialBall(showTutorialBall);
