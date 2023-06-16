@@ -50,7 +50,6 @@ public class FallColumn : MonoBehaviour
             float doorY = doorGO.transform.position.y;
             doorGO.transform.position = new Vector3(doorGO.transform.position.x, doorY -= Time.deltaTime, doorGO.transform.position.z);
         }
-        Debug.Log("jjjjjjjjjjj" + doorGO.transform.position.y);
         if (doorGO.transform.position.y <= -6.1f)
         {
             doorDown2 = false;

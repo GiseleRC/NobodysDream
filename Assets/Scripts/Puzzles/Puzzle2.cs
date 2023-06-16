@@ -19,6 +19,34 @@ public class Puzzle2 : MonoBehaviour
 
     void Update()
     {
+        if (practice1 && practice2 && practice3)
+        {
+            dialogManager.ShowDialog(DialogKey.FirstDiana);
+            ligthOff.SetActive(false);
+            diana2.SetActive(true);
+            primeraDiana.Play();
+            practice3 = false;
+        }
+        if (doorEnable1 && practice1)
+        {
+            particle1.SetActive(true);
+            diana3.SetActive(true);
+            primeraDiana.Play();
+            practice1 = false;
+            practice3 = true;
+        }
+        if (doorEnable2 && practice2)
+        {
+            particle2.SetActive(true);
+            diana1.SetActive(true);
+            primeraDiana.Play();
+            practice2 = false;
+        }
+        if (doorEnable3 && practice3)
+        {
+            primeraDiana.Play();
+            practice3 = false;
+        }
         if (doorEnable1 && doorEnable2 && doorEnable3)
         {
             dialogManager.ShowDialog(DialogKey.Walls);
@@ -31,28 +59,6 @@ public class Puzzle2 : MonoBehaviour
                 playSound = true;
             }
         }
-        if (doorEnable1)
-        {
-            particle1.SetActive(true);
-            diana3.SetActive(true);
-        }
-        if (doorEnable2)
-        {
-            particle2.SetActive(true);
-            diana1.SetActive(true);
 
-        }
-        if (doorEnable3)
-        {
-        }
-
-        if (practice1 && practice2 && practice3)
-        {
-            dialogManager.ShowDialog(DialogKey.FirstDiana);
-            ligthOff.SetActive(false);
-            diana2.SetActive(true);
-            primeraDiana.Play();
-            practice3 = false;
-        }
     }
 }

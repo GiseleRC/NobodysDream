@@ -98,11 +98,11 @@ public class PlayerCollitionsBody : MonoBehaviour
             dialogManager.ShowDialog(DialogKey.Chocolates);
         }
         //Desactiva el nivel 1
-        else if (other.name == "SensorPlayer - GhostB")
+        else if (other.name == "CheckPoint7 - GhostB")
         {
             dialogManager.ShowDialog(DialogKey.Ghost);
         }
-        else if (other.name == "SensorPlayer - Candy")
+        else if (other.name == "CheckPoint8 - Candy")
         {
             dialogManager.ShowDialog(DialogKey.CandyWheel);
         }
