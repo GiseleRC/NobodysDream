@@ -6,16 +6,18 @@ public class StoleItem : MonoBehaviour
 {
     [SerializeField] public DialogSystem dialogS;
     GameObject matObj;
+    MaterializeObjects matObjs;
     [SerializeField] GameObject rulerInEnemy, cubeInEnemy;
 
 
     private void Start()
     {
-
+        matObjs = GameObject.Find("Char").GetComponent<MaterializeObjects>();
     }
 
     void OnEnable()
     {
+        matObjs.CanMat = false;
         matObj = GetComponent<Thief>().ObjectPos.gameObject;
         if (matObj.tag == "Cube")
         {

@@ -154,6 +154,8 @@ MonoBehaviour:
   actualObject: {fileID: 0}
   parent: {fileID: 7689049030294063914}
   cube: 0
+  blue: {fileID: 2100000, guid: c3cb22b3431d9584f8fbd11953414248, type: 2}
+  red: {fileID: 2100000, guid: f83fbc1bf6f5d1f419d991e3d20497f6, type: 2}
 --- !u!114 &2416598014205796560
 MonoBehaviour:
   m_ObjectHideFlags: 0

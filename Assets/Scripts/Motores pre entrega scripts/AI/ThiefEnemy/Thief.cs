@@ -9,7 +9,8 @@ public class Thief : Enemies, IEnemy
 {
     MonoBehaviour patrol, stayPos, moveToMatObject, escape, stoleItem;
     Transform objectPos;
-    float distance;
+    MaterializeObjects matObjs;
+    float distance, timeToSteal;
     bool objectGrabbed, stealObject, objectToSteal;
     AudioSource audioSource;
     [SerializeField]AudioClip laugh;
@@ -75,12 +76,18 @@ public class Thief : Enemies, IEnemy
     {
         Behaviors();
         audioSource = GetComponent<AudioSource>();
+        matObjs = GameObject.Find("Char").GetComponent<MaterializeObjects>();
     }
 
     // Update is called once per frame
     void Update()
     {
         mode = gameState.GetPlaneMode();
+        if(timeToSteal > 0)
+        {
+            timeToSteal -= Time.deltaTime;
+        }
+
         Transitions();
     }
 
@@ -96,6 +103,8 @@ public class Thief : Enemies, IEnemy
 
     public void Stunned()
     {
+        matObjs.CanMat = true;
+        timeToSteal = 7f;
         nma.SetDestination(transform.position);
         actualTime -= Time.deltaTime;
         rulerInEnemy.SetActive(false);
@@ -139,7 +148,7 @@ public class Thief : Enemies, IEnemy
                 stayPos.enabled = false;
                 if (!objectGrabbed)
                 {
-                    if (objectToSteal)
+                    if (objectToSteal && timeToSteal <= 0)
                     {
                         if (stealObject)
                         {
