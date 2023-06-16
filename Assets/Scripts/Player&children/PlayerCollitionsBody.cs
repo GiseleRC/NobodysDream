@@ -9,7 +9,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
-    public DialogSystem dialogS;
+    public DialogManager dialogManager;
     public GameObject enableLightPuzzle3, dialogSystem, canvasBallCount, bookEnableUIGO, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
@@ -75,7 +75,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             //bool 
             reloj.enabled = true;
-            dialogS.boosterB = true;
+            dialogManager.ShowDialog(DialogKey.Boosters);
             //Suma al tiempo
             timerController.AddTime(addTime);
             //Activa/Desactiva gameobject
@@ -87,40 +87,40 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (other.name == "SabanaLvl1Off")
         {
-            dialogS.level2B = true;
+            dialogManager.ShowDialog(DialogKey.Level2);
             level1Enable.SetActive(false);
             other.gameObject.GetComponent<Collider>().enabled = false;
         }
         else if (other.name == "SensorPlayerchocolate")
         {
-            dialogS.chocolatesB = true;
+            dialogManager.ShowDialog(DialogKey.Chocolates);
         }
         //Desactiva el nivel 1
         else if (other.name == "SensorPlayer - GhostB")
         {
-            dialogS.ghostB = true;
+            dialogManager.ShowDialog(DialogKey.Ghost);
         }
         else if (other.name == "SensorPlayer - Candy")
         {
-            dialogS.candyWheelB = true;
+            dialogManager.ShowDialog(DialogKey.CandyWheel);
         }
         else if (other.name == "SensorPlayer - Glasses")
         {
-            dialogS.glassesB = true;
+            dialogManager.ShowDialog(DialogKey.Glasses);
         }
         else if (other.name == "SensorPlayer - WindowWrong2")
         {
-            dialogS.fakeWindowB = true;
+            dialogManager.ShowDialog(DialogKey.FakeWindow);
             windowClosed.Play("WindowLeft");
         }
         else if (other.name == "SensorPlayer - WindowWrong")
         {
-            dialogS.fakeWindowB = true;
+            dialogManager.ShowDialog(DialogKey.FakeWindow);
             windowClosed2.Play("WindowMiddle");
         }
         else if (other.name == "SensorPlayer - WindowCorrect")
         {
-            dialogS.trueWindowB = true;
+            dialogManager.ShowDialog(DialogKey.RealWindow);
             windowOpen.Play("WindowRight");
         }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
@@ -144,7 +144,7 @@ public class PlayerCollitionsBody : MonoBehaviour
                 flashLightPickGO.SetActive(true);//Se activa la LINTERNA
                 IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
                 dialogSystem.SetActive(true);//Se activa SISTEMA DE DIALOGO
-                dialogS.capB = true;// bool dialogo
+                dialogManager.ShowDialog(DialogKey.IntroductionGuide);// bool dialogo
 
                 pickeablesUI[0].SetActive(false);
 
@@ -234,7 +234,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if (Input.GetButton("Interact"))
             {
-                dialogS.bookEnableB = true;
+                dialogManager.ShowDialog(DialogKey.BookEnable);
                 other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
                 //Activa/Desactiva gameobject
                 other.gameObject.SetActive(false);
@@ -316,15 +316,15 @@ public class PlayerCollitionsBody : MonoBehaviour
     {
         if (collision.gameObject.name == "ChocolateBlock")
         {
-            dialogS.slideB = true;
+            dialogManager.ShowDialog(DialogKey.Chocolates);
         }
         else if (collision.gameObject.name == "CrayonsPlatform")
         {
-            dialogS.crayonsB = true;
+            dialogManager.ShowDialog(DialogKey.Crayons);
         }
         else if (collision.gameObject.name == "ConcreteF - Rubbers")
         {
-            dialogS.rubberB = true;
+            dialogManager.ShowDialog(DialogKey.Rubber);
         }
         else if (collision.gameObject.name == "ConcreteF - EnableLight")
         {
@@ -340,7 +340,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         if (!puzzle2.practice1 && !puzzle2.practice2 && !puzzle2.practice3 && firstTimeGrab)
         {
-            dialogS.practiceB = true;
+            dialogManager.ShowDialog(DialogKey.Practice);
             firstTimeGrab = false;
         }
     }
