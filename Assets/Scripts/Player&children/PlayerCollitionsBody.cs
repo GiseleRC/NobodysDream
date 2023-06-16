@@ -316,7 +316,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     {
         if (collision.gameObject.name == "ChocolateBlock")
         {
-            dialogManager.ShowDialog(DialogKey.Chocolates);
+            dialogManager.ShowDialog(DialogKey.Slide);
         }
         else if (collision.gameObject.name == "CrayonsPlatform")
         {
