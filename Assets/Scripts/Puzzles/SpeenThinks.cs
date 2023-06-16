@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpeenThinks : MonoBehaviour
 {
     public float rotX, rotY, rotZ;
-    public GameObject ghost1, ghost, patrol, level2, particle;
+    public GameObject partTwoOflevel2, particle;
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Ball(Clone)")
@@ -14,10 +14,7 @@ public class SpeenThinks : MonoBehaviour
 
             if (gameObject.name == "Pizarron")
             {
-                ghost.SetActive(true);
-                ghost1.SetActive(true);
-                patrol.SetActive(true);
-                level2.SetActive(true);
+                partTwoOflevel2.SetActive(true);
                 particle.SetActive(false);
             }
         }
