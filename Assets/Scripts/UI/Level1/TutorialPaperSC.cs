@@ -23,7 +23,7 @@ public class TutorialPaperSC : MonoBehaviour
 
     void Update()
     {
-        print(nextTutorial);
+        //print(nextTutorial);
         if(Input.GetButtonDown("CancelMat") && !showTutorialMat1)
         {
             if (anyTutorialOpen)
