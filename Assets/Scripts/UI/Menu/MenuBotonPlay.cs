@@ -11,9 +11,9 @@ public class MenuBotonPlay : MonoBehaviour
     int actualControl;
     public AudioSource click;
     bool controlsTutorial;
-    public void ChangeSceneStart(string Level1)
+    public void ChangeSceneStart(string Intro)
     {
-        SceneManager.LoadScene(Level1);
+        SceneManager.LoadScene(Intro);
         click.Play();
     }
     public void ShowControls()
