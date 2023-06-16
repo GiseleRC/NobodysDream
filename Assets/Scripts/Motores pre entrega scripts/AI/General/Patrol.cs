@@ -24,6 +24,8 @@ public class Patrol : MonoBehaviour
             thief = GetComponent<Thief>();
             nma = thief.NMA;
         }
+
+        nma.ResetPath();
         nma.SetDestination(patrolPoints[currentPoint].position);
         if (whiteEyes != null)
         {
@@ -51,6 +53,7 @@ public class Patrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!nma.pathPending && nma.hasPath && nma.remainingDistance < 0.5f)
         {
             if (currentPoint < patrolPoints.Length - 1)

@@ -9,6 +9,7 @@ public class MaterializeObjects : MonoBehaviour
     GameObject actualObject, lastObjectCreated, newObject;
     [SerializeField] LayerMask layerMask;
     public bool materializanding = false;
+    float timer;
     Vector3 pos;
 
     public AudioSource fallObj, spawnObj, spawnPosition, cantMatSound;
@@ -33,6 +34,7 @@ public class MaterializeObjects : MonoBehaviour
 
     void Start()
     {
+        timer = 15f;
         canMat = true;
         objectCreated = 0;
         lastObjectCreated = ruler;
@@ -90,6 +92,26 @@ public class MaterializeObjects : MonoBehaviour
             materializanding = false;
         }
 
+        if (!canMat)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer < 0)
+            {
+                canMat = true;
+                timer = 15f;
+                Thief thief = GameObject.Find("Thief").GetComponent<Thief>();
+                thief.ObjectGrabbed = false;
+                if (thief.transform.GetChild(4).gameObject.activeInHierarchy)
+                {
+                    thief.transform.GetChild(4).gameObject.SetActive(false);
+                }
+                if (thief.transform.GetChild(5).gameObject.activeInHierarchy)
+                {
+                    thief.transform.GetChild(5).gameObject.SetActive(false);
+                }
+            }
+        }
         
     }
 

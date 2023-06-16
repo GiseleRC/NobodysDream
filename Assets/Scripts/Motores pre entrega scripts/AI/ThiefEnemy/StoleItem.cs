@@ -17,6 +17,7 @@ public class StoleItem : MonoBehaviour
 
     void OnEnable()
     {
+        matObjs = GameObject.Find("Char").GetComponent<MaterializeObjects>();
         matObjs.CanMat = false;
         matObj = GetComponent<Thief>().ObjectPos.gameObject;
         if (matObj.tag == "Cube")
