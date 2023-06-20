@@ -34,7 +34,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             pickeablesUI[0].SetActive(true);// Activa la linterna? no se como lo hace
             canInteractWithItem = true;
         }
-        else if (other.name == "Model&Collider" && !tutorialPaperBool.anyTutorialOpen)// Activa la regla y el cubo?
+        else if (other.name == "Model&Collider" && !tutorialPaperBool.anyTutorialOpen)
         {
             pickeablesUI[1].SetActive(true);// Activa la linterna? no se como lo hace
             canInteractWithItem = true;
@@ -53,11 +53,6 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
             canInteractWithItem = true;
-        }
-        //Habilita acceso a tutoriales
-        else if (other.name == "BookEnableUI")
-        {
-            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
         }
         //Booster pickeable
         else if (other.name == "zZz")
@@ -82,6 +77,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             timerController.AddTime(addTime);
             //Activa/Desactiva gameobject
             other.gameObject.SetActive(false);
+            rubbers.SetActive(true);
             //Particula
             Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
             //Play
@@ -227,21 +223,6 @@ public class PlayerCollitionsBody : MonoBehaviour
             }
         }
 
-        if(other.name == "BookEnableUI")
-        {
-            if (Input.GetButton("Interact"))
-            {
-                dialogManager.ShowDialog(DialogKey.BookEnable);
-                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
-                //Activa/Desactiva gameobject
-                other.gameObject.SetActive(false);
-                bookEnableUIGO.SetActive(true);
-                rubbers.SetActive(true);
-                //Play
-                pickUp.Play();
-            }
-        }
-
         if(other.name == "BallPickable")
         {
             if(canInteractWithItem && Input.GetButton("Interact"))
@@ -296,11 +277,6 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
             canInteractWithItem = false;
-        }
-
-        if (other.name == "BookEnableUI")
-        {
-            other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
         }
 
         if(other.name == "BallPickable")
