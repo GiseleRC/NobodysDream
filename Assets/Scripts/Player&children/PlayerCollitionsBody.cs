@@ -222,7 +222,6 @@ public class PlayerCollitionsBody : MonoBehaviour
             if (canInteractWithItem && Input.GetButton("Interact"))
             {
                 firstTimeGrab = true;
-                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
                 if (GetComponent<PlayerSC>().PickupBalls(5))
                     pickUp.Play();
             }

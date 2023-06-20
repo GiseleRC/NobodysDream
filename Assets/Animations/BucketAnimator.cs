@@ -42,5 +42,12 @@ public class BucketAnimator : MonoBehaviour
     {
         bc.enabled = false;
         cc.enabled = false;
+
+        var uiBuckets = FindObjectsOfType<EnableBucketUI>();
+
+        foreach (var uiBucket in uiBuckets)
+        {
+            uiBucket.DisableUI();
+        }
     }
 }
