@@ -5,9 +5,10 @@ using UnityEngine;
 public class ResetChess : MonoBehaviour
 {
     [SerializeField] ChessBoard chessBoard;
-    public void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.name == "Ball(Clone)")
+        if (collision.gameObject.name == "Ball(Clone)")
         {
             chessBoard.ResetBoard();
         }
