@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class ChessBoard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] public ChessPiece[] chessPieces;
 
-    // Update is called once per frame
-    void Update()
+    public void ResetBoard()
     {
-        
+        foreach (ChessPiece chessPiece in chessPieces)
+        {
+            chessPiece.ResetTransform();
+        }
     }
 }

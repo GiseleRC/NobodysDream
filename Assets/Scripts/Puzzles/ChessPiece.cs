@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ChessPiece : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 initialPos;
+    private Quaternion initialRot;
+
+    private void Awake()
     {
-        
+        initialPos = transform.localPosition;
+        initialRot = transform.localRotation;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetTransform()
     {
-        
+        transform.localPosition = initialPos;
+        transform.localRotation = initialRot;
     }
 }
