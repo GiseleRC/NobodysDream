@@ -43,7 +43,7 @@ public class ClownsCollition : MonoBehaviour
             {
                 rudolfClown.SetActive(true);//hermanito
                 rudolfHorse.SetActive(false);//caballo
-                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                gameObject.SetActive(false);//nariz
             }
         }
     }
