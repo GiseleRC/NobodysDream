@@ -9,13 +9,14 @@ public class ChessPiece : MonoBehaviour
 
     private void Awake()
     {
-        initialPos = transform.localPosition;
-        initialRot = transform.localRotation;
+        initialPos = transform.position;
+        initialRot = transform.rotation;
     }
 
     public void ResetTransform()
     {
-        transform.localPosition = initialPos;
-        transform.localRotation = initialRot;
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        gameObject.GetComponent<Rigidbody>().MovePosition(initialPos);
+        gameObject.GetComponent<Rigidbody>().MoveRotation(initialRot);
     }
 }
