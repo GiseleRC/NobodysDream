@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//TP2-Lucrecia Ferrari- se aplican Enums para el uso de queue, setea constantes de los tutoriales, si se mete en la queue o si cierra el que esta y abre el actual,
+//ademas de setear cada parte donde se necesita del dialogo. Uso de Encapsulamiento (private) para que no se modifiquen los elementos por otros. Se usa en: metodos, bools, floats.
+
 // DialogType.Tutorial: Se encolan
 // DialogType.Instant: No se encolan y se muestran en el momento
 public enum DialogType
