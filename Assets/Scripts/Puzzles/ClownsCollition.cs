@@ -7,6 +7,8 @@ public class ClownsCollition : MonoBehaviour
     public Puzzle3 puzzle3;
     public GameObject rudolfClown, rudolfHorse;
 
+    public AudioSource NoseSound;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Ball(Clone)")
@@ -14,14 +16,17 @@ public class ClownsCollition : MonoBehaviour
             if (gameObject.name == "Nose1")
             {
                 puzzle3.showGuess1 = true;
+                NoseSound.Play();
             }
             else if (gameObject.name == "Nose2")
             {
                 puzzle3.showGuess2 = true;
+                NoseSound.Play();
             }
             else if (gameObject.name == "Nose3")
             {
                 puzzle3.showGuess3 = true;
+                NoseSound.Play();
             }
 
             if (gameObject.name == "Option1" || gameObject.name == "Option4" || gameObject.name == "Option7")
