@@ -136,7 +136,6 @@ public class Puzzle3 : MonoBehaviour
 
             position1 = new Vector3(position1.x, -15f, position1.z);
             ajedrezGO1.transform.position = position1;
-            Debug.Log("pos 2er gues" + ajedrezGO1.transform.position);
 
             option3 = false;
             timerController.AddTime(+50f);

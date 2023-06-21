@@ -5,18 +5,15 @@ using UnityEngine;
 public class ChessPiece : MonoBehaviour
 {
     private Vector3 initialPos;
-    private Quaternion initialRot;
 
-    private void Awake()
+    private void Start()
     {
-        initialPos = transform.position;
-        initialRot = transform.rotation;
+        initialPos = transform.localPosition;
     }
 
-    public void ResetTransform()
+    public void ResetPosition()
     {
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        gameObject.GetComponent<Rigidbody>().MovePosition(initialPos);
-        gameObject.GetComponent<Rigidbody>().MoveRotation(initialRot);
+        transform.localPosition = initialPos;
     }
 }
