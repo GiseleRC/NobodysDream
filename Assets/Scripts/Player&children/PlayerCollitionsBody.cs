@@ -10,7 +10,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public DialogManager dialogManager;
-    public GameObject introGO, enableLightPuzzle3, dialogSystem, canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
+    public GameObject rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
@@ -116,6 +116,17 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogManager.ShowDialog(DialogKey.RealWindow);
             windowOpen.Play("WindowRight");
+        }
+        else if (other.name == "EnableLetter")
+        {
+            other.gameObject.SetActive(false);
+            letterOpenGO.SetActive(true);
+            whitePiecesGO.SetActive(true);
+            buttonResetGO.SetActive(true);
+        }
+        else if (other.name == "Dientes")
+        {
+            other.gameObject.SetActive(false);
         }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
@@ -308,6 +319,10 @@ public class PlayerCollitionsBody : MonoBehaviour
             introB = true;
             introGO.SetActive(true);
             collision.gameObject.name = "AlmohadaL";
+        }
+        else if (collision.gameObject.name == "Floor&Columns - disable")
+        {
+            rudolfClownGO.SetActive(true);
         }
     }
     private void Update()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClownsCollition : MonoBehaviour
 {
     public Puzzle3 puzzle3;
-    public GameObject rudolfClown, rudolfHorse;
+    public GameObject rudolfClown, rudolfHorse, dientesPickeables;
 
     public AudioSource NoseSound;
 
@@ -46,9 +46,11 @@ public class ClownsCollition : MonoBehaviour
             }
             if (gameObject.name == "Rudolf")
             {
+                NoseSound.Play();
                 rudolfClown.SetActive(true);//hermanito
                 rudolfHorse.SetActive(false);//caballo
                 gameObject.SetActive(false);//nariz
+                dientesPickeables.SetActive(false);//dientes
             }
         }
     }
