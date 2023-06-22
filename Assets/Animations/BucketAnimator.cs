@@ -22,13 +22,16 @@ public class BucketAnimator : MonoBehaviour
 
     private void Update()
     {
-        if (on)
+        if (GameObject.Find("Char").GetComponent<PlayerCollitionsBody>().ballEnable == true)
         {
-            bucketAnimator.SetBool("On", true);
-        }
-        else
-        {
-            bucketAnimator.SetBool("On", false);
+            if (on)
+            {
+                bucketAnimator.SetBool("On", true);
+            }
+            else
+            {
+                bucketAnimator.SetBool("On", false);
+            }
         }
     }
 

@@ -13,6 +13,6 @@ public class LookMe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(GameObject.Find("Char").transform.position);
+        transform.LookAt(GameObject.Find("CameraHolder").transform.position);
     }
 }
