@@ -57,11 +57,11 @@ public class Dianas : MonoBehaviour
             }
             if (gameObject.name == "Diana2")
             {
-                puzzle2.doorEnable2 = true;
+                puzzle2.doorEnable3 = true;
             }
             if (gameObject.name == "Diana3")
             {
-                puzzle2.doorEnable3 = true;
+                puzzle2.doorEnable2 = true;
             }
         }
     }

@@ -22,7 +22,7 @@ public class KinematicMovementController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         kinematicMovements = GetComponents<KinematicMovement>();
-        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;// Fanelli Leandro
     }
 
     protected virtual void Start()
@@ -33,7 +33,7 @@ public class KinematicMovementController : MonoBehaviour
     protected virtual void OnDestroy()
     {
         PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
-    }
+    }// Fanelli Leandro
 
     protected virtual void FixedUpdate()
     {
@@ -67,10 +67,10 @@ public class KinematicMovementController : MonoBehaviour
     protected virtual void OnPauseStateChanged(PauseState pauseState)
     {
         movementEnabled = pauseState == PauseState.Gameplay;
-    }
+    }// Fanelli Leandro
 
-    //TP2 - Caamaño Romina - Este metodo es un Reset movement distinto al de kinematic movement,
-    //llama al reset de cada movimiento kinematicos, entre los movimientos que hayan heredado de la clase abstracta kinematic movement
+    //TP2 - Caamaño Romina - Este metodo llama al reset de cada movimiento kinematico
+    // entre los movimientos que hayan heredado de la clase abstracta kinematic movement
     public virtual void ResetMovement()
     {
         delay = delayTime;

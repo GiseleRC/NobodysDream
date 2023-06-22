@@ -9,7 +9,7 @@ using UnityEngine;
 public class ReactionKinematicMovementController : KinematicMovementController
 {
     //TP2 - Caamaño Romina - sobreescribe el start heredado con un start vacio
-    //para que no comience su movimiento al inciar si no cuando colisione con el player
+    //para que NO comience su movimiento al iniciar si no cuando colisione con el player
     protected override void Start()
     {
     }
