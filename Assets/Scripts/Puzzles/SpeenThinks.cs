@@ -17,6 +17,7 @@ public class SpeenThinks : MonoBehaviour
         }
         else if (collision.gameObject.name == "Ball(Clone)" && gameObject.name == "Pizarron")
         {
+            startRot = true;
             gameObject.GetComponent<KinematicMovementController>().enabled = true;
             partTwoOflevel2.SetActive(true);
             particle.SetActive(false);

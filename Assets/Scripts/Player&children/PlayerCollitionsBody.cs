@@ -302,11 +302,12 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (collision.gameObject.name == "ConcreteF - EnableLight")
         {
             enableLightPuzzle3.SetActive(true);
-            introB = true;
         }
         else if (collision.gameObject.name == "AlmohadaL-Intro")
         {
-
+            introB = true;
+            introGO.SetActive(true);
+            collision.gameObject.name = "AlmohadaL";
         }
     }
     private void Update()
