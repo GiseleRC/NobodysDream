@@ -6,7 +6,7 @@ public class ChessBoard : MonoBehaviour
 {
     [SerializeField] public ChessPiece[] chessPieces;
     public bool torreB, peon1B, peon2B, alfilB, caballoB, peon3B;
-    public GameObject letterGO, victoryBoardGO, rudolfGO;
+    public GameObject letterGO, victoryBoardGO, rudolfGO, buttonResetGO;
 
     public void ResetBoard()
     {
@@ -23,9 +23,8 @@ public class ChessBoard : MonoBehaviour
             letterGO.SetActive(false);
             victoryBoardGO.SetActive(true);
             rudolfGO.SetActive(true);
+            buttonResetGO.SetActive(false);
             peon1B = false;
-            Debug.Log("update de los sendor pieces");
-
         }
     }
 }

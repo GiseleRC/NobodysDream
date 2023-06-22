@@ -14,6 +14,8 @@ public class ChessPiece : MonoBehaviour
     public void ResetPosition()
     {
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         transform.localPosition = initialPos;
     }
 }
