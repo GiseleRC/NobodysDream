@@ -4,39 +4,45 @@ using UnityEngine;
 
 public class SpeenThinks : MonoBehaviour
 {
-    public float rotX, rotY, rotZ, currRotX;
-    private bool oreoStartRot = false;
-    public GameObject partTwoOflevel2, particle;
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.name == "Ball(Clone)" && gameObject.name == "Pizarron")
-        {
-            gameObject.transform.Rotate(rotX, rotY, rotZ);
-            partTwoOflevel2.SetActive(true);
-            particle.SetActive(false);
-        }
-    }
+    private float currRot;
+    private bool startRot = false;
+    public GameObject partTwoOflevel2, particle, wall;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Ball(Clone)" && gameObject.name == "OreoL")
         {
-            oreoStartRot = true;
+            startRot = true;
             gameObject.GetComponent<KinematicMovementController>().enabled = true;
         }
+        else if (collision.gameObject.name == "Ball(Clone)" && gameObject.name == "Pizarron")
+        {
+            gameObject.GetComponent<KinematicMovementController>().enabled = true;
+            partTwoOflevel2.SetActive(true);
+            particle.SetActive(false);
+            wall.GetComponent<Rigidbody>().isKinematic = false;
+            wall.GetComponent<Collider>().isTrigger = true;
+        }
     }
-
     private void Update()
     {
-        if (gameObject.name == "OreoL" && oreoStartRot)
+        if (gameObject.name == "OreoL" && startRot)
         {
-            currRotX = gameObject.transform.rotation.x;
-            if (currRotX >= 1f)
+            currRot = gameObject.transform.rotation.x;
+            if (currRot >= 1f)
             {
                 gameObject.GetComponent<KinematicMovementController>().enabled = false;
-                oreoStartRot = false;
+                startRot = false;
             }
         }
-
+        else if (gameObject.name == "Pizarron" && startRot)
+        {
+            currRot = gameObject.transform.rotation.y;
+            if (currRot >= 0.9124448f)
+            {
+                gameObject.GetComponent<KinematicMovementController>().enabled = false;
+                startRot = false;
+            }
+        }
     }
 }

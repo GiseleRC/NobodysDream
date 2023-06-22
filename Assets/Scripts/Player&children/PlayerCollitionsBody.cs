@@ -304,6 +304,10 @@ public class PlayerCollitionsBody : MonoBehaviour
             enableLightPuzzle3.SetActive(true);
             introB = true;
         }
+        else if (collision.gameObject.name == "AlmohadaL-Intro")
+        {
+
+        }
     }
     private void Update()
     {

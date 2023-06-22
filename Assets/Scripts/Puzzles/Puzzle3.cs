@@ -5,13 +5,12 @@ using UnityEngine;
 public class Puzzle3 : MonoBehaviour
 {
     private Vector3 position1;
-    private Vector3 position2;
-    private Vector3 position3;
     public TimerController timerController;
     public bool showGuess1, showGuess2, showGuess3, option1, option2, option3;
     private int currGuess = 0;
     public GameObject guess1GO, guess2GO, guess3GO, nose1Particle, nose2Particle, nose3Particle, nose1GO, nose2GO, nose3GO,
-                      option1GO, option2GO, option3GO, option4GO, option5GO, option6GO, option7GO, option8GO, option9GO, ajedrezGO1, face1GO, face2GO, face3GO, finalGO;
+                      option1GO, option2GO, option3GO, option4GO, option5GO, option6GO, option7GO, option8GO, option9GO,
+                        ajedrezGO1, face1GO, face2GO, face3GO, finalGO;
 
     private void Start()
     {
@@ -52,7 +51,6 @@ public class Puzzle3 : MonoBehaviour
 
             position1 = new Vector3(position1.x, -0.1f, position1.z);
             ajedrezGO1.transform.position = position1;
-            Debug.Log("pos 1er gues" + ajedrezGO1.transform.position);
 
             option3 = false;
             timerController.AddTime(+50f);
