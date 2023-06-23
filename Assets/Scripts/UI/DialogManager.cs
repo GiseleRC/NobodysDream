@@ -42,7 +42,7 @@ public enum DialogKey
     Practice,
     FirstDiana,
     Walls,
-    Darkness,
+    BookLocked,
     Fall,
     Respawn
 }

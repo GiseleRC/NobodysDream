@@ -323,6 +323,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             rudolfClownGO.SetActive(true);
         }
+        else if (collision.gameObject.name == "Piso - bookBlocked")
+        {
+            dialogManager.ShowDialog(DialogKey.BookLocked);
+        }
     }
     private void Update()
     {
