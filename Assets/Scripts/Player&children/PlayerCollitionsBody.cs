@@ -10,7 +10,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public DialogManager dialogManager;
-    public GameObject nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
+    public GameObject finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
                     canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
                     light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
                      level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
@@ -355,9 +355,14 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogManager.ShowDialog(DialogKey.DuckWay);
         }
-        else if (collision.gameObject.name == " OreoL - ToTheBed")
+        else if (collision.gameObject.name == "OreoL - ToTheBed")
         {
             dialogManager.ShowDialog(DialogKey.ToTheBed);
+        }
+        else if (collision.gameObject.name == "caja - SearchRudolf")
+        {
+            dialogManager.ShowDialog(DialogKey.SearchRudolf);
+            finalGO.SetActive(false);
         }
     }
     private void Update()

@@ -50,7 +50,8 @@ public enum DialogKey
     ToTheBed,
     ShouldDown,
     QuestClowns,
-    NoseAdivination
+    NoseAdivination,
+    SearchRudolf
 }
 
 public class DialogManager : MonoBehaviour
