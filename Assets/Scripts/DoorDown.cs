@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class DoorDown : MonoBehaviour
 {
-    public bool doorDown1, doorDown2;
+    public bool doorDown1 = true;
+    public bool doorDown2 = true;
 
     void Update()
     {
-        //if (doorDown1 && doorDown2)
-        //{
-        //    float doorY = doorGO.transform.position.y;
-        //    doorGO.transform.position = new Vector3(doorGO.transform.position.x, doorY -= Time.deltaTime, doorGO.transform.position.z);
-        //}
-        //if (doorGO.transform.position.y <= -6.1f)
+        if (doorDown1 && doorDown2)
+        {
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        }
+        //if (gameObject.transform.position.y <= -0.068)
         //{
         //    doorDown2 = false;
         //}
-
     }
 }

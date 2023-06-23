@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FallColumn : MonoBehaviour
 {
-    public GameObject bookWheelSC, doorGO;
+    public GameObject bookWheelSC;
     public DoorDown doorDown;
     public AudioSource audioSource;
-    private Vector3 position1;
+    //private Vector3 position1;
 
     private void Start()
     {
