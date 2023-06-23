@@ -1152,6 +1152,7 @@ MonoBehaviour:
   ballPF: {fileID: 6865826160013687433, guid: 01a4f54d5a2331141b89bab8bb9d156e, type: 3}
   ballPickeableGO: {fileID: 0}
   hand: {fileID: 9130373160256011350}
+  initialPos: {fileID: 0}
   walkSpeed: 6
   runSpeed: 9
   artificialGravity: 5.5
