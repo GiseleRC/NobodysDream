@@ -14,7 +14,7 @@ public class Thief : Enemies, IEnemy
     bool objectGrabbed, stealObject, objectToSteal;
     AudioSource audioSource;
     [SerializeField]AudioClip laugh;
-    [SerializeField] GameObject rulerInEnemy, cubeInEnemy;
+    [SerializeField] GameObject rulerInEnemy, cubeInEnemy, stunPS, stunStarPS;
     // Start is called before the first frame update
 
     public float Distance
@@ -88,6 +88,17 @@ public class Thief : Enemies, IEnemy
         if(timeToSteal > 0)
         {
             timeToSteal -= Time.deltaTime;
+        }
+
+        if(timeToSteal > 0 || actualTime > 0)
+        {
+            stunPS.SetActive(true);
+            stunStarPS.SetActive(true);
+        }
+        else
+        {
+            stunPS.SetActive(false);
+            stunStarPS.SetActive(false);
         }
 
         Transitions();

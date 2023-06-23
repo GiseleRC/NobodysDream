@@ -12,8 +12,8 @@ public class MaterializeObjects : MonoBehaviour
     float timer;
     Vector3 pos;
 
-    public AudioSource fallObj, spawnObj, spawnPosition, cantMatSound;
-    bool placingObject, canMat;
+    public AudioSource fallObj, spawnObj, spawnPosition, cantMatSound, canMatAgainSoundS;
+    bool placingObject, canMat, canMatAgaingSound;
     int objectCreated;
 
     public bool CanMat
@@ -25,6 +25,7 @@ public class MaterializeObjects : MonoBehaviour
     private void Awake()
     {
         PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+        canMatAgaingSound = true;
     }
 
     private void OnDestroy()
@@ -95,6 +96,7 @@ public class MaterializeObjects : MonoBehaviour
         if (!canMat)
         {
             timer -= Time.deltaTime;
+            canMatAgaingSound = false;
 
             if (timer < 0)
             {
@@ -110,6 +112,14 @@ public class MaterializeObjects : MonoBehaviour
                 {
                     thief.transform.GetChild(5).gameObject.SetActive(false);
                 }
+            }
+        }
+        else
+        {
+            if (!canMatAgaingSound)
+            {
+                canMatAgainSoundS.Play();
+                canMatAgaingSound = true;
             }
         }
         

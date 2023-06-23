@@ -8,15 +8,19 @@ public class StoleItem : MonoBehaviour
     GameObject matObj;
     MaterializeObjects matObjs;
     [SerializeField] GameObject rulerInEnemy, cubeInEnemy;
+    [SerializeField]AudioSource cantMat;
+    [SerializeField]AudioClip canMatClip;
 
 
     private void Start()
     {
         matObjs = GameObject.Find("Char").GetComponent<MaterializeObjects>();
+
     }
 
     void OnEnable()
     {
+        cantMat.PlayOneShot(canMatClip);
         matObjs = GameObject.Find("Char").GetComponent<MaterializeObjects>();
         matObjs.CanMat = false;
         matObj = GetComponent<Thief>().ObjectPos.gameObject;

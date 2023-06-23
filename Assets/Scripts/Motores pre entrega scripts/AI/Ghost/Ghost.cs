@@ -12,7 +12,8 @@ public class Ghost : Enemies, IEnemy
     protected bool ghostAttack, stucked;
     float distance, dot;
     GameObject matObj;
-    [SerializeField]ParticleSystem ps;
+    [SerializeField] ParticleSystem ps;
+    [SerializeField] GameObject stunPs, stunStarPs;
 
     public float Distance
     {
@@ -69,6 +70,8 @@ public class Ghost : Enemies, IEnemy
     {
         if (actualTime > 0)
         {
+            stunStarPs.SetActive(true);
+            stunPs.SetActive(true);
             if (gameObject.GetComponentInChildren<Animator>() != null)
             {
                 var animator = GetComponentInChildren<Animator>();
@@ -82,6 +85,8 @@ public class Ghost : Enemies, IEnemy
         }
         else
         {
+            stunStarPs.SetActive(false);
+            stunPs.SetActive(false);
             if (gameObject.GetComponentInChildren<Animator>() != null)
             {
                 var animator = GetComponentInChildren<Animator>();
