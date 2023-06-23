@@ -83,6 +83,21 @@ public class PlayerCollitionsBody : MonoBehaviour
             //Play
             booster.Play();
         }
+        else if (other.name == "zZz - BoardRotation")
+        {
+            //bool 
+            reloj.enabled = true;
+            dialogManager.ShowDialog(DialogKey.BoardRotation);
+            //Suma al tiempo
+            timerController.AddTime(addTime);
+            //Activa/Desactiva gameobject
+            other.gameObject.SetActive(false);
+            rubbers.SetActive(true);
+            //Particula
+            Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
+            //Play
+            booster.Play();
+        }
         else if (other.name == "SabanaLvl1Off")
         {
             dialogManager.ShowDialog(DialogKey.Level2);
@@ -312,11 +327,13 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (collision.gameObject.name == "ConcreteF - EnableLight")
         {
             enableLightPuzzle3.SetActive(true);
+            dialogManager.ShowDialog(DialogKey.ShouldDown);
         }
         else if (collision.gameObject.name == "AlmohadaL-Intro")
         {
             introB = true;
             introGO.SetActive(true);
+            dialogManager.ShowDialog(DialogKey.QuestClowns);
             collision.gameObject.name = "AlmohadaL";
         }
         else if (collision.gameObject.name == "Floor&Columns - disable")
@@ -326,6 +343,18 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (collision.gameObject.name == "Piso - bookBlocked")
         {
             dialogManager.ShowDialog(DialogKey.BookLocked);
+        }
+        else if (collision.gameObject.name == "ConcreteF - oreosRotation")
+        {
+            dialogManager.ShowDialog(DialogKey.OreosRotation);
+        }
+        else if (collision.gameObject.name == "piso1 - DuckWay")
+        {
+            dialogManager.ShowDialog(DialogKey.DuckWay);
+        }
+        else if (collision.gameObject.name == " OreoL - ToTheBed")
+        {
+            dialogManager.ShowDialog(DialogKey.ToTheBed);
         }
     }
     private void Update()

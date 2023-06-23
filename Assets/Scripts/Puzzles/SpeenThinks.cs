@@ -7,6 +7,7 @@ public class SpeenThinks : MonoBehaviour
     private float currRot;
     private bool startRot = false;
     public GameObject partTwoOflevel2, particle, wall;
+    public DialogManager dialogManager;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -27,6 +28,11 @@ public class SpeenThinks : MonoBehaviour
     }
     private void Update()
     {
+        if (wall.transform.position.y <= -38)
+        {
+            wall.SetActive(false);
+            dialogManager.ShowDialog(DialogKey.CarefullGhosts);
+        }
         if (gameObject.name == "OreoL" && startRot)
         {
             currRot = gameObject.transform.rotation.x;

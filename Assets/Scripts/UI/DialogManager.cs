@@ -43,8 +43,13 @@ public enum DialogKey
     FirstDiana,
     Walls,
     BookLocked,
-    Fall,
-    Respawn
+    OreosRotation,
+    BoardRotation,
+    CarefullGhosts,
+    DuckWay,
+    ToTheBed,
+    ShouldDown,
+    QuestClowns
 }
 
 public class DialogManager : MonoBehaviour
