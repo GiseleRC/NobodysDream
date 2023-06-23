@@ -6,6 +6,7 @@ public class ClownsCollition : MonoBehaviour
 {
     public Puzzle3 puzzle3;
     public GameObject rudolfClown, rudolfHorse, dientesPickeables, victoria, finalPlatform;
+    public DialogManager dialogManager;
 
     public AudioSource NoseSound;
 
@@ -50,8 +51,9 @@ public class ClownsCollition : MonoBehaviour
                 rudolfHorse.SetActive(false);//caballo
                 gameObject.SetActive(false);//nariz
                 dientesPickeables.SetActive(true);//dientes
-                victoria.SetActive(false);//dientes
-                finalPlatform.SetActive(true);//dientes
+                victoria.SetActive(false);
+                finalPlatform.SetActive(true);
+                dialogManager.ShowDialog(DialogKey.Victory);
             }
         }
     }

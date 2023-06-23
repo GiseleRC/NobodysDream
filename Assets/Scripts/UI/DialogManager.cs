@@ -51,7 +51,14 @@ public enum DialogKey
     ShouldDown,
     QuestClowns,
     NoseAdivination,
-    SearchRudolf
+    SearchRudolf,
+    EnableLetter,
+    Pieces,
+    Searching,
+    Victory,
+    EnableEquip,
+    DownDoor,
+    GoToTheFinal
 }
 
 public class DialogManager : MonoBehaviour

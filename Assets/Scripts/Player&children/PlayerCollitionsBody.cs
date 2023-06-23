@@ -140,7 +140,14 @@ public class PlayerCollitionsBody : MonoBehaviour
             letterOpenGO.SetActive(true);
             whitePiecesGO.SetActive(true);
             buttonResetGO.SetActive(true);
+            dialogManager.ShowDialog(DialogKey.EnableLetter);
         }
+        else if (other.name == "Son fantasmales")
+        {
+            other.gameObject.SetActive(false);
+            dialogManager.ShowDialog(DialogKey.Pieces);
+        }
+
         else if (other.name == "Dientes")
         {
             other.gameObject.SetActive(false);
@@ -151,6 +158,11 @@ public class PlayerCollitionsBody : MonoBehaviour
             canInteractWithItem = true;
             other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
         }
+        else if (other.name == "CheckPoint5 - DIALOG")
+        {
+            dialogManager.ShowDialog(DialogKey.EnableEquip);
+        }
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -364,6 +376,15 @@ public class PlayerCollitionsBody : MonoBehaviour
             dialogManager.ShowDialog(DialogKey.SearchRudolf);
             finalGO.SetActive(false);
         }
+        else if (collision.gameObject.name == "piso - DownDoor")
+        {
+            dialogManager.ShowDialog(DialogKey.DownDoor);
+        }
+        else if (collision.gameObject.name == "DoorPlatform - LetsGo")
+        {
+            dialogManager.ShowDialog(DialogKey.GoToTheFinal);
+        }
+
     }
     private void Update()
     {

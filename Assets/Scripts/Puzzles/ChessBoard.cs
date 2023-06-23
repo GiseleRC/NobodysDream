@@ -7,6 +7,7 @@ public class ChessBoard : MonoBehaviour
     [SerializeField] public ChessPiece[] chessPieces;
     public bool torreB, peon1B, peon2B, alfilB, caballoB, peon3B;
     public GameObject letterGO, victoryBoardGO, rudolfGO, buttonResetGO;
+    public DialogManager dialogManager;
 
     public void ResetBoard()
     {
@@ -20,6 +21,7 @@ public class ChessBoard : MonoBehaviour
     {
         if (peon1B && peon2B && peon3B && torreB && alfilB && caballoB)
         {
+            dialogManager.ShowDialog(DialogKey.Searching);
             letterGO.SetActive(false);
             victoryBoardGO.SetActive(true);
             rudolfGO.SetActive(true);
