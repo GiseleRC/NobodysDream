@@ -10,7 +10,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public DialogManager dialogManager;
-    public GameObject finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
+    public GameObject finalPlat, finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
                     canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
                     light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
                      level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
@@ -151,6 +151,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "Dientes")
         {
             other.gameObject.SetActive(false);
+            finalPlat.SetActive(true);
         }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
