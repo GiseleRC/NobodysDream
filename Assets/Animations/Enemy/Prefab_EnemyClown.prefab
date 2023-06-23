@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 5361560606900699512}
   - component: {fileID: 5361560606900699392}
   - component: {fileID: 5361560606900699393}
-  - component: {fileID: 5361560606900699398}
-  - component: {fileID: 5361560606900699399}
-  - component: {fileID: 5361560606900699396}
-  - component: {fileID: 5361560606900699397}
-  - component: {fileID: 5361560606900699514}
   - component: {fileID: 5361560606900699515}
   - component: {fileID: 5361560606900699395}
-  - component: {fileID: 5361560606900699394}
+  - component: {fileID: 7994443912516651145}
+  - component: {fileID: 2048134766866512106}
+  - component: {fileID: 6310244984364302348}
+  - component: {fileID: 8226244000289263402}
+  - component: {fileID: 799020953271649154}
+  - component: {fileID: 1950496293999297798}
   m_Layer: 11
   m_Name: Prefab_EnemyClown
   m_TagString: Untagged
@@ -78,85 +78,6 @@ CapsuleCollider:
   m_Height: 2.0460129
   m_Direction: 1
   m_Center: {x: -0.0025138855, y: 1.0376587, z: 0}
---- !u!114 &5361560606900699398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5361560606900699513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a25ff4682ac51e488c1ea6a2a3671f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewDistance: 15
---- !u!114 &5361560606900699399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5361560606900699513}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19836fd5b1a93cf43b079ece3270da60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  currentPoint: 0
-  whiteEyes: {fileID: 0}
---- !u!114 &5361560606900699396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5361560606900699513}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0506f5e7e0159f64382ccbbb7ed8016c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDistanceChar: 5
-  redEyes: {fileID: 0}
-  whiteEyes: {fileID: 0}
---- !u!114 &5361560606900699397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5361560606900699513}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2da3557ea1fd8a43beee22f2d35f21b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5361560606900699514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5361560606900699513}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78ae7837d084d824984a187e6be9382d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTimer: 3
-  maxDistanceForAttack: 5
-  timer: 0
 --- !u!54 &5361560606900699515
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -185,7 +106,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9952d953683d142840ef478d0ff465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5361560606900699394
+--- !u!114 &7994443912516651145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361560606900699513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f83d1f61d609148be5da51113eba98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDistance: 0
+  ps: {fileID: 1565134741095299096, guid: 5afe032cd7d28104788dfbe2ead47636, type: 3}
+--- !u!114 &2048134766866512106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,9 +129,152 @@ MonoBehaviour:
   m_GameObject: {fileID: 5361560606900699513}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5582956174ded1649b7c73adf329d97c, type: 3}
+  m_Script: {fileID: 11500000, guid: 19836fd5b1a93cf43b079ece3270da60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolPoints: []
+  currentPoint: 0
+  whiteEyes: {fileID: 0}
+--- !u!114 &6310244984364302348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361560606900699513}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2da3557ea1fd8a43beee22f2d35f21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8226244000289263402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361560606900699513}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ae7837d084d824984a187e6be9382d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialTimer: 2
+  maxDistanceForAttack: 5
+  timer: 0
+  GhostAttack: {fileID: 1950496293999297798}
+--- !u!114 &799020953271649154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361560606900699513}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0506f5e7e0159f64382ccbbb7ed8016c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mRen: {fileID: 0}
+  minDistanceChar: 5
+  redEyes: {fileID: 0}
+  whiteEyes: {fileID: 0}
+--- !u!82 &1950496293999297798
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361560606900699513}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: aca22d998549b8f46864ab9716c3a3d1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.08
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5361560607182247085
 GameObject:
   m_ObjectHideFlags: 0

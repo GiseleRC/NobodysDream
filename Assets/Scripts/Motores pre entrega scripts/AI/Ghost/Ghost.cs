@@ -93,6 +93,7 @@ public class Ghost : Enemies, IEnemy
                     attack.enabled = false;
                     if (dot > 0.55 && distance < viewDistance || distance < viewDistance / 3)
                     {
+                        print("entre");
                         chaseCharacter.enabled = true;
                         patrol.enabled = false;
                     }
