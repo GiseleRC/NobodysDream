@@ -86,14 +86,13 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "SabanaLvl1Off")
         {
             dialogManager.ShowDialog(DialogKey.Level2);
-            //level1Enable.SetActive(false);
+            level1Enable.SetActive(false);
             other.gameObject.GetComponent<Collider>().enabled = false;
         }
         else if (other.name == "SensorPlayerchocolate")
         {
             dialogManager.ShowDialog(DialogKey.Chocolates);
         }
-        //Desactiva el nivel 1
         else if (other.name == "CheckPoint7 - GhostB")
         {
             dialogManager.ShowDialog(DialogKey.Ghost);
