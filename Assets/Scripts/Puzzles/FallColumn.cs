@@ -5,7 +5,7 @@ using UnityEngine;
 public class FallColumn : MonoBehaviour
 {
     public GameObject bookWheelSC, doorGO;
-    private bool doorDown1, doorDown2;
+    public DoorDown doorDown;
     public AudioSource audioSource;
     private Vector3 position1;
 
@@ -28,13 +28,13 @@ public class FallColumn : MonoBehaviour
             {
                 gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 gameObject.GetComponent<Collider>().enabled = false;
-                doorDown1 = true;
+                doorDown.doorDown1 = true;
             }
             if (gameObject.name == "Columnacaida - 2")
             {
                 gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 gameObject.GetComponent<Collider>().enabled = false;
-                doorDown2 = true;
+                doorDown.doorDown2 = true;
             }
         }
     }
@@ -44,15 +44,6 @@ public class FallColumn : MonoBehaviour
         {
             audioSource.Stop();
             bookWheelSC.GetComponent<Wheel>().enabled = false;
-        }
-        if (doorDown1 && doorDown2)
-        {
-            float doorY = doorGO.transform.position.y;
-            doorGO.transform.position = new Vector3(doorGO.transform.position.x, doorY -= Time.deltaTime, doorGO.transform.position.z);
-        }
-        if (doorGO.transform.position.y <= -6.1f)
-        {
-            doorDown2 = false;
         }
     }
 }
