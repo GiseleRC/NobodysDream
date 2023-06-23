@@ -19,6 +19,6 @@ public class CheckPointVFX : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        torch.GetComponent<EnableFireTorch>().PlayFire();
+       torch.GetComponent<EnableFireTorch>().PlayFire();
     }
 }
