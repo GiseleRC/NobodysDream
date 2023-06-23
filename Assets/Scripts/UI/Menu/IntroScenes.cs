@@ -15,6 +15,6 @@ public class IntroScenes : MonoBehaviour
     }
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        SceneManager.LoadScene("Level1 1");//the scene that you want to load after the video has ended.
+        SceneManager.LoadScene("Cutscene");//the scene that you want to load after the video has ended.
     }
 }
