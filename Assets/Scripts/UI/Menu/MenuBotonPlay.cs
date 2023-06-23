@@ -10,10 +10,9 @@ public class MenuBotonPlay : MonoBehaviour
     public GameObject[] controlPapers;
     int actualControl;
     public AudioSource click;
-    bool controlsTutorial;
-    public void ChangeSceneStart(string Intro)
+    public void ChangeSceneStart(string Cutscene)
     {
-        SceneManager.LoadScene(Intro);
+        SceneManager.LoadScene(Cutscene);
         click.Play();
     }
     public void ShowControls()

@@ -8,6 +8,7 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] private Rigidbody playerRB;
     [SerializeField] private GameObject ballPF, ballPickeableGO;
     [SerializeField] private Transform hand;
+    [SerializeField] private GameObject initialPos;
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float artificialGravity = 5f;
@@ -35,6 +36,8 @@ public class PlayerSC : MonoBehaviour
 
     void Awake()
     {
+        gameObject.transform.position = initialPos.transform.position;
+        gameObject.transform.rotation = initialPos.transform.rotation;
         ground = GetComponentInChildren<GroundCheck>();
         playerRB = GetComponent<Rigidbody>();
 
