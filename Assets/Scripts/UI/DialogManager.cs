@@ -49,7 +49,8 @@ public enum DialogKey
     DuckWay,
     ToTheBed,
     ShouldDown,
-    QuestClowns
+    QuestClowns,
+    NoseAdivination
 }
 
 public class DialogManager : MonoBehaviour
@@ -67,7 +68,7 @@ public class DialogManager : MonoBehaviour
 
     // Variables seteables desde el inspector
     [SerializeField] private GameObject dialogBox;
-    [SerializeField] private float dialogTime = 5f;
+    [SerializeField] private float dialogTime = 7f;
     [SerializeField] private DialogEntry[] dialogEntries;
 
     private Queue<int> dialogQueue = new Queue<int>();

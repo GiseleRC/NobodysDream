@@ -10,7 +10,10 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public DialogManager dialogManager;
-    public GameObject rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice, light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
+    public GameObject nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
+                    canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
+                    light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
+                     level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
@@ -20,7 +23,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     private bool firstTimeGrab = false;
     private bool introB = false;
     private float addTime = 25f;
-    private float waitTime = 10f;
+    private float waitTime = 7f;
     bool canInteractWithItem;
     public GameObject[] pickeablesUI;
     public AudioSource ClickLamp;
@@ -376,6 +379,8 @@ public class PlayerCollitionsBody : MonoBehaviour
             {
                 introGO.SetActive(false);
                 introB = false;
+                nose1GO.SetActive(true);
+                dialogManager.ShowDialog(DialogKey.NoseAdivination);
             }
         }
     }
