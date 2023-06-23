@@ -69,6 +69,11 @@ public class Ghost : Enemies, IEnemy
     {
         if (actualTime > 0)
         {
+            if (gameObject.GetComponentInChildren<Animator>() != null)
+            {
+                var animator = GetComponentInChildren<Animator>();
+                animator.SetBool("Stun", true);
+            }
             Stunned();
             patrol.enabled = false;
             stayPos.enabled = false;
@@ -77,6 +82,11 @@ public class Ghost : Enemies, IEnemy
         }
         else
         {
+            if (gameObject.GetComponentInChildren<Animator>() != null)
+            {
+                var animator = GetComponentInChildren<Animator>();
+                animator.SetBool("Stun", false);
+            }
             Variables();
 
             if (mode == GameState.PlaneMode.Ghost)

@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f83d1f61d609148be5da51113eba98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewDistance: 0
+  viewDistance: 15
   ps: {fileID: 1565134741095299096, guid: 5afe032cd7d28104788dfbe2ead47636, type: 3}
 --- !u!114 &2048134766866512106
 MonoBehaviour:

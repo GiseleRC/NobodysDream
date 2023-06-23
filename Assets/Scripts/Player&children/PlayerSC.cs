@@ -109,6 +109,7 @@ public class PlayerSC : MonoBehaviour
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<MeshCollider>().enabled = true;
     }
+
     public void ReloadScene()
     {
         SceneManager.LoadScene("Level1");
@@ -250,4 +251,6 @@ public class PlayerSC : MonoBehaviour
             gameObject.transform.parent = null;
         }
     }
+
+    
 }
