@@ -241,7 +241,6 @@ public class PlayerSC : MonoBehaviour
     {
         if (collision.gameObject.name == "Wheel")
         {
-            print("Entre");
             gameObject.transform.parent = collision.gameObject.transform;
         }
     }
@@ -250,7 +249,6 @@ public class PlayerSC : MonoBehaviour
     {
         if (collision.gameObject.name == "Wheel")
         {
-            print("Sali");
             gameObject.transform.parent = null;
         }
     }
