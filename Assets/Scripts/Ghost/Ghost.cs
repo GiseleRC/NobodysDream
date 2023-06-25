@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 // TP2 - Leandro Fanelli - Este script contiene lo relacionado al enemigo llamado GHOST, el cual hereda de Enemies atributos y aplica Interfaces.
 // Ademas se hace uso de Getters y Setters para las transiciones de comportamientos.
@@ -14,6 +15,7 @@ public class Ghost : Enemies, IEnemy
     GameObject matObj;
     [SerializeField] ParticleSystem ps;
     [SerializeField] GameObject stunPs, stunStarPs;
+    bool canChase;
 
     public float Distance
     {
@@ -93,37 +95,27 @@ public class Ghost : Enemies, IEnemy
                 animator.SetBool("Stun", false);
             }
             Variables();
-
-            if (mode == GameState.PlaneMode.Ghost)
+            stayPos.enabled = false;
+            if (!ghostAttack)
             {
-                stayPos.enabled = true;
-                patrol.enabled = false;
                 attack.enabled = false;
+                CheckPath();
+                if (dot > 0.55 && distance < viewDistance && canChase || distance < viewDistance / 3 && canChase)
+                {
+                    chaseCharacter.enabled = true;
+                    patrol.enabled = false;
+                }
+                else if (distance > viewDistance || !canChase)
+                {
+                    patrol.enabled = true;
+                    chaseCharacter.enabled = false;
+                }
             }
             else
             {
-                stayPos.enabled = false;
-                if (!ghostAttack)
-                {
-                    attack.enabled = false;
-                    if (dot > 0.55 && distance < viewDistance || distance < viewDistance / 3)
-                    {
-                        print("entre");
-                        chaseCharacter.enabled = true;
-                        patrol.enabled = false;
-                    }
-                    else if (distance > viewDistance)
-                    {
-                        patrol.enabled = true;
-                        chaseCharacter.enabled = false;
-                    }
-                }
-                else
-                {
-                    attack.enabled = true;
-                    patrol.enabled = false;
-                    chaseCharacter.enabled = false;
-                }
+                attack.enabled = true;
+                patrol.enabled = false;
+                chaseCharacter.enabled = false;
             }
         }
 
@@ -153,6 +145,21 @@ public class Ghost : Enemies, IEnemy
             ps.Pause();
             nma.speed = 3.5f;
             stucked = false;
+        }
+    }
+
+    void CheckPath()
+    {
+        NavMeshPath navMeshStatus = new NavMeshPath();
+        nma.CalculatePath(characterPos.position, navMeshStatus);
+
+        if (navMeshStatus.status == NavMeshPathStatus.PathComplete)
+        {
+            canChase = true;
+        }
+        else
+        {
+            canChase = false;
         }
     }
 

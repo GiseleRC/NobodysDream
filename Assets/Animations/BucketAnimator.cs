@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class BucketAnimator : MonoBehaviour
 {
-    public Animator bucketAnimator;
+    Animator bucketAnimator;
     public BoxCollider bc;
     public CapsuleCollider cc;
     bool on;
+    private void Start()
+    {
+        bucketAnimator = GetComponent<Animator>();
+    }
+
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         if (planeMode == GameState.PlaneMode.Ghost)

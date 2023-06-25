@@ -6,7 +6,7 @@ public class SpeenThinks : MonoBehaviour
 {
     private float currRot;
     private bool startRot = false;
-    public GameObject partTwoOflevel2, particle, wall;
+    public GameObject partTwoOflevel2, particle, wall, enemy1, enemy2;
     public DialogManager dialogManager;
 
     private void OnCollisionEnter(Collision collision)
@@ -24,6 +24,8 @@ public class SpeenThinks : MonoBehaviour
             particle.SetActive(false);
             wall.GetComponent<Rigidbody>().isKinematic = false;
             wall.GetComponent<Collider>().isTrigger = true;
+            enemy1.SetActive(true);
+            enemy2.SetActive(true);
         }
     }
     private void Update()

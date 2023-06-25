@@ -14,7 +14,7 @@ public class Thief : Enemies, IEnemy
     bool objectGrabbed, stealObject, objectToSteal;
     AudioSource audioSource;
     [SerializeField]AudioClip laugh;
-    [SerializeField] GameObject rulerInEnemy, cubeInEnemy, stunPS, stunStarPS;
+    [SerializeField] GameObject rulerInEnemy, cubeInEnemy, stunPS, stunStarPS, thunderPs;
     // Start is called before the first frame update
 
     public float Distance
@@ -90,7 +90,7 @@ public class Thief : Enemies, IEnemy
             timeToSteal -= Time.deltaTime;
         }
 
-        if(timeToSteal > 0 || actualTime > 0)
+        if(actualTime > 0)
         {
             stunPS.SetActive(true);
             stunStarPS.SetActive(true);
@@ -99,6 +99,16 @@ public class Thief : Enemies, IEnemy
         {
             stunPS.SetActive(false);
             stunStarPS.SetActive(false);
+        }
+
+
+        if(timeToSteal > 0 && actualTime <= 0)
+        {
+            thunderPs.SetActive(true);
+        }
+        else
+        {
+            thunderPs.SetActive(false);
         }
 
         Transitions();
@@ -147,49 +157,37 @@ public class Thief : Enemies, IEnemy
         else
         {
             Variables();
-
-            if (mode == GameState.PlaneMode.Ghost)
+            stayPos.enabled = false;
+            if (!objectGrabbed)
             {
-                patrol.enabled = true;
-                stayPos.enabled = false;
-                moveToMatObject.enabled = false;
-                escape.enabled = false;
-                stoleItem.enabled = false;
-            }
-            else
-            {
-                stayPos.enabled = false;
-                if (!objectGrabbed)
+                if (objectToSteal && timeToSteal <= 0)
                 {
-                    if (objectToSteal && timeToSteal <= 0)
+                    if (stealObject)
                     {
-                        if (stealObject)
-                        {
-                            stoleItem.enabled = true;
-                            moveToMatObject.enabled = false;
-                            patrol.enabled = false;
-                            audioSource.PlayOneShot(laugh);
-                        }
-                        else
-                        {
-                            moveToMatObject.enabled = true;
-                            patrol.enabled = false;
-                            stoleItem.enabled = false;
-                        }
+                        stoleItem.enabled = true;
+                        moveToMatObject.enabled = false;
+                        patrol.enabled = false;
+                        audioSource.PlayOneShot(laugh);
                     }
                     else
                     {
-                        patrol.enabled = true;
-                        moveToMatObject.enabled = false;
+                        moveToMatObject.enabled = true;
+                        patrol.enabled = false;
                         stoleItem.enabled = false;
-                        escape.enabled = false;
                     }
-
                 }
                 else
                 {
-                    escape.enabled = true;
+                    patrol.enabled = true;
+                    moveToMatObject.enabled = false;
+                    stoleItem.enabled = false;
+                    escape.enabled = false;
                 }
+
+            }
+            else
+            {
+                escape.enabled = true;
             }
         }
     }
