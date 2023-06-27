@@ -164,6 +164,11 @@ public class PlayerCollitionsBody : MonoBehaviour
             dialogManager.ShowDialog(DialogKey.EnableEquip);
         }
         
+        if (other.name == "UmbrellaPickeable")
+        {
+            pickeablesUI[4].SetActive(true);
+            canInteractWithItem = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -286,6 +291,18 @@ public class PlayerCollitionsBody : MonoBehaviour
                 Destroy(psObject);
             }
         }
+
+        if(other.name == "UmbrellaPickeable")
+        {
+            if(canInteractWithItem && Input.GetButton("Interact"))
+            {
+                gameObject.GetComponentInChildren<Umbrella>().enabled = true;
+                //Tutorial,etc
+                pickeablesUI[4].SetActive(false);
+                Destroy(other.gameObject);
+
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -323,6 +340,12 @@ public class PlayerCollitionsBody : MonoBehaviour
         if(other.name == "BallPickable")
         {
             other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+            canInteractWithItem = false;
+        }
+
+        if (other.name == "UmbrellaPickeable")
+        {
+            pickeablesUI[4].SetActive(false);
             canInteractWithItem = false;
         }
     }

@@ -29,6 +29,10 @@ public class PlayerSC : MonoBehaviour
     float coyoteTimeCounter;
     float jumpBufferTime = 0.2f;
     float jumpBufferCounter;
+    Umbrella umbrella;
+    float initialGravity;
+    bool falling;
+    float fallingCheck;
 
     public int BallCount { get; private set; } = 0;
 
@@ -36,9 +40,11 @@ public class PlayerSC : MonoBehaviour
 
     void Awake()
     {
+        initialGravity = Physics.gravity.y;
         gameObject.transform.position = initialPos.transform.position;
         gameObject.transform.rotation = initialPos.transform.rotation;
         ground = GetComponentInChildren<GroundCheck>();
+        umbrella = GetComponentInChildren<Umbrella>();
         playerRB = GetComponent<Rigidbody>();
 
         PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
@@ -65,8 +71,7 @@ public class PlayerSC : MonoBehaviour
         CoyoteTime();
         BufferTime();
         Jump();
-
-        //print(ground.IsGrounded);
+        UmbrellaCheck();
 
         if (mtSC.materializanding == false)
         {
@@ -82,7 +87,6 @@ public class PlayerSC : MonoBehaviour
         {
             ReloadScene();
         }
-
     }
     void FixedUpdate()
     {
@@ -196,7 +200,7 @@ public class PlayerSC : MonoBehaviour
     {
         if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
         {
-            float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
+            float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * initialGravity);
             playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
             jumpBufferCounter = 0;
         }
@@ -253,5 +257,47 @@ public class PlayerSC : MonoBehaviour
         }
     }
 
-    
+    public void UmbrellaCheck()
+    {
+        if (ground.IsGrounded == false)
+        {
+            fallingCheck = playerRB.velocity.y;
+            if (fallingCheck >= 0)
+            {
+                falling = false;
+
+            }
+            else if (fallingCheck < 0)
+            {
+                falling = true;
+            }
+        }
+        else
+        {
+            falling = false;
+        }
+
+        if (falling == false)
+        {
+            playerRB.drag = 0;
+        }
+
+        if (umbrella.UmbrellaActivate == true && falling == true)
+        {
+            playerRB.drag = 12;
+            walkSpeed = 8f;
+        }
+        else
+        {
+            walkSpeed = 4f;
+            playerRB.drag = 0;
+        }
+    }
+
+    public void TrampolineJump()
+    {
+        float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * initialGravity);
+        playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity * 4, playerRB.velocity.z);
+        jumpBufferCounter = 0;
+    }
 }
