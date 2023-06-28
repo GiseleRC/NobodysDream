@@ -9,7 +9,9 @@ public class TimerController : MonoBehaviour
     //- Este script controla el tiempo de todo el nivel, no se resetea a menos que reinicies la escena y le tranfiere informacion al time del canvas
     [SerializeField] private float timeWait = 360f;
     [SerializeField] private float minTimeForPickBooster = 200f;
+    [SerializeField] SpawnPlayerController spawnPlayerController;
     public bool pickBooster = false;
+    public bool rudolfIsAttacking;
     private int enemiesAttacking;
     public Image image;
     public Slider time;
@@ -58,6 +60,15 @@ public class TimerController : MonoBehaviour
             currTimeWait += 50;
             pickBooster = false;
         }
+        if (rudolfIsAttacking)
+        {
+            currTimeWait -= Time.deltaTime * 50;
+            if (clock.clip != clockFast)
+            {
+                clock.clip = clockFast;
+                clock.Play();
+            }
+        }
 
         if (enemiesAttacking >= 1)
         {
@@ -81,8 +92,10 @@ public class TimerController : MonoBehaviour
         time.value = Mathf.Lerp(time.value, currTimeWait, 0.02f);
         if (currTimeWait <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            spawnPlayerController.RespawnPlayer();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             currTimeWait = timeWait;
+            rudolfIsAttacking = false;
         }
     }
 

@@ -8,6 +8,9 @@ public class ClownsCollition : MonoBehaviour
     public Puzzle3 puzzle3;
     public GameObject rudolfClown, rudolfHorse, dientesPickeables, victoria, finalPlatform;
     public DialogManager dialogManager;
+    [SerializeField] SpawnPlayerController spawnPlayerController;
+    [SerializeField] TimerController timerController;
+    [SerializeField] Transform level3InitialSpawnPoint;
 
     public AudioSource NoseSound;
 
@@ -53,7 +56,9 @@ public class ClownsCollition : MonoBehaviour
                 rudolfHorse.SetActive(false);//caballo
                 gameObject.SetActive(false);//nariz
                 victoria.SetActive(false);
-                
+                timerController.rudolfIsAttacking = true;
+                spawnPlayerController.Respawn(level3InitialSpawnPoint);
+
                 //dientesPickeables.SetActive(true);//dientes
                 //finalPlatform.SetActive(true);
             }
