@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     [SerializeField] private float timeWait = 3f;
     [SerializeField] GameObject particleBall, ballPos, ballRot;
     private float currTimeWait;
+    public AudioSource hit;
 
     private void Awake()
     {
@@ -24,7 +25,7 @@ public class Ball : MonoBehaviour
     }
     void Update()
     {
-        if (transform.parent != null )
+        if (transform.parent != null)
             return;
         currTimeWait += Time.deltaTime;
 
@@ -36,19 +37,24 @@ public class Ball : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(GetComponent<Rigidbody>().velocity != Vector3.zero)
+        hit.Play();
+        if (GetComponent<Rigidbody>().velocity != Vector3.zero)
         {
+           
             if (collision.gameObject.layer != 16 || collision.gameObject.layer != 10)//Colisone contra la layer TriggerButtons
             {
                 Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
+                
                 Destroy(gameObject);
             }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(GetComponent<Rigidbody>().velocity != Vector3.zero)
+
+        if (GetComponent<Rigidbody>().velocity != Vector3.zero)
         {
+            
             if (other.gameObject.layer == 16 || other.gameObject.layer == 10 || other.gameObject.layer == 11)//Colisone contra la layer TriggerButtons
             {
                 Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
@@ -61,4 +67,5 @@ public class Ball : MonoBehaviour
     {
         enabled = newPauseState == PauseState.Gameplay;
     }
+
 }
