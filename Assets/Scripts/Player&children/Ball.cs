@@ -25,7 +25,7 @@ public class Ball : MonoBehaviour
     }
     void Update()
     {
-        if (transform.parent != null)
+        if (transform.parent != null )
             return;
         currTimeWait += Time.deltaTime;
 
