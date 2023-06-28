@@ -10,7 +10,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public DialogManager dialogManager;
-    public GameObject finalPlat, finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
+    public GameObject kakiLevel3GO, finalPlat, finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
                     canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
                     light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
                      level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
@@ -406,6 +406,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (collision.gameObject.name == "DoorPlatform - LetsGo")
         {
             dialogManager.ShowDialog(DialogKey.GoToTheFinal);
+        }
+        else if (collision.gameObject.name == "Shelf - Se cae kaki")
+        {
+            kakiLevel3GO.GetComponent<Rigidbody>().isKinematic = false;
         }
 
     }

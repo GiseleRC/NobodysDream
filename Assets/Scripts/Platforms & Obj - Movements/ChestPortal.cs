@@ -12,7 +12,12 @@ public class ChestPortal : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "KakiPeluche")
+        if (collision.gameObject.name == "KakyPeluche")
+        {
+            collision.gameObject.SetActive(false);
+            particlePortal.SetActive(true);
+        }
+        if (collision.gameObject.name == "Char")
         {
             collision.gameObject.SetActive(false);
             particlePortal.SetActive(true);
