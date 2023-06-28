@@ -59,7 +59,6 @@ public class Ball : MonoBehaviour
             }
         }
     }
-
     private void OnPauseStateChanged(PauseState newPauseState)
     {
         enabled = newPauseState == PauseState.Gameplay;
