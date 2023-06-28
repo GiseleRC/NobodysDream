@@ -21,11 +21,11 @@ public class ChessBoard : MonoBehaviour
     {
         if (peon1B && peon2B && peon3B && torreB && alfilB && caballoB)
         {
-            dialogManager.ShowDialog(DialogKey.Searching);
             letterGO.SetActive(false);
+            buttonResetGO.SetActive(false);
+            dialogManager.ShowDialog(DialogKey.Searching);
             victoryBoardGO.SetActive(true);
             rudolfGO.SetActive(true);
-            buttonResetGO.SetActive(false);
             peon1B = false;
         }
     }

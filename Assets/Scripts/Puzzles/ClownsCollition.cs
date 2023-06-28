@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClownsCollition : MonoBehaviour
 {
+    
     public Puzzle3 puzzle3;
     public GameObject rudolfClown, rudolfHorse, dientesPickeables, victoria, finalPlatform;
     public DialogManager dialogManager;
@@ -47,13 +48,14 @@ public class ClownsCollition : MonoBehaviour
             }
             if (gameObject.name == "Rudolf")
             {
+                dialogManager.ShowDialog(DialogKey.Victory);
                 rudolfClown.SetActive(true);//hermanito
                 rudolfHorse.SetActive(false);//caballo
                 gameObject.SetActive(false);//nariz
-                dientesPickeables.SetActive(true);//dientes
                 victoria.SetActive(false);
-                finalPlatform.SetActive(true);
-                dialogManager.ShowDialog(DialogKey.Victory);
+                
+                //dientesPickeables.SetActive(true);//dientes
+                //finalPlatform.SetActive(true);
             }
         }
     }

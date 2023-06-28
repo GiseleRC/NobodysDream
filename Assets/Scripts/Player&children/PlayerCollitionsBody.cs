@@ -134,7 +134,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             dialogManager.ShowDialog(DialogKey.RealWindow);
             windowOpen.Play("WindowRight");
         }
-        else if (other.name == "EnableLetter")
+        else if (other.name == "LetterPickeable")
         {
             other.gameObject.SetActive(false);
             letterOpenGO.SetActive(true);
@@ -148,11 +148,10 @@ public class PlayerCollitionsBody : MonoBehaviour
             dialogManager.ShowDialog(DialogKey.Pieces);
         }
 
-        else if (other.name == "Dientes")
-        {
-            other.gameObject.SetActive(false);
-            finalPlat.SetActive(true);
-        }
+        //else if (other.name == "Dientes")
+        //{
+        //    other.gameObject.SetActive(false);
+        //}
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
