@@ -5,9 +5,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float timeWait = 3f;
-    [SerializeField] GameObject particleBall, ballPos, ballRot;
+    [SerializeField] GameObject particleBall, ballPos, ballRot, soundGO;
     private float currTimeWait;
-    public AudioSource hit;
 
     private void Awake()
     {
@@ -32,32 +31,30 @@ public class Ball : MonoBehaviour
         if (currTimeWait >= timeWait)
         {
             Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
+            Instantiate(soundGO, ballPos.transform.position, ballRot.transform.rotation);
             Destroy(gameObject);
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        hit.Play();
         if (GetComponent<Rigidbody>().velocity != Vector3.zero)
         {
-           
             if (collision.gameObject.layer != 16 || collision.gameObject.layer != 10)//Colisone contra la layer TriggerButtons
             {
                 Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
-                
+                Instantiate(soundGO, ballPos.transform.position, ballRot.transform.rotation);
                 Destroy(gameObject);
             }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-
         if (GetComponent<Rigidbody>().velocity != Vector3.zero)
         {
-            
             if (other.gameObject.layer == 16 || other.gameObject.layer == 10 || other.gameObject.layer == 11)//Colisone contra la layer TriggerButtons
             {
                 Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
+                Instantiate(soundGO, ballPos.transform.position, ballRot.transform.rotation);
                 Destroy(gameObject);
             }
         }
