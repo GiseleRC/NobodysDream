@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627898b2c8059de48a297305da486071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intensity: 200
 --- !u!82 &7723335049816542832
 AudioSource:
   m_ObjectHideFlags: 0

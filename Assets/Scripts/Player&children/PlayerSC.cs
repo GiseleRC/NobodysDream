@@ -31,7 +31,7 @@ public class PlayerSC : MonoBehaviour
     float jumpBufferCounter;
     Umbrella umbrella;
     float initialGravity;
-    bool falling;
+    bool falling, slow;
     float fallingCheck;
 
     public int BallCount { get; private set; } = 0;
@@ -190,15 +190,26 @@ public class PlayerSC : MonoBehaviour
         Vector3 input = new Vector3(inputX, 0f, inputY);
         input.Normalize();
 
-        float speed = (Input.GetButton("Left Shift")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
+        if (slow || umbrella.UmbrellaActivate)
+        {
+            float speed = walkSpeed;//velocidad si camina o si corre
 
-        Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
-        transform.position += velocity;
+            Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
+            transform.position += velocity;
+        }
+        else
+        {
+            float speed = (Input.GetButton("Left Shift")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
+
+            Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
+            transform.position += velocity;
+        }
+
     }
 
     void Jump()
     {
-        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
+        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0 && !slow)
         {
             float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * initialGravity);
             playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
@@ -286,6 +297,9 @@ public class PlayerSC : MonoBehaviour
         {
             playerRB.drag = 12;
             walkSpeed = 8f;
+        }else if (slow)
+        {
+            walkSpeed = 2f;
         }
         else
         {
@@ -294,10 +308,20 @@ public class PlayerSC : MonoBehaviour
         }
     }
 
-    public void TrampolineJump()
+    public void TrampolineJump(float intesity)
     {
         float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * initialGravity);
-        playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity * 4, playerRB.velocity.z);
+        playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity * intesity * Time.deltaTime, playerRB.velocity.z);
         jumpBufferCounter = 0;
+    }
+
+    public void Slow()
+    {
+        slow = true;
+    }
+
+    public void CancelSlow()
+    {
+        slow = false;
     }
 }
