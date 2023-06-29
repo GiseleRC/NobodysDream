@@ -12,6 +12,16 @@ public class Helicopter : MonoBehaviour
         
     }
 
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -27,5 +37,10 @@ public class Helicopter : MonoBehaviour
     private void FixedUpdate()
     {
         transform.Translate(speed * Time.deltaTime, 0, 0);
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }
