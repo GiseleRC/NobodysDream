@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ps: {fileID: 2194378567341075188}
   fireSound: {fileID: 7743971448673582814}
-  clockSound: {fileID: 0}
+  clockSound: {fileID: 5798088687675366912}
 --- !u!82 &7743971448673582814
 AudioSource:
   m_ObjectHideFlags: 0
@@ -925,5 +925,10 @@ PrefabInstance:
 --- !u!4 &3002852191448336345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1514706052329953981, guid: 8aaaceb1cc6d8c94b8ccd370e239635b, type: 3}
+  m_PrefabInstance: {fileID: 4371050243245661540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5798088687675366912 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7845241931517068132, guid: 8aaaceb1cc6d8c94b8ccd370e239635b, type: 3}
   m_PrefabInstance: {fileID: 4371050243245661540}
   m_PrefabAsset: {fileID: 0}
