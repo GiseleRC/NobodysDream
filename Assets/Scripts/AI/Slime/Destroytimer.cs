@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Destroytimer : MonoBehaviour
 {
+    bool slowChar;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,10 @@ public class Destroytimer : MonoBehaviour
     private void OnDestroy()
     {
         PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+        if (slowChar)
+        {
+            GameObject.Find("Char").gameObject.GetComponent<PlayerSC>().CancelSlow();
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +35,7 @@ public class Destroytimer : MonoBehaviour
     {
         if(other.gameObject.name == "Char")
         {
+            slowChar = true;
             other.gameObject.GetComponent<PlayerSC>().Slow();
         }
     }
@@ -38,6 +44,7 @@ public class Destroytimer : MonoBehaviour
     {
         if (other.gameObject.name == "Char")
         {
+            slowChar = false;
             other.gameObject.GetComponent<PlayerSC>().CancelSlow();
         }
     }

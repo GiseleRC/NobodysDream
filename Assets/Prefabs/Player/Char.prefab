@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3059f0e7246c70247ac660abbed609f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ground: {fileID: 4097475204140539198}
 --- !u!82 &679480430346559287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1303,6 +1304,7 @@ MonoBehaviour:
   timerController: {fileID: 0}
   tutorialPaperBool: {fileID: 0}
   dialogManager: {fileID: 0}
+  kakiLevel3GO: {fileID: 0}
   finalPlat: {fileID: 0}
   finalGO: {fileID: 0}
   nose1GO: {fileID: 0}

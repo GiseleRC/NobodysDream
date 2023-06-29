@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Umbrella : MonoBehaviour
 {
-    bool umbrella;
+    bool umbrella, cantUseUmbrella;
     AudioSource audioSource;
+    [SerializeField]GroundCheck ground;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,16 @@ public class Umbrella : MonoBehaviour
         get { return umbrella; }
     }
 
+    public bool CantUseUmbrella
+    {
+        get { return cantUseUmbrella; }
+        set { cantUseUmbrella = value; }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Action1"))
+        if (Input.GetButtonDown("Action1") && !cantUseUmbrella)
         {
             if (umbrella)
             {
@@ -34,5 +41,17 @@ public class Umbrella : MonoBehaviour
                 gameObject.GetComponent<MeshRenderer>().enabled = true;
             }
         }
+
+        if (cantUseUmbrella && ground.IsGrounded)
+        {
+            cantUseUmbrella = false;
+        }
+    }
+
+    public void DestroyUmbrella()
+    {
+        umbrella = false;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        cantUseUmbrella = true;
     }
 }

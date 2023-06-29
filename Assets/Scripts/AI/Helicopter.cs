@@ -9,7 +9,7 @@ public class Helicopter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private void Awake()
@@ -42,5 +42,13 @@ public class Helicopter : MonoBehaviour
     private void OnPauseStateChanged(PauseState newPauseState)
     {
         enabled = newPauseState == PauseState.Gameplay;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 7)
+        {
+            collision.gameObject.GetComponentInChildren<Umbrella>().DestroyUmbrella();
+        }
     }
 }
