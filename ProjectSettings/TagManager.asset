@@ -9,6 +9,7 @@ TagManager:
   - Ruler
   - MobilePlatforms
   - Thief
+  - Slime
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Lantern
   - TriggerButtons
   - BallBullet
-  - 
+  - Boina
   - 
   - 
   - 
