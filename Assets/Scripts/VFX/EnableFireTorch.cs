@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class EnableFireTorch : MonoBehaviour
 {
-    [SerializeField] ParticleSystem ps;
-     public AudioSource audioSource;
-    // Start is called before the first frame update
+    [SerializeField] private ParticleSystem ps;
+    [SerializeField] private AudioSource audioSource;
     void Start()
     {
        // ps.Pause();
         audioSource = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         
@@ -21,7 +18,7 @@ public class EnableFireTorch : MonoBehaviour
 
     public void PlayFire()
     {
-        //ps.Play();
+        ps.Play();
         audioSource.Play();
     }
 }
