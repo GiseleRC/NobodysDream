@@ -12,6 +12,7 @@ public class SpawnPlayerController : MonoBehaviour
     [SerializeField] public GameObject playerGO;
     [SerializeField] public Transform playerSpawn;
     [SerializeField] public Transform initialPos;
+    [SerializeField] GameObject level3On, level1Off;
     //TP2 - Caamaño Romina - Encapsular max distance
     private float maxDistanceY = -35f;
     void Update()
@@ -41,5 +42,11 @@ public class SpawnPlayerController : MonoBehaviour
     public void ChangeMusic()
     {
         GameObject.Find("MusicBackground").GetComponent<MusicTransition>().OnLevelChange("level2");
+    }
+
+    public void Level3On()
+    {
+        level3On.SetActive(true);
+        level1Off.SetActive(false);
     }
 }
