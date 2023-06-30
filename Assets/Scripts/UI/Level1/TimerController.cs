@@ -60,15 +60,6 @@ public class TimerController : MonoBehaviour
             currTimeWait += 50;
             pickBooster = false;
         }
-        if (rudolfIsAttacking)
-        {
-            currTimeWait -= Time.deltaTime * 50;
-            if (clock.clip != clockFast)
-            {
-                clock.clip = clockFast;
-                clock.Play();
-            }
-        }
 
         if (enemiesAttacking >= 1)
         {
@@ -77,7 +68,16 @@ public class TimerController : MonoBehaviour
             {
                 clock.clip = clockFast;
                 clock.Play();
-            } 
+            }
+        }
+        else if (rudolfIsAttacking)
+        {
+            currTimeWait -= Time.deltaTime * 30;
+            if (clock.clip != clockFast)
+            {
+                clock.clip = clockFast;
+                clock.Play();
+            }
         }
         else
         {
