@@ -31,6 +31,7 @@ public class Umbrella : MonoBehaviour
         {
             if (umbrella)
             {
+                audioSource.Play();
                 umbrella = false;
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
             }
@@ -51,6 +52,7 @@ public class Umbrella : MonoBehaviour
     public void DestroyUmbrella()
     {
         umbrella = false;
+        audioSource.Play();
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         cantUseUmbrella = true;
     }

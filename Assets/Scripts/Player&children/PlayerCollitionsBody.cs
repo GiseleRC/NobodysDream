@@ -296,6 +296,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             if(canInteractWithItem && Input.GetButton("Interact"))
             {
                 gameObject.GetComponentInChildren<Umbrella>().enabled = true;
+                pickUp.Play();
                 //Tutorial,etc
                 pickeablesUI[4].SetActive(false);
                 Destroy(other.gameObject);
