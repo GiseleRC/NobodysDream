@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChessBoard : MonoBehaviour
 {
     [SerializeField] public ChessPiece[] chessPieces;
-    [SerializeField] private ChessSensors chessSensors;
     public bool torreB, peon1B, peon2B, alfilB, caballoB, peon3B, resetParticle;
     public GameObject letterGO, victoryBoardGO, rudolfGO, buttonResetGO;
     public DialogManager dialogManager;
