@@ -256,7 +256,6 @@ public class PlayerSC : MonoBehaviour
 
         if(Input.GetButtonUp("Jump") && playerRB.velocity.y > 0)
         {
-            print("coyote");
             coyoteTimeCounter = 0;
         }
     }
