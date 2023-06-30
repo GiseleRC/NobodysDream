@@ -48,10 +48,15 @@ public class ThrowBoina : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Char" && reverse)
+        if (other.gameObject.name == "Char" && reverse)
         {
             other.gameObject.GetComponent<BoinaMec>().CantUse = false;
             Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag == "Colectible")
+        {
+            other.gameObject.transform.parent = gameObject.transform;
         }
     }
 

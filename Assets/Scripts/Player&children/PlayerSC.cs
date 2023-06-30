@@ -33,6 +33,8 @@ public class PlayerSC : MonoBehaviour
     float initialGravity;
     bool falling, slow;
     float fallingCheck;
+    [SerializeField] AudioSource soundWalk;
+    [SerializeField] AudioClip walk, run;
 
     public int BallCount { get; private set; } = 0;
     public AudioSource ThrowBall;
@@ -202,6 +204,29 @@ public class PlayerSC : MonoBehaviour
         else
         {
             float speed = (Input.GetButton("Left Shift")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
+
+            if(inputX != 0 && ground.IsGrounded|| inputY != 0 && ground.IsGrounded)
+            {
+                if(speed == runSpeed)
+                {
+                    soundWalk.clip = run;
+                    soundWalk.volume = 1f;
+                }
+                else
+                {
+                    soundWalk.clip = walk;
+                    soundWalk.volume = 0.5f;
+                }
+
+                if (soundWalk.isPlaying == false)
+                {
+                    soundWalk.Play();
+                }
+            }
+            else
+            {
+                soundWalk.Stop();
+            }
 
             Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
             transform.position += velocity;

@@ -11,6 +11,7 @@ TagManager:
   - Thief
   - Slime
   - BorderUI
+  - Colectible
   layers:
   - Default
   - TransparentFX
