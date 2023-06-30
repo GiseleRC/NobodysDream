@@ -42,7 +42,7 @@ public class Puzzle3 : MonoBehaviour
             option2 = false;
             timerController.AddTime(-50f);
         }
-        else if (option3 && currGuess == 1)
+        else if (option3 && currGuess == 1)//
         {
             option2GO.SetActive(false);
             option1GO.SetActive(false);
@@ -77,7 +77,7 @@ public class Puzzle3 : MonoBehaviour
             option1 = false;
             timerController.AddTime(-50f);
         }
-        else if (option2 && currGuess == 2)
+        else if (option2 && currGuess == 2)//
         {
             guess2GO.SetActive(false);
             option4GO.SetActive(false);
@@ -124,7 +124,7 @@ public class Puzzle3 : MonoBehaviour
             option2 = false;
             timerController.AddTime(-50f);
         }
-        else if (option3 && currGuess == 3)
+        else if (option3 && currGuess == 3)//
         {
             option7GO.SetActive(false);
             option8GO.SetActive(false);
