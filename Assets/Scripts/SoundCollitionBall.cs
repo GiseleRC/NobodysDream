@@ -8,6 +8,7 @@ public class SoundCollitionBall : MonoBehaviour
     void Start()
     {
         hit.Play();
+        Destroy(gameObject, 2f);
     }
 
 }
