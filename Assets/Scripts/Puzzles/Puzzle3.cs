@@ -13,6 +13,7 @@ public class Puzzle3 : MonoBehaviour
                         ajedrezGO1, face1GO, face2GO, face3GO, finalGO;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip correct, wrong;
+    [SerializeField] AudioClip[] clowns;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class Puzzle3 : MonoBehaviour
     {
         if (showGuess1)
         {
+            audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
             guess1GO.SetActive(true);
             option1GO.SetActive(true);
             option2GO.SetActive(true);
@@ -65,6 +67,7 @@ public class Puzzle3 : MonoBehaviour
 
         if (showGuess2)
         {
+            audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
             guess2GO.SetActive(true);
             option4GO.SetActive(true);
             option5GO.SetActive(true);
@@ -110,6 +113,7 @@ public class Puzzle3 : MonoBehaviour
 
         if (showGuess3)
         {
+            audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
             guess3GO.SetActive(true);
             option7GO.SetActive(true);
             option8GO.SetActive(true);
@@ -137,6 +141,7 @@ public class Puzzle3 : MonoBehaviour
         else if (option3 && currGuess == 3)//
         {
             audioSource.PlayOneShot(correct);
+            audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
             option7GO.SetActive(false);
             option8GO.SetActive(false);
             option9GO.SetActive(false);
@@ -162,5 +167,10 @@ public class Puzzle3 : MonoBehaviour
         {
             face3GO.GetComponent<Wheel>().enabled = false;
         }
+    }
+
+    public void PlayClownSound()
+    {
+        audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
     }
 }

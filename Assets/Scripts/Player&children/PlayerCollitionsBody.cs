@@ -373,6 +373,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             introB = true;
             introGO.SetActive(true);
+            GameObject.Find("Puzzle3").GetComponent<Puzzle3>().PlayClownSound();
             dialogManager.ShowDialog(DialogKey.QuestClowns);
             collision.gameObject.name = "AlmohadaL";
         }
