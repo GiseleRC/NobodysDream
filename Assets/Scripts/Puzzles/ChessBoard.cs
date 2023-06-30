@@ -6,7 +6,7 @@ public class ChessBoard : MonoBehaviour
 {
     [SerializeField] public ChessPiece[] chessPieces;
     [SerializeField] private ChessSensors chessSensors;
-    public bool torreB, peon1B, peon2B, alfilB, caballoB, peon3B;
+    public bool torreB, peon1B, peon2B, alfilB, caballoB, peon3B, resetParticle;
     public GameObject letterGO, victoryBoardGO, rudolfGO, buttonResetGO;
     public DialogManager dialogManager;
 
@@ -16,12 +16,7 @@ public class ChessBoard : MonoBehaviour
         {
             chessPiece.ResetPosition();
         }
-        chessSensors.peon1Bpart.SetActive(true);
-        chessSensors.peon2Bpart.SetActive(true);
-        chessSensors.peon3Bpart.SetActive(true);
-        chessSensors.torreBpart.SetActive(true);
-        chessSensors.alfilBpart.SetActive(true);
-        chessSensors.caballoBpart.SetActive(true);
+        resetParticle = true;
     }
 
     private void Update()

@@ -6,6 +6,7 @@ public class ChessSensors : MonoBehaviour
 {
     public ChessBoard chessBoard;
     public GameObject torreBpart, peon1Bpart, peon2Bpart, alfilBpart, caballoBpart, peon3Bpart;
+    
     public void OnTriggerEnter(Collider other)
     {
         if (other.name == "Torre 1-4" && gameObject.name == "Casillero  1-1")
@@ -44,5 +45,15 @@ public class ChessSensors : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             peon3Bpart.SetActive(false);
         }
+        //if (chessBoard.resetParticle)
+        //{
+        //    peon3Bpart.SetActive(true);
+        //    caballoBpart.SetActive(true);
+        //    alfilBpart.SetActive(true);
+        //    peon2Bpart.SetActive(true);
+        //    peon1Bpart.SetActive(true);
+        //    torreBpart.SetActive(true);
+        //    chessBoard.resetParticle = false;
+        //}
     }
 }
