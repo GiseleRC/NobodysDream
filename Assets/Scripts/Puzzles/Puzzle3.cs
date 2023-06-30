@@ -11,6 +11,9 @@ public class Puzzle3 : MonoBehaviour
     public GameObject guess1GO, guess2GO, guess3GO, nose1Particle, nose2Particle, nose3Particle, nose1GO, nose2GO, nose3GO,
                       option1GO, option2GO, option3GO, option4GO, option5GO, option6GO, option7GO, option8GO, option9GO,
                         ajedrezGO1, face1GO, face2GO, face3GO, finalGO;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip correct, wrong;
+    [SerializeField] AudioClip[] clowns;
 
     private void Start()
     {
@@ -20,6 +23,7 @@ public class Puzzle3 : MonoBehaviour
     {
         if (showGuess1)
         {
+            audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
             guess1GO.SetActive(true);
             option1GO.SetActive(true);
             option2GO.SetActive(true);
@@ -35,15 +39,18 @@ public class Puzzle3 : MonoBehaviour
         if (option1 && currGuess == 1)
         {
             option1 = false;
+            audioSource.PlayOneShot(wrong);
             //timerController.AddTime(-50f);
         }
         else if (option2 && currGuess == 1)
         {
+            audioSource.PlayOneShot(wrong);
             option2 = false;
             //timerController.AddTime(-50f);
         }
         else if (option3 && currGuess == 1)//
         {
+            audioSource.PlayOneShot(correct);
             option2GO.SetActive(false);
             option1GO.SetActive(false);
             guess1GO.SetActive(false);
@@ -60,6 +67,7 @@ public class Puzzle3 : MonoBehaviour
 
         if (showGuess2)
         {
+            audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
             guess2GO.SetActive(true);
             option4GO.SetActive(true);
             option5GO.SetActive(true);
@@ -74,11 +82,13 @@ public class Puzzle3 : MonoBehaviour
         }
         if (option1 && currGuess == 2)
         {
+            audioSource.PlayOneShot(wrong);
             option1 = false;
             //timerController.AddTime(-50f);
         }
         else if (option2 && currGuess == 2)//
         {
+            audioSource.PlayOneShot(correct);
             guess2GO.SetActive(false);
             option4GO.SetActive(false);
             option5GO.SetActive(false);
@@ -96,12 +106,14 @@ public class Puzzle3 : MonoBehaviour
         }
         else if (option3 && currGuess == 2)
         {
+            audioSource.PlayOneShot(wrong);
             option3 = false;
             //timerController.AddTime(-50f);
         }
 
         if (showGuess3)
         {
+            audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
             guess3GO.SetActive(true);
             option7GO.SetActive(true);
             option8GO.SetActive(true);
@@ -116,16 +128,20 @@ public class Puzzle3 : MonoBehaviour
         }
         if (option1 && currGuess == 3)
         {
+            audioSource.PlayOneShot(wrong);
             option1 = false;
             //timerController.AddTime(-50f);
         }
         else if (option2 && currGuess == 3)
         {
+            audioSource.PlayOneShot(wrong);
             option2 = false;
             //timerController.AddTime(-50f);
         }
         else if (option3 && currGuess == 3)//
         {
+            audioSource.PlayOneShot(correct);
+            audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
             option7GO.SetActive(false);
             option8GO.SetActive(false);
             option9GO.SetActive(false);
@@ -151,5 +167,10 @@ public class Puzzle3 : MonoBehaviour
         {
             face3GO.GetComponent<Wheel>().enabled = false;
         }
+    }
+
+    public void PlayClownSound()
+    {
+        audioSource.PlayOneShot(clowns[Random.Range(0, clowns.Length - 1)]);
     }
 }
