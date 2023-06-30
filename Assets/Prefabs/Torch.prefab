@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 2194378567341075188}
+  lightGO: {fileID: 0}
   fireSound: {fileID: 7743971448673582814}
   clockSound: {fileID: 5798088687675366912}
 --- !u!82 &7743971448673582814
@@ -74,7 +75,7 @@ AudioSource:
   m_GameObject: {fileID: 3432653131956255263}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2526150142642533833, guid: c04bb597821c3b84f99e3dd0dd7bd781, type: 2}
   m_audioClip: {fileID: 8300000, guid: 55fd7b6633b0d904db76408d645a5996, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.15
@@ -830,6 +831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reloj
       objectReference: {fileID: 0}
+    - target: {fileID: 7845241931517068132, guid: 8aaaceb1cc6d8c94b8ccd370e239635b, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 2526150142642533833, guid: c04bb597821c3b84f99e3dd0dd7bd781, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aaaceb1cc6d8c94b8ccd370e239635b, type: 3}
 --- !u!4 &3002852191448336345 stripped

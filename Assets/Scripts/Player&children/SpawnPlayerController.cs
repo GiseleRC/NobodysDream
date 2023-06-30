@@ -37,4 +37,9 @@ public class SpawnPlayerController : MonoBehaviour
         playerGO.transform.position = playerSpawn.position;
         playerGO.transform.rotation = playerSpawn.rotation;
     }
+
+    public void ChangeMusic()
+    {
+        GameObject.Find("MusicBackground").GetComponent<MusicTransition>().OnLevelChange("level2");
+    }
 }

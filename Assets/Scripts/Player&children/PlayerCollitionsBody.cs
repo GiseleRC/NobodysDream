@@ -107,6 +107,11 @@ public class PlayerCollitionsBody : MonoBehaviour
             level1Enable.SetActive(false);
             other.gameObject.GetComponent<Collider>().enabled = false;
         }
+        else if (other.name == "SabanaLvl2Off")
+        {
+            level2Enable.SetActive(false);
+            other.gameObject.GetComponent<Collider>().enabled = false;
+        }
         else if (other.name == "SensorPlayerchocolate")
         {
             dialogManager.ShowDialog(DialogKey.Chocolates);

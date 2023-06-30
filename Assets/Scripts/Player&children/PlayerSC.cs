@@ -159,7 +159,6 @@ public class PlayerSC : MonoBehaviour
             ball.GetComponent<Rigidbody>().AddForce(hand.transform.forward * ballThrowForce, ForceMode.Impulse);
             ball.transform.GetChild(0).gameObject.SetActive(true);
             ball = null;
-            Debug.Log(" A tiraR, Tengo " + BallCount + " pelotas de " + maxCapacityOfBalls);
         }
         
     }
