@@ -184,6 +184,7 @@ public class PlayerCollitionsBody : MonoBehaviour
                 IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
                 dialogSystem.SetActive(true);//Se activa SISTEMA DE DIALOGO
                 dialogManager.ShowDialog(DialogKey.IntroductionGuide);// bool dialogo
+                GetComponent<BoinaMec>().enabled = true;
 
                 pickeablesUI[0].SetActive(false);
 

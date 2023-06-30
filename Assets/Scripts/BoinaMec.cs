@@ -23,7 +23,7 @@ public class BoinaMec : MonoBehaviour
     {
         if(Input.GetButtonDown("Boina") && !cantUse)
         {
-            Instantiate(boina, spawnPos.position, transform.rotation);
+            Instantiate(boina, spawnPos.position, GameObject.Find("PlayerCam").GetComponent<Transform>().transform.rotation);
             cantUse = true;
         }
     }

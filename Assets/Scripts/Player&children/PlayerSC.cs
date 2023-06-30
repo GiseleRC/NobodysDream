@@ -301,7 +301,7 @@ public class PlayerSC : MonoBehaviour
             walkSpeed = 8f;
         }else if (slow)
         {
-            walkSpeed = 2f;
+            walkSpeed = .5f;
         }
         else
         {
