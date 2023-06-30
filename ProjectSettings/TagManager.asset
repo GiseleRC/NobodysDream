@@ -10,6 +10,7 @@ TagManager:
   - MobilePlatforms
   - Thief
   - Slime
+  - BorderUI
   layers:
   - Default
   - TransparentFX

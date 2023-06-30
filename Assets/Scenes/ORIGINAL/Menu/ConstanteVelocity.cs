@@ -35,7 +35,10 @@ public class ConstanteVelocity : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        randomX = Random.Range(-10, 10);
-        randomY = Random.Range(-10, 10);
+        if(collision.gameObject.tag == "BorderUI")
+        {
+            randomX = Random.Range(-10, 10);
+            randomY = Random.Range(-10, 10);
+        }
     }
 }
