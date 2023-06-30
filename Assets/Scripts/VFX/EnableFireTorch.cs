@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnableFireTorch : MonoBehaviour
 {
     [SerializeField] private ParticleSystem ps;
+    [SerializeField] private GameObject lightGO;
     [SerializeField] private AudioSource fireSound, clockSound;
     void Start()
     {
@@ -15,6 +16,7 @@ public class EnableFireTorch : MonoBehaviour
     public void PlayFire()
     {
         ps.Play();
+        lightGO.SetActive(true);
         clockSound.Play();
         fireSound.PlayDelayed(1f);
     }
