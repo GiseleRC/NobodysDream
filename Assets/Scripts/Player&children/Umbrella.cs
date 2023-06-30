@@ -7,10 +7,12 @@ public class Umbrella : MonoBehaviour
     bool umbrella, cantUseUmbrella;
     AudioSource audioSource;
     [SerializeField]GroundCheck ground;
+    MaterializeObjects mtObjs;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        mtObjs = GetComponentInParent<MaterializeObjects>();
     }
 
     public bool UmbrellaActivate
@@ -27,7 +29,7 @@ public class Umbrella : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Action1") && !cantUseUmbrella)
+        if (Input.GetButtonDown("Action1") && !cantUseUmbrella && mtObjs.materializanding == false)
         {
             if (umbrella)
             {

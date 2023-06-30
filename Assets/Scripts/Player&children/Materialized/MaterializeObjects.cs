@@ -8,6 +8,7 @@ public class MaterializeObjects : MonoBehaviour
     [SerializeField] List<GameObject> rulersActive, cubesActive;
     GameObject actualObject, lastObjectCreated, newObject;
     [SerializeField] LayerMask layerMask;
+    Umbrella umbrella;
     public bool materializanding = false;
     float timer;
     Vector3 pos;
@@ -39,6 +40,7 @@ public class MaterializeObjects : MonoBehaviour
         canMat = true;
         objectCreated = 0;
         lastObjectCreated = ruler;
+        umbrella = GetComponentInChildren<Umbrella>();
     }
     void Update()
     {
@@ -55,7 +57,7 @@ public class MaterializeObjects : MonoBehaviour
             pos = camPos.transform.position + camPos.transform.forward * 3f;
         }
 
-        if (Input.GetButtonDown("RightClick")) 
+        if (Input.GetButtonDown("RightClick") && umbrella.UmbrellaActivate == false) 
         {
             materializanding = true;
             if (!placingObject) // Spawnea
