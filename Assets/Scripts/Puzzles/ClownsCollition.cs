@@ -33,35 +33,33 @@ public class ClownsCollition : MonoBehaviour
                 NoseSound.Play();
             }
 
-            if (gameObject.name == "Option1" || gameObject.name == "Option4")
+            if (gameObject.name == "Option1" || gameObject.name == "Option4" || gameObject.name == "Option7")
             {
                 puzzle3.option1 = true;
                 gameObject.SetActive(false);
-                timerController.rudolfIsAttacking = true;
-            }
-            else if (gameObject.name == "Option7")
-            {
-                puzzle3.option1 = true;
-                gameObject.SetActive(false);
+                timerController.isAttacking = true;
+                timerController.descountTime = true;
             }
             if (gameObject.name == "Option2" || gameObject.name == "Option8")
             {
                 puzzle3.option2 = true;
                 gameObject.SetActive(false);
-                timerController.rudolfIsAttacking = true;
+                timerController.isAttacking = true;
+                timerController.descountTime = true;
             }
             else if (gameObject.name == "Option5")
             {
                 puzzle3.option2 = true;
                 gameObject.SetActive(false);
             }
-            if (gameObject.name == "Option3" || gameObject.name == "Option6")
+            if (gameObject.name == "Option6")
             {
                 puzzle3.option3 = true;
                 gameObject.SetActive(false);
-                timerController.rudolfIsAttacking = true;
+                timerController.isAttacking = true;
+                timerController.descountTime = true;
             }
-            else if (gameObject.name == "Option9")
+            else if (gameObject.name == "Option3" || gameObject.name == "Option9")
             {
                 puzzle3.option3 = true;
                 gameObject.SetActive(false);

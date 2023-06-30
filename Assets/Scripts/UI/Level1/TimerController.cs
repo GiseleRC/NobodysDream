@@ -12,6 +12,8 @@ public class TimerController : MonoBehaviour
     [SerializeField] SpawnPlayerController spawnPlayerController;
     public bool pickBooster = false;
     public bool rudolfIsAttacking;
+    public bool isAttacking;
+    public bool descountTime;
     private int enemiesAttacking;
     public Image image;
     public Slider time;
@@ -19,6 +21,7 @@ public class TimerController : MonoBehaviour
     public AudioSource clock;
     public AudioClip clockSlow, clockFast;
     private float currTimeWait;
+    private float stopPlay = 1f;
 
     public int EnemiesAttacking
     {
@@ -55,6 +58,14 @@ public class TimerController : MonoBehaviour
     }
     void Update()
     {
+        if (stopPlay <= 0)
+        {
+            isAttacking = false;
+            stopPlay = 2f;
+            descountTime = false;
+
+        }
+
         if (pickBooster && currTimeWait <= minTimeForPickBooster)
         {
             currTimeWait += 50;
@@ -79,6 +90,29 @@ public class TimerController : MonoBehaviour
                 clock.Play();
             }
         }
+        else if (isAttacking)
+        {
+            stopPlay -= Time.deltaTime;
+            if (clock.clip != clockFast)
+            {
+                if (descountTime)
+                {
+                    AddTime(-50);
+                    descountTime = false;
+                }
+                clock.clip = clockFast;
+                clock.Play();
+            }
+        }
+        //else if (!isAttacking && enemiesAttacking < 1)
+        //{
+        //    currTimeWait -= Time.deltaTime;
+        //    if (clock.clip != clockSlow)
+        //    {
+        //        clock.clip = clockSlow;
+        //        clock.Play();
+        //    }
+        //}
         else
         {
             currTimeWait -= Time.deltaTime;
