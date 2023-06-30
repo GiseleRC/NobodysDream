@@ -35,12 +35,12 @@ public class Puzzle3 : MonoBehaviour
         if (option1 && currGuess == 1)
         {
             option1 = false;
-            timerController.AddTime(-50f);
+            //timerController.AddTime(-50f);
         }
         else if (option2 && currGuess == 1)
         {
             option2 = false;
-            timerController.AddTime(-50f);
+            //timerController.AddTime(-50f);
         }
         else if (option3 && currGuess == 1)//
         {
@@ -75,7 +75,7 @@ public class Puzzle3 : MonoBehaviour
         if (option1 && currGuess == 2)
         {
             option1 = false;
-            timerController.AddTime(-50f);
+            //timerController.AddTime(-50f);
         }
         else if (option2 && currGuess == 2)//
         {
@@ -97,7 +97,7 @@ public class Puzzle3 : MonoBehaviour
         else if (option3 && currGuess == 2)
         {
             option3 = false;
-            timerController.AddTime(-50f);
+            //timerController.AddTime(-50f);
         }
 
         if (showGuess3)
@@ -117,12 +117,12 @@ public class Puzzle3 : MonoBehaviour
         if (option1 && currGuess == 3)
         {
             option1 = false;
-            timerController.AddTime(-50f);
+            //timerController.AddTime(-50f);
         }
         else if (option2 && currGuess == 3)
         {
             option2 = false;
-            timerController.AddTime(-50f);
+            //timerController.AddTime(-50f);
         }
         else if (option3 && currGuess == 3)//
         {
