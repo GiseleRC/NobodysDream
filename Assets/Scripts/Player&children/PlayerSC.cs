@@ -85,11 +85,6 @@ public class PlayerSC : MonoBehaviour
         {
             BallGrabAndThrow();
         }
-
-        if (Input.GetButtonDown("Reinicio"))
-        {
-            ReloadScene();
-        }
     }
     void FixedUpdate()
     {
@@ -118,11 +113,6 @@ public class PlayerSC : MonoBehaviour
     {
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<MeshCollider>().enabled = true;
-    }
-
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene("Level1");
     }
 
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
