@@ -454,6 +454,5 @@ public class PlayerCollitionsBody : MonoBehaviour
             : PauseState.Paused;
 
         PauseStateManager.Instance.SetState(newPauseState);
-        print(PauseStateManager.Instance.CurrentPauseState);
     }
 }
