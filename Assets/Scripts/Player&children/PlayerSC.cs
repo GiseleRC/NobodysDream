@@ -35,6 +35,7 @@ public class PlayerSC : MonoBehaviour
     float fallingCheck;
 
     public int BallCount { get; private set; } = 0;
+    public AudioSource ThrowBall;
 
     GroundCheck ground;
 
@@ -148,6 +149,7 @@ public class PlayerSC : MonoBehaviour
         }
         if (ball != null && Input.GetButtonDown("LeftClick"))
         {
+            ThrowBall.Play();
             BallCount--;
             ballReload = 0f;
             ball.transform.parent = null;

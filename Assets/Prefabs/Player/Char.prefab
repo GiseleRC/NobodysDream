@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 695052124415110219}
   - component: {fileID: 4098824230782094789}
   - component: {fileID: 4140111379345713040}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Paraguas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176514073082670381}
   m_LocalRotation: {x: -0, y: 0.65219504, z: -0, w: 0.7580513}
-  m_LocalPosition: {x: -0.147, y: -0.009, z: 0.547}
+  m_LocalPosition: {x: -0.158, y: -0.009, z: 0.623}
   m_LocalScale: {x: 34.92147, y: 34.92147, z: 34.92147}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -321,8 +321,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0034611952, y: 0.029013459, z: 0.0037375775}
-  m_Center: {x: 0.0002397253, y: 0.01422876, z: 0.00020683851}
+  m_Size: {x: 0.002914302, y: 0.029013459, z: 0.0019732595}
+  m_Center: {x: -0.00046885046, y: 0.01422876, z: 0.0014566467}
 --- !u!1 &1307558152336275190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1588,7 @@ MonoBehaviour:
   orientation: {fileID: 5579184150392987516}
   canThrowBall: 0
   canMaterialized: 0
+  ThrowBall: {fileID: 0}
 --- !u!114 &4063438181940665769
 MonoBehaviour:
   m_ObjectHideFlags: 0
