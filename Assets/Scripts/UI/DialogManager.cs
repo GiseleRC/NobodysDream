@@ -75,6 +75,8 @@ public class DialogManager : MonoBehaviour
     }
 
     // Variables seteables desde el inspector
+    [SerializeField] AudioSource dialogAudioSource;
+    [SerializeField] AudioClip[] wawas;
     [SerializeField] private GameObject dialogBox;
     [SerializeField] private float dialogTime = 7f;
     [SerializeField] private DialogEntry[] dialogEntries;
@@ -86,6 +88,8 @@ public class DialogManager : MonoBehaviour
     // Metodo principal para indicarle al manager que muestre un nuevo dialogo
     public void ShowDialog(DialogKey key)
     {
+        dialogAudioSource.clip = wawas[UnityEngine.Random.Range(0, wawas.Length -1)];
+        dialogAudioSource.Play();
         // Busqueda de la definicion del dialogo por key
         int idx = Array.FindIndex(dialogEntries, dialogEntry => dialogEntry.key == key);
         // Si no fue encontrado, salimos
