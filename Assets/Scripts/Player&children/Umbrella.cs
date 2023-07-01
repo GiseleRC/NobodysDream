@@ -8,16 +8,29 @@ public class Umbrella : MonoBehaviour
     AudioSource audioSource;
     [SerializeField]GroundCheck ground;
     MaterializeObjects mtObjs;
+    [SerializeField] float maxTimeUmbrella, rechargeSpeed, dischargeSpeed;
+    float actualTime;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         mtObjs = GetComponentInParent<MaterializeObjects>();
+        actualTime = maxTimeUmbrella;
     }
 
     public bool UmbrellaActivate
     {
         get { return umbrella; }
+    }
+
+    public float MaxTimeUmbrella
+    {
+        get { return maxTimeUmbrella; }
+    }
+
+    public float ActualTime
+    {
+        get { return actualTime; }
     }
 
     public bool CantUseUmbrella
@@ -48,6 +61,21 @@ public class Umbrella : MonoBehaviour
         if (cantUseUmbrella && ground.IsGrounded)
         {
             cantUseUmbrella = false;
+        }
+
+        if (umbrella)
+        {
+            actualTime -= dischargeSpeed * Time.deltaTime;
+        }
+        else
+        {
+            if (ground.IsGrounded)
+            {
+                if(actualTime < maxTimeUmbrella)
+                {
+                    actualTime += rechargeSpeed * Time.deltaTime;
+                }
+            }
         }
     }
 

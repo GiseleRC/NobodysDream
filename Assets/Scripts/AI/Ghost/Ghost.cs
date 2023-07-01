@@ -151,15 +151,19 @@ public class Ghost : Enemies, IEnemy
     void CheckPath()
     {
         NavMeshPath navMeshStatus = new NavMeshPath();
-        nma.CalculatePath(characterPos.position, navMeshStatus);
 
-        if (navMeshStatus.status == NavMeshPathStatus.PathComplete)
+        if (nma.isActiveAndEnabled)
         {
-            canChase = true;
-        }
-        else
-        {
-            canChase = false;
+                nma.CalculatePath(characterPos.position, navMeshStatus);
+
+            if (navMeshStatus.status == NavMeshPathStatus.PathComplete)
+            {
+                canChase = true;
+            }
+            else
+            {
+                canChase = false;
+            }
         }
     }
 

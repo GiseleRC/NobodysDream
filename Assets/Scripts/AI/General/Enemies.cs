@@ -28,13 +28,15 @@ public class Enemies : MonoBehaviour
 
     private void OnDisable()
     {
-        nma.isStopped = true;
+        if (nma.isActiveAndEnabled)
+            nma.isStopped = true;
     }
 
-    //private void OnEnable()
-    //{
-    //    nma.isStopped = false;
-    //}
+    private void OnEnable()
+    {
+        if(nma.isActiveAndEnabled)
+            nma.isStopped = false;
+    }
 
     private void OnDestroy()
     {
