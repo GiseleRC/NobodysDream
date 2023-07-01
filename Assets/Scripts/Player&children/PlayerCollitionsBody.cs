@@ -10,7 +10,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public DialogManager dialogManager;
-    public GameObject kakiLevel3GO, finalPlat, finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
+    public GameObject segundaParteLevel3, kakiLevel3GO, finalPlat, finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
                     canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
                     light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
                      level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
@@ -167,11 +167,14 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             dialogManager.ShowDialog(DialogKey.EnableEquip);
         }
-        
         if (other.name == "UmbrellaPickeable")
         {
             pickeablesUI[4].SetActive(true);
             canInteractWithItem = true;
+        }
+        if (other.name == "CheckPoint1 - Encender cosas despues")
+        {
+            segundaParteLevel3.SetActive(true);
         }
     }
 
