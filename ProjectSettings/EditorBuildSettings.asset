@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/ORIGINAL/Cutscene/Cutscene.unity
     guid: 204a187b20912f14685a2b2ab0cf012e
   - enabled: 1
-    path: Assets/Scenes/Entrega Prog 1/EntregaProgramacion2.unity
-    guid: 20122cee6c339f64bb20991f4c55be53
-  - enabled: 0
     path: Assets/Scenes/ORIGINAL/Level 1/Level1 1.unity
     guid: 8aeaf7e2efad03343a2b30809575db7f
+  - enabled: 0
+    path: Assets/Scenes/Entrega Prog 1/EntregaProgramacion2.unity
+    guid: 20122cee6c339f64bb20991f4c55be53
   - enabled: 0
     path: Assets/Scenes/ORIGINAL/Intro/Intro.unity
     guid: d59c00f543099ef4ea01de1c925c4db4
