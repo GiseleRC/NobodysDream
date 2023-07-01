@@ -11,7 +11,7 @@ public class ChangerScene : MonoBehaviour
         changeTime -= Time.deltaTime;
         if (changeTime <= 0f)
         {
-            SceneManager.LoadScene("Level1 1");
+            SceneManager.LoadScene("EntregaProgramacion2");
         }
     }
 }
