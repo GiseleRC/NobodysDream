@@ -31,10 +31,10 @@ public class Enemies : MonoBehaviour
         nma.isStopped = true;
     }
 
-    private void OnEnable()
-    {
-        nma.isStopped = false;
-    }
+    //private void OnEnable()
+    //{
+    //    nma.isStopped = false;
+    //}
 
     private void OnDestroy()
     {
