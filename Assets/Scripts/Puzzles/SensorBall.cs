@@ -6,13 +6,9 @@ public class SensorBall : MonoBehaviour
 {
     [SerializeField] private MiniBoss miniBoss;
     [SerializeField] public GameObject cartelGO, Z1GO, Z2GO;
-    //private bool glassesEnableRB;
     void Update()
     {
-        //if (glassesEnableRB)
-        //{
 
-        //}
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -20,24 +16,19 @@ public class SensorBall : MonoBehaviour
         {
             Z1GO.SetActive(false);
             gameObject.SetActive(false);
-            
-            //miniBoss.gateGreenClose = false;
         }
         else if (gameObject.name == "BowlinBall - segunda" && collision.gameObject.name == "SensorGlasses" )
         {
             Z2GO.SetActive(false);
             cartelGO.SetActive(true);
             gameObject.SetActive(false);
-            collision.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            //miniBoss.gateGreenClose = false;
+            collision.gameObject.SetActive(false);
         }
 
         if (gameObject.name == "BowlinBall - segunda" && collision.gameObject.name == "Compuerta tobogan")
         {
             miniBoss.gateBlueClose = true;
-            miniBoss.gatePinkClose = true;
-            //miniBoss.gateBlueOpen = false;
-            //miniBoss.gatePinkOpen = false;
+            miniBoss.gatePinkClose = true;;
         }
 
     }
@@ -46,12 +37,10 @@ public class SensorBall : MonoBehaviour
         if (gameObject.name == "BowlinBall - primera" && other.gameObject.name == "SensorClose" )
         {
             miniBoss.gateGreenClose = true;
-            //miniBoss.gateGreenOpen = false;
         }
         else if (gameObject.name == "BowlinBall - segunda" && other.gameObject.name == "SensorClose")
         {
             miniBoss.gateGreenClose = true;
-            //miniBoss.gateGreenOpen = false;
         }
     }
 }

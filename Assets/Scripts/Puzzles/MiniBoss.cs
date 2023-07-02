@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MiniBoss : MonoBehaviour
 {
-    [SerializeField] public bool gateGreenOpen, gateBlueOpen, gatePinkOpen, gateGreenClose, gateBlueClose, gatePinkClose;
+    [SerializeField] public bool gateGreenOpen, gateBlueOpen, gatePinkOpen, gateGreenClose, gateBlueClose, gatePinkClose, dientes;
     [SerializeField] private Animator gateGreenA, gateBlueA, gatePinkA;
     [SerializeField] private AudioSource openSound, closeSound;
 
