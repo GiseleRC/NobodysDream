@@ -146,6 +146,7 @@ public class PlayerSC : MonoBehaviour
             BallCount--;
             ballReload = 0f;
             ball.transform.parent = null;
+            ball.GetComponent<Collider>().enabled = true;
             ball.GetComponent<Rigidbody>().isKinematic = false;
             ball.GetComponent<Rigidbody>().AddForce(hand.transform.forward * ballThrowForce, ForceMode.Impulse);
             ball.transform.GetChild(0).gameObject.SetActive(true);
