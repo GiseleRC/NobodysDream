@@ -57,23 +57,23 @@ public class MiniBoss : MonoBehaviour
 
     public void EventAnimOpenBlue()
     {
-        gateGreenA.Play("openBlue");
+        gateBlueA.Play("openBlue");
         openSound.Play();
     }
     public void EventAnimCloseBlue()
     {
-        gateGreenA.Play("closeBlue");
+        gateBlueA.Play("closeBlue");
         closeSound.Play();
     }
 
     public void EventAnimOpenPink()
     {
-        gateGreenA.Play("openPink");
+        gatePinkA.Play("openPink");
         openSound.Play();
     }
     public void EventAnimClosePink()
     {
-        gateGreenA.Play("closePink");
+        gatePinkA.Play("closePink");
         closeSound.Play();
     }
 }
