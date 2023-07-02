@@ -35,6 +35,7 @@ public class PlayerSC : MonoBehaviour
     float fallingCheck;
     [SerializeField] AudioSource soundWalk;
     [SerializeField] AudioClip walk, run;
+    [SerializeField] AudioSource fallingWithUmbrella;
 
     public int BallCount { get; private set; } = 0;
     public AudioSource ThrowBall;
@@ -312,15 +313,22 @@ public class PlayerSC : MonoBehaviour
         {
             playerRB.drag = 12;
             walkSpeed = 8f;
+            if(fallingWithUmbrella.isPlaying == false)
+                fallingWithUmbrella.Play();
+            
         }else if (slow)
         {
+            fallingWithUmbrella.Stop();
             walkSpeed = .5f;
         }
         else
         {
+            fallingWithUmbrella.Stop();
             walkSpeed = 4f;
             playerRB.drag = 0;
         }
+
+        print(fallingWithUmbrella.isPlaying);
     }
 
     public void TrampolineJump(float intesity)

@@ -8,7 +8,7 @@ public class Umbrella : MonoBehaviour
     AudioSource audioSource;
     [SerializeField]GroundCheck ground;
     MaterializeObjects mtObjs;
-    [SerializeField] float maxTimeUmbrella, rechargeSpeed, dischargeSpeed;
+    [SerializeField] float maxTimeUmbrella, rechargeSpeed, dischargeSpeed, amount;
     float actualTime;
     [SerializeField] GameObject ui;
     // Start is called before the first frame update
@@ -80,13 +80,14 @@ public class Umbrella : MonoBehaviour
                     umbrellaDischarge = true;
                 }
             }
-            else
-            {
-                canRecharge = true;
-            }
         }
 
-        if (ground.IsGrounded && canRecharge && !umbrellaDischarge)
+        if (ground.IsGrounded && !canRecharge)
+        {
+            canRecharge = true;
+        }
+
+        if (canRecharge && !umbrellaDischarge)
         {
             actualTime += rechargeSpeed * Time.deltaTime;
         }
@@ -113,5 +114,14 @@ public class Umbrella : MonoBehaviour
         audioSource.Play();
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         cantUseUmbrella = true;
+    }
+
+    public void AddEnergy()
+    {
+        actualTime += amount;
+        if(actualTime > maxTimeUmbrella)
+        {
+            actualTime = maxTimeUmbrella;
+        }
     }
 }

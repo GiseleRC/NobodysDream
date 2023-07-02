@@ -176,6 +176,13 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             segundaParteLevel3.SetActive(true);
         }
+        if(other.gameObject.tag == "UmbrellasPick")
+        {
+            GetComponentInChildren<Umbrella>().AddEnergy();
+            Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
+            booster.Play();
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -312,6 +319,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 
             }
         }
+
     }
 
     private void OnTriggerExit(Collider other)

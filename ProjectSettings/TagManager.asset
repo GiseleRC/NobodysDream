@@ -12,6 +12,7 @@ TagManager:
   - Slime
   - BorderUI
   - Colectible
+  - UmbrellasPick
   layers:
   - Default
   - TransparentFX

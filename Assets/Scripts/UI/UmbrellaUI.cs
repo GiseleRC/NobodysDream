@@ -19,6 +19,6 @@ public class UmbrellaUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = umbrella.ActualTime;
+        slider.value = Mathf.Lerp(slider.value, umbrella.ActualTime, 0.02f);
     }
 }
