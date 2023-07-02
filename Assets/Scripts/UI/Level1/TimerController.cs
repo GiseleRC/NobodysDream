@@ -85,7 +85,7 @@ public class TimerController : MonoBehaviour
         }
         else if (rudolfIsAttacking)
         {
-            currTimeWait -= Time.deltaTime * 40;
+            currTimeWait -= Time.deltaTime * 60;
             if (clock.clip != clockFast)
             {
                 clock.clip = clockFast;
