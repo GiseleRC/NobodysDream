@@ -92,15 +92,8 @@ public class DialogManager : MonoBehaviour
     // Metodo principal para indicarle al manager que muestre un nuevo dialogo
     public void ShowDialog(DialogKey key)
     {
-        
-        talking = false;
         actualDialog = key.ToString();
         randomNumber = UnityEngine.Random.Range(0, wawas.Length -1);
-        /*if (!dialogAudioSource.isPlaying && !talking && dialogBox.activeInHierarchy)
-        {
-
-            talking = true;
-        }*/
 
         // Busqueda de la definicion del dialogo por key
         int idx = Array.FindIndex(dialogEntries, dialogEntry => dialogEntry.key == key);
