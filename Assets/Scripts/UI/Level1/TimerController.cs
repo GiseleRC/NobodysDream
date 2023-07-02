@@ -22,6 +22,7 @@ public class TimerController : MonoBehaviour
     public AudioClip clockSlow, clockFast;
     private float currTimeWait;
     private float stopPlay = 1f;
+    public float speed;
 
     public int EnemiesAttacking
     {
@@ -53,6 +54,7 @@ public class TimerController : MonoBehaviour
 
     void Start()
     {
+        speed = 1f;
         currTimeWait = timeWait;
         time.value = timeWait;
     }
@@ -115,7 +117,7 @@ public class TimerController : MonoBehaviour
         //}
         else
         {
-            currTimeWait -= Time.deltaTime;
+            currTimeWait -= Time.deltaTime * speed;
             if(clock.clip != clockSlow)
             {
                 clock.clip = clockSlow;
@@ -133,12 +135,20 @@ public class TimerController : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-    }
-
     private void OnPauseStateChanged(PauseState newPauseState)
     {
         enabled = newPauseState == PauseState.Gameplay;
+    }
+
+    public void StopTimer()
+    {
+        speed = 0;
+        clock.Stop();
+    }
+
+    public void ResumeTimer()
+    {
+        speed = 1;
+        clock.Play();
     }
 }

@@ -49,4 +49,17 @@ public class SpawnPlayerController : MonoBehaviour
         level3On.SetActive(true);
         level1Off.SetActive(false);
     }
+
+    public void StopTimer()
+    {
+        print("Pare");
+        GameObject.Find("TimerController").GetComponent<TimerController>().StopTimer();
+    }
+
+    public void ResumeTimer()
+    {
+        print("Retome");
+        GameObject.Find("TimerController").GetComponent<TimerController>().ResumeTimer();
+
+    }
 }

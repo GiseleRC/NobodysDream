@@ -17,7 +17,6 @@ public class Umbrella : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         mtObjs = GetComponentInParent<MaterializeObjects>();
         actualTime = maxTimeUmbrella;
-        ui = GameObject.Find("UmbrellaUI");
     }
 
     private void OnEnable()
