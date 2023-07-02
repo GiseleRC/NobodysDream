@@ -86,7 +86,6 @@ public class DialogManager : MonoBehaviour
     private bool showingInstantDialog = false;
 
     int randomNumber;
-    bool talking;
     string lastDialog, actualDialog;
 
     // Metodo principal para indicarle al manager que muestre un nuevo dialogo
@@ -147,12 +146,10 @@ public class DialogManager : MonoBehaviour
         }
         // Deshabilitacion del dialogBox (UI)
         dialogBox.SetActive(false);
-        talking = false;
     }
 
     private void Update()
     {
-        print(dialogAudioSource.isPlaying);
 
         float dt = Time.deltaTime;
 

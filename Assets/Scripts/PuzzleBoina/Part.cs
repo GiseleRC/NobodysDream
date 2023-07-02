@@ -19,6 +19,7 @@ public class Part : MonoBehaviour
 
     void OnDestroy()
     {
-        GameObject.Find("PuzzleBoina").GetComponent<CollectParts>().CollectPart(partNumber);
+        if(GameObject.Find("PuzzleBoina") != null)
+            GameObject.Find("PuzzleBoina").GetComponent<CollectParts>().CollectPart(partNumber);
     }
 }
