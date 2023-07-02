@@ -5,7 +5,7 @@ using UnityEngine;
 public class SensorBall : MonoBehaviour
 {
     [SerializeField] private MiniBoss miniBoss;
-    [SerializeField] public GameObject cartelGO, Z1GO, Z2GO;
+    [SerializeField] public GameObject cartelGO, Z1GO, Z2GO, kakiGO;
     void Update()
     {
 
@@ -22,6 +22,7 @@ public class SensorBall : MonoBehaviour
             Z2GO.SetActive(false);
             cartelGO.SetActive(true);
             gameObject.SetActive(false);
+            kakiGO.SetActive(true);
             collision.gameObject.SetActive(false);
         }
 
