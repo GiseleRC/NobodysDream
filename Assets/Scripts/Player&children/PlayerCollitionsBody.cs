@@ -183,6 +183,10 @@ public class PlayerCollitionsBody : MonoBehaviour
             booster.Play();
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.name == "Shelf - Se cae kaki")
+        {
+            kakiLevel3GO.GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
