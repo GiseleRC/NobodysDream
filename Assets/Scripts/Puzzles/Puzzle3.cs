@@ -10,7 +10,7 @@ public class Puzzle3 : MonoBehaviour
     private int currGuess = 0;
     public GameObject guess1GO, guess2GO, guess3GO, nose1Particle, nose2Particle, nose3Particle, nose1GO, nose2GO, nose3GO,
                       option1GO, option2GO, option3GO, option4GO, option5GO, option6GO, option7GO, option8GO, option9GO,
-                        ajedrezGO1, face1GO, face2GO, face3GO, finalGO;
+                        ajedrezGO1, face1GO, face2GO, face3GO, finalGO, cajitas;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip correct, wrong;
     [SerializeField] AudioClip[] clowns;
@@ -146,6 +146,7 @@ public class Puzzle3 : MonoBehaviour
             option9GO.SetActive(false);
             guess3GO.SetActive(false);
             finalGO.SetActive(true);
+            cajitas.SetActive(true);
 
             position1 = new Vector3(position1.x, -15f, position1.z);
             ajedrezGO1.transform.position = position1;
