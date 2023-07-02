@@ -327,8 +327,6 @@ public class PlayerSC : MonoBehaviour
             walkSpeed = 4f;
             playerRB.drag = 0;
         }
-
-        print(fallingWithUmbrella.isPlaying);
     }
 
     public void TrampolineJump(float intesity)
