@@ -37,6 +37,5 @@ public class CollectParts : MonoBehaviour
         {
             puzzleBoina.SetActive(true);
         }
-
     }
 }

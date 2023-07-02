@@ -215,9 +215,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground: {fileID: 4097475204140539198}
   maxTimeUmbrella: 20
-  rechargeSpeed: 1
-  dischargeSpeed: 1
-  amount: 0
+  rechargeSpeed: 5
+  dischargeSpeed: 2
+  amount: 10
   ui: {fileID: 0}
 --- !u!82 &4098824230782094789
 AudioSource:

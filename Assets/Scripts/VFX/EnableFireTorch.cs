@@ -16,7 +16,8 @@ public class EnableFireTorch : MonoBehaviour
     public void PlayFire()
     {
         ps.Play();
-        lightGO.SetActive(true);
+        if(lightGO != null)
+            lightGO.SetActive(true);
         clockSound.Play();
         fireSound.PlayDelayed(1f);
     }

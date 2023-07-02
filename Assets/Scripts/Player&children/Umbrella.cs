@@ -105,11 +105,16 @@ public class Umbrella : MonoBehaviour
             umbrella = false;
             gameObject.GetComponent<MeshRenderer>().enabled = false;
 
-            if (actualTime >= maxTimeUmbrella)
+            if(actualTime >= maxTimeUmbrella)
             {
-                actualTime = maxTimeUmbrella;
                 umbrellaDischarge = false;
             }
+
+        }
+
+        if (actualTime >= maxTimeUmbrella)
+        {
+            actualTime = maxTimeUmbrella;
         }
     }
 
