@@ -8,17 +8,19 @@ public class ThrowBoina : MonoBehaviour
     float actualTime;
     bool reverse;
     Transform character;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         actualTime = distance;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
         character = GameObject.Find("Char").GetComponent<Transform>();
-        print(character.position);
         actualTime -= Time.deltaTime;
         Vector3 headPos = new Vector3(character.position.x, character.position.y + .7f, character.position.z);
         if (!reverse)
