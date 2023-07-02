@@ -13,6 +13,11 @@ public class ResetChess : MonoBehaviour
         {
             chessBoard.ResetBoard();
             resetSound.Play();
+            chessBoard.peon2B = false;
+            chessBoard.torreB = false;
+            chessBoard.peon3B = false;
+            chessBoard.alfilB = false;
+            chessBoard.caballoB = false;
         }
     }
 }
