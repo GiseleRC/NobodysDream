@@ -45,6 +45,11 @@ public class Umbrella : MonoBehaviour
         set { cantUseUmbrella = value; }
     }
 
+    public bool UmbrelaDischarge
+    {
+        get { return umbrellaDischarge; }
+    }
+
     // Update is called once per frame
     void Update()
     {

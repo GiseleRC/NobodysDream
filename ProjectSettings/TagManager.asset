@@ -13,6 +13,7 @@ TagManager:
   - BorderUI
   - Colectible
   - UmbrellasPick
+  - Check
   layers:
   - Default
   - TransparentFX

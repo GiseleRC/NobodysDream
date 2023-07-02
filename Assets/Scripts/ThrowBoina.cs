@@ -41,7 +41,7 @@ public class ThrowBoina : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, headPos);
 
-        if(distance < .5 && reverse)
+        if(distance < .3 && reverse)
         {
             character.GetComponent<BoinaMec>().CantUse = false;
             Destroy(gameObject);
