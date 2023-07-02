@@ -13,6 +13,7 @@ public class UmbrellaUI : MonoBehaviour
         slider = GetComponent<Slider>();
         umbrella = GameObject.Find("Char").GetComponentInChildren<Umbrella>();
         slider.maxValue = umbrella.MaxTimeUmbrella;
+
     }
 
     // Update is called once per frame
