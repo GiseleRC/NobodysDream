@@ -8,6 +8,11 @@ public class CheckPointVFX : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
        torch.GetComponent<EnableFireTorch>().PlayFire();
+        if (gameObject.name == "CheckPoint5 - DIALOG")
+        {
+            torch.GetComponent<EnableFireTorch>().PlayFire();
+            gameObject.GetComponent<Collider>().enabled = false;
+        }
     }
     private void OnTriggerExit(Collider other)
     {

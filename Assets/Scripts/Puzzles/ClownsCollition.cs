@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClownsCollition : MonoBehaviour
 {
     public Puzzle3 puzzle3;
-    public GameObject rudolfClown, rudolfHorse, dientesPickeables, victoria, finalPlatform, level3On;
+    public GameObject rudolfClown, rudolfHorse, dientesPickeables, victoria, finalPlatform, level3On, enableCollider;
     public DialogManager dialogManager;
     [SerializeField] SpawnPlayerController spawnPlayerController;
     [SerializeField] TimerController timerController;
@@ -73,6 +73,7 @@ public class ClownsCollition : MonoBehaviour
                 victoria.SetActive(false);
                 timerController.rudolfIsAttacking = true;
                 level3On.SetActive(true);
+                enableCollider.SetActive(true);
 
                 spawnPlayerController.Respawn(level3InitialSpawnPoint);
 
