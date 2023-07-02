@@ -13,11 +13,13 @@ public class TutorialPaperSC : MonoBehaviour
     public bool tutorialMat2Finishing = false;
     public bool showTutorialMat1 = false;
     public bool showGuideTutorialPlane = false;
+    public bool showTutorialBeret;
+    public bool showTutorialUmbrella;
     private bool nextTutorial = false;
     private float timeDelay = 0.5f;
     public float fillAmount = 1f;
     public DialogManager dialogManager;
-    public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1;
+    public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1, tutorialBeret, tutorialUmbrella;
 
     public AudioSource closeTutorial;
 
@@ -42,6 +44,8 @@ public class TutorialPaperSC : MonoBehaviour
         TutorialGlasses(showTutorialGlasses);
         TutorialBall(showTutorialBall);
         TutorialMaterialized2(showTutorialMat2);
+        TutorialBeret(showTutorialBeret);
+        TutorialUmbrella(showTutorialUmbrella);
 
         if (Input.GetButtonDown("CancelMat") && showTuturialFlash == true)
         {
@@ -82,6 +86,18 @@ public class TutorialPaperSC : MonoBehaviour
             tutorialMat2Finishing = true;
             anyTutorialOpen = false;
             dialogManager.ShowDialog(DialogKey.RulerCube);
+        }
+        else if(Input.GetButtonDown("CancelMat") && showTutorialBeret == true)
+        {
+            closeTutorial.Play();
+            showTutorialBeret = false;
+            anyTutorialOpen = false;
+        }
+        else if (Input.GetButtonDown("CancelMat") && showTutorialUmbrella == true)
+        {
+            closeTutorial.Play();
+            showTutorialUmbrella = false;
+            anyTutorialOpen = false;
         }
 
         if (nextTutorial)
@@ -161,6 +177,28 @@ public class TutorialPaperSC : MonoBehaviour
         else
         {
             tutorialMat2.fillAmount -= fillAmount * Time.deltaTime;
+        }
+    }
+    public void TutorialBeret(bool show)
+    {
+        if (show)
+        {
+            tutorialBeret.fillAmount += fillAmount * Time.deltaTime;
+        }
+        else
+        {
+            tutorialBeret.fillAmount -= fillAmount * Time.deltaTime;
+        }
+    }
+    public void TutorialUmbrella(bool show)
+    {
+        if (show)
+        {
+            tutorialUmbrella.fillAmount += fillAmount * Time.deltaTime;
+        }
+        else
+        {
+            tutorialUmbrella.fillAmount -= fillAmount * Time.deltaTime;
         }
     }
 }

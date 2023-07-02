@@ -195,6 +195,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if (canInteractWithItem && Input.GetButton("Interact"))
             {
+                PauseGame();
+                tutorialPaperBool.showTutorialBeret = true;
+                tutorialPaperBool.anyTutorialOpen = true;
+
                 //booleano del Script guia de tutoriales BOINA/MODO
                 capEnable = true;
 
@@ -315,12 +319,14 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if(canInteractWithItem && Input.GetButton("Interact"))
             {
+                PauseGame();
                 gameObject.GetComponentInChildren<Umbrella>().enabled = true;
                 pickUp.Play();
-                //Tutorial,etc
+                //Tutorial,et
                 pickeablesUI[4].SetActive(false);
                 Destroy(other.gameObject);
-
+                tutorialPaperBool.showTutorialUmbrella = true;//booleano del Script tutorial ANTEOJOS
+                tutorialPaperBool.anyTutorialOpen = true;
             }
         }
 
