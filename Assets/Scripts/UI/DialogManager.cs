@@ -85,11 +85,23 @@ public class DialogManager : MonoBehaviour
     private float t = 0f;
     private bool showingInstantDialog = false;
 
+    int randomNumber;
+    bool talking;
+    string lastDialog, actualDialog;
+
     // Metodo principal para indicarle al manager que muestre un nuevo dialogo
     public void ShowDialog(DialogKey key)
     {
-        dialogAudioSource.clip = wawas[UnityEngine.Random.Range(0, wawas.Length -1)];
-        dialogAudioSource.Play();
+        
+        talking = false;
+        actualDialog = key.ToString();
+        randomNumber = UnityEngine.Random.Range(0, wawas.Length -1);
+        /*if (!dialogAudioSource.isPlaying && !talking && dialogBox.activeInHierarchy)
+        {
+
+            talking = true;
+        }*/
+
         // Busqueda de la definicion del dialogo por key
         int idx = Array.FindIndex(dialogEntries, dialogEntry => dialogEntry.key == key);
         // Si no fue encontrado, salimos
@@ -142,11 +154,20 @@ public class DialogManager : MonoBehaviour
         }
         // Deshabilitacion del dialogBox (UI)
         dialogBox.SetActive(false);
+        talking = false;
     }
 
     private void Update()
     {
+        print(dialogAudioSource.isPlaying);
+
         float dt = Time.deltaTime;
+
+        if(actualDialog != lastDialog)
+        {
+            dialogAudioSource.PlayOneShot(wawas[randomNumber]);
+            lastDialog = actualDialog;
+        }
 
         if (t > 0f)
         {
@@ -162,6 +183,7 @@ public class DialogManager : MonoBehaviour
         // Mostramos el primer dialogo en la cola (si existe al menos uno)
         if (dialogQueue.Count > 0)
         {
+
             int idx = dialogQueue.Peek();
             ShowDialog(dialogEntries[idx]);
         }
