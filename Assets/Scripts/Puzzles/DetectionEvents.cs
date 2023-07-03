@@ -37,12 +37,9 @@ public class DetectionEvents : MonoBehaviour
             {
                 finalPuzzle.button3enable = true;
             }
-
-            if (gameObject.name == "Medio3")//
-            {
-                finalPuzzle.backMonster3 = true;
-            }
         }
+
+
         if (collision.gameObject.name == "Ball (Clone)")
         {
             //esquema 1
@@ -77,16 +74,12 @@ public class DetectionEvents : MonoBehaviour
             {
                 finalPuzzle.triger2 = true;
             }
+            if (gameObject.name == "Luz Final")//
+            {
+                finalPuzzle.backMonster3 = true;
+            }
         }
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        
-    }
-    void Update()
-    {
-        //collition: triger, triger2, triger3
-    }
 }

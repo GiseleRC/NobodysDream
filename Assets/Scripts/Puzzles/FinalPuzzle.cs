@@ -6,12 +6,14 @@ public class FinalPuzzle : MonoBehaviour
 {
     [SerializeField] GameObject button1GO, particle1GO, lightUp1GO, lightRot1GO, medio1GO, esqueme2GO, 
                                 button2GO, particle2GO, lightUp2GO, lightRot2GO, medio2GO, esqueme3GO,
-                                button3GO, particle3GO, lightUp3GO, lightRot3GO, medio3GO, balloonEsqueme;
+                                button3GO, particle3GO, lightUp3GO, lightRot3GO, medio3GO, balloonEsqueme,
+                                bossGO;
     [SerializeField] public bool button1enable, particle1Off, lightUp1, triger, backMonster1,
                                  button2enable, particle2Off, lightUp2, triger1, backMonster2,
                                  button3enable, particle3Off, lightUp3, triger2, backMonster3;
-
+    [SerializeField] public Transform quintaPosicion, cuartaPosicion, terceraPosicion, segundaPosicion, posicionInicial;
     [SerializeField] public AudioSource audioSource;
+    [SerializeField] public BossBehaviours bossBehaviours;
 
     void Update()
     {
@@ -19,20 +21,20 @@ public class FinalPuzzle : MonoBehaviour
         {
             button1GO.SetActive(true);
             button1enable = false;
+
+            bossBehaviours.ShowMonster = true;//APARECE EL MONSTRUO
+            //audioSource.Play();//grita
         }
         if (particle1Off)
         {
             particle1GO.SetActive(false);//apaga
             particle1Off = false;
-            
-
-            //metodo de aparece el monstruo
-            //audioSource.Play();
         }
         if (lightUp1)
         {
-            lightUp1GO.SetActive(true);//APARECE EL MONSTRUO Y GRITA
+            bossBehaviours.MoveBoss(segundaPosicion);//mueve EL MONSTRUO
             lightUp1 = false;
+            lightUp1GO.SetActive(true);
         }
         if (triger)
         {
@@ -40,13 +42,14 @@ public class FinalPuzzle : MonoBehaviour
             lightRot1GO.SetActive(true);
             esqueme2GO.SetActive(true);
             medio1GO.SetActive(true);
+            bossBehaviours.MoveBoss(terceraPosicion);//mueve EL MONSTRUO
 
             triger = false;
         }
         if (backMonster1)
         {
-            //metodo de backea el monstruo
-            //audioSource.Play();
+            bossBehaviours.ShowMonster = false;//desAPARECE EL MONSTRUO
+            //audioSource.Play();//grita
             backMonster1 = false;
         }
 
@@ -55,19 +58,18 @@ public class FinalPuzzle : MonoBehaviour
         {
             button2GO.SetActive(true);
             button2enable = false;
+
+            bossBehaviours.ShowMonster = true;//APARECE EL MONSTRUO
+            //audioSource.Play();//grita
         }
         if (particle2Off)
         {
             particle2GO.SetActive(false);//apaga
             particle2Off = false;
-
-
-            //metodo de aparece el monstruo
-            //audioSource.Play();
         }
         if (lightUp2)
         {
-            lightUp2GO.SetActive(true);//APARECE EL MONSTRUO Y GRITA
+            lightUp2GO.SetActive(true);
             lightUp2 = false;
         }
         if (triger1)
@@ -76,13 +78,14 @@ public class FinalPuzzle : MonoBehaviour
             lightRot2GO.SetActive(true);
             esqueme3GO.SetActive(true);
             medio2GO.SetActive(true);
+            bossBehaviours.MoveBoss(cuartaPosicion);//mueve EL MONSTRUO
 
             triger1 = false;
         }
         if (backMonster2)
         {
-            //metodo de backea el monstruo
-            //audioSource.Play();
+            bossBehaviours.ShowMonster = false;//desAPARECE EL MONSTRUO
+            //audioSource.Play();//grita
             backMonster2 = false;
         }
 
@@ -91,29 +94,40 @@ public class FinalPuzzle : MonoBehaviour
         {
             button3GO.SetActive(true);
             button3enable = false;
+
+            bossBehaviours.ShowMonster = true;//APARECE EL MONSTRUO
+            //audioSource.Play();//grita
         }
         if (particle3Off)
         {
             particle3GO.SetActive(false);//apaga
             particle3Off = false;
-
-
-            //metodo de aparece el monstruo
-            //audioSource.Play();
         }
         if (lightUp3)
         {
-            lightUp3GO.SetActive(true);//APARECE EL MONSTRUO Y GRITA
+            lightUp3GO.SetActive(true);
             lightUp3 = false;
         }
         if (triger2)
         {
             lightUp3GO.SetActive(false);
             lightRot3GO.SetActive(true);
-            balloonEsqueme.SetActive(true);
             medio3GO.SetActive(true);
+            bossBehaviours.MoveBoss(quintaPosicion);//mueve EL MONSTRUO
 
             triger2 = false;
+        }
+
+        //piso globo
+        if (backMonster3)
+        {
+            bossBehaviours.MoveBoss(posicionInicial);//mueve EL MONSTRUO
+            bossBehaviours.ShowMonster = false;//desAPARECE EL MONSTRUO
+            bossGO.SetActive(false);
+            balloonEsqueme.SetActive(true);
+
+            //audioSource.Play();//grita
+            backMonster3 = false;
         }
     }
 }
