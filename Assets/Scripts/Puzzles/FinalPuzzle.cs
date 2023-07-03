@@ -10,7 +10,7 @@ public class FinalPuzzle : MonoBehaviour
                                 bossGO, lightTorchGO, prenderLuzGO, cieloGO;
     [SerializeField] public bool button1enable, particle1Off, lightUp1, triger, backMonster1,
                                  button2enable, particle2Off, lightUp2, triger1, backMonster2,
-                                 button3enable, particle3Off, lightUp3, triger2, backMonster3, disableall, prenderLuz, cielo;
+                                 button3enable, particle3Off, lightUp3, triger2, backMonster3, disableall, prenderLuz, cielo, charUp;
     [SerializeField] public Transform quintaPosicion, cuartaPosicion, terceraPosicion, segundaPosicion, posicionInicial;
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public BossBehaviours bossBehaviours;

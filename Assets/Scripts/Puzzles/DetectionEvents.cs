@@ -6,6 +6,13 @@ public class DetectionEvents : MonoBehaviour
 {
     [SerializeField] private FinalPuzzle finalPuzzle;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(gameObject.name == "dientes en mano" && other.gameObject.name == "Se prende y hace hijo al character")
+        {
+            finalPuzzle.charUp = true;
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Char")
@@ -94,7 +101,6 @@ public class DetectionEvents : MonoBehaviour
             {
                 finalPuzzle.backMonster3 = true;
             }
-
 
         }
 
