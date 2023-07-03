@@ -14,7 +14,6 @@ public class FinalPuzzle : MonoBehaviour
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public Animator animationIdle;
 
-    // Update is called once per frame
     void Update()
     {
         if (button1enable)
