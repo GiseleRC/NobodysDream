@@ -37,6 +37,16 @@ public class DetectionEvents : MonoBehaviour
             {
                 finalPuzzle.button3enable = true;
             }
+
+            if (gameObject.name == "apago la luz")
+            {
+                finalPuzzle.disableall = true;
+            }
+
+            if (gameObject.name == "prenderLuz")
+            {
+
+            }
         }
 
 
@@ -75,11 +85,13 @@ public class DetectionEvents : MonoBehaviour
                 finalPuzzle.triger2 = true;
             }
 
-            //plataforma del globo
-            if (gameObject.name == "Luz Final")//
+            //luz
+            if (gameObject.name == "Ultima luz")//
             {
                 finalPuzzle.backMonster3 = true;
             }
+
+
         }
 
     }
