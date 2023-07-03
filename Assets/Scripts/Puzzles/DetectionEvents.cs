@@ -50,7 +50,7 @@ public class DetectionEvents : MonoBehaviour
         }
 
 
-        if (collision.gameObject.name == "Ball (Clone)")
+        if (collision.gameObject.name == "Ball(Clone)")
         {
             //esquema 1
             if (gameObject.name == "ON (1)")//aparece el monstruo

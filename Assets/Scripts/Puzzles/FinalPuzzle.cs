@@ -15,9 +15,9 @@ public class FinalPuzzle : MonoBehaviour
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public BossBehaviours bossBehaviours;
 
-    void Update()
+    private void Update()
     {
-        if (button1enable)
+        if (button1enable)//ANDA
         {
             button1GO.SetActive(true);
             button1enable = false;
