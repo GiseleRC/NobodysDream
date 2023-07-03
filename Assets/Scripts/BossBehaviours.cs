@@ -32,6 +32,10 @@ public class BossBehaviours : MonoBehaviour
         {
             bossMaterial.color = new Color(bossMaterial.color.r, bossMaterial.color.g, bossMaterial.color.b, Mathf.Lerp(bossMaterial.color.a, 1.0f, .5f * Time.deltaTime));
         }
+        else
+        {
+            bossMaterial.color = new Color(bossMaterial.color.r, bossMaterial.color.g, bossMaterial.color.b, Mathf.Lerp(bossMaterial.color.a, 0.0f, .5f * Time.deltaTime));
+        }
 
         if (moving)
         {

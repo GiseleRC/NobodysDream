@@ -7,11 +7,14 @@ public class Part : MonoBehaviour
     [SerializeField] int partNumber;
     PuzzleBoina puzzleBoina;
     [SerializeField] string color;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         if(GameObject.Find("PuzzleBoinaGO") != null)
             puzzleBoina = GameObject.Find("PuzzleBoinaGO").GetComponent<PuzzleBoina>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,8 @@ public class Part : MonoBehaviour
             else
             {
                 GameObject.Find("PuzzleBoina").GetComponent<CollectParts>().CollectPart(partNumber);
+                audioSource.Play();
+
                 Destroy(gameObject);
             }
         }

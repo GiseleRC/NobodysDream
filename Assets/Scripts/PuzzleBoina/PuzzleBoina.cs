@@ -11,10 +11,14 @@ public class PuzzleBoina : MonoBehaviour
     int count;
     bool move1, move2, move3, correct1, correct2, correct3;
     public bool playerIn;
+
+    AudioSource audioSource;
+    [SerializeField] AudioClip correct, wrong;
     // Start is called before the first frame update
     void Start()
     {
         character = GameObject.Find("Char");
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,11 +31,9 @@ public class PuzzleBoina : MonoBehaviour
         if (playerIn && count == 0)
         {
             part1.transform.position = Vector3.Lerp(part1.transform.position, finalPos1.position, speed * Time.deltaTime);
-            //part1.transform.rotation = finalPos1.transform.rotation;
             part2.transform.position = Vector3.Lerp(part2.transform.position, finalPos2.position, speed * Time.deltaTime);
-            //part2.transform.rotation = finalPos2.transform.rotation;
             part3.transform.position = Vector3.Lerp(part3.transform.position, finalPos3.position, speed * Time.deltaTime);
-            //part3.transform.rotation = finalPos3.transform.rotation;
+
 
             
             if (distance1 < 0.3f && distance2 < 0.3f && distance3 < 0.3f)
@@ -42,7 +44,7 @@ public class PuzzleBoina : MonoBehaviour
 
         if(count == 1)
         {
-            if(move1 == true)
+            if(move1 == true && !correct1)
             {
                 part1.transform.position = Vector3.Lerp(part1.transform.position, finalPos1.transform.position, speed * Time.deltaTime);
 
@@ -52,7 +54,7 @@ public class PuzzleBoina : MonoBehaviour
                 }
             }
 
-            if(move2 == true)
+            if(move2 == true && !correct2)
             {
                 part2.transform.position = Vector3.Lerp(part2.transform.position, finalPos2.transform.position, speed * Time.deltaTime);
 
@@ -62,7 +64,7 @@ public class PuzzleBoina : MonoBehaviour
                 }
             }
 
-            if(move3 == true)
+            if(move3 == true && !correct3)
             {
                 part3.transform.position = Vector3.Lerp(part3.transform.position, finalPos3.transform.position, speed * Time.deltaTime);
 
@@ -105,22 +107,42 @@ public class PuzzleBoina : MonoBehaviour
 
     public void Incorrect(string color)
     {
-        if(color == "Yellow")
+        if (color == "Yellow")
         {
+            bool soundPlayed1 = false;
+            if (count >= 1 && !correct1 && !soundPlayed1)
+            {
+                audioSource.PlayOneShot(wrong);
+                soundPlayed1 = true;
+            }
             move1 = true;
         }
-        else if(color == "Red")
+        else if (color == "Red")
         {
+            bool soundPlayed2 = false;
+            if (count >= 1 && !correct2 && !soundPlayed2)
+            {
+                audioSource.PlayOneShot(wrong);
+                soundPlayed2 = true;
+            }
             move2 = true;
         }
         else if(color == "Blue")
         {
+            bool soundPlayed3 = false;
+            if (count >= 1 && !correct3 && !soundPlayed3)
+            {
+                audioSource.PlayOneShot(wrong);
+                soundPlayed3 = true;
+            }
             move3 = true;
         }
     }
 
     public void CorrectColor(string color)
     {
+        audioSource.PlayOneShot(correct);
+        
         if (color == "Yellow")
         {
             correct1 = true;
