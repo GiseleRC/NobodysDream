@@ -7,6 +7,7 @@ public class PuzzleBoina : MonoBehaviour
     [SerializeField]GameObject part1, part2, part3, character;
     [SerializeField] Transform finalPos1, finalPos2, finalPos3;
     [SerializeField] float speed;
+    int count;
     public bool playerIn;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class PuzzleBoina : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerIn)
+        if (playerIn && count == 0)
         {
             part1.transform.position = Vector3.Lerp(part1.transform.position, finalPos1.position, speed * Time.deltaTime);
             part2.transform.position = Vector3.Lerp(part2.transform.position, finalPos2.position, speed * Time.deltaTime);
@@ -28,15 +29,15 @@ public class PuzzleBoina : MonoBehaviour
             float distance3 = Vector3.Distance(part3.transform.position, finalPos3.transform.position);
             if (distance1 < 0.3f && distance2 < 0.3f && distance3 < 0.3f)
             {
-                print("Listo");
                 playerIn = false;
+                count = 1;
             }
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Char" && !playerIn)
+        if (other.gameObject.name == "Char" && !playerIn && count == 0)
         {
             playerIn = true;
             part1.transform.position = new Vector3(character.transform.position.x, character.transform.position.y + 2f, character.transform.position.z);
