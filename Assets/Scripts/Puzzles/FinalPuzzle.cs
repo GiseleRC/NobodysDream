@@ -7,7 +7,7 @@ public class FinalPuzzle : MonoBehaviour
     [SerializeField] GameObject button1GO, particle1GO, lightUp1GO, lightRot1GO, medio1GO, esqueme2GO, 
                                 button2GO, particle2GO, lightUp2GO, lightRot2GO, medio2GO, esqueme3GO,
                                 button3GO, particle3GO, lightUp3GO, lightRot3GO, medio3GO, balloonEsqueme,
-                                bossGO;
+                                bossGO, lightTorchGO;
     [SerializeField] public bool button1enable, particle1Off, lightUp1, triger, backMonster1,
                                  button2enable, particle2Off, lightUp2, triger1, backMonster2,
                                  button3enable, particle3Off, lightUp3, triger2, backMonster3;
@@ -125,6 +125,7 @@ public class FinalPuzzle : MonoBehaviour
             bossBehaviours.ShowMonster = false;//desAPARECE EL MONSTRUO
             bossGO.SetActive(false);
             balloonEsqueme.SetActive(true);
+            lightTorchGO.SetActive(true);
 
             //audioSource.Play();//grita
             backMonster3 = false;

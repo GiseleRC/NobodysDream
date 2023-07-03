@@ -74,6 +74,8 @@ public class DetectionEvents : MonoBehaviour
             {
                 finalPuzzle.triger2 = true;
             }
+
+            //plataforma del globo
             if (gameObject.name == "Luz Final")//
             {
                 finalPuzzle.backMonster3 = true;
