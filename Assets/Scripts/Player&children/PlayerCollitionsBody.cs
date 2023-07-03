@@ -13,7 +13,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public GameObject segundaParteLevel3, kakiLevel3GO, finalPlat, finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
                     canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
                     light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
-                     level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4;
+                     level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4, monster, buckets;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
@@ -186,6 +186,15 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.gameObject.name == "Shelf - Se cae kaki")
         {
             kakiLevel3GO.GetComponent<Rigidbody>().isKinematic = false;
+        }
+        else if (other.gameObject.name == "mostrar al monstruo")
+        {
+            monster.SetActive(false);
+        }
+        else if (other.gameObject.name == "mostrar al monstruo")
+        {
+            monster.SetActive(true);
+            buckets.SetActive(true);
         }
     }
 
