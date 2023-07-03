@@ -15,7 +15,7 @@ public class PlayerCollitionsBody : MonoBehaviour
                     canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
                     light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
                      level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4, monster, buckets, dientesEnMano, baloonGO,
-                    parte2, parte3, parte4;
+                    parte2, parte3, parte4, parte5;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
@@ -212,6 +212,11 @@ public class PlayerCollitionsBody : MonoBehaviour
             monster.SetActive(true);
             buckets.SetActive(true);
         }
+        else if (other.gameObject.name == "KakyFINAL")
+        {
+            parte4.SetActive(true);
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -471,7 +476,11 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (collision.gameObject.name == "3er tramo")
         {
-            parte3.SetActive(false);
+            parte3.SetActive(true);
+        }
+        else if (collision.gameObject.name == "activamepasillo")
+        {
+            parte5.SetActive(true);
         }
     }
     private void Update()
