@@ -8,28 +8,36 @@ public class DetectionEvents : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.name == "SlimeFloor1" && collision.gameObject.name == "Char")
+        if (collision.gameObject.name == "Char")
         {
-            finalPuzzle.button1enable = true;
+            if (gameObject.name == "SlimeFloor1")
+            {
+                finalPuzzle.button1enable = true;
+            }
+
+            if (gameObject.name == "ConcreteW(11)")
+            {
+                finalPuzzle.backMonster = true;
+            }
         }
         if (collision.gameObject.name == "Ball (Clone)")
         {
-            if (gameObject.name == "ON (1)")
+            if (gameObject.name == "ON (1)")//aparece el monstruo
             {
                 finalPuzzle.particle1Off = true;
                 finalPuzzle.lightUp1 = true;
             }
-            if (gameObject.name == "")
+            if (gameObject.name == "triger")//para rotar aparece plataformas
             {
-
+                finalPuzzle.triger = true;
             }
         }
 
+    }
 
-        if (gameObject.name == "ParticleButton1")
-        {
-            
-        }
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
     void Update()
     {
