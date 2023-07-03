@@ -8,23 +8,31 @@ public class DetectionEvents : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.name == "Char")
+        if (gameObject.name == "SlimeFloor1" && collision.gameObject.name == "Char")
         {
+            finalPuzzle.button1enable = true;
+        }
+        if (collision.gameObject.name == "Ball (Clone)")
+        {
+            if (gameObject.name == "ON (1)")
+            {
+                finalPuzzle.particle1Off = true;
+                finalPuzzle.lightUp1 = true;
+            }
+            if (gameObject.name == "")
+            {
 
+            }
         }
 
-        if (gameObject.name == "lightsOn")
+
+        if (gameObject.name == "ParticleButton1")
         {
-
-        }
-
-        if (gameObject.name == "SlimeFloor1")
-        {
-
+            
         }
     }
     void Update()
     {
-        
+        //collition: triger, triger2, triger3
     }
 }
