@@ -29,7 +29,6 @@ public class Patrol : MonoBehaviour
         nma.SetDestination(patrolPoints[currentPoint].position);
         if (whiteEyes != null)
         {
-            GameObject.Find("PM3D_Sphere3D1").GetComponent<MeshRenderer>().material = whiteEyes;
 
         }
     }

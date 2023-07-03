@@ -1190,6 +1190,7 @@ GameObject:
   - component: {fileID: 834318947231211807}
   - component: {fileID: 4878651901082362928}
   - component: {fileID: 946343574984236922}
+  - component: {fileID: 7337925875167421674}
   m_Layer: 11
   m_Name: Thieft
   m_TagString: Thief
@@ -1457,6 +1458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f356c1f0a8cb84ab6bd481f00def4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stuned: 0
+  cantSteal: 0
   laugh: {fileID: 8300000, guid: a9be3e4937601594eb831c3ddc0850d4, type: 3}
   rulerInEnemy: {fileID: 854765919793076522}
   cubeInEnemy: {fileID: 5848735127986768622}
@@ -1559,6 +1562,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7337925875167421674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129710273246924017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7feaa4d56b6ace044b1689664a3b1cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3290202852010355563
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class Thief : Enemies, IEnemy
     MaterializeObjects matObjs;
     float distance, timeToSteal;
     bool objectGrabbed, stealObject, objectToSteal;
+    public bool stuned, cantSteal;
     AudioSource audioSource;
     [SerializeField]AudioClip laugh;
     [SerializeField] GameObject rulerInEnemy, cubeInEnemy, stunPS, stunStarPS, thunderPs;
@@ -105,10 +106,12 @@ public class Thief : Enemies, IEnemy
         if(timeToSteal > 0 && actualTime <= 0)
         {
             thunderPs.SetActive(true);
+            cantSteal = true;
         }
         else
         {
             thunderPs.SetActive(false);
+            cantSteal = false;
         }
 
         Transitions();
@@ -147,6 +150,7 @@ public class Thief : Enemies, IEnemy
     {
         if (actualTime > 0)
         {
+            stuned = true;
             Stunned();
             patrol.enabled = false;
             stayPos.enabled = false;
@@ -156,6 +160,7 @@ public class Thief : Enemies, IEnemy
         }
         else
         {
+            stuned = false;
             Variables();
             stayPos.enabled = false;
             if (!objectGrabbed)
