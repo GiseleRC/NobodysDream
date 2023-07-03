@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollitionsBody : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public GameObject segundaParteLevel3, kakiLevel3GO, finalPlat, finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
                     canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
                     light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
-                     level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4, monster, buckets, dientesEnMano;
+                     level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4, monster, buckets, dientesEnMano, baloonGO;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
@@ -22,8 +23,10 @@ public class PlayerCollitionsBody : MonoBehaviour
     private bool capEnable = false;
     private bool firstTimeGrab = false;
     private bool introB = false;
+    private bool enableUp;
     private float addTime = 25f;
     private float waitTime = 7f;
+    private float balloonposY;
     bool canInteractWithItem;
     public GameObject[] pickeablesUI;
     public AudioSource ClickLamp;
@@ -156,9 +159,19 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "Dientes")
         {
             other.gameObject.SetActive(false);
-            dientesEnMano.SetActive(false);
+            dientesEnMano.SetActive(true);
+            flashLigthArm.SetActive(false);
         }
-
+        else if (other.name == "arriba")
+        {
+            gameObject.transform.parent = other.gameObject.transform;
+            enableUp = true;
+        }
+        else if (other.name == "Cielo")
+        {
+            enableUp = false;
+            SceneManager.LoadScene("CinematicVitoria");
+        }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
@@ -474,6 +487,12 @@ public class PlayerCollitionsBody : MonoBehaviour
                 nose1GO.SetActive(true);
                 dialogManager.ShowDialog(DialogKey.NoseAdivination);
             }
+        }
+
+        balloonposY = baloonGO.transform.position.y;
+        if (enableUp)
+        {
+            baloonGO.transform.position = new Vector3(balloonposY * Time.deltaTime, baloonGO.transform.position.x, baloonGO.transform.position.z);
         }
     }
 
