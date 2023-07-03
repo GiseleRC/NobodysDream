@@ -7,10 +7,10 @@ public class FinalPuzzle : MonoBehaviour
     [SerializeField] GameObject button1GO, particle1GO, lightUp1GO, lightRot1GO, medio1GO, esqueme2GO, 
                                 button2GO, particle2GO, lightUp2GO, lightRot2GO, medio2GO, esqueme3GO,
                                 button3GO, particle3GO, lightUp3GO, lightRot3GO, medio3GO, balloonEsqueme,
-                                bossGO, lightTorchGO, prenderLuzGO;
+                                bossGO, lightTorchGO, prenderLuzGO, cieloGO;
     [SerializeField] public bool button1enable, particle1Off, lightUp1, triger, backMonster1,
                                  button2enable, particle2Off, lightUp2, triger1, backMonster2,
-                                 button3enable, particle3Off, lightUp3, triger2, backMonster3, disableall, prenderLuz;
+                                 button3enable, particle3Off, lightUp3, triger2, backMonster3, disableall, prenderLuz, cielo;
     [SerializeField] public Transform quintaPosicion, cuartaPosicion, terceraPosicion, segundaPosicion, posicionInicial;
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public BossBehaviours bossBehaviours;
@@ -21,14 +21,17 @@ public class FinalPuzzle : MonoBehaviour
         {
             button1GO.SetActive(true);
             button1enable = false;
+            bossGO.SetActive(true);
 
             bossBehaviours.ShowMonster = true;//APARECE EL MONSTRUO
             //audioSource.Play();//grita
+            
         }
         if (particle1Off)
         {
             particle1GO.SetActive(false);//apaga
             particle1Off = false;
+            balloonEsqueme.SetActive(false);
         }
         if (lightUp1)
         {
@@ -141,6 +144,12 @@ public class FinalPuzzle : MonoBehaviour
         {
             prenderLuzGO.SetActive(true);
             prenderLuz = false;
+        }
+
+        if (cielo)
+        {
+            cieloGO.SetActive(true);
+            cielo = false;
         }
     }
 }

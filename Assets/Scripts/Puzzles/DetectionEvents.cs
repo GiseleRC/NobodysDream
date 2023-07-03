@@ -45,7 +45,11 @@ public class DetectionEvents : MonoBehaviour
 
             if (gameObject.name == "prenderLuz")
             {
-
+                finalPuzzle.prenderLuz = true;
+            }
+            if (gameObject.name == "cielo enable")
+            {
+                finalPuzzle.cielo = true;
             }
         }
 
