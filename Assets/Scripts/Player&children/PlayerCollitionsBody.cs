@@ -440,7 +440,6 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             kakiLevel3GO.GetComponent<Rigidbody>().isKinematic = false;
         }
-
     }
     private void Update()
     {

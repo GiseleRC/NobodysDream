@@ -8,6 +8,7 @@ public class Part : MonoBehaviour
     PuzzleBoina puzzleBoina;
     [SerializeField] string color;
     AudioSource audioSource;
+    [SerializeField] GameObject ps;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +35,7 @@ public class Part : MonoBehaviour
             else
             {
                 GameObject.Find("PuzzleBoina").GetComponent<CollectParts>().CollectPart(partNumber);
-                audioSource.Play();
-
+                Instantiate(ps, transform.position, transform.rotation);
                 Destroy(gameObject);
             }
         }
