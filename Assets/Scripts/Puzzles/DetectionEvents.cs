@@ -16,32 +16,32 @@ public class DetectionEvents : MonoBehaviour
                 finalPuzzle.button1enable = true;
             }
 
-            if (gameObject.name == "ConcreteW(11)")//medio1
+            if (gameObject.name == "Medio1")//medio1
             {
                 finalPuzzle.backMonster1 = true;
             }
 
             //esquema 2
-            if (gameObject.name == "ConcreteW (5)")//slime2
+            if (gameObject.name == "SlimeFloor2")//slime2
             {
                 finalPuzzle.button2enable = true;
             }
 
-            if (gameObject.name == "ConcreteW (11)")//medio2
+            if (gameObject.name == "Medio2")//medio2
             {
                 finalPuzzle.backMonster2 = true;
             }
 
             //esquema 3
-            //if (gameObject.name == "ConcreteW (5)")//slime2 cambiar nombre
-            //{
-            //    finalPuzzle.button3enable = true;
-            //}
+            if (gameObject.name == "SlimeFloor3")//slime2 cambiar nombre
+            {
+                finalPuzzle.button3enable = true;
+            }
 
-            //if (gameObject.name == "ConcreteW (11)")medio2 cambiar nombre
-            //{
-            //    finalPuzzle.backMonster3 = true;
-            //}
+            if (gameObject.name == "Medio3")//
+            {
+                finalPuzzle.backMonster3 = true;
+            }
         }
         if (collision.gameObject.name == "Ball (Clone)")
         {

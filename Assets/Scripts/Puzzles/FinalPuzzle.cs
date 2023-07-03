@@ -12,7 +12,6 @@ public class FinalPuzzle : MonoBehaviour
                                  button3enable, particle3Off, lightUp3, triger2, backMonster3;
 
     [SerializeField] public AudioSource audioSource;
-    [SerializeField] public Animator animationIdle;
 
     void Update()
     {
@@ -28,8 +27,7 @@ public class FinalPuzzle : MonoBehaviour
             
 
             //metodo de aparece el monstruo
-            animationIdle.Play("MovementFoward");
-            audioSource.Play();
+            //audioSource.Play();
         }
         if (lightUp1)
         {
@@ -48,8 +46,8 @@ public class FinalPuzzle : MonoBehaviour
         if (backMonster1)
         {
             //metodo de backea el monstruo
-            animationIdle.Play("MovementBack");
-            audioSource.Play();
+            //audioSource.Play();
+            backMonster1 = false;
         }
 
         //esquema 2
@@ -65,7 +63,7 @@ public class FinalPuzzle : MonoBehaviour
 
 
             //metodo de aparece el monstruo
-            audioSource.Play();
+            //audioSource.Play();
         }
         if (lightUp2)
         {
@@ -84,8 +82,8 @@ public class FinalPuzzle : MonoBehaviour
         if (backMonster2)
         {
             //metodo de backea el monstruo
-            animationIdle.Play("MovementBack");
-            audioSource.Play();
+            //audioSource.Play();
+            backMonster2 = false;
         }
 
         //esquema 3
@@ -101,12 +99,12 @@ public class FinalPuzzle : MonoBehaviour
 
 
             //metodo de aparece el monstruo
-            audioSource.Play();
+            //audioSource.Play();
         }
         if (lightUp3)
         {
             lightUp3GO.SetActive(true);//APARECE EL MONSTRUO Y GRITA
-            lightUp2 = false;
+            lightUp3 = false;
         }
         if (triger2)
         {
