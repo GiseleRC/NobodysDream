@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "... my grandpa disappeared into the world of dreams,\n mom doesn't believe
+  m_text: "My grandpa disappeared into the world of dreams,\n mom doesn't believe
     me, so now no one remembers him..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}

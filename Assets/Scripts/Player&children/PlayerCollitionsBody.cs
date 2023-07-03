@@ -165,8 +165,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (other.name == "arriba")
         {
-            gameObject.transform.parent = other.gameObject.transform;
-            enableUp = true;
+            SceneManager.LoadScene("CinematicaVictoria");
         }
         else if (other.name == "Cielo")
         {
@@ -512,7 +511,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         balloonposY = baloonGO.transform.position.y;
         if (enableUp)
         {
-            baloonGO.transform.position = new Vector3(balloonposY * Time.deltaTime, baloonGO.transform.position.x, baloonGO.transform.position.z);
+            //
         }
     }
 
