@@ -472,7 +472,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (collision.gameObject.name == "ACTIVAR PARTE 2")
         {
-           parte2.SetActive(false);
+           parte2.SetActive(true);
         }
         else if (collision.gameObject.name == "3er tramo")
         {
