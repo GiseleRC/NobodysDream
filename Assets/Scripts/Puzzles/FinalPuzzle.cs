@@ -7,13 +7,14 @@ public class FinalPuzzle : MonoBehaviour
     [SerializeField] GameObject button1GO, particle1GO, lightUp1GO, lightRot1GO, medio1GO, esqueme2GO, 
                                 button2GO, particle2GO, lightUp2GO, lightRot2GO, medio2GO, esqueme3GO,
                                 button3GO, particle3GO, lightUp3GO, lightRot3GO, medio3GO, balloonEsqueme,
-                                bossGO, lightTorchGO, prenderLuzGO, cieloGO;
+                                bossGO, lightTorchGO, prenderLuzGO, cieloGO, charGO, baloonGO;
     [SerializeField] public bool button1enable, particle1Off, lightUp1, triger, backMonster1,
                                  button2enable, particle2Off, lightUp2, triger1, backMonster2,
                                  button3enable, particle3Off, lightUp3, triger2, backMonster3, disableall, prenderLuz, cielo, charUp;
     [SerializeField] public Transform quintaPosicion, cuartaPosicion, terceraPosicion, segundaPosicion, posicionInicial;
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public BossBehaviours bossBehaviours;
+    private float posY;
 
     private void Update()
     {
@@ -150,6 +151,13 @@ public class FinalPuzzle : MonoBehaviour
         {
             cieloGO.SetActive(true);
             cielo = false;
+        }
+
+        if (charUp)
+        {
+            posY = baloonGO.transform.position.y;
+            charGO.gameObject.transform.parent = baloonGO.transform;
+            baloonGO.transform.position = new Vector3(posY * Time.deltaTime, baloonGO.transform.position.x, baloonGO.transform.position.z);
         }
     }
 }
