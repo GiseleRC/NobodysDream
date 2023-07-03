@@ -6,6 +6,7 @@ public class CollectParts : MonoBehaviour
 {
     bool part1, part2, part3;
     PuzzleBoina puzzleBoina;
+    [SerializeField] GameObject objectsPuzzle;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,8 @@ public class CollectParts : MonoBehaviour
         if(part1 && part2 && part3)
         {
             puzzleBoina.Colectibles = true;
+            objectsPuzzle.SetActive(true);
+
         }
     }
 }
