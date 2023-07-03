@@ -126,7 +126,8 @@ public class TimerController : MonoBehaviour
         }
 
         time.value = Mathf.Lerp(time.value, currTimeWait, 0.02f);
-        if (currTimeWait <= 0 && rudolfIsAttacking)
+        
+        if (currTimeWait <= 0)
         {
             if (rudolfIsAttacking)
             {
