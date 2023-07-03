@@ -10,18 +10,42 @@ public class DetectionEvents : MonoBehaviour
     {
         if (collision.gameObject.name == "Char")
         {
-            if (gameObject.name == "SlimeFloor1")
+            //esquema 1
+            if (gameObject.name == "SlimeFloor1")//slime1
             {
                 finalPuzzle.button1enable = true;
             }
 
-            if (gameObject.name == "ConcreteW(11)")
+            if (gameObject.name == "ConcreteW(11)")//medio1
             {
-                finalPuzzle.backMonster = true;
+                finalPuzzle.backMonster1 = true;
             }
+
+            //esquema 2
+            if (gameObject.name == "ConcreteW (5)")//slime2
+            {
+                finalPuzzle.button2enable = true;
+            }
+
+            if (gameObject.name == "ConcreteW (11)")//medio2
+            {
+                finalPuzzle.backMonster2 = true;
+            }
+
+            //esquema 3
+            //if (gameObject.name == "ConcreteW (5)")//slime2 cambiar nombre
+            //{
+            //    finalPuzzle.button3enable = true;
+            //}
+
+            //if (gameObject.name == "ConcreteW (11)")medio2 cambiar nombre
+            //{
+            //    finalPuzzle.backMonster3 = true;
+            //}
         }
         if (collision.gameObject.name == "Ball (Clone)")
         {
+            //esquema 1
             if (gameObject.name == "ON (1)")//aparece el monstruo
             {
                 finalPuzzle.particle1Off = true;
@@ -30,6 +54,28 @@ public class DetectionEvents : MonoBehaviour
             if (gameObject.name == "triger")//para rotar aparece plataformas
             {
                 finalPuzzle.triger = true;
+            }
+
+            //esquema 2
+            if (gameObject.name == "ON (2)")//aparece el monstruo CA,BIAR NOOMBRE AL BOTON
+            {
+                finalPuzzle.particle2Off = true; 
+                finalPuzzle.lightUp2 = true;
+            }
+            if (gameObject.name == "triger1")//para rotar aparece plataformas
+            {
+                finalPuzzle.triger1 = true;
+            }
+
+            //esquema 3
+            if (gameObject.name == "ON (3)")//aparece el monstruo CA,BIAR NOOMBRE AL BOTON
+            {
+                finalPuzzle.particle3Off = true;
+                finalPuzzle.lightUp3 = true;
+            }
+            if (gameObject.name == "triger2")//para rotar aparece plataformas
+            {
+                finalPuzzle.triger2 = true;
             }
         }
 
