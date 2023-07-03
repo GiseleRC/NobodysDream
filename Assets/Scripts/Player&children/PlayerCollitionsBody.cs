@@ -217,6 +217,12 @@ public class PlayerCollitionsBody : MonoBehaviour
             parte4.SetActive(true);
         }
 
+
+        if (other.gameObject.name == "activamepasillo")
+        {
+            parte5.SetActive(true);
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -477,10 +483,6 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (collision.gameObject.name == "3er tramo")
         {
             parte3.SetActive(true);
-        }
-        else if (collision.gameObject.name == "activamepasillo")
-        {
-            parte5.SetActive(true);
         }
     }
     private void Update()
