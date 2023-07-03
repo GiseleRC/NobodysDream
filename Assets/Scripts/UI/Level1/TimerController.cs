@@ -129,7 +129,7 @@ public class TimerController : MonoBehaviour
         if (currTimeWait <= 0)
         {
             spawnPlayerController.RespawnPlayer();
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("Defeat");
             currTimeWait = timeWait;
             rudolfIsAttacking = false;
         }

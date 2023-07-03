@@ -7,10 +7,18 @@ public class CollectParts : MonoBehaviour
     bool part1, part2, part3;
     PuzzleBoina puzzleBoina;
     [SerializeField] GameObject objectsPuzzle;
+    GameObject yellowUI, redUI, blueUI;
     // Start is called before the first frame update
     void Start()
     {
         puzzleBoina = GameObject.Find("PuzzleBoinaGO").GetComponent<PuzzleBoina>();
+        yellowUI = GameObject.Find("YellowUI");
+        redUI = GameObject.Find("RedUI");
+        blueUI = GameObject.Find("SquareUI");
+
+        yellowUI.SetActive(false);
+        redUI.SetActive(false);
+        blueUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,14 +32,17 @@ public class CollectParts : MonoBehaviour
         if(number == 1)
         {
             part1 = true;
+            yellowUI.SetActive(true);
         }
         else if (number == 2)
         {
             part2 = true;
+            redUI.SetActive(true);
         }
         else if(number == 3)
         {
             part3 = true;
+            blueUI.SetActive(true);
         }
         
         if(part1 && part2 && part3)
