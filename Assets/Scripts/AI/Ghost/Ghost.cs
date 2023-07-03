@@ -16,6 +16,7 @@ public class Ghost : Enemies, IEnemy
     [SerializeField] ParticleSystem ps;
     [SerializeField] GameObject stunPs, stunStarPs;
     bool canChase;
+    public bool stuned;
 
     public float Distance
     {
@@ -72,13 +73,15 @@ public class Ghost : Enemies, IEnemy
     {
         if (actualTime > 0)
         {
+            stuned = true;
             stunStarPs.SetActive(true);
             stunPs.SetActive(true);
-            if (gameObject.GetComponentInChildren<Animator>() != null)
+            /*if (gameObject.GetComponentInChildren<Animator>() != null)
             {
                 var animator = GetComponentInChildren<Animator>();
                 animator.SetBool("Stun", true);
-            }
+            }*/
+
             Stunned();
             patrol.enabled = false;
             stayPos.enabled = false;
@@ -87,6 +90,7 @@ public class Ghost : Enemies, IEnemy
         }
         else
         {
+            stuned = false;
             stunStarPs.SetActive(false);
             stunPs.SetActive(false);
             if (gameObject.GetComponentInChildren<Animator>() != null)

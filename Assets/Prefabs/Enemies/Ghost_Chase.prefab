@@ -2599,7 +2599,7 @@ GameObject:
   - component: {fileID: 6745991197744458417}
   - component: {fileID: 5913177162430384002}
   - component: {fileID: 9053152212360703096}
-  - component: {fileID: 3992907702685516905}
+  - component: {fileID: 6681674929350706431}
   m_Layer: 11
   m_Name: Ghost_Chase
   m_TagString: Untagged
@@ -2854,26 +2854,19 @@ MonoBehaviour:
   ps: {fileID: 4577694509962836713}
   stunPs: {fileID: 5408874314323246741}
   stunStarPs: {fileID: 8618279974630442272}
---- !u!95 &3992907702685516905
-Animator:
-  serializedVersion: 4
+  stuned: 0
+--- !u!114 &6681674929350706431
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6408425375911668934}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 062b0092ffed0394fa1ea4f6b0ba2341, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e653a15dad649344be0eff123de36b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6427519310549274168
 GameObject:
   m_ObjectHideFlags: 0
