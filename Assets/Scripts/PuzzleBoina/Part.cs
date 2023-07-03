@@ -28,24 +28,32 @@ public class Part : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Char")
+        if (other.gameObject.name == "Char" && puzzleBoina.playerIn == false)
         {
-            Destroy(gameObject);
+            if(puzzleBoina.playerIn == true)
+            {
+                gameObject.transform.parent = null;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         if(other.gameObject.tag == "Check")
         {
-            color = "Check" + color;
+            color = color + "Frame";
 
             if(color == other.gameObject.name)
             {
                 print("correcto");
-                Destroy(gameObject);
+                gameObject.transform.position = other.gameObject.transform.position;
             }
             else
             {
+                print("Entre");
                 gameObject.transform.parent = null;
-                print("Incorrecto");
+                puzzleBoina.Incorrect(color);
             }
         }
     }
