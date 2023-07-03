@@ -187,11 +187,11 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             kakiLevel3GO.GetComponent<Rigidbody>().isKinematic = false;
         }
-        else if (other.gameObject.name == "mostrar al monstruo")
+        else if (other.gameObject.name == "apagar al monstruo")
         {
             monster.SetActive(false);
         }
-        else if (other.gameObject.name == "apagar al monstruo")
+        else if (other.gameObject.name == "mostrar al monstruo")
         {
             monster.SetActive(true);
             buckets.SetActive(true);
