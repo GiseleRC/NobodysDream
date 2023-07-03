@@ -5,11 +5,11 @@ using UnityEngine;
 public class CollectParts : MonoBehaviour
 {
     bool part1, part2, part3;
-    [SerializeField] GameObject puzzleBoina;
+    PuzzleBoina puzzleBoina;
     // Start is called before the first frame update
     void Start()
     {
-        
+        puzzleBoina = GameObject.Find("PuzzleBoinaGO").GetComponent<PuzzleBoina>();
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class CollectParts : MonoBehaviour
         
         if(part1 && part2 && part3)
         {
-            puzzleBoina.SetActive(true);
+            puzzleBoina.Colectibles = true;
         }
     }
 }

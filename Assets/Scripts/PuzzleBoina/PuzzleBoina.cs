@@ -9,12 +9,18 @@ public class PuzzleBoina : MonoBehaviour
     [SerializeField] float speed;
     float distance1, distance2, distance3;
     int count;
-    bool move1, move2, move3, correct1, correct2, correct3;
+    bool move1, move2, move3, correct1, correct2, correct3, colectibles;
     public bool playerIn;
 
     AudioSource audioSource;
     [SerializeField] AudioClip correct, wrong;
     // Start is called before the first frame update
+    public bool Colectibles
+    {
+        get { return colectibles; }
+        set { colectibles = value; }
+    }
+
     void Start()
     {
         character = GameObject.Find("Char");
@@ -93,7 +99,7 @@ public class PuzzleBoina : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Char" && !playerIn && count == 0)
+        if (other.gameObject.name == "Char" && !playerIn && count == 0 && colectibles)
         {
             playerIn = true;
             part1.transform.position = new Vector3(character.transform.position.x, character.transform.position.y + 2f, character.transform.position.z);
