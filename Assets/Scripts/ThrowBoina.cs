@@ -6,20 +6,24 @@ public class ThrowBoina : MonoBehaviour
 {
     [SerializeField] float speed, distance, speedRot;
     float actualTime;
-    bool reverse;
+    bool reverse, haveChild;
     Transform character;
     AudioSource audioSource;
+    PuzzleBoina puzzleBoina;
     // Start is called before the first frame update
     void Start()
     {
         actualTime = distance;
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
+        puzzleBoina = GameObject.Find("PuzzleBoinaGO").GetComponent<PuzzleBoina>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(gameObject.transform.childCount);
+
         character = GameObject.Find("Char").GetComponent<Transform>();
         actualTime -= Time.deltaTime;
         Vector3 headPos = new Vector3(character.position.x, character.position.y + .7f, character.position.z);
@@ -44,7 +48,15 @@ public class ThrowBoina : MonoBehaviour
         if(distance < .3 && reverse)
         {
             character.GetComponent<BoinaMec>().CantUse = false;
-            Destroy(gameObject);
+            if (gameObject.transform.childCount > 1)
+            {
+                gameObject.transform.GetChild(1).parent = null;
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -53,7 +65,7 @@ public class ThrowBoina : MonoBehaviour
         if (other.gameObject.name == "Char" && reverse)
         {
             other.gameObject.GetComponent<BoinaMec>().CantUse = false;
-            Destroy(gameObject);
+
         }
 
         if (other.gameObject.tag == "Colectible")
