@@ -16,5 +16,6 @@ public class GhostAnim : MonoBehaviour
     {
         animator.SetBool("Patrol", GetComponent<Patrol>().enabled);
         animator.SetBool("Stun", GetComponent<Ghost>().stuned);
+        animator.SetBool("Attack", GetComponent<ghAttack>().enabled);
     }
 }
