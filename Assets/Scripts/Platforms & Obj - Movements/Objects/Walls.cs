@@ -40,7 +40,7 @@ public class Walls : MonoBehaviour
         RestoreWalls();
     }
     
-    private void DropWalls()
+    public void DropWalls()
     {
         for (int i = 0; i < walls.Length; i++)
         {
