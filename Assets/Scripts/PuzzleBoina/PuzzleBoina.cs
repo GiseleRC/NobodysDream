@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuzzleBoina : MonoBehaviour
 {
-    [SerializeField] GameObject part1, part2, part3, character;
+    [SerializeField] GameObject part1, part2, part3, character, door;
     [SerializeField] Transform finalPos1, finalPos2, finalPos3, correctYellow, correctRed, correctBlue;
     [SerializeField] float speed;
     float distance1, distance2, distance3;
@@ -160,7 +160,7 @@ public class PuzzleBoina : MonoBehaviour
 
         if(correct1 && correct2 && correct3)
         {
-            print("Abri la puerta");
+            door.GetComponent<DoorAnim>().EventAnimOpenDoor();
         }
     }
 }
