@@ -13,7 +13,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public GameObject segundaParteLevel3, kakiLevel3GO, finalPlat, finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
                     canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
                     light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
-                     level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4, monster, buckets;
+                     level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4, monster, buckets, dientesEnMano;
     public AudioSource openTutorial, pickUp, booster;
     [SerializeField] private Collider capC, boosterC;
     public bool ballEnable = false;
@@ -153,10 +153,12 @@ public class PlayerCollitionsBody : MonoBehaviour
             dialogManager.ShowDialog(DialogKey.Pieces);
         }
 
-        //else if (other.name == "Dientes")
-        //{
-        //    other.gameObject.SetActive(false);
-        //}
+        else if (other.name == "Dientes")
+        {
+            other.gameObject.SetActive(false);
+            dientesEnMano.SetActive(false);
+        }
+
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
