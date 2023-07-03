@@ -5,11 +5,11 @@ using UnityEngine;
 public class PuzzleBoina : MonoBehaviour
 {
     [SerializeField] GameObject part1, part2, part3, character;
-    [SerializeField] Transform finalPos1, finalPos2, finalPos3;
+    [SerializeField] Transform finalPos1, finalPos2, finalPos3, correctYellow, correctRed, correctBlue;
     [SerializeField] float speed;
     float distance1, distance2, distance3;
     int count;
-    bool move1, move2, move3;
+    bool move1, move2, move3, correct1, correct2, correct3;
     public bool playerIn;
     // Start is called before the first frame update
     void Start()
@@ -46,7 +46,7 @@ public class PuzzleBoina : MonoBehaviour
             {
                 part1.transform.position = Vector3.Lerp(part1.transform.position, finalPos1.transform.position, speed * Time.deltaTime);
 
-                if(distance1 < 0.3f)
+                if(distance1 < 1f)
                 {
                     move1 = false;
                 }
@@ -56,7 +56,7 @@ public class PuzzleBoina : MonoBehaviour
             {
                 part2.transform.position = Vector3.Lerp(part2.transform.position, finalPos2.transform.position, speed * Time.deltaTime);
 
-                if (distance2 < 0.3f)
+                if (distance2 < 1f)
                 {
                     move2 = false;
                 }
@@ -66,13 +66,26 @@ public class PuzzleBoina : MonoBehaviour
             {
                 part3.transform.position = Vector3.Lerp(part3.transform.position, finalPos3.transform.position, speed * Time.deltaTime);
 
-                if (distance3 < 0.3f)
+                if (distance3 < 1f)
                 {
                     move3 = false;
                 }
             }
 
+            if (correct1)
+            {
+                part1.transform.position = Vector3.Lerp(part1.transform.position, correctYellow.position, 2f * Time.deltaTime);
+            }
 
+            if (correct2)
+            {
+                part2.transform.position = Vector3.Lerp(part2.transform.position, correctRed.position, 2f * Time.deltaTime);
+            }
+
+            if (correct3)
+            {
+                part3.transform.position = Vector3.Lerp(part3.transform.position, correctBlue.position, 2f * Time.deltaTime);
+            }
         }
     }
 
@@ -92,17 +105,40 @@ public class PuzzleBoina : MonoBehaviour
 
     public void Incorrect(string color)
     {
-        if(color == "YellowFrame")
+        if(color == "Yellow")
         {
             move1 = true;
         }
-        else if(color == "RedFrame")
+        else if(color == "Red")
         {
             move2 = true;
         }
-        else if(color == "BlueFrame")
+        else if(color == "Blue")
         {
             move3 = true;
+        }
+    }
+
+    public void CorrectColor(string color)
+    {
+        if (color == "Yellow")
+        {
+            correct1 = true;
+            part1.GetComponent<Collider>().enabled = false;
+        }
+        else if (color == "Red")
+        {
+            correct2 = true;
+            part2.GetComponent<Collider>().enabled = false;
+        }
+        else if (color == "Blue")
+        {
+            correct3 = true;
+        }
+
+        if(correct1 && correct2 && correct3)
+        {
+            print("Abri la puerta");
         }
     }
 }

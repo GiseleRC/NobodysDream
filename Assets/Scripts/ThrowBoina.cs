@@ -6,7 +6,7 @@ public class ThrowBoina : MonoBehaviour
 {
     [SerializeField] float speed, distance, speedRot;
     float actualTime;
-    bool reverse, haveChild;
+    bool reverse;
     Transform character;
     AudioSource audioSource;
     PuzzleBoina puzzleBoina;
@@ -70,6 +70,7 @@ public class ThrowBoina : MonoBehaviour
 
         if (other.gameObject.tag == "Colectible")
         {
+            reverse = true;
             other.gameObject.transform.parent = gameObject.transform;
         }
     }

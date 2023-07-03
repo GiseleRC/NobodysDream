@@ -20,12 +20,6 @@ public class Part : MonoBehaviour
         
     }
 
-    void OnDestroy()
-    {
-        if(GameObject.Find("PuzzleBoina") != null)
-            GameObject.Find("PuzzleBoina").GetComponent<CollectParts>().CollectPart(partNumber);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Char" && puzzleBoina.playerIn == false)
@@ -36,22 +30,25 @@ public class Part : MonoBehaviour
             }
             else
             {
+                GameObject.Find("PuzzleBoina").GetComponent<CollectParts>().CollectPart(partNumber);
                 Destroy(gameObject);
             }
+        }
+        else if(other.gameObject.name == "Char" && puzzleBoina.playerIn == true)
+        {
+            puzzleBoina.Incorrect(color);
         }
 
         if(other.gameObject.tag == "Check")
         {
-            color = color + "Frame";
 
             if(color == other.gameObject.name)
             {
                 print("correcto");
-                gameObject.transform.position = other.gameObject.transform.position;
+                puzzleBoina.CorrectColor(color);
             }
             else
             {
-                print("Entre");
                 gameObject.transform.parent = null;
                 puzzleBoina.Incorrect(color);
             }
