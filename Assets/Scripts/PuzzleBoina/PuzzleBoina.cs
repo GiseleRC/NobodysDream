@@ -101,6 +101,9 @@ public class PuzzleBoina : MonoBehaviour
     {
         if (other.gameObject.name == "Char" && !playerIn && count == 0 && colectibles)
         {
+            GameObject.Find("YellowUI").SetActive(false);
+            GameObject.Find("RedUI").SetActive(false);
+            GameObject.Find("SquareUI").SetActive(false);
             playerIn = true;
             part1.transform.position = new Vector3(character.transform.position.x, character.transform.position.y + 2f, character.transform.position.z);
             part2.transform.position = new Vector3(character.transform.position.x, character.transform.position.y + 2f, character.transform.position.z);

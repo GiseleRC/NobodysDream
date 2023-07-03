@@ -126,12 +126,20 @@ public class TimerController : MonoBehaviour
         }
 
         time.value = Mathf.Lerp(time.value, currTimeWait, 0.02f);
-        if (currTimeWait <= 0)
+        if (currTimeWait <= 0 && rudolfIsAttacking)
         {
-            spawnPlayerController.RespawnPlayer();
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            currTimeWait = timeWait;
-            rudolfIsAttacking = false;
+            if (rudolfIsAttacking)
+            {
+                spawnPlayerController.RespawnPlayer();
+                currTimeWait = timeWait;
+                rudolfIsAttacking = false;
+
+            }
+            else
+            {
+                SceneManager.LoadScene("Defeat");
+
+            }
         }
     }
 
