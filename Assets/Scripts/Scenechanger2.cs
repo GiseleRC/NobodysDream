@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ChangerScene : MonoBehaviour
+public class Scenechanger2 : MonoBehaviour
 {
     public float changeTime;
     private void Update()
@@ -11,7 +11,7 @@ public class ChangerScene : MonoBehaviour
         changeTime -= Time.deltaTime;
         if (changeTime <= 0f)
         {
-            SceneManager.LoadScene("Level1 1");
+            SceneManager.LoadScene("Victory");
         }
     }
 }

@@ -171,7 +171,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "Cielo")
         {
             enableUp = false;
-            SceneManager.LoadScene("CinematicVitoria");
+            SceneManager.LoadScene("CinematicaVitoria");
         }
         //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
