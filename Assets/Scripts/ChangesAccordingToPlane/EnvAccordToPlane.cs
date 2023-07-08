@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnvAccordToPlane : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject trueSteps, iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, disableFlashlight, pillsGO;
+    public GameObject iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, disableFlashlight, pillsGO;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
     public AudioSource SwitchMode;
