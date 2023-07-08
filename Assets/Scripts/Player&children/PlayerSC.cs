@@ -101,7 +101,6 @@ public class PlayerSC : MonoBehaviour
 
     public void ResetSpawnPlayer()
     {
-        //GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().velocity = new Vector3(0f, playerRB.velocity.y, 0f);
     }
 
@@ -121,6 +120,7 @@ public class PlayerSC : MonoBehaviour
         canThrowBall = planeMode == GameState.PlaneMode.Ghost;
         ballPickeableGO.SetActive(planeMode == GameState.PlaneMode.Ghost);
     }
+
     //Comportamiento del player con la pelota y las condiciones para que reproduzca la mecanica de tirar y agarrar
     private void BallGrabAndThrow()
     {
@@ -152,7 +152,6 @@ public class PlayerSC : MonoBehaviour
             ball.transform.GetChild(0).gameObject.SetActive(true);
             ball = null;
         }
-        
     }
 
     public bool PickupBalls(int balls)
@@ -161,7 +160,6 @@ public class PlayerSC : MonoBehaviour
             return false;
         BallCount = Mathf.Min(BallCount + balls, maxCapacityOfBalls);
         return true;
-        //Debug.Log(" A la agarrar, Tengo " + currBallsInHand + " pelotas de " + ballCount);
     }
 
     void PlaneChange()
@@ -218,11 +216,9 @@ public class PlayerSC : MonoBehaviour
             {
                 soundWalk.Stop();
             }
-
             Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
             transform.position += velocity;
         }
-
     }
 
     void Jump()

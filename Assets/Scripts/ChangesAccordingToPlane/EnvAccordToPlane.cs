@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnvAccordToPlane : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject trueSteps, iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, disableFlashlight;
+    public GameObject trueSteps, iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, disableFlashlight, pillsGO;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
     public AudioSource SwitchMode;
@@ -26,27 +26,20 @@ public class EnvAccordToPlane : MonoBehaviour
         switch (currAppliedPlaneMode)
         {
             case GameState.PlaneMode.Dream:
-                //if (playerSC.ballInHand)
-                //{
-                //    canvasBallCount.SetActive(false);
-                //}
                 iconGhostOn.SetActive(false);
                 iconGhostOff.SetActive(true);
                 iconDreamOn.SetActive(true);
                 iconDreamOff.SetActive(true);
-                //disableball.SetActive(true);
-                //disableFlashlight.SetActive(false);
+                pillsGO.SetActive(false);
 
                 SwitchMode.Play();
                 break;
             case GameState.PlaneMode.Ghost:
-                //canvasBallCount.SetActive(true);
                 iconGhostOn.SetActive(true);
                 iconGhostOff.SetActive(false);
                 iconDreamOn.SetActive(false);
                 iconDreamOff.SetActive(true);
-                //disableFlashlight.SetActive(true);
-                //disableball.SetActive(false);
+                pillsGO.SetActive(true);
 
                 SwitchMode.Play();
                 break;

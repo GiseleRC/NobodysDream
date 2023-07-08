@@ -38,22 +38,22 @@ public class PlayerCollitionsBody : MonoBehaviour
     {
         if (other.name == "Boina")
         {
-            pickeablesUI[0].SetActive(true);// Activa la linterna? no se como lo hace
+            pickeablesUI[0].SetActive(true);
             canInteractWithItem = true;
         }
         else if (other.name == "Model&Collider" && !tutorialPaperBool.anyTutorialOpen)
         {
-            pickeablesUI[1].SetActive(true);// Activa la linterna? no se como lo hace
+            pickeablesUI[1].SetActive(true);
             canInteractWithItem = true;
         }
         else if (other.name == "RulerPickeable" && !tutorialPaperBool.anyTutorialOpen)
         {
-            pickeablesUI[2].SetActive(true);// Activa la linterna? no se como lo hace
+            pickeablesUI[2].SetActive(true);
             canInteractWithItem = true;
         }
         else if (other.name == "Glasses" && !tutorialPaperBool.anyTutorialOpen)
         {
-            pickeablesUI[3].SetActive(true);// Activa la linterna? no se como lo hace
+            pickeablesUI[3].SetActive(true);
             canInteractWithItem = true;
         }
         else if (other.name == "BallBucket" && GetComponent<PlayerSC>().canThrowBall)
@@ -61,48 +61,33 @@ public class PlayerCollitionsBody : MonoBehaviour
             other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
             canInteractWithItem = true;
         }
-        //Booster pickeable
         else if (other.name == "zZz")
         {
-            //bool 
             reloj.enabled = true;
-            //Suma al tiempo
             timerController.AddTime(addTime);
-            //Activa/Desactiva gameobject
             other.gameObject.SetActive(false);
-            //Particula
             Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
-            //Play
             booster.Play();
         }
         else if (other.name == "zZz1")
         {
-            //bool 
             reloj.enabled = true;
             dialogManager.ShowDialog(DialogKey.Boosters);
-            //Suma al tiempo
             timerController.AddTime(addTime);
-            //Activa/Desactiva gameobject
             other.gameObject.SetActive(false);
             rubbers.SetActive(true);
-            //Particula
+
             Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
-            //Play
             booster.Play();
         }
         else if (other.name == "zZz - BoardRotation")
         {
-            //bool 
             reloj.enabled = true;
             dialogManager.ShowDialog(DialogKey.BoardRotation);
-            //Suma al tiempo
             timerController.AddTime(addTime);
-            //Activa/Desactiva gameobject
             other.gameObject.SetActive(false);
             rubbers.SetActive(true);
-            //Particula
             Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
-            //Play
             booster.Play();
         }
         else if (other.name == "SabanaLvl1Off")
@@ -156,7 +141,6 @@ public class PlayerCollitionsBody : MonoBehaviour
             other.gameObject.SetActive(false);
             dialogManager.ShowDialog(DialogKey.Pieces);
         }
-
         else if (other.name == "Dientes")
         {
             other.gameObject.SetActive(false);
@@ -172,7 +156,6 @@ public class PlayerCollitionsBody : MonoBehaviour
             enableUp = false;
             SceneManager.LoadScene("CinematicaVitoria");
         }
-        //Desactiva bola pickeable, habilita bola, valde y abre el tuto
         else if (other.name == "BallPickable" && !tutorialPaperBool.anyTutorialOpen)
         {
             canInteractWithItem = true;
@@ -215,13 +198,10 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             parte4.SetActive(true);
         }
-
-
         if (other.gameObject.name == "activamepasillo")
         {
             parte5.SetActive(true);
         }
-
     }
 
     private void OnTriggerStay(Collider other)
@@ -233,25 +213,18 @@ public class PlayerCollitionsBody : MonoBehaviour
                 PauseGame();
                 tutorialPaperBool.showTutorialBeret = true;
                 tutorialPaperBool.anyTutorialOpen = true;
-
-                //booleano del Script guia de tutoriales BOINA/MODO
                 capEnable = true;
-
                 cap.SetActive(false);//Se desactiva boina
                 flashLightPickGO.SetActive(true);//Se activa la LINTERNA
                 IconFantasmaLinterna.SetActive(true);//UI de PLANE DREAM
                 dialogSystem.SetActive(true);//Se activa SISTEMA DE DIALOGO
                 dialogManager.ShowDialog(DialogKey.IntroductionGuide);// bool dialogo
                 GetComponent<BoinaMec>().enabled = true;
-
                 pickeablesUI[0].SetActive(false);
-
                 pickUp.Play();//Sonido de PICKEABLE
-
                 light3.SetActive(false);
                 Light4.SetActive(true);
                 ClickLamp.Play();
-
             }
         }
 
@@ -304,7 +277,8 @@ public class PlayerCollitionsBody : MonoBehaviour
             if (canInteractWithItem && Input.GetButton("Interact"))
             {
                 PauseGame();
-                tutorialPaperBool.showTutorialGlasses = true;//booleano del Script tutorial ANTEOJOS
+
+                tutorialPaperBool.showTutorialGlasses = true;//Booleano del Script tutorial ANTEOJOS
                 gameState.GhostPlaneModeEnabled = true;//Activa PLANE GHOST
                 tutorialPaperBool.anyTutorialOpen = true;
 
