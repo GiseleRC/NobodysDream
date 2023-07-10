@@ -57,6 +57,6 @@ public class Walls : MonoBehaviour
             walls[i].GetComponent<Rigidbody>().isKinematic = true;
             walls[i].transform.localPosition = wallsRestorePos[i];
         }
-        dialogManager.ShowDialog(DialogKey.Book);
+        dialogManager.ShowDialog(DialogKey.FirstCheckpoint);
     }
 }

@@ -35,7 +35,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     public GameObject psObject;
 
     private void OnTriggerEnter(Collider other)
-    {
+    {   // Level 1 comprobaciones
         if (other.name == "Boina")
         {
             pickeablesUI[0].SetActive(true);
@@ -45,17 +45,21 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             pickeablesUI[1].SetActive(true);
             canInteractWithItem = true;
-        }
+        }//pickeables
         else if (other.name == "RulerPickeable" && !tutorialPaperBool.anyTutorialOpen)
         {
             pickeablesUI[2].SetActive(true);
             canInteractWithItem = true;
-        }
+        }//pickeables
         else if (other.name == "Glasses" && !tutorialPaperBool.anyTutorialOpen)
         {
             pickeablesUI[3].SetActive(true);
             canInteractWithItem = true;
-        }
+        }//pickeables
+        else if (other.name == "SensorPlayer - Glasses")
+        {
+            dialogManager.ShowDialog(DialogKey.Glasses);
+        }//dialogo
         else if (other.name == "BallBucket" && GetComponent<PlayerSC>().canThrowBall)
         {
             other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
@@ -80,6 +84,35 @@ public class PlayerCollitionsBody : MonoBehaviour
             Instantiate(collectPickeable, other.gameObject.transform.position + transform.forward * 2f, other.gameObject.transform.rotation);
             booster.Play();
         }
+        else if (other.name == "CheckPoint7 - GhostB")
+        {
+            dialogManager.ShowDialog(DialogKey.Ghost);
+        }
+        else if (other.name == "CheckPoint8 - Candy")
+        {
+            dialogManager.ShowDialog(DialogKey.CandyWheel);
+        }
+        else if (other.name == "Pills Pickeable")
+        {
+            dialogManager.ShowDialog(DialogKey.BottleOfPills);
+        }
+        else if (other.name == "SensorPlayer - WindowWrong2")
+        {
+            dialogManager.ShowDialog(DialogKey.FakeWindow);
+            windowClosed.Play("WindowLeft");
+        }
+        else if (other.name == "SensorPlayer - WindowWrong")
+        {
+            dialogManager.ShowDialog(DialogKey.FakeWindow);
+            windowClosed2.Play("WindowMiddle");
+        }
+        else if (other.name == "SensorPlayer - WindowCorrect")
+        {
+            dialogManager.ShowDialog(DialogKey.RealWindow);
+            windowOpen.Play("WindowRight");
+        }
+
+        // Level 2 comprobaciones
         else if (other.name == "zZz - BoardRotation")
         {
             reloj.enabled = true;
@@ -100,33 +133,6 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             level2Enable.SetActive(false);
             other.gameObject.GetComponent<Collider>().enabled = false;
-        }
-        else if (other.name == "SensorPlayerchocolate")
-        {
-            dialogManager.ShowDialog(DialogKey.Chocolates);
-        }
-        else if (other.name == "CheckPoint7 - GhostB")
-        {
-            dialogManager.ShowDialog(DialogKey.Ghost);
-        }
-        else if (other.name == "CheckPoint8 - Candy")
-        {
-            dialogManager.ShowDialog(DialogKey.CandyWheel);
-        }
-        else if (other.name == "SensorPlayer - WindowWrong2")
-        {
-            dialogManager.ShowDialog(DialogKey.FakeWindow);
-            windowClosed.Play("WindowLeft");
-        }
-        else if (other.name == "SensorPlayer - WindowWrong")
-        {
-            dialogManager.ShowDialog(DialogKey.FakeWindow);
-            windowClosed2.Play("WindowMiddle");
-        }
-        else if (other.name == "SensorPlayer - WindowCorrect")
-        {
-            dialogManager.ShowDialog(DialogKey.RealWindow);
-            windowOpen.Play("WindowRight");
         }
         else if (other.name == "LetterPickeable")
         {
@@ -387,17 +393,9 @@ public class PlayerCollitionsBody : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "ChocolateBlock")
+        if (collision.gameObject.name == "ConcreteF - chocolatesdown")
         {
-            dialogManager.ShowDialog(DialogKey.Slide);
-        }
-        else if (collision.gameObject.name == "CrayonsPlatform")
-        {
-            dialogManager.ShowDialog(DialogKey.Crayons);
-        }
-        else if (collision.gameObject.name == "ConcreteF - Rubbers")
-        {
-            dialogManager.ShowDialog(DialogKey.Rubber);
+            dialogManager.ShowDialog(DialogKey.ChocolatesDown);
         }
         else if (collision.gameObject.name == "ConcreteF - EnableLight")
         {

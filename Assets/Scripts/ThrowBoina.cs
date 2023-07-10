@@ -10,7 +10,7 @@ public class ThrowBoina : MonoBehaviour
     Transform character;
     AudioSource audioSource;
     PuzzleBoina puzzleBoina;
-    // Start is called before the first frame update
+
     void Start()
     {
         actualTime = distance;
@@ -22,7 +22,7 @@ public class ThrowBoina : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(gameObject.transform.childCount);
+        //print(gameObject.transform.childCount);
 
         character = GameObject.Find("Char").GetComponent<Transform>();
         actualTime -= Time.deltaTime;
