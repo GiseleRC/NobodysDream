@@ -59,15 +59,15 @@ public enum DialogKey
 
 public class DialogManager : MonoBehaviour
 {
-    // Definicion de los dialogos
+    // Definicion de los dialogos, usamos structs para agrupar los datos de los dialogos del tutorial
     [System.Serializable]
-    private class DialogEntry
+    private struct DialogEntry
     {
         [SerializeField] internal DialogKey key;
-        [SerializeField] internal DialogType type = DialogType.Tutorial;
+        [SerializeField] internal DialogType type;
         [SerializeField, Multiline] internal string text;
 
-        internal bool shown = false;
+        internal bool shown;
     }
 
     // Variables seteables desde el inspector
