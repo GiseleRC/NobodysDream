@@ -52,14 +52,11 @@ public class SpawnPlayerController : MonoBehaviour
 
     public void StopTimer()
     {
-        //print("Pare");
         GameObject.Find("TimerController").GetComponent<TimerController>().StopTimer();
     }
 
     public void ResumeTimer()
     {
-        //print("Retome");
         GameObject.Find("TimerController").GetComponent<TimerController>().ResumeTimer();
-
     }
 }
