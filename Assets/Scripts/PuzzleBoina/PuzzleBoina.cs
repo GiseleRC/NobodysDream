@@ -7,6 +7,9 @@ public class PuzzleBoina : MonoBehaviour
     [SerializeField] GameObject part1, part2, part3, character, door;
     [SerializeField] Transform finalPos1, finalPos2, finalPos3, correctYellow, correctRed, correctBlue;
     [SerializeField] float speed;
+    Dictionary<string, Transform> yellowForm;
+    Dictionary<string, Transform> redForm;
+    Dictionary<string, Transform> blueForm;
     float distance1, distance2, distance3;
     int count;
     bool move1, move2, move3, correct1, correct2, correct3, colectibles;
@@ -25,6 +28,24 @@ public class PuzzleBoina : MonoBehaviour
     {
         character = GameObject.Find("Char");
         audioSource = GetComponent<AudioSource>();
+
+        yellowForm = new Dictionary<string, Transform>()
+        {
+            {"finalPos",finalPos1 },
+            {"correctPos", correctYellow }
+        };
+
+        redForm = new Dictionary<string, Transform>()
+        {
+            {"finalPos",finalPos2 },
+            {"correctPos", correctRed }
+        };
+
+        blueForm = new Dictionary<string, Transform>()
+        {
+            {"finalPos",finalPos3 },
+            {"correctPos", correctBlue }
+        };
     }
 
     // Update is called once per frame
@@ -36,9 +57,9 @@ public class PuzzleBoina : MonoBehaviour
 
         if (playerIn && count == 0)
         {
-            part1.transform.position = Vector3.Lerp(part1.transform.position, finalPos1.position, speed * Time.deltaTime);
-            part2.transform.position = Vector3.Lerp(part2.transform.position, finalPos2.position, speed * Time.deltaTime);
-            part3.transform.position = Vector3.Lerp(part3.transform.position, finalPos3.position, speed * Time.deltaTime);
+            part1.transform.position = Vector3.Lerp(part1.transform.position, yellowForm["finalPos"].position, speed * Time.deltaTime);
+            part2.transform.position = Vector3.Lerp(part2.transform.position, redForm["finalPos"].position, speed * Time.deltaTime);
+            part3.transform.position = Vector3.Lerp(part3.transform.position, blueForm["finalPos"].position, speed * Time.deltaTime);
 
 
             
@@ -52,7 +73,7 @@ public class PuzzleBoina : MonoBehaviour
         {
             if(move1 == true && !correct1)
             {
-                part1.transform.position = Vector3.Lerp(part1.transform.position, finalPos1.transform.position, speed * Time.deltaTime);
+                part1.transform.position = Vector3.Lerp(part1.transform.position, yellowForm["finalPos"].position, speed * Time.deltaTime);
 
                 if(distance1 < 1f)
                 {
@@ -62,7 +83,7 @@ public class PuzzleBoina : MonoBehaviour
 
             if(move2 == true && !correct2)
             {
-                part2.transform.position = Vector3.Lerp(part2.transform.position, finalPos2.transform.position, speed * Time.deltaTime);
+                part2.transform.position = Vector3.Lerp(part2.transform.position, redForm["finalPos"].position, speed * Time.deltaTime);
 
                 if (distance2 < 1f)
                 {
@@ -72,7 +93,7 @@ public class PuzzleBoina : MonoBehaviour
 
             if(move3 == true && !correct3)
             {
-                part3.transform.position = Vector3.Lerp(part3.transform.position, finalPos3.transform.position, speed * Time.deltaTime);
+                part3.transform.position = Vector3.Lerp(part3.transform.position, blueForm["finalPos"].position, speed * Time.deltaTime);
 
                 if (distance3 < 1f)
                 {
@@ -82,17 +103,17 @@ public class PuzzleBoina : MonoBehaviour
 
             if (correct1)
             {
-                part1.transform.position = Vector3.Lerp(part1.transform.position, correctYellow.position, 2f * Time.deltaTime);
+                part1.transform.position = Vector3.Lerp(part1.transform.position, yellowForm["correctPos"].position, 2f * Time.deltaTime);
             }
 
             if (correct2)
             {
-                part2.transform.position = Vector3.Lerp(part2.transform.position, correctRed.position, 2f * Time.deltaTime);
+                part2.transform.position = Vector3.Lerp(part2.transform.position, redForm["correctPos"].position, 2f * Time.deltaTime);
             }
 
             if (correct3)
             {
-                part3.transform.position = Vector3.Lerp(part3.transform.position, correctBlue.position, 2f * Time.deltaTime);
+                part3.transform.position = Vector3.Lerp(part3.transform.position, blueForm["correctPos"].position, 2f * Time.deltaTime);
             }
         }
     }
