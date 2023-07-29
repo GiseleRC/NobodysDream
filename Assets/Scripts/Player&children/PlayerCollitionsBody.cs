@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollitionsBody : MonoBehaviour
 {
+    [Header("Controllers")]
     public GameState gameState;
     public FlashLight flashLightSC;
     public TimerController timerController;
@@ -14,6 +15,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 
     [SerializeField] private Collider capC, boosterC;
 
+    [Header("Bools")]
     public bool ballEnable = false;
     public bool iHaveCap = false;
     private bool objEnable = false;
@@ -28,13 +30,22 @@ public class PlayerCollitionsBody : MonoBehaviour
     private float balloonposY;
 
     public Puzzle2 puzzle2;
-
     public GameObject psObject;
     public GameObject[] pickeablesUI;
+
+    [Header("GO")]
     public GameObject introGO, glassesGO, letterOpenGO, nose1GO, rudolfClownGO, kakiLevel3GO, buttonResetGO, whitePiecesGO, flashLightPickGO, baloonGO, finalGO;
+
+    [Header("UI")]
     public GameObject  IconFantasma, IconFantasmaLinterna, flashLigthUI, canvasBallCount, dialogSystem;
+
+    [Header("Levels On/Off")]
     public GameObject level1Enable, level2Enable, segundaParteLevel3, parte2, parte3, parte4, parte5, finalPlat;
+
+    [Header("Lights On/Off")]
     public GameObject light1, light2, light3, Light4, lightBed, ligthPractice, ligthKaki, flashLigthArm, enableLightPuzzle3;
+
+    [Header("Objects")]
     public GameObject cap, rullerPick, door, rubbers, buckets, ballBucket, dientesEnMano, interactiveButton, collectPickeable, monster;
     public AudioSource openTutorial, pickUp, booster, ClickLamp;
 
