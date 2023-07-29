@@ -5,19 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollitionsBody : MonoBehaviour
 {
-    public Animator reloj, windowClosed, windowClosed2, windowOpen;
     public GameState gameState;
     public FlashLight flashLightSC;
     public TimerController timerController;
     public TutorialPaperSC tutorialPaperBool;
     public DialogManager dialogManager;
-    public GameObject segundaParteLevel3, kakiLevel3GO, finalPlat, finalGO, nose1GO, rudolfClownGO, buttonResetGO, whitePiecesGO, letterOpenGO, introGO, enableLightPuzzle3, dialogSystem, 
-                    canvasBallCount, IconFantasma, IconFantasmaLinterna, flashLigthUI, rubbers, ligthKaki, ligthPractice,
-                    light1, light2, light3, lightBed, interactiveButton, glassesGO, flashLigthArm, flashLightPickGO, cap, door, 
-                     level2Enable, level1Enable, ballBucket, rullerPick, collectPickeable, Light4, monster, buckets, dientesEnMano, baloonGO,
-                    parte2, parte3, parte4, parte5;
-    public AudioSource openTutorial, pickUp, booster;
+    public Animator reloj, windowClosed, windowClosed2, windowOpen;
+
     [SerializeField] private Collider capC, boosterC;
+
     public bool ballEnable = false;
     public bool iHaveCap = false;
     private bool objEnable = false;
@@ -25,14 +21,22 @@ public class PlayerCollitionsBody : MonoBehaviour
     private bool firstTimeGrab = false;
     private bool introB = false;
     private bool enableUp;
+    bool canInteractWithItem;
+
     private float addTime = 25f;
     private float waitTime = 7f;
     private float balloonposY;
-    bool canInteractWithItem;
-    public GameObject[] pickeablesUI;
-    public AudioSource ClickLamp;
+
     public Puzzle2 puzzle2;
+
     public GameObject psObject;
+    public GameObject[] pickeablesUI;
+    public GameObject introGO, glassesGO, letterOpenGO, nose1GO, rudolfClownGO, kakiLevel3GO, buttonResetGO, whitePiecesGO, flashLightPickGO, baloonGO, finalGO;
+    public GameObject  IconFantasma, IconFantasmaLinterna, flashLigthUI, canvasBallCount, dialogSystem;
+    public GameObject level1Enable, level2Enable, segundaParteLevel3, parte2, parte3, parte4, parte5, finalPlat;
+    public GameObject light1, light2, light3, Light4, lightBed, ligthPractice, ligthKaki, flashLigthArm, enableLightPuzzle3;
+    public GameObject cap, rullerPick, door, rubbers, buckets, ballBucket, dientesEnMano, interactiveButton, collectPickeable, monster;
+    public AudioSource openTutorial, pickUp, booster, ClickLamp;
 
     private void OnTriggerEnter(Collider other)
     {   // Level 1 comprobaciones
