@@ -36,11 +36,19 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] AudioSource soundWalk;
     [SerializeField] AudioClip walk, run;
     [SerializeField] AudioSource fallingWithUmbrella;
+    BoxCollider crouchCollider;
+    MeshCollider standCollider;
+    bool isCrouch;
 
     public int BallCount { get; private set; } = 0;
     public AudioSource ThrowBall;
 
     GroundCheck ground;
+
+    public bool IsCrouch
+    {
+        get { return isCrouch; }
+    }
 
     void Awake()
     {
@@ -76,6 +84,17 @@ public class PlayerSC : MonoBehaviour
         BufferTime();
         Jump();
         UmbrellaCheck();
+        Crouch();
+
+        if (Input.GetButton("Crouch"))
+        {
+            isCrouch = true;
+        }
+
+        if (Input.GetButtonUp("Crouch"))
+        {
+            isCrouch = false;
+        }
 
         if (mtSC.materializanding == false)
         {
@@ -341,5 +360,10 @@ public class PlayerSC : MonoBehaviour
     public void CancelSlow()
     {
         slow = false;
+    }
+
+    void Crouch()
+    {
+
     }
 }
