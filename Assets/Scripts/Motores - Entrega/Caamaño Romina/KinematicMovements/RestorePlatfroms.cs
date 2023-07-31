@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//TP2 - Caamaño Romina - al caerse las plataformas, vuelven a restaurar su posicion inicial
+//FINAL - Caamaño Romina - al caerse las plataformas, vuelven a restaurar su posicion inicial
 public class RestorePlatfroms : MonoBehaviour
 {
     [SerializeField] private GameObject[] platforms;

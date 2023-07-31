@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//TP2 - Caamaño Romina - movimiento vibratorio independiente
+//FINAL - Caamaño Romina - movimiento vibratorio independiente
 public class NoisyVibration : MonoBehaviour
 {
     [SerializeField] private Vector3 dir = Vector3.right;

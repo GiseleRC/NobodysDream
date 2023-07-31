@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TP2 - Caamaño Romina - requiere un rigidbody
+//FINAL - Caamano Romina - requiere un rigidbody
 [RequireComponent(typeof(Collider))]
 
-//TP2 - Caamaño Romina - hereda de kinematic movement controller
+//FINAL - Caamano Romina - hereda de kinematic movement controller
 public class ReactionKinematicMovementController : KinematicMovementController
 {
-    //TP2 - Caamaño Romina - sobreescribe el start heredado con un start vacio
+    //FINAL - Caamano Romina - sobreescribe el start heredado con un start vacio
     //para que NO comience su movimiento al iniciar si no cuando colisione con el player
     protected override void Start()
     {

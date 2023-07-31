@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TP2 - Caamaño Romina - Uniform accelerated rectilinear motion hereda de Kinematic Movement
+//FINAL - Caamaño Romina - Uniform accelerated rectilinear motion hereda de Kinematic Movement
 public class OscillatoryKinematicMovement : KinematicMovement
 {
-    //TP2 - Caamaño Romina - Encapsulamiento
+    //FINAL - Caamaño Romina - Encapsulamiento
     [SerializeField] protected Vector3 direction = Vector3.right;
     [SerializeField] protected float amplitude = 5f;
     [SerializeField] protected float frequency = 0.15f;
     protected float t = 0f;
 
-    //TP2 - Caamaño Romina - Utiliza los metodos heredados y los sobreescribe
+    //FINAL - Caamaño Romina - Utiliza los metodos heredados y los sobreescribe
     public override Vector3 GetPositionDelta(float dt)
     {
         //calcula el mov anterior
@@ -22,7 +22,7 @@ public class OscillatoryKinematicMovement : KinematicMovement
         //devuelve la diferencia de mov
         return curr - prev;
     }
-    //TP2 - Caamaño Romina - sobreescribe el metodo llamado que no hace nada originalmente
+    //FINAL - Caamaño Romina - sobreescribe el metodo llamado que no hace nada originalmente
     public override void ResetMovement()
     {
         t = 0f;
