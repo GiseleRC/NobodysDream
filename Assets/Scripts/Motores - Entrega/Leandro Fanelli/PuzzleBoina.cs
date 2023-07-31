@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//FINAL - Leandro Fanelli - Se hace uso de Diccionario para dividir las posiciones de los elementos del Puzzle, y asi poder usarlos de manera mas comoda.
 public class PuzzleBoina : MonoBehaviour
 {
     [SerializeField] GameObject part1, part2, part3, character, door;

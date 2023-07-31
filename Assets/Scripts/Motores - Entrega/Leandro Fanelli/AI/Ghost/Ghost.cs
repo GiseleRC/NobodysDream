@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-// TP2 - Leandro Fanelli - Este script contiene lo relacionado al enemigo llamado GHOST, el cual hereda de Enemies atributos y aplica Interfaces.
+// FINAL - Leandro Fanelli - Este script contiene lo relacionado al enemigo llamado GHOST, el cual hereda de Enemies atributos y aplica Interfaces.
 // Ademas se hace uso de Getters y Setters para las transiciones de comportamientos.
 
 public class Ghost : Enemies, IEnemy

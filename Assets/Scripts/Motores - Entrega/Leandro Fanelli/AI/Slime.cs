@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//FINAL - Leandro Fanelli - Se hace uso de Herencia para el Slime
 public class Slime : Enemies
 {
     [SerializeField] Transform[] patrolPoints;
