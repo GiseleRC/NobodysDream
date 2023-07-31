@@ -6,6 +6,8 @@ public class GroundCheck : MonoBehaviour
 {
     [SerializeField] LayerMask ground;
     [SerializeField] float radius = 0.1f;
+    RaycastHit hit;
+    bool isParent;
 
     bool isGrounded;
 

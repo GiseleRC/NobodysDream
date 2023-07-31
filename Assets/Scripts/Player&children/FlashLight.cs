@@ -7,17 +7,17 @@ public class FlashLight : MonoBehaviour
 {
     Light flashLight;
     public AudioSource flashLightOn, flashLightOff;
-    public GameObject linterna;
+    public GameObject flashLightModelGO;
     public float MinTime;
     public float MaxTime;
     public float Timer;
     public float posibility;
     bool flicker;
     public bool hasFlashlight = false;
-    bool canUseFlashlight = false;//pregunte si puede usar la linterna en el plano
     [SerializeField] float maxBattery, dischargeAmount, baseDischargeAmount, rechargeAmount, rechargeAmountDeadBattery;
     float actualBattery, flickerDuration, switchLight;
     bool usingFL, canUseFL, batteryDead;
+    bool canUseFlashlight = false;//TP2 - Caamaño Romina - pregunta si puede usar la linterna segun el plano
 
 
     public bool FlashLightEnabled
@@ -61,6 +61,16 @@ public class FlashLight : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
     void Start()
     {
         flashLight = GetComponent<Light>();
@@ -84,14 +94,13 @@ public class FlashLight : MonoBehaviour
             canUseFlashlight = hasFlashlight;
             hasFlashlight = false;
         }
-
-        linterna.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
+        flashLightModelGO.GetComponent<MeshRenderer>().enabled = canUseFlashlight;
 
         if (!canUseFlashlight)
         {
             flashLight.enabled = false;
         }
-        else if (Input.GetButtonDown("Flashlight") && canUseFL)
+        else if (Input.GetButtonDown("LeftClick") && canUseFL)
         {
             if (flashLight.enabled)
             {
@@ -122,7 +131,7 @@ public class FlashLight : MonoBehaviour
             actualBattery += rechargeAmount * Time.deltaTime;
         }
 
-        if(actualBattery > maxBattery)
+        if (actualBattery > maxBattery)
         {
             actualBattery = maxBattery;
         }
@@ -138,17 +147,17 @@ public class FlashLight : MonoBehaviour
                 batteryDead = false;
             }
         }
-
-        //print(batteryDead);
     }
 
-    void RechargeDeadBattery()
-    {
-
-    }
-
+    //TP2 - Caamaño Romina - Segun el plano determinado en el Game State se habilita el uso de la linterna
     public void OnPlaneModeChanged(GameState.PlaneMode planeMode)
     {
         canUseFlashlight = planeMode == GameState.PlaneMode.Dream;
     }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
+
 }

@@ -16,14 +16,32 @@ public class Shaking : MonoBehaviour
     public float shakeAmount = 0.7f;
     public float decreaseFactor = 1.0f;
 
+    float initialShakeAmount, initialDecreaseFactor;
+    bool fallingWall;
+
+    public bool FallingWall
+    {
+        set { fallingWall = value; }
+    }
+
     Vector3 originalPos;
 
     void Awake()
     {
+        initialShakeAmount = shakeAmount;
+        initialDecreaseFactor = decreaseFactor;
+
         if (camTransform == null)
         {
             camTransform = GetComponent(typeof(Transform)) as Transform;
         }
+
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
     }
 
     void OnEnable()
@@ -35,17 +53,39 @@ public class Shaking : MonoBehaviour
     {
             
         enemiesAttack = GameObject.Find("TimerController").GetComponent<TimerController>().EnemiesAttacking;
-        
-        if (enemiesAttack > 0)
+
+        if (fallingWall)
         {
+            shakeAmount = 0.02f;
             Vector3 NextPos = camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
             Vector3.Lerp(camTransform.localPosition, NextPos, 1f);
-
         }
         else
         {
-            shakeDuration = 0f;
-            camTransform.localPosition = originalPos;
+            if (enemiesAttack > 0)
+            {
+                Vector3 NextPos = camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+                Vector3.Lerp(camTransform.localPosition, NextPos, 1f);
+
+            }
+            else
+            {
+                shakeDuration = 0f;
+                camTransform.localPosition = originalPos;
+            }
         }
     }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
+
+    public void ResetVariable()
+    {
+        shakeAmount = initialShakeAmount;
+        decreaseFactor = initialDecreaseFactor;
+    }
+
+
 }

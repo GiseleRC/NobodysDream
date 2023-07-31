@@ -30,4 +30,19 @@ public class PlayerCam : MonoBehaviour
         orientation.rotation = Quaternion.Euler(0, xRotation, 0);
         lantern.rotation = Quaternion.Euler(-yRotation, xRotation, 0);
     }
+
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
 }

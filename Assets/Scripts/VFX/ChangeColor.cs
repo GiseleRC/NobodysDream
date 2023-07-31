@@ -7,14 +7,10 @@ public class ChangeColor : MonoBehaviour
     float posZ;
     [SerializeField]Color red, blue;
     ParticleSystem ps;
-    // Start is called before the first frame update
     void Start()
     {
-        ps = GetComponent<ParticleSystem>();
-        
+        ps = GetComponent<ParticleSystem>();  
     }
-
-    // Update is called once per frame
     void Update()
     {
         var main = ps.main;
@@ -26,7 +22,6 @@ public class ChangeColor : MonoBehaviour
         {
             main.startColor = blue;
         }
-
         posZ = gameObject.transform.position.z;
     }
 }

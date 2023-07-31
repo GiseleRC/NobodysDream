@@ -6,7 +6,8 @@ public class Stun : MonoBehaviour
 {
     FlashLight fl;
     Light flLight;
-    bool flashlightOn, stunnedAvaible;
+    bool flashlightOn;
+    bool stunnedAvaible;
     [SerializeField] float stunDuration, intensityModifier, startIntensity, startAngle, angleModifier, timeForStun, initialTimeForStun;
     [SerializeField] Color standardColor, stunColor;
 
@@ -17,6 +18,16 @@ public class Stun : MonoBehaviour
         startAngle = flLight.spotAngle;
         stunnedAvaible = true;
         initialTimeForStun = timeForStun;
+    }
+
+    private void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
     }
 
     void Update()
@@ -30,15 +41,13 @@ public class Stun : MonoBehaviour
             flLight.spotAngle = startAngle;
             timeForStun = initialTimeForStun;
         }
-
-        //print(timeForStun);
     }
 
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.layer == 11 && flashlightOn == true)
         {
-            if(timeForStun > 0)
+            if (timeForStun > 0)
             {
                 timeForStun -= Time.deltaTime;
                 flLight.intensity += intensityModifier * Time.deltaTime;
@@ -48,13 +57,7 @@ public class Stun : MonoBehaviour
             else
             {
 
-                if (!other.gameObject.GetComponent<Stunned>().enabled)
-                {
-                    other.gameObject.GetComponent<Stunned>().enabled = true;
-                    other.gameObject.GetComponent<Stunned>().StunEnemy(stunDuration);
-
-                }
-
+                other.gameObject.GetComponent<Enemies>().ReceiveStun(stunDuration);
                 stunnedAvaible = false;
 
                 GetComponentInParent<FlashLight>().ActualBattery = 0;
@@ -75,4 +78,10 @@ public class Stun : MonoBehaviour
         flLight.spotAngle = startAngle;
         timeForStun = initialTimeForStun;
     }
+
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
+
 }

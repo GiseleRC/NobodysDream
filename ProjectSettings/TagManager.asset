@@ -8,6 +8,12 @@ TagManager:
   - Cube
   - Ruler
   - MobilePlatforms
+  - Thief
+  - Slime
+  - BorderUI
+  - Colectible
+  - UmbrellasPick
+  - Check
   layers:
   - Default
   - TransparentFX
@@ -26,8 +32,8 @@ TagManager:
   - Flashligth
   - Lantern
   - TriggerButtons
-  - 
-  - 
+  - BallBullet
+  - Boina
   - 
   - 
   - 
