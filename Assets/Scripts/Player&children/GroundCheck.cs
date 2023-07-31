@@ -23,11 +23,6 @@ public class GroundCheck : MonoBehaviour
     void Update()
     {
         var colliders = Physics.OverlapSphere(transform.position, radius, ground);
-
-        foreach(Collider col in colliders)
-        {
-            print(col.name);
-        }
         isGrounded = colliders.Length > 0;
     }
 
