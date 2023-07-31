@@ -84,17 +84,6 @@ public class PlayerSC : MonoBehaviour
         BufferTime();
         Jump();
         UmbrellaCheck();
-        Crouch();
-
-        if (Input.GetButton("Crouch"))
-        {
-            isCrouch = true;
-        }
-
-        if (Input.GetButtonUp("Crouch"))
-        {
-            isCrouch = false;
-        }
 
         if (mtSC.materializanding == false)
         {
