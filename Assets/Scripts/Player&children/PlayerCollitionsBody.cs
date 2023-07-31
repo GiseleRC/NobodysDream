@@ -5,49 +5,49 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollitionsBody : MonoBehaviour
 {
-    [Header("Controllers")]
-    public GameState gameState;
-    public FlashLight flashLightSC;
-    public TimerController timerController;
-    public TutorialPaperSC tutorialPaperBool;
-    public DialogManager dialogManager;
-    public Animator reloj, windowClosed, windowClosed2, windowOpen;
-
+    [Header("CONTROLLERS")]
+    [SerializeField] public GameState gameState;
+    [SerializeField] public FlashLight flashLightSC;
+    [SerializeField] public TimerController timerController;
+    [SerializeField] public TutorialPaperSC tutorialPaperBool;
+    [SerializeField] public DialogManager dialogManager;
+    [SerializeField] public Puzzle2 puzzle2;
+    [SerializeField] public Animator reloj, windowClosed, windowClosed2, windowOpen;
+    [SerializeField] public AudioSource openTutorial, pickUp, booster, ClickLamp;
     [SerializeField] private Collider capC, boosterC;
-
-    [Header("Bools")]
+    
+    [Header("BOOLS")]
     public bool ballEnable = false;
     public bool iHaveCap = false;
+
+    [Header("GAME OBJECTS")]
+    [SerializeField] public GameObject psObject;
+    [SerializeField] public GameObject introGO, glassesGO, letterOpenGO, nose1GO, rudolfClownGO, kakiLevel3GO, buttonResetGO, whitePiecesGO, flashLightPickGO, baloonGO, finalGO;
+    [SerializeField] public GameObject cap, rullerPick, door, rubbers, buckets, ballBucket, dientesEnMano, interactiveButton, collectPickeable, monster;
+
+    [Header("GAME OBJECTS - UI")]
+    [SerializeField] public GameObject[] pickeablesUI;
+    [SerializeField] public GameObject IconFantasma;
+    [SerializeField] public GameObject IconFantasmaLinterna, flashLigthUI, canvasBallCount, dialogSystem;
+
+    [Header("GAME OBJECTS - Levels On/Off")]
+    [SerializeField] public GameObject level1Enable;
+    [SerializeField] public GameObject level2Enable, segundaParteLevel3, parte2, parte3, parte4, parte5, finalPlat;
+
+    [Header("GAME OBJECTS - Lights On/Off")]
+    [SerializeField] public GameObject light1;
+    [SerializeField] public GameObject light2, light3, Light4, lightBed, ligthPractice, ligthKaki, flashLigthArm, enableLightPuzzle3;
+
+    //Private
     private bool objEnable = false;
     private bool capEnable = false;
     private bool firstTimeGrab = false;
     private bool introB = false;
     private bool enableUp;
-    bool canInteractWithItem;
-
+    private bool canInteractWithItem;
     private float addTime = 25f;
     private float waitTime = 7f;
     private float balloonposY;
-
-    public Puzzle2 puzzle2;
-    public GameObject psObject;
-    public GameObject[] pickeablesUI;
-
-    [Header("GO")]
-    public GameObject introGO, glassesGO, letterOpenGO, nose1GO, rudolfClownGO, kakiLevel3GO, buttonResetGO, whitePiecesGO, flashLightPickGO, baloonGO, finalGO;
-
-    [Header("UI")]
-    public GameObject  IconFantasma, IconFantasmaLinterna, flashLigthUI, canvasBallCount, dialogSystem;
-
-    [Header("Levels On/Off")]
-    public GameObject level1Enable, level2Enable, segundaParteLevel3, parte2, parte3, parte4, parte5, finalPlat;
-
-    [Header("Lights On/Off")]
-    public GameObject light1, light2, light3, Light4, lightBed, ligthPractice, ligthKaki, flashLigthArm, enableLightPuzzle3;
-
-    [Header("Objects")]
-    public GameObject cap, rullerPick, door, rubbers, buckets, ballBucket, dientesEnMano, interactiveButton, collectPickeable, monster;
-    public AudioSource openTutorial, pickUp, booster, ClickLamp;
 
     private void OnTriggerEnter(Collider other)
     {   // Level 1 comprobaciones
