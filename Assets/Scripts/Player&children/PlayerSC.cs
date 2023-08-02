@@ -36,9 +36,11 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] AudioSource soundWalk;
     [SerializeField] AudioClip walk, run;
     [SerializeField] AudioSource fallingWithUmbrella;
-    BoxCollider crouchCollider;
-    MeshCollider standCollider;
+    [SerializeField] BoxCollider crouchCollider;
+    [SerializeField] MeshCollider standCollider;
+    [SerializeField] CapsuleCollider capsuleCollider;
     bool isCrouch;
+    float speed;
 
     public int BallCount { get; private set; } = 0;
     public AudioSource ThrowBall;
@@ -85,6 +87,17 @@ public class PlayerSC : MonoBehaviour
         Jump();
         UmbrellaCheck();
 
+        if (Input.GetButton("Crouch"))
+        {
+            isCrouch = true;
+        }
+
+        if (Input.GetButtonUp("Crouch"))
+        {
+            isCrouch = false;
+        }
+
+        Crouch();
         if (mtSC.materializanding == false)
         {
             PlaneChange();
@@ -193,14 +206,22 @@ public class PlayerSC : MonoBehaviour
 
         if (slow || umbrella.UmbrellaActivate)
         {
-            float speed = walkSpeed;//velocidad si camina o si corre
+            speed = walkSpeed;//velocidad si camina o si corre
 
             Vector3 velocity = Quaternion.AngleAxis(orientation.rotation.eulerAngles.y, Vector3.up) * input * speed * Time.fixedUnscaledDeltaTime;
             transform.position += velocity;
         }
         else
         {
-            float speed = (Input.GetButton("Left Shift")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
+            if (isCrouch)
+            {
+                speed = 2f;
+            }
+            else
+            {
+
+                speed = (Input.GetButton("Left Shift")) ? runSpeed : walkSpeed;//velocidad si camina o si corre
+            }
 
             if(inputX != 0 && ground.IsGrounded|| inputY != 0 && ground.IsGrounded)
             {
@@ -231,7 +252,7 @@ public class PlayerSC : MonoBehaviour
 
     void Jump()
     {
-        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0 && !slow)
+        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0 && !slow && !isCrouch)
         {
             float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * initialGravity);
             playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
@@ -353,6 +374,20 @@ public class PlayerSC : MonoBehaviour
 
     void Crouch()
     {
-
+        if (isCrouch)
+        {
+            crouchCollider.enabled = true;
+            standCollider.enabled = false;
+        }
+        else if(!isCrouch && capsuleCollider.enabled == true)
+        {
+            crouchCollider.enabled = false;
+            standCollider.enabled = false;
+        }
+        else
+        {
+            crouchCollider.enabled = false;
+            standCollider.enabled = true;
+        }
     }
 }

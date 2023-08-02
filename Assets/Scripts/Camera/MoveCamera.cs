@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
-    Transform cameraPos, initialCameraPos, crouchCameraPos, armsInitial, armsCrouch;
-    GameObject arms;
-    float timer, defaultPosY, defaultPosX, defaultPosYInitialPos, defaultPosXInitialPos, defaultCrouchPosYInitialPos, defaultCrouchPosXInitialPos;
+    Transform cameraPos, initialCameraPos, crouchCameraPos, armsInitial, armsCrouch, arms, armsState;
+    float timer, defaultPosY, defaultPosX, defaultPosYInitialPos, defaultPosXInitialPos, defaultCrouchPosYInitialPos, defaultCrouchPosXInitialPos, timerReset;
     [SerializeField] float boobingSpeed, bobbingAmount;
+    
     PlayerSC playerSC;
+    GroundCheck groundCheck;
     // Start is called before the first frame update
 
     private void Awake()
@@ -25,7 +26,8 @@ public class MoveCamera : MonoBehaviour
     {
         armsInitial = GameObject.Find("InitialArmsPos").GetComponent<Transform>();
         armsCrouch = GameObject.Find("ArmsCrouchPos").GetComponent<Transform>();
-        arms = GameObject.Find("rootLantern");
+        arms = GameObject.Find("rootLantern").GetComponent<Transform>();
+        armsState = arms;
         playerSC = GameObject.Find("Char").GetComponent<PlayerSC>();
         cameraPos = GameObject.Find("cameraPos").GetComponent<Transform>();
         initialCameraPos = cameraPos;
@@ -34,6 +36,7 @@ public class MoveCamera : MonoBehaviour
         defaultPosXInitialPos = cameraPos.transform.localPosition.x;
         defaultCrouchPosYInitialPos = crouchCameraPos.transform.localPosition.y;
         defaultCrouchPosXInitialPos = crouchCameraPos.transform.localPosition.x;
+        groundCheck = GameObject.Find("Char").GetComponentInChildren<GroundCheck>();
     }
 
     // Update is called once per frame
@@ -44,40 +47,60 @@ public class MoveCamera : MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
 
 
-        if(playerSC.IsCrouch == false)
+        if (playerSC.IsCrouch == false)
         {
-            arms.transform.position = Vector3.Lerp(arms.transform.position, armsInitial.transform.position, 1f);
-            transform.position = Vector3.Lerp(transform.position, initialCameraPos.position,1f);
             defaultPosX = defaultPosXInitialPos;
             defaultPosY = defaultPosYInitialPos;
             cameraPos = initialCameraPos;
-
+            armsState = armsInitial;
         }
 
-        if(playerSC.IsCrouch == true)
+        if (playerSC.IsCrouch == true && groundCheck.IsGrounded)
         {
-            arms.transform.position = Vector3.Lerp(arms.transform.position, armsCrouch.transform.position, 1f);
-            transform.position = Vector3.Lerp(transform.position, crouchCameraPos.position,1f);
             defaultPosX = defaultCrouchPosXInitialPos;
             defaultPosY = defaultCrouchPosYInitialPos;
             cameraPos = crouchCameraPos;
+            armsState = armsCrouch;
+
         }
 
         if (inputX != 0 || inputY != 0)
         {
             timer += Time.deltaTime * boobingSpeed;
-            cameraPos.transform.localPosition = new Vector3(cameraPos.transform.localPosition.x + Mathf.Cos(timer) * bobbingAmount * Time.deltaTime, cameraPos.transform.localPosition.y + Mathf.Cos(timer) * bobbingAmount * Time.deltaTime, cameraPos.transform.localPosition.z);
+            cameraPos.transform.localPosition = new Vector3(cameraPos.transform.localPosition.x + Mathf.Cos(timer) * bobbingAmount * Time.deltaTime, defaultPosY, cameraPos.transform.localPosition.z);
         }
         else
         {
             cameraPos.transform.localPosition = new Vector3(Mathf.Lerp(cameraPos.transform.localPosition.x, defaultPosX, Time.deltaTime * boobingSpeed), Mathf.Lerp(cameraPos.transform.localPosition.y, defaultPosY, Time.deltaTime * boobingSpeed), cameraPos.localPosition.z);
         }
 
+        arms.transform.position = new Vector3(arms.transform.position.x, Mathf.Lerp(arms.transform.position.y, armsState.transform.position.y, 0.4f), arms.transform.position.z);
+
+        if (groundCheck.IsGrounded)
+        {
+            if (timerReset < 0)
+            {
+                transform.position = new Vector3(cameraPos.transform.position.x, Mathf.Lerp(transform.position.y, cameraPos.transform.position.y, 0.4f), cameraPos.transform.position.z);
+
+            }
+            else
+            {
+                timerReset -= Time.deltaTime;
+                transform.position = cameraPos.transform.position;
+            }
+
+        }
+        else
+        {
+            transform.position = cameraPos.transform.position;
+            timerReset = 0.2f;
+        }
+
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-
+       
     }
 
     private void OnPauseStateChanged(PauseState newPauseState)
