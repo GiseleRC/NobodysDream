@@ -40,7 +40,7 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] MeshCollider standCollider;
     [SerializeField] CapsuleCollider capsuleCollider;
     bool isCrouch;
-    float speed;
+    float speed, crouchTimer;
 
     public int BallCount { get; private set; } = 0;
     public AudioSource ThrowBall;
@@ -87,7 +87,7 @@ public class PlayerSC : MonoBehaviour
         Jump();
         UmbrellaCheck();
 
-        if (Input.GetButton("Crouch"))
+        if (Input.GetButton("Crouch") && crouchTimer <= 0)
         {
             isCrouch = true;
         }
@@ -257,6 +257,7 @@ public class PlayerSC : MonoBehaviour
             float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * initialGravity);
             playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
             jumpBufferCounter = 0;
+            crouchTimer = 0.2f;
         }
     }
 
@@ -374,6 +375,11 @@ public class PlayerSC : MonoBehaviour
 
     void Crouch()
     {
+        if(crouchTimer > 0 && ground.IsGrounded)
+        {
+            crouchTimer -= Time.deltaTime;
+        }
+
         if (isCrouch)
         {
             crouchCollider.enabled = true;
