@@ -218,6 +218,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.gameObject.name == "KakyFINAL")
         {
             parte4.SetActive(true);
+            Destroy(other.gameObject);
         }
         if (other.gameObject.name == "activamepasillo")
         {
@@ -471,6 +472,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             parte3.SetActive(true);
         }
     }
+
     private void Update()
     {
         if (objEnable && capEnable)
@@ -510,5 +512,15 @@ public class PlayerCollitionsBody : MonoBehaviour
             : PauseState.Paused;
 
         PauseStateManager.Instance.SetState(newPauseState);
+    }
+
+    public void FixCamera()
+    {
+        GameObject.Find("CameraHolder").GetComponent<MoveCamera>().dontMoveCamera = true;
+    }
+
+    public void ResetCamera()
+    {
+        GameObject.Find("CameraHolder").GetComponent<MoveCamera>().dontMoveCamera = false;
     }
 }

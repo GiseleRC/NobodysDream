@@ -7,7 +7,8 @@ public class MoveCamera : MonoBehaviour
     Transform cameraPos, initialCameraPos, crouchCameraPos, armsInitial, armsCrouch, arms, armsState;
     float timer, defaultPosY, defaultPosX, defaultPosYInitialPos, defaultPosXInitialPos, defaultCrouchPosYInitialPos, defaultCrouchPosXInitialPos, timerReset;
     [SerializeField] float boobingSpeed, bobbingAmount;
-    
+    public bool dontMoveCamera;
+
     PlayerSC playerSC;
     GroundCheck groundCheck;
     // Start is called before the first frame update
@@ -76,12 +77,11 @@ public class MoveCamera : MonoBehaviour
 
         arms.transform.position = new Vector3(arms.transform.position.x, Mathf.Lerp(arms.transform.position.y, armsState.transform.position.y, 0.4f), arms.transform.position.z);
 
-        if (groundCheck.IsGrounded)
+        if (groundCheck.IsGrounded && !dontMoveCamera)
         {
             if (timerReset < 0)
             {
                 transform.position = new Vector3(cameraPos.transform.position.x, Mathf.Lerp(transform.position.y, cameraPos.transform.position.y, 0.4f), cameraPos.transform.position.z);
-
             }
             else
             {
