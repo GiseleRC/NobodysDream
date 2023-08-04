@@ -182,10 +182,10 @@ public class PlayerCollitionsBody : MonoBehaviour
             canInteractWithItem = true;
             other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
         }
-        else if (other.name == "CheckPoint5 - DIALOG")
-        {
-            dialogManager.ShowDialog(DialogKey.EnableEquip);
-        }
+        //else if (other.name == "CheckPoint5 - DIALOG")
+        //{
+        //    dialogManager.ShowDialog(DialogKey.EnableEquip);
+        //}
         if (other.name == "UmbrellaPickeable")
         {
             pickeablesUI[4].SetActive(true);
@@ -483,8 +483,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (!puzzle2.practice1 && !puzzle2.practice2 && !puzzle2.practice3 && firstTimeGrab)
         {
             dialogManager.ShowDialog(DialogKey.Practice);
-            puzzle2.practice3 = false;
-            firstTimeGrab = false;
+            puzzle2.practice3 = true;
         }
         if (introB && introGO)
         {
