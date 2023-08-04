@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimerController : MonoBehaviour
 {
     //- Este script controla el tiempo de todo el nivel, no se resetea a menos que reinicies la escena y le tranfiere informacion al time del canvas
-    [SerializeField] private float timeWait = 360f;
+    [SerializeField] private float timeWait = 500f;
     [SerializeField] private float minTimeForPickBooster = 200f;
     [SerializeField] SpawnPlayerController spawnPlayerController;
     public bool pickBooster = false;
