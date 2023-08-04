@@ -483,6 +483,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (!puzzle2.practice1 && !puzzle2.practice2 && !puzzle2.practice3 && firstTimeGrab)
         {
             dialogManager.ShowDialog(DialogKey.Practice);
+            puzzle2.practice3 = false;
             firstTimeGrab = false;
         }
         if (introB && introGO)
