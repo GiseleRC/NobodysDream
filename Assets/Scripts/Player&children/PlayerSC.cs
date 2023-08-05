@@ -39,8 +39,9 @@ public class PlayerSC : MonoBehaviour
     [SerializeField] BoxCollider crouchCollider;
     [SerializeField] MeshCollider standCollider;
     [SerializeField] CapsuleCollider capsuleCollider;
-    bool isCrouch;
+    bool isCrouch, crouchPressing;
     float speed, crouchTimer;
+    [SerializeField] LayerMask crouchMask;
 
     public int BallCount { get; private set; } = 0;
     public AudioSource ThrowBall;
@@ -89,12 +90,12 @@ public class PlayerSC : MonoBehaviour
 
         if (Input.GetButton("Crouch") && crouchTimer <= 0)
         {
-            isCrouch = true;
+            crouchPressing = true;
         }
 
         if (Input.GetButtonUp("Crouch"))
         {
-            isCrouch = false;
+            crouchPressing = false;
         }
 
         Crouch();
@@ -257,7 +258,7 @@ public class PlayerSC : MonoBehaviour
             float jumpvelocity = Mathf.Sqrt(jumpHeight * -2f * initialGravity);
             playerRB.velocity = new Vector3(playerRB.velocity.x, jumpvelocity, playerRB.velocity.z);
             jumpBufferCounter = 0;
-            crouchTimer = 0.2f;
+            crouchTimer = 0.1f;
         }
     }
 
@@ -395,5 +396,22 @@ public class PlayerSC : MonoBehaviour
             crouchCollider.enabled = false;
             standCollider.enabled = true;
         }
+
+
+        bool ray = Physics.Raycast(crouchCollider.transform.position, crouchCollider.transform.up, 2f, crouchMask);
+
+        if (ray || crouchPressing && !ray)
+        {
+            isCrouch = true;
+        }
+        else
+        {
+            isCrouch = false;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(crouchCollider.transform.position, crouchCollider.transform.up * .2f);
     }
 }
