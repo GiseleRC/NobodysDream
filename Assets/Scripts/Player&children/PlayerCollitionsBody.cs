@@ -224,7 +224,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             parte5.SetActive(true);
         }
-        if(other.gameObject.tag == "InteractuableDientes")
+        if(other.gameObject.tag == "InteractuableDientes" && dientesEnMano.activeInHierarchy)
         {
             canInteractWithItem = true;
             other.transform.GetChild(0).gameObject.SetActive(true);
@@ -370,6 +370,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             if(canInteractWithItem && Input.GetButtonDown("Interact") && dientesEnMano.activeInHierarchy)
             {
+                other.transform.GetChild(0).gameObject.SetActive(true);
                 print("Corte con los dientes");
                 Destroy(other.gameObject);
             }

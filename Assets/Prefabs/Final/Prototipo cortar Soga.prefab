@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 3726487862084482499}
   - component: {fileID: 3726487862084482498}
   - component: {fileID: 3726487862084482500}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Prototipo cortar Soga
   m_TagString: InteractuableDientes
   m_Icon: {fileID: 0}
