@@ -224,6 +224,11 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             parte5.SetActive(true);
         }
+        if(other.gameObject.tag == "InteractuableDientes")
+        {
+            canInteractWithItem = true;
+            other.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -361,6 +366,15 @@ public class PlayerCollitionsBody : MonoBehaviour
             }
         }
 
+        if (other.gameObject.tag == "InteractuableDientes")
+        {
+            if(canInteractWithItem && Input.GetButtonDown("Interact") && dientesEnMano.activeInHierarchy)
+            {
+                print("Corte con los dientes");
+                Destroy(other.gameObject);
+            }
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -405,6 +419,12 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             pickeablesUI[4].SetActive(false);
             canInteractWithItem = false;
+        }
+
+        if (other.gameObject.tag == "InteractuableDientes")
+        {
+            canInteractWithItem = false;
+            other.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
     public void OnCollisionEnter(Collision collision)
