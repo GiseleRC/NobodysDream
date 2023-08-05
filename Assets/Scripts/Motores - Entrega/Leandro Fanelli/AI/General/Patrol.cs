@@ -10,6 +10,7 @@ public class Patrol : MonoBehaviour
     [SerializeField] Material whiteEyes;
     Ghost ghost;
     Thief thief;
+    ClockEnemy clockEnemy;
     NavMeshAgent nma;
 
     void OnEnable()
@@ -19,10 +20,15 @@ public class Patrol : MonoBehaviour
             ghost = GetComponent<Ghost>();
             nma = ghost.NMA;
         }
-        else
+        else if(GetComponent<Thief>() != null)
         {
             thief = GetComponent<Thief>();
             nma = thief.NMA;
+        }
+        else
+        {
+            clockEnemy = GetComponent<ClockEnemy>();
+            nma = clockEnemy.NMA;
         }
 
         nma.ResetPath();
@@ -41,10 +47,15 @@ public class Patrol : MonoBehaviour
             ghost = GetComponent<Ghost>();
             nma = ghost.NMA;
         }
-        else
+        else if (GetComponent<Thief>() != null)
         {
             thief = GetComponent<Thief>();
             nma = thief.NMA;
+        }
+        else
+        {
+            clockEnemy = GetComponent<ClockEnemy>();
+            nma = clockEnemy.NMA;
         }
 
     }

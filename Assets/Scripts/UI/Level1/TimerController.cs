@@ -41,6 +41,10 @@ public class TimerController : MonoBehaviour
             currTimeWait = timeWait;
         }
     }
+    public void SubstractTime(float amount)
+    {
+        currTimeWait -= amount;
+    }
 
     private void Awake()
     {
@@ -160,4 +164,5 @@ public class TimerController : MonoBehaviour
         speed = 1;
         clock.Play();
     }
+
 }

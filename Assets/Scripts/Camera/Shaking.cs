@@ -19,6 +19,8 @@ public class Shaking : MonoBehaviour
     float initialShakeAmount, initialDecreaseFactor;
     bool fallingWall;
 
+    public float timerEvent;
+
     public bool FallingWall
     {
         set { fallingWall = value; }
@@ -54,14 +56,26 @@ public class Shaking : MonoBehaviour
             
         enemiesAttack = GameObject.Find("TimerController").GetComponent<TimerController>().EnemiesAttacking;
 
+        if(timerEvent > 0)
+        {
+            timerEvent -= Time.deltaTime;
+        }
+
         if (fallingWall)
         {
             shakeAmount = 0.02f;
             Vector3 NextPos = camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
             Vector3.Lerp(camTransform.localPosition, NextPos, 1f);
         }
+        else if(timerEvent > 0)
+        {
+            shakeAmount = 0.2f;
+            Vector3 NextPos = camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount * 1.2f;
+            Vector3.Lerp(camTransform.localPosition, NextPos, 1f);
+        }
         else
         {
+            shakeAmount = 0.01f;
             if (enemiesAttack > 0)
             {
                 Vector3 NextPos = camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
@@ -85,6 +99,11 @@ public class Shaking : MonoBehaviour
     {
         shakeAmount = initialShakeAmount;
         decreaseFactor = initialDecreaseFactor;
+    }
+
+    public void ShakeExplosion(float duration)
+    {
+        timerEvent = duration;
     }
 
 
