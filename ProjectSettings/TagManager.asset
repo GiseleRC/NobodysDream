@@ -15,6 +15,7 @@ TagManager:
   - UmbrellasPick
   - Check
   - InteractuableDientes
+  - Pieces
   layers:
   - Default
   - TransparentFX

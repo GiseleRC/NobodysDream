@@ -51,7 +51,7 @@ public class Ball : MonoBehaviour
     {
         if (GetComponent<Rigidbody>().velocity != Vector3.zero)
         {
-            if (other.gameObject.layer == 16 || other.gameObject.layer == 10 || other.gameObject.layer == 11)//Colisone contra la layer TriggerButtons
+            if (other.gameObject.layer == 16 || other.gameObject.layer == 10 || other.gameObject.layer == 11 || other.gameObject.tag == "Pieces")//Colisone contra la layer TriggerButtons
             {
                 Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
                 Instantiate(soundGO, ballPos.transform.position, ballRot.transform.rotation);
