@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PuzzleXilofono : MonoBehaviour
 {
-    public GameObject yellowPiece, xilofonoGO, missingPiecesGO, portalExitGO, portalEnterGO, xilofonoSensorsGO, redKeyUI, orangeKeyUI, yellowKeyUI, xilophoneCompleteGO, finalPosXilophone;
+    public GameObject yellowPiece, xilofonoGO, missingPiecesGO, portalExitGO, portalEnterGO, xilofonoSensorsGO, redKeyUI,
+        orangeKeyUI, yellowKeyUI, xilophoneCompleteGO, finalPosXilophone, yellowTriangle, level1AfterPuzzle;
     public bool keyYellowDis, keyRedDis, keyOrangeDis, xilofonoEnable, xilofonoComplete, portalEnable, keyRedPlaced, keyYellowPlaced, keyOrangePlaced, moveXilophoneGO;
     private Vector3 velocity = Vector3.zero;
 
@@ -27,6 +28,19 @@ public class PuzzleXilofono : MonoBehaviour
         if (moveXilophoneGO)
         {
             xilophoneCompleteGO.transform.position = Vector3.SmoothDamp(xilophoneCompleteGO.transform.position, finalPosXilophone.transform.position, ref velocity, 250f * Time.deltaTime);
+            if(yellowTriangle != null)
+                yellowTriangle.SetActive(true);
+            DisableKeyUI();
+
+            level1AfterPuzzle.SetActive(true);
+
+        }
+
+        float distance = Vector3.Distance(xilophoneCompleteGO.transform.position, finalPosXilophone.transform.position);
+
+        if(distance < 0.5f)
+        {
+            gameObject.SetActive(false);
         }
     }
 
