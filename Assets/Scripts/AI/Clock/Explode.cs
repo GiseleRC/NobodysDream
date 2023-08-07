@@ -27,6 +27,7 @@ public class Explode : MonoBehaviour
         nma = clockEnemy.NMA;
         nma.SetDestination(transform.position);
         actualTime = timerForExplode;
+        clockEnemy.Explosion = true;
     }
 
     // Update is called once per frame
@@ -45,13 +46,18 @@ public class Explode : MonoBehaviour
     {
         var explosionArea = Physics.OverlapSphere(transform.position, radiusExplosion);
 
-        foreach (Collider character in explosionArea)
+        foreach (Collider col in explosionArea)
         {
-            if(character.gameObject.name == "Char")
+            if(col.gameObject.name == "Char")
             {
                 GameObject.Find("TimerController").GetComponent<TimerController>().SubstractTime(amountTimer);
                 GameObject.Find("CameraHolder").GetComponent<Shaking>().ShakeExplosion(shakeDuration);
             }
+            else if (col.gameObject.tag == "Gelatina")
+            {
+                col.GetComponent<Gelatina>().DoInDestroy();
+            }
+
             
         }
 

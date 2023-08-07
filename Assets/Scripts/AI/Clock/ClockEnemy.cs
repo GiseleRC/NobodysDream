@@ -7,6 +7,13 @@ public class ClockEnemy : Enemies, IEnemy
     MonoBehaviour patrol, explode, stayPos;
     [SerializeField] float distanceForExplode;
     float distance;
+    bool explosion;
+
+    public bool Explosion
+    {
+        get { return explosion; }
+        set { explosion = value; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,15 +42,15 @@ public class ClockEnemy : Enemies, IEnemy
 
     public void Transitions()
     {
-        if (distance < distanceForExplode)
-        {
-            patrol.enabled = false;
-            explode.enabled = true;
-        }
-        else
+        if (distance > distanceForExplode && !explosion)
         {
             patrol.enabled = true;
             explode.enabled = false;
+        }
+        else
+        {
+            patrol.enabled = false;
+            explode.enabled = true;
         }
     }
 
