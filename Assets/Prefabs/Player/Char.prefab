@@ -6212,7 +6212,6 @@ GameObject:
   - component: {fileID: 1364034565822762121}
   - component: {fileID: 2713286012348512612}
   - component: {fileID: 5669149563682790437}
-  - component: {fileID: 8708724562744890943}
   m_Layer: 14
   m_Name: ParaguasInvertido
   m_TagString: Untagged
@@ -6381,19 +6380,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &8708724562744890943
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453642910778089856}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.002914302, y: 0.029013459, z: 0.0019732595}
-  m_Center: {x: -0.00046885046, y: 0.01422876, z: 0.0014566467}
 --- !u!1 &7138201993952134314
 GameObject:
   m_ObjectHideFlags: 0
@@ -6762,6 +6748,17 @@ MonoBehaviour:
   interactiveButton: {fileID: 0}
   collectPickeable: {fileID: 879996424598425317, guid: eb9158d471985f34f89f538c5f38c54d, type: 3}
   monster: {fileID: 0}
+  redKey: {fileID: 0}
+  clavoRed1: {fileID: 0}
+  clavoRed2: {fileID: 0}
+  triggerOrange: {fileID: 0}
+  orangeKey: {fileID: 0}
+  clavoOrange1: {fileID: 0}
+  clavoOrange2: {fileID: 0}
+  triggerYellow: {fileID: 0}
+  yellowKey: {fileID: 0}
+  clavoYellow1: {fileID: 0}
+  clavoYellow2: {fileID: 0}
   pickeablesUI: []
   IconFantasma: {fileID: 0}
   IconFantasmaLinterna: {fileID: 0}
@@ -6785,6 +6782,7 @@ MonoBehaviour:
   ligthKaki: {fileID: 0}
   flashLigthArm: {fileID: 339931611260082497}
   enableLightPuzzle3: {fileID: 0}
+  xilophone: {fileID: 0}
 --- !u!114 &691922695422852397
 MonoBehaviour:
   m_ObjectHideFlags: 0

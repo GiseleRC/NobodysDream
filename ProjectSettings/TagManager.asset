@@ -16,6 +16,7 @@ TagManager:
   - Check
   - InteractuableDientes
   - Pieces
+  - Gelatina
   layers:
   - Default
   - TransparentFX

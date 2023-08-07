@@ -23,7 +23,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     [Header("GAME OBJECTS")]
     [SerializeField] public GameObject psObject;
     [SerializeField] public GameObject introGO, glassesGO, letterOpenGO, nose1GO, rudolfClownGO, kakiLevel3GO, buttonResetGO, whitePiecesGO, flashLightPickGO, baloonGO, finalGO;
-    [SerializeField] public GameObject cap, rullerPick, door, rubbers, buckets, ballBucket, dientesEnMano, interactiveButton, collectPickeable, monster;
+    [SerializeField] public GameObject cap, rullerPick, door, rubbers, buckets, ballBucket, dientesEnMano, interactiveButton, collectPickeable, monster, redKey, clavoRed1, clavoRed2, triggerOrange, orangeKey, clavoOrange1, clavoOrange2, triggerYellow, yellowKey, clavoYellow1, clavoYellow2;
 
     [Header("GAME OBJECTS - UI")]
     [SerializeField] public GameObject[] pickeablesUI;
@@ -48,6 +48,9 @@ public class PlayerCollitionsBody : MonoBehaviour
     private float addTime = 25f;
     private float waitTime = 7f;
     private float balloonposY;
+    float timer;
+
+    [SerializeField] Transform xilophone;
 
     private void OnTriggerEnter(Collider other)
     {   // Level 1 comprobaciones
@@ -229,6 +232,22 @@ public class PlayerCollitionsBody : MonoBehaviour
             canInteractWithItem = true;
             other.transform.GetChild(0).gameObject.SetActive(true);
         }
+        if (other.gameObject.name == "TriggerRed")
+        {
+            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
+        }
+        if (other.gameObject.name == "TriggerOrange")
+        {
+            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
+        }
+        if (other.gameObject.name == "TriggerYellow")
+        {
+            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
+        }
+        if (other.gameObject.name == "XilofonoPivot")
+        {
+            gameObject.transform.parent = other.gameObject.transform;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -368,11 +387,56 @@ public class PlayerCollitionsBody : MonoBehaviour
 
         if (other.gameObject.tag == "InteractuableDientes")
         {
-            if(canInteractWithItem && Input.GetButtonDown("Interact") && dientesEnMano.activeInHierarchy)
+            if(canInteractWithItem && Input.GetButton("Interact") && dientesEnMano.activeInHierarchy)
             {
                 other.transform.GetChild(0).gameObject.SetActive(true);
                 print("Corte con los dientes");
                 Destroy(other.gameObject);
+            }
+        }
+
+        if (other.gameObject.name == "TriggerRed")
+        {
+            if (Input.GetButtonDown("Interact") && timer <= 0 && GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyRedDis)
+            {
+                redKey.SetActive(true);
+                clavoRed1.SetActive(true);
+                clavoRed2.SetActive(true);
+                timer = 1f;
+                triggerOrange.SetActive(true);
+                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyRedPlaced = true;
+                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
+                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+                other.gameObject.SetActive(false);
+            }
+        }
+        if (other.gameObject.name == "TriggerOrange")
+        {
+            if (Input.GetButtonDown("Interact") && timer <= 0 && GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyOrangeDis)
+            {
+                orangeKey.SetActive(true);
+                clavoOrange1.SetActive(true);
+                clavoOrange2.SetActive(true);
+                timer = 1f;
+                triggerYellow.SetActive(true);
+                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyOrangePlaced = true;
+                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
+                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+                other.gameObject.SetActive(false);
+            }
+        }
+        if (other.gameObject.name == "TriggerYellow")
+        {
+            if (Input.GetButtonDown("Interact") && timer <= 0 && GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyYellowDis)
+            {
+                yellowKey.SetActive(true);
+                clavoYellow1.SetActive(true);
+                clavoYellow2.SetActive(true);
+                timer = 1f;
+                other.gameObject.SetActive(false);
+                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyYellowPlaced = true;
+                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
+                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
             }
         }
 
@@ -426,6 +490,24 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             canInteractWithItem = false;
             other.transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.name == "TriggerRed")
+        {
+            other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+        }
+        if (other.gameObject.name == "TriggerOrange")
+        {
+            other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+        }
+        if (other.gameObject.name == "TriggerYellow")
+        {
+            other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
+        }
+
+        if (other.gameObject.name == "XilofonoPivot")
+        {
+            gameObject.transform.parent = null;
         }
     }
     public void OnCollisionEnter(Collision collision)
@@ -516,6 +598,11 @@ public class PlayerCollitionsBody : MonoBehaviour
                 nose1GO.SetActive(true);
                 dialogManager.ShowDialog(DialogKey.NoseAdivination);
             }
+        }
+
+        if(timer > 0)
+        {
+            timer = -Time.deltaTime;
         }
 
         balloonposY = baloonGO.transform.position.y;
