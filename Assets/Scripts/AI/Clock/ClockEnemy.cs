@@ -58,4 +58,13 @@ public class ClockEnemy : Enemies, IEnemy
     {
 
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.layer == 17)
+        {
+            print("pegue");
+            explosion = true;
+        }
+    }
 }
