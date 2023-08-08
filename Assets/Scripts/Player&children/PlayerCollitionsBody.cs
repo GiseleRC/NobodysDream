@@ -232,18 +232,6 @@ public class PlayerCollitionsBody : MonoBehaviour
             canInteractWithItem = true;
             other.transform.GetChild(0).gameObject.SetActive(true);
         }
-        /*if (other.gameObject.name == "TriggerRed")
-        {
-            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
-        }
-        if (other.gameObject.name == "TriggerOrange")
-        {
-            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
-        }
-        if (other.gameObject.name == "TriggerYellow")
-        {
-            other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
-        }*/
         if (other.gameObject.name == "XilofonoPivot")
         {
             gameObject.transform.parent = other.gameObject.transform;
@@ -394,51 +382,6 @@ public class PlayerCollitionsBody : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
-
-        /*if (other.gameObject.name == "TriggerRed")
-        {
-            if (Input.GetButtonDown("Interact") && timer <= 0 && GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyRedDis)
-            {
-                redKey.SetActive(true);
-                clavoRed1.SetActive(true);
-                clavoRed2.SetActive(true);
-                timer = 1f;
-                triggerOrange.SetActive(true);
-                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyRedPlaced = true;
-                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
-                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
-                other.gameObject.SetActive(false);
-            }
-        }
-        if (other.gameObject.name == "TriggerOrange")
-        {
-            if (Input.GetButtonDown("Interact") && timer <= 0 && GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyOrangeDis)
-            {
-                orangeKey.SetActive(true);
-                clavoOrange1.SetActive(true);
-                clavoOrange2.SetActive(true);
-                timer = 1f;
-                triggerYellow.SetActive(true);
-                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyOrangePlaced = true;
-                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
-                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
-                other.gameObject.SetActive(false);
-            }
-        }
-        if (other.gameObject.name == "TriggerYellow")
-        {
-            if (Input.GetButtonDown("Interact") && timer <= 0 && GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyYellowDis)
-            {
-                yellowKey.SetActive(true);
-                clavoYellow1.SetActive(true);
-                clavoYellow2.SetActive(true);
-                timer = 1f;
-                other.gameObject.SetActive(false);
-                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyYellowPlaced = true;
-                GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
-                other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
-            }
-        }*/
 
     }
 
