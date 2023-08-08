@@ -232,7 +232,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             canInteractWithItem = true;
             other.transform.GetChild(0).gameObject.SetActive(true);
         }
-        if (other.gameObject.name == "TriggerRed")
+        /*if (other.gameObject.name == "TriggerRed")
         {
             other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
         }
@@ -243,7 +243,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (other.gameObject.name == "TriggerYellow")
         {
             other.gameObject.GetComponent<EnableBucketUI>().EnableUI();
-        }
+        }*/
         if (other.gameObject.name == "XilofonoPivot")
         {
             gameObject.transform.parent = other.gameObject.transform;
@@ -395,7 +395,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             }
         }
 
-        if (other.gameObject.name == "TriggerRed")
+        /*if (other.gameObject.name == "TriggerRed")
         {
             if (Input.GetButtonDown("Interact") && timer <= 0 && GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyRedDis)
             {
@@ -438,7 +438,7 @@ public class PlayerCollitionsBody : MonoBehaviour
                 GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
                 other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
             }
-        }
+        }*/
 
     }
 
@@ -492,7 +492,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             other.transform.GetChild(0).gameObject.SetActive(false);
         }
 
-        if (other.gameObject.name == "TriggerRed")
+        /*if (other.gameObject.name == "TriggerRed")
         {
             other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
         }
@@ -503,7 +503,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         if (other.gameObject.name == "TriggerYellow")
         {
             other.gameObject.GetComponent<EnableBucketUI>().DisableUI();
-        }
+        }*/
 
         if (other.gameObject.name == "XilofonoPivot")
         {
