@@ -51,8 +51,14 @@ public class Ball : MonoBehaviour
     {
         if (GetComponent<Rigidbody>().velocity != Vector3.zero)
         {
-            if (other.gameObject.layer == 16 || other.gameObject.layer == 10 || other.gameObject.layer == 11 || other.gameObject.tag == "Pieces")//Colisone contra la layer TriggerButtons
+            if (other.gameObject.layer == 16 || other.gameObject.layer == 10 || other.gameObject.tag == "Pieces")//Colisone contra la layer TriggerButtons
             {
+                Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
+                Instantiate(soundGO, ballPos.transform.position, ballRot.transform.rotation);
+                Destroy(gameObject);
+            }else if(other.gameObject.layer == 11)
+            {
+                other.gameObject.GetComponent<Enemies>().ReceiveStun(5);
                 Instantiate(particleBall, ballPos.transform.position, ballRot.transform.rotation);
                 Instantiate(soundGO, ballPos.transform.position, ballRot.transform.rotation);
                 Destroy(gameObject);
