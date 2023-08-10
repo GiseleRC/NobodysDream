@@ -5,10 +5,11 @@ using UnityEngine;
 public class Destroytimer : MonoBehaviour
 {
     bool slowChar;
+    [SerializeField] float timeForDestroy;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 25f);
+        Destroy(gameObject, timeForDestroy);
     }
 
     private void Awake()
