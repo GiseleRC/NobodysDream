@@ -5,14 +5,14 @@ using UnityEngine;
 public class LanzadorLatas : MonoBehaviour
 {
     public GameObject lata, bloqueo, spawnPos;
-    public float cdThrow, waitingTime;
+    public float cdThrow, waitingTime, startTime;
     float timer;
 
     // Start is called before the first frame update
     void Awake()
     {
         Instantiate(lata, spawnPos.transform.position, spawnPos.transform.rotation);
-        timer = cdThrow;
+        timer = startTime;
     }
 
     // Update is called once per frame

@@ -33,6 +33,18 @@ public class LevitantingMovement : MonoBehaviour
         {
             transform.position = transform.position;
         }
+
+        if(gameObject.name == "Thieft - Boss2")
+        {
+            if(gameObject.GetComponent<GhostMovement>().moving == true)
+            {
+                transform.position = transform.position;
+            }
+            else
+            {
+                transform.position = initialPos + new Vector3(0, Mathf.Sin(Time.time * velocityLevitation) * maxHeight, 0);
+            }
+        }
     }
 
     private void OnPauseStateChanged(PauseState newPauseState)
