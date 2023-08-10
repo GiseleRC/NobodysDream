@@ -4825,7 +4825,7 @@ GameObject:
   - component: {fileID: 4619271608533221360}
   - component: {fileID: 2807466811348791975}
   - component: {fileID: 599934181024657109}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Correct3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4929,6 +4929,7 @@ MonoBehaviour:
   lightCorrButton4: {fileID: 6680891268522840509}
   lightInButton1: {fileID: 7953191525223206440}
   lightInButton2: {fileID: 3642209519703491551}
+  finalPass: 0
 --- !u!1 &2534058858944013967
 GameObject:
   m_ObjectHideFlags: 0
@@ -4942,7 +4943,7 @@ GameObject:
   - component: {fileID: 7170381926709539250}
   - component: {fileID: 3274551430586407666}
   - component: {fileID: 8897041426687908173}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Incorrect2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5046,6 +5047,7 @@ MonoBehaviour:
   lightCorrButton4: {fileID: 6680891268522840509}
   lightInButton1: {fileID: 7953191525223206440}
   lightInButton2: {fileID: 3642209519703491551}
+  finalPass: 0
 --- !u!1 &2836133532607430606
 GameObject:
   m_ObjectHideFlags: 0
@@ -5112,6 +5114,8 @@ MonoBehaviour:
   incorrectButton2: 0
   buttonsLightDisable: []
   doorCollider: {fileID: 0}
+  lightOfDoorgreen: {fileID: 0}
+  lightOfDoorred: {fileID: 0}
 --- !u!1 &3364677195647484620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5125,7 +5129,7 @@ GameObject:
   - component: {fileID: 1962852662082221942}
   - component: {fileID: 3097190150791752399}
   - component: {fileID: 2943939779078934029}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Correct4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5229,6 +5233,7 @@ MonoBehaviour:
   lightCorrButton4: {fileID: 6680891268522840509}
   lightInButton1: {fileID: 7953191525223206440}
   lightInButton2: {fileID: 3642209519703491551}
+  finalPass: 0
 --- !u!1 &3642209519703491551
 GameObject:
   m_ObjectHideFlags: 0
@@ -10054,7 +10059,7 @@ GameObject:
   - component: {fileID: 8621761074881162205}
   - component: {fileID: 1527035077998929985}
   - component: {fileID: 2712672232200114808}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Correct1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10158,6 +10163,7 @@ MonoBehaviour:
   lightCorrButton4: {fileID: 6680891268522840509}
   lightInButton1: {fileID: 7953191525223206440}
   lightInButton2: {fileID: 3642209519703491551}
+  finalPass: 0
 --- !u!1 &4049791444627875306
 GameObject:
   m_ObjectHideFlags: 0
@@ -15177,7 +15183,7 @@ GameObject:
   - component: {fileID: 6418471608422566771}
   - component: {fileID: 6823507352483488882}
   - component: {fileID: 3982275743291822795}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Incorrect1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15281,6 +15287,7 @@ MonoBehaviour:
   lightCorrButton4: {fileID: 6680891268522840509}
   lightInButton1: {fileID: 7953191525223206440}
   lightInButton2: {fileID: 3642209519703491551}
+  finalPass: 0
 --- !u!1 &6159792027550103879
 GameObject:
   m_ObjectHideFlags: 0
@@ -15294,7 +15301,7 @@ GameObject:
   - component: {fileID: 2071907013281313290}
   - component: {fileID: 1231485831532995785}
   - component: {fileID: 7753209546221385847}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Correct2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15398,6 +15405,7 @@ MonoBehaviour:
   lightCorrButton4: {fileID: 6680891268522840509}
   lightInButton1: {fileID: 7953191525223206440}
   lightInButton2: {fileID: 3642209519703491551}
+  finalPass: 0
 --- !u!1 &6680891268522840509
 GameObject:
   m_ObjectHideFlags: 0
