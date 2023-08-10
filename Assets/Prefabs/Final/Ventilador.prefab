@@ -211,7 +211,7 @@ MonoBehaviour:
   pivot: {fileID: 6058792983984374964}
   speedRot: 30
   timer: 3
-  force: 1000
+  force: 800
 --- !u!1 &6058792983984374987
 GameObject:
   m_ObjectHideFlags: 0
