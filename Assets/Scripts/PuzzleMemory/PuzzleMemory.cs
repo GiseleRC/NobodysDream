@@ -7,11 +7,12 @@ public class PuzzleMemory : MonoBehaviour
     [SerializeField] List<GameObject> pieces;
     GameObject firstPieceGO;
     [SerializeField] float showTime;
+    [SerializeField] private GameObject portalBlueEnable, bluePiece, dialogComeBack;
     float actualTimer;
     string firstLetter, secondPiece;
     int count, puzzleCount;
     bool showed;
-    // Start is called before the first frame update
+
     void OnEnable()
     {
         foreach(GameObject piece in pieces)
@@ -22,7 +23,6 @@ public class PuzzleMemory : MonoBehaviour
         actualTimer = showTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(actualTimer > 0)
@@ -60,6 +60,9 @@ public class PuzzleMemory : MonoBehaviour
                 if (puzzleCount == 4)
                 {
                     print("Gane Puzzle");
+                    portalBlueEnable.GetComponent<Collider>().enabled = true;
+                    bluePiece.SetActive(true);
+                    dialogComeBack.SetActive(true);
                 }
             }
             else
