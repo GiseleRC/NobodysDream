@@ -16,9 +16,13 @@ public class PuzzleEnderezarPlataforma : MonoBehaviour
     }
     void Update()
     {
-        if (limitOfRotationZ || cutRope)
+        if (limitOfRotationZ)
         {
             gameObject.GetComponent<KinematicMovementController>().enabled = false;
+        }
+        if (cutRope)
+        {
+            gameObject.GetComponent<KinematicMovementController>().enabled = true;
         }
     }
 }
