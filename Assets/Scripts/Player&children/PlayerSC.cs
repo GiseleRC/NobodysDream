@@ -398,7 +398,7 @@ public class PlayerSC : MonoBehaviour
         }
 
 
-        bool ray = Physics.Raycast(crouchCollider.transform.position, crouchCollider.transform.up, 2f, crouchMask);
+        bool ray = Physics.Raycast(crouchCollider.transform.position, crouchCollider.transform.up, 4f, crouchMask);
 
         if (ray || crouchPressing && !ray)
         {
