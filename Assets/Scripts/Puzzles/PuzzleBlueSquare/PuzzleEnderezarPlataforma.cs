@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuzzleEnderezarPlataforma : MonoBehaviour
 {
-    public bool limitOfRotationZ, cutRope;
+    public bool limitOfRotationZ, cutRope;//poner en true cuando corte la soga
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -20,9 +20,9 @@ public class PuzzleEnderezarPlataforma : MonoBehaviour
             gameObject.GetComponent<KinematicMovementController>().enabled = false;
         }
 
-        //if (cutRope)
-        //{
-
-        //}
+        if (cutRope)
+        {
+            gameObject.GetComponent<KinematicMovementController>().enabled = false;
+        }
     }
 }
