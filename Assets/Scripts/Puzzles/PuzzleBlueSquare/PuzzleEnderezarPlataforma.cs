@@ -11,16 +11,12 @@ public class PuzzleEnderezarPlataforma : MonoBehaviour
         if (collision.gameObject.name == "ConcreteF - se detiene plataforma")
         {
             limitOfRotationZ = true;
+            print("choqueeeeeee");
         }
     }
     void Update()
     {
-        if (limitOfRotationZ)
-        {
-            gameObject.GetComponent<KinematicMovementController>().enabled = false;
-        }
-
-        if (cutRope)
+        if (limitOfRotationZ || cutRope)
         {
             gameObject.GetComponent<KinematicMovementController>().enabled = false;
         }
