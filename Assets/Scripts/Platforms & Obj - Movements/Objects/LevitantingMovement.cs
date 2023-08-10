@@ -7,6 +7,7 @@ public class LevitantingMovement : MonoBehaviour
     public float maxHeight;
     public float velocityLevitation;
     private Vector3 initialPos;
+    bool boina;
 
     private void Awake()
     {
@@ -24,11 +25,26 @@ public class LevitantingMovement : MonoBehaviour
     }
     void Update()
     {
-        transform.position = initialPos + new Vector3(0, Mathf.Sin(Time.time * velocityLevitation) * maxHeight, 0);
+        if (!boina)
+        {
+            transform.position = initialPos + new Vector3(0, Mathf.Sin(Time.time * velocityLevitation) * maxHeight, 0);
+        }
+        else
+        {
+            transform.position = transform.position;
+        }
     }
 
     private void OnPauseStateChanged(PauseState newPauseState)
     {
         enabled = newPauseState == PauseState.Gameplay;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 18)
+        {
+            boina = true;
+        }
     }
 }
