@@ -7,7 +7,9 @@ public class PuzzleXilofono : MonoBehaviour
     public GameObject yellowPiece, xilofonoGO, missingPiecesGO, portalExitGO, portalEnterGO, xilofonoSensorsGO, redKeyUI,
         orangeKeyUI, yellowKeyUI, xilophoneCompleteGO, finalPosXilophone, yellowTriangle, level1AfterPuzzle;
     public bool keyYellowDis, keyRedDis, keyOrangeDis, xilofonoEnable, xilofonoComplete, portalEnable, keyRedPlaced, keyYellowPlaced, keyOrangePlaced, moveXilophoneGO;
+    bool changeSpawn;
     private Vector3 velocity = Vector3.zero;
+    [SerializeField] Transform newSpawn;
 
     void Update()
     {
@@ -33,6 +35,14 @@ public class PuzzleXilofono : MonoBehaviour
             DisableKeyUI();
 
             level1AfterPuzzle.SetActive(true);
+
+            SpawnPlayerController spawnPlayer = GameObject.Find("SpawnPlayerController").GetComponent<SpawnPlayerController>();
+
+            if (!changeSpawn)
+            {
+                spawnPlayer.Respawn(newSpawn);
+                changeSpawn = true;
+            }
 
         }
 
