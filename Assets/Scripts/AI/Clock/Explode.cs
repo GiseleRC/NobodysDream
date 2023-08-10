@@ -9,6 +9,7 @@ public class Explode : MonoBehaviour
     float actualTime;
     [SerializeField] ClockEnemy clockEnemy;
     [SerializeField] NavMeshAgent nma;
+    [SerializeReference] GameObject vfxExplosion;
     
 
     // Start is called before the first frame update
@@ -57,8 +58,9 @@ public class Explode : MonoBehaviour
             {
                 col.GetComponent<Gelatina>().DoInDestroy();
             }
+            GameObject.Instantiate((UnityEngine.Object)Resources.Load("explode_2"), transform.position, transform.rotation);
 
-            
+
         }
 
         Destroy(gameObject);
