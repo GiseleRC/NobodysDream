@@ -6,9 +6,9 @@ public class PuzzleEnderezarPlataforma : MonoBehaviour
 {
     public bool limitOfRotationZ, cutRope;//poner en true cuando corte la soga
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name == "ConcreteF - se detiene plataforma")
+        if (collision.gameObject.layer == 6)
         {
             limitOfRotationZ = true;
             print("choqueeeeeee");
@@ -16,13 +16,18 @@ public class PuzzleEnderezarPlataforma : MonoBehaviour
     }
     void Update()
     {
-        if (limitOfRotationZ)
-        {
-            gameObject.GetComponent<KinematicMovementController>().enabled = false;
-        }
+
         if (cutRope)
         {
-            gameObject.GetComponent<KinematicMovementController>().enabled = true;
+
+            if (limitOfRotationZ)
+            {
+                gameObject.GetComponent<KinematicMovementController>().enabled = false;
+            }
+            else
+            {
+                gameObject.GetComponent<KinematicMovementController>().enabled = true;
+            }
         }
     }
 }
