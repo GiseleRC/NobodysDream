@@ -23,7 +23,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     [Header("GAME OBJECTS")]
     [SerializeField] public GameObject psObject;
     [SerializeField] public GameObject introGO, glassesGO, letterOpenGO, nose1GO, rudolfClownGO, kakiLevel3GO, buttonResetGO, whitePiecesGO, flashLightPickGO, baloonGO, finalGO;
-    [SerializeField] public GameObject cap, rullerPick, door, rubbers, buckets, ballBucket, dientesEnMano, interactiveButton, collectPickeable, monster, redKey, clavoRed1, clavoRed2, triggerOrange, orangeKey, clavoOrange1, clavoOrange2, triggerYellow, yellowKey, clavoYellow1, clavoYellow2;
+    [SerializeField] public GameObject cap, rullerPick, door, rubbers, buckets, ballBucket, dientesEnMano, interactiveButton, collectPickeable, monster, redKey, clavoRed1, clavoRed2, triggerOrange, orangeKey, clavoOrange1, clavoOrange2, triggerYellow, yellowKey, clavoYellow1, clavoYellow2, dientes,linterna;
 
     [Header("GAME OBJECTS - UI")]
     [SerializeField] public GameObject[] pickeablesUI;
@@ -49,6 +49,7 @@ public class PlayerCollitionsBody : MonoBehaviour
     private float waitTime = 7f;
     private float balloonposY;
     float timer;
+    bool canUseDientes;
 
     [SerializeField] Transform xilophone;
 
@@ -167,9 +168,8 @@ public class PlayerCollitionsBody : MonoBehaviour
         }
         else if (other.name == "Dientes")
         {
-            other.gameObject.SetActive(false);
-            dientesEnMano.SetActive(true);
-            flashLigthArm.SetActive(false);
+            canUseDientes = true;
+            Destroy(other.gameObject);
         }
         else if (other.name == "arriba")
         {
@@ -227,10 +227,12 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             parte5.SetActive(true);
         }
-        if(other.gameObject.tag == "InteractuableDientes" && dientesEnMano.activeInHierarchy)
+        if(other.gameObject.tag == "InteractuableDientes" && canUseDientes)
         {
             canInteractWithItem = true;
             other.transform.GetChild(0).gameObject.SetActive(true);
+            dientes.SetActive(true);
+            linterna.SetActive(false);
         }
         if (other.gameObject.name == "XilofonoPivot")
         {
@@ -375,10 +377,11 @@ public class PlayerCollitionsBody : MonoBehaviour
 
         if (other.gameObject.tag == "InteractuableDientes")
         {
-            if(canInteractWithItem && Input.GetButton("Interact") && dientesEnMano.activeInHierarchy)
+            if(canInteractWithItem && Input.GetButton("Interact") && canUseDientes)
             {
                 other.transform.GetChild(0).gameObject.SetActive(true);
-                print("Corte con los dientes");
+                dientes.SetActive(false);
+                linterna.SetActive(true);
                 Destroy(other.gameObject);
             }
         }
@@ -452,6 +455,16 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             gameObject.transform.parent = null;
         }
+
+        if (other.gameObject.tag == "InteractuableDientes")
+        {
+
+            other.transform.GetChild(0).gameObject.SetActive(false);
+            dientes.SetActive(false);
+            linterna.SetActive(true);
+            
+        }
+
     }
     public void OnCollisionEnter(Collision collision)
     {

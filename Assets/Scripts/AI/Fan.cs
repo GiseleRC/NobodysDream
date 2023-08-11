@@ -44,4 +44,18 @@ public class Fan : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
+
+    void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
 }
