@@ -13,6 +13,7 @@ public class LanzadorLatas : MonoBehaviour
     {
         Instantiate(lata, spawnPos.transform.position, spawnPos.transform.rotation);
         timer = startTime;
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
     }
 
     // Update is called once per frame
@@ -32,5 +33,14 @@ public class LanzadorLatas : MonoBehaviour
                 waitingTime = 4f;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

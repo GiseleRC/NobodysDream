@@ -10,6 +10,7 @@ public class Projectil : MonoBehaviour
     void Awake()
     {
         Destroy(gameObject, 10f);
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
     }
 
     // Update is called once per frame
@@ -26,5 +27,14 @@ public class Projectil : MonoBehaviour
 
         }
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
     }
 }

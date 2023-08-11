@@ -11,9 +11,24 @@ public class LataRodante : MonoBehaviour
         Destroy(gameObject, timeToDestroy);
     }
 
+    void Awake()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged += OnPauseStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PauseStateManager.Instance.OnPauseStateChanged -= OnPauseStateChanged;
+    }
+    private void OnPauseStateChanged(PauseState newPauseState)
+    {
+        enabled = newPauseState == PauseState.Gameplay;
+    }
+
     // Update is called once per frame
     void Update()
     {
         
     }
+
 }
