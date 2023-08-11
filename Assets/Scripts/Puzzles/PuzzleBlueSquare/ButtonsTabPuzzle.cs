@@ -32,7 +32,7 @@ public class ButtonsTabPuzzle : MonoBehaviour
             }
             else if (gameObject.name == "Correct4")
             {
-                puzzleBlueSquareTab.correctButton3 = true;
+                puzzleBlueSquareTab.correctButton4 = true;
                 lightCorrButton4.SetActive(true);
             }
 
