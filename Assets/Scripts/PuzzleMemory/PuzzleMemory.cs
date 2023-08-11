@@ -11,18 +11,18 @@ public class PuzzleMemory : MonoBehaviour
     float actualTimer;
     string firstLetter, secondPiece;
     int count, puzzleCount;
-    bool showed;
+    public bool showed;
     [SerializeField] Canon[] canons;
     [SerializeField] LanzadorLatas[] lanzadorLatas;
     AudioSource audioSource;
-    [SerializeField] AudioClip correct, wrong;
+    [SerializeField] AudioClip correct, wrong, win;
 
     void OnEnable()
     {
         audioSource = GameObject.Find("PlayRandomAudios").GetComponent<AudioSource>();
         foreach (GameObject piece in pieces)
         {
-            piece.GetComponent<PiecePuzzleMemory>().ShowPiece();
+            piece.GetComponentInChildren<Animator>().enabled = true;
         }
 
         actualTimer = showTime;
@@ -37,7 +37,8 @@ public class PuzzleMemory : MonoBehaviour
         {
             foreach(GameObject piece in pieces)
             {
-                piece.GetComponent<PiecePuzzleMemory>().HidePiece();
+                piece.GetComponentInChildren<Animator>().SetBool("Hide", true);
+                
             }
             showed = true;
         }
@@ -45,7 +46,7 @@ public class PuzzleMemory : MonoBehaviour
 
     public void HitPiece(GameObject piece, string letter)
     {
-        piece.GetComponent<PiecePuzzleMemory>().ShowPiece();
+        //piece.GetComponent<PiecePuzzleMemory>().ShowPiece();
 
         if (count == 0)
         {
@@ -68,7 +69,8 @@ public class PuzzleMemory : MonoBehaviour
                     portalBlueEnable.GetComponent<Collider>().enabled = true;
                     bluePiece.SetActive(true);
                     dialogComeBack.SetActive(true);
-                    foreach(Canon canon in canons)
+                    audioSource.PlayOneShot(win);
+                    foreach (Canon canon in canons)
                     {
                         canon.enabled = false;
                     }

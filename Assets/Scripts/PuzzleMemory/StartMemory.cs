@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class StartMemory : MonoBehaviour
 {
+    [SerializeReference] PuzzleMemory pz;
     public void StartMemoryGame()
     {
-        GetComponent<PuzzleMemory>().enabled = true;
+        pz.enabled = true;
     }
 }
