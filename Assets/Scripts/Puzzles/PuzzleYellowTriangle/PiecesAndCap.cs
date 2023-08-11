@@ -7,6 +7,11 @@ public class PiecesAndCap : MonoBehaviour
 {
     [SerializeField] private PuzzleXilofono puzzleXilofono;
     public AudioSource grabPiece;
+
+    private void Start()
+    {
+        grabPiece = GameObject.Find("PickObjAudio").GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Char")

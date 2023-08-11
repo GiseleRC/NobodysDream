@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PuzzleRedChessPiece : MonoBehaviour
 {
     PuzzleRedCircle puzzleRedCircle;
     [SerializeField] string piece;
+    AudioSource grabPiece;
     // Start is called before the first frame update
     void Start()
     {
         puzzleRedCircle = GameObject.Find("PuzzleRedCircle").GetComponent<PuzzleRedCircle>();
+        grabPiece = GameObject.Find("PickObjAudio").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class PuzzleRedChessPiece : MonoBehaviour
         {
             puzzleRedCircle.SpawnPieceChess(piece);
             puzzleRedCircle.CheckStatusPieces();
+            grabPiece.Play();
             Destroy(gameObject);
         }
     }

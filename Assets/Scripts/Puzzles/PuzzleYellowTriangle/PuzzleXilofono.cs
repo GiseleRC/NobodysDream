@@ -16,18 +16,19 @@ public class PuzzleXilofono : MonoBehaviour
     {
         if(keyRedDis && keyYellowDis && keyOrangeDis)
         {
-            puzzleHasBeenPass.Play();
             portalEnable = true;
             xilofonoGO.SetActive(true);
             portalExitGO.GetComponent<BoxCollider>().enabled = true;
             portalEnterGO.SetActive(true);
             xilofonoSensorsGO.SetActive(true);
             particlePortalYellow.SetActive(true);
+
         }
 
         if (xilofonoComplete)
         {
             missingPiecesGO.SetActive(true);
+            puzzleHasBeenPass.Play();
         }
 
         if (moveXilophoneGO)
