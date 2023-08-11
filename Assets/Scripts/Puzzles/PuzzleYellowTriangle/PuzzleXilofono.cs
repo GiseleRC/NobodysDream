@@ -28,7 +28,6 @@ public class PuzzleXilofono : MonoBehaviour
         if (xilofonoComplete)
         {
             missingPiecesGO.SetActive(true);
-            puzzleHasBeenPass.Play();
         }
 
         if (moveXilophoneGO)
