@@ -174,6 +174,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             canUseDientes = true;
             tutorialPaperBool.showTutorialTeeth = true;
             Destroy(other.gameObject);
+            booster.Play();
         }
         else if (other.name == "arriba")
         {
@@ -231,7 +232,8 @@ public class PlayerCollitionsBody : MonoBehaviour
             canInteractWithItem = true;
             other.transform.GetChild(0).gameObject.SetActive(true);
             dientes.SetActive(true);
-            linterna.SetActive(false);
+            //linterna.SetActive(false);
+            flashLigthArm.SetActive(false);
         }
         if (other.gameObject.name == "XilofonoPivot")
         {

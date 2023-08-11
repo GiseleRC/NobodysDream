@@ -7,6 +7,7 @@ public class CollectParts : MonoBehaviour
     bool part1, part2, part3;
     PuzzleBoina puzzleBoina;
     [SerializeField] GameObject objectsPuzzle;
+    [SerializeField] private PuzzleBlueSquareTab puzzleBlueSquareTab;
     GameObject yellowUI, redUI, blueUI;
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class CollectParts : MonoBehaviour
         {
             part3 = true;
             blueUI.SetActive(true);
+            puzzleBlueSquareTab.finalPass = true;
         }
         
         if(part1 && part2 && part3)

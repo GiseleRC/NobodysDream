@@ -7,12 +7,11 @@ public class ButtonsTabPuzzle : MonoBehaviour
     [SerializeField] private PuzzleBlueSquareTab puzzleBlueSquareTab;
     [SerializeField] public GameObject lightCorrButton1, lightCorrButton2, lightCorrButton3, lightCorrButton4;
     [SerializeField] public GameObject lightInButton1, lightInButton2;
-    public bool finalPass;// ponerlo en true cuando termina el juego de memoria
     //declarar un audio clip
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Ball(Clone)" && finalPass)
+        if (other.gameObject.name == "Ball(Clone)" && puzzleBlueSquareTab.finalPass)
         {
             //reproducir un sonido de click
 
