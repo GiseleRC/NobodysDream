@@ -233,7 +233,7 @@ public class PlayerCollitionsBody : MonoBehaviour
             other.transform.GetChild(0).gameObject.SetActive(true);
             dientes.SetActive(true);
             //linterna.SetActive(false);
-            flashLigthArm.SetActive(false);
+            //flashLigthArm.SetActive(false);
         }
         if (other.gameObject.name == "XilofonoPivot")
         {
@@ -462,7 +462,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 
             other.transform.GetChild(0).gameObject.SetActive(false);
             dientes.SetActive(false);
-            flashLigthArm.SetActive(true);
+            //flashLigthArm.SetActive(true);
             
         }
 
