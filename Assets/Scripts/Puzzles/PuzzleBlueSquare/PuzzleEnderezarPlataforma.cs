@@ -11,7 +11,6 @@ public class PuzzleEnderezarPlataforma : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             limitOfRotationZ = true;
-            print("choqueeeeeee");
         }
     }
     void Update()

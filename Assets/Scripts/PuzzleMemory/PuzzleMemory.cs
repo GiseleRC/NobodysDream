@@ -12,6 +12,8 @@ public class PuzzleMemory : MonoBehaviour
     string firstLetter, secondPiece;
     int count, puzzleCount;
     bool showed;
+    [SerializeField] Canon[] canons;
+    [SerializeField] LanzadorLatas[] lanzadorLatas;
 
     void OnEnable()
     {
@@ -63,6 +65,15 @@ public class PuzzleMemory : MonoBehaviour
                     portalBlueEnable.GetComponent<Collider>().enabled = true;
                     bluePiece.SetActive(true);
                     dialogComeBack.SetActive(true);
+                    foreach(Canon canon in canons)
+                    {
+                        canon.enabled = false;
+                    }
+
+                    foreach(LanzadorLatas lanzador in lanzadorLatas)
+                    {
+                        lanzador.enabled = false;
+                    }
                 }
             }
             else

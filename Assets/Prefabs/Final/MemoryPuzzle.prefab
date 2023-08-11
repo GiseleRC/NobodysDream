@@ -802,6 +802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6665388362923670714}
   - component: {fileID: 6665388362923670715}
+  - component: {fileID: 8822424135785158459}
   m_Layer: 0
   m_Name: MemoryPuzzle
   m_TagString: Untagged
@@ -854,6 +855,23 @@ MonoBehaviour:
   - {fileID: 6665388363046331558}
   - {fileID: 6665388363229043672}
   showTime: 2
+  portalBlueEnable: {fileID: 0}
+  bluePiece: {fileID: 0}
+  dialogComeBack: {fileID: 0}
+  canons: []
+  lanzadorLatas: []
+--- !u!114 &8822424135785158459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665388362923670692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c7b373069f46d4e8bed8d86ef26283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6665388362940547313
 GameObject:
   m_ObjectHideFlags: 0
