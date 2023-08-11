@@ -5,7 +5,7 @@ using UnityEngine;
 public class PuzzleBlueSquareTab : MonoBehaviour
 {
     [SerializeField] public bool correctButton1, correctButton2, correctButton3, correctButton4;
-    [SerializeField] public bool incorrectButton1, incorrectButton2;
+    [SerializeField] public bool incorrectButton1, incorrectButton2, finalPass;
     [SerializeField] private GameObject[] buttonsLightDisable;
     [SerializeField] private GameObject doorCollider, lightOfDoorgreen, lightOfDoorred;
     //declarar un sonido de incorrecto
