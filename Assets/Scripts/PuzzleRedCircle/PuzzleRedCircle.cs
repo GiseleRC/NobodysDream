@@ -8,6 +8,7 @@ public class PuzzleRedCircle : MonoBehaviour
     public bool canPortalExit, alfilPiece, torrePiece, caballoPiece;
     [SerializeField] Collider portalExitTrigger;
     [SerializeField] GameObject alfilPieceUI, torrePieceUI, caballoPieceUI;
+    public Sprite alfil, torre, caballo;
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,18 +37,18 @@ public class PuzzleRedCircle : MonoBehaviour
         if(name == "Alfil")
         {
             alfilPiece = true;
-            alfilPieceUI.GetComponent<Image>().color = Color.white;
+            alfilPieceUI.GetComponent<Image>().sprite = alfil;
             
         }
         else if(name == "Torre")
         {
             torrePiece = true;
-            torrePieceUI.GetComponent<Image>().color = Color.white;
+            torrePieceUI.GetComponent<Image>().sprite = torre;
         }
         else
         {
             caballoPiece = true;
-            caballoPieceUI.GetComponent<Image>().color = Color.white;
+            caballoPieceUI.GetComponent<Image>().sprite = caballo;
         }
     }
 }

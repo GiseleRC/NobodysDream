@@ -20,19 +20,19 @@ public class PiecesAndCap : MonoBehaviour
             {
                 puzzleXilofono.keyRedDis = true;
                 gameObject.SetActive(false);
-                GameObject.Find("RedKeyUI").GetComponent<Image>().color = Color.white;
+                GameObject.Find("RedKeyUI").SetActive(true);
             }
             else if (gameObject.name == "YellowKey")
             {
                 puzzleXilofono.keyYellowDis = true;
                 gameObject.SetActive(false);
-                GameObject.Find("YellowKeyUI").GetComponent<Image>().color = Color.white;
+                GameObject.Find("YellowKeyUI").SetActive(true);
             }
             else if (gameObject.name == "OrangeKey")
             {
                 puzzleXilofono.keyOrangeDis = true;
                 gameObject.SetActive(false);
-                GameObject.Find("OrangeKeyUI").GetComponent<Image>().color = Color.white;
+                GameObject.Find("OrangeKeyUI").SetActive(true);
             }
             else if (gameObject.name == "Xilofono")
             {

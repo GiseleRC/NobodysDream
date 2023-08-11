@@ -5,12 +5,17 @@ using UnityEngine;
 public class PuzzleXilofono : MonoBehaviour
 {
     public GameObject yellowPiece, xilofonoGO, missingPiecesGO, portalExitGO, portalEnterGO, xilofonoSensorsGO, redKeyUI,
-        orangeKeyUI, yellowKeyUI, xilophoneCompleteGO, finalPosXilophone, yellowTriangle, level1AfterPuzzle, particlePortalYellow;
+        orangeKeyUI, yellowKeyUI, xilophoneCompleteGO, finalPosXilophone, yellowTriangle, level1AfterPuzzle, particlePortalYellow, xilophoneUI;
     public bool keyYellowDis, keyRedDis, keyOrangeDis, xilofonoEnable, xilofonoComplete, portalEnable, keyRedPlaced, keyYellowPlaced, keyOrangePlaced, moveXilophoneGO;
     bool changeSpawn;
     public AudioSource puzzleHasBeenPass;
     private Vector3 velocity = Vector3.zero;
     [SerializeField] Transform newSpawn;
+
+    private void Start()
+    {
+        DisableKeyUI();
+    }
 
     void Update()
     {
@@ -59,13 +64,12 @@ public class PuzzleXilofono : MonoBehaviour
 
     public void ShowKeyUI()
     {
-        redKeyUI.SetActive(true);
-        orangeKeyUI.SetActive(true);
-        yellowKeyUI.SetActive(true);
+        xilophoneUI.SetActive(true);
     }
 
     public void DisableKeyUI()
     {
+        xilophoneUI.SetActive(false);
         redKeyUI.SetActive(false);
         orangeKeyUI.SetActive(false);
         yellowKeyUI.SetActive(false);
