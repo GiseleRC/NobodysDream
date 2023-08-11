@@ -64,6 +64,11 @@ public class TimerController : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetButton("ReloadTime"))
+        {
+            AddTime(500);
+        }
+
         if (stopPlay <= 0)
         {
             isAttacking = false;
