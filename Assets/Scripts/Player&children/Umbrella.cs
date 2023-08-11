@@ -5,6 +5,7 @@ using UnityEngine;
 public class Umbrella : MonoBehaviour
 {
     bool umbrella, cantUseUmbrella, canRecharge, umbrellaDischarge;
+    public bool disableInPlaneDream = true;
     AudioSource audioSource;
     [SerializeField]GroundCheck ground;
     MaterializeObjects mtObjs;
@@ -53,7 +54,7 @@ public class Umbrella : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Action1") && !cantUseUmbrella && mtObjs.materializanding == false && !umbrellaDischarge)
+        if (Input.GetButtonDown("Action1") && !cantUseUmbrella && mtObjs.materializanding == false && !umbrellaDischarge && !disableInPlaneDream)
         {
             if (umbrella)
             {
@@ -68,10 +69,24 @@ public class Umbrella : MonoBehaviour
                 gameObject.GetComponent<MeshRenderer>().enabled = true;
             }
         }
-
-        if (cantUseUmbrella && ground.IsGrounded)
+        if (disableInPlaneDream && umbrella)
         {
-            cantUseUmbrella = false;
+            audioSource.Play();
+            umbrella = false;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            actualTime = 0f;
+        }
+
+        if (cantUseUmbrella)
+        {
+            if (disableInPlaneDream && ground.IsGrounded)
+            {
+                cantUseUmbrella = true;
+            }
+            if (!disableInPlaneDream && ground.IsGrounded)
+            {
+                cantUseUmbrella = false;
+            }
         }
 
         if (umbrella)
@@ -80,7 +95,7 @@ public class Umbrella : MonoBehaviour
             {
                 canRecharge = false;
                 actualTime -= dischargeSpeed * Time.deltaTime;
-                if(actualTime < 0)
+                if(actualTime < 0 && !disableInPlaneDream)
                 {
                     umbrellaDischarge = true;
                 }
