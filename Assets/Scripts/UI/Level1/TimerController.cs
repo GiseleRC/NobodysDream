@@ -66,7 +66,7 @@ public class TimerController : MonoBehaviour
     {
         if (Input.GetButton("ReloadTime"))
         {
-            AddTime(500);
+            currTimeWait = timeWait;
         }
 
         if (stopPlay <= 0)
