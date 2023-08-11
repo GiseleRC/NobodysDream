@@ -49,6 +49,7 @@ MonoBehaviour:
   letter: d
   correct: 0
   guess: 0
+  comprobate: 0
 --- !u!65 &6665388362310136294
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111,6 +112,7 @@ MonoBehaviour:
   letter: d
   correct: 0
   guess: 0
+  comprobate: 0
 --- !u!65 &6665388362548993316
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -186,14 +188,22 @@ MonoBehaviour:
   - {fileID: 6665388363099195988}
   - {fileID: 6665388363046331558}
   - {fileID: 6665388363229043672}
-  showTime: 2
+  showTime: 10
   portalBlueEnable: {fileID: 0}
   bluePiece: {fileID: 0}
   dialogComeBack: {fileID: 0}
-  canons: []
-  lanzadorLatas: []
-  correct: {fileID: 8300000, guid: 651a284bdb7c674419e495077b74d687, type: 3}
+  showed: 0
+  canons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  lanzadorLatas:
+  - {fileID: 0}
+  - {fileID: 0}
+  correct: {fileID: 8300000, guid: 3aab3ff9d957e6d42b61bfbc39f963ee, type: 3}
   wrong: {fileID: 8300000, guid: d198909acb73cfc429fbd0780bbd790c, type: 3}
+  win: {fileID: 8300000, guid: 651a284bdb7c674419e495077b74d687, type: 3}
 --- !u!114 &8822424135785158459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c7b373069f46d4e8bed8d86ef26283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pz: {fileID: 6665388362923670715}
 --- !u!1 &6665388363046331558
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +266,7 @@ MonoBehaviour:
   letter: c
   correct: 0
   guess: 0
+  comprobate: 0
 --- !u!65 &6665388363046331557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -317,6 +329,7 @@ MonoBehaviour:
   letter: c
   correct: 0
   guess: 0
+  comprobate: 0
 --- !u!65 &6665388363099195947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -379,6 +392,7 @@ MonoBehaviour:
   letter: b
   correct: 0
   guess: 0
+  comprobate: 0
 --- !u!65 &6665388363153954541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -441,6 +455,7 @@ MonoBehaviour:
   letter: b
   correct: 0
   guess: 0
+  comprobate: 0
 --- !u!65 &6665388363229043679
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -503,6 +518,7 @@ MonoBehaviour:
   letter: a
   correct: 0
   guess: 0
+  comprobate: 0
 --- !u!65 &6665388363617846266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -565,6 +581,7 @@ MonoBehaviour:
   letter: a
   correct: 0
   guess: 0
+  comprobate: 0
 --- !u!65 &6665388363966303549
 BoxCollider:
   m_ObjectHideFlags: 0
