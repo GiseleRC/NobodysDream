@@ -10,7 +10,7 @@ public class Fan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actualTimer = timer;
+        actualTimer = timer / 2;
     }
 
     // Update is called once per frame
