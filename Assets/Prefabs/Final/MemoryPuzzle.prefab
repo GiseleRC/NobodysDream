@@ -192,6 +192,8 @@ MonoBehaviour:
   dialogComeBack: {fileID: 0}
   canons: []
   lanzadorLatas: []
+  correct: {fileID: 8300000, guid: 651a284bdb7c674419e495077b74d687, type: 3}
+  wrong: {fileID: 8300000, guid: d198909acb73cfc429fbd0780bbd790c, type: 3}
 --- !u!114 &8822424135785158459
 MonoBehaviour:
   m_ObjectHideFlags: 0
