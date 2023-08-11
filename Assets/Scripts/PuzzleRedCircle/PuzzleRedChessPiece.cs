@@ -11,7 +11,7 @@ public class PuzzleRedChessPiece : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        puzzleRedCircle = GameObject.Find("PuzzleRedCircle").GetComponent<PuzzleRedCircle>();
+        puzzleRedCircle = GameObject.Find("Puzzle - RedCircle").GetComponent<PuzzleRedCircle>();
         grabPiece = GameObject.Find("PickObjAudio").GetComponent<AudioSource>();
     }
 

@@ -400,14 +400,23 @@ public class PlayerSC : MonoBehaviour
 
         bool ray = Physics.Raycast(crouchCollider.transform.position, crouchCollider.transform.up, 4f, crouchMask);
 
-        if (ray || crouchPressing && !ray)
+
+        if (crouchPressing) 
         {
             isCrouch = true;
         }
         else
         {
-            isCrouch = false;
+            if (ray)
+            {
+                isCrouch = true;
+            }
+            else
+            {
+                isCrouch = false;
+            }
         }
+
     }
 
     private void OnDrawGizmos()
