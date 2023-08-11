@@ -32,7 +32,7 @@ public class EnvAccordToPlane : MonoBehaviour
                 iconDreamOn.SetActive(true);
                 iconDreamOff.SetActive(true);
                 pillsGO.SetActive(false);
-                umbrella.CantUseUmbrella = true;
+                umbrella.disableInPlaneDream = true;
                 if (umbrellaPick != null)
                 {
                     umbrellaPick.SetActive(false);
@@ -46,7 +46,7 @@ public class EnvAccordToPlane : MonoBehaviour
                 iconDreamOn.SetActive(false);
                 iconDreamOff.SetActive(true);
                 pillsGO.SetActive(true);
-                umbrella.CantUseUmbrella = false;
+                umbrella.disableInPlaneDream = false;
                 if (umbrellaPick != null)
                 {
                     umbrellaPick.SetActive(true);
