@@ -24,23 +24,19 @@ public class CheckerClockEnemy : MonoBehaviour
 
             if (timer < 0)
             {
-                print(gameObject.name);
                 if (gameObject.name == "CheckClock")
                 {
                     actualClockEnemy = Instantiate(clockEnemy, initialPos.position, initialPos.rotation);
-                    print("1");
                     actualClockEnemy.GetComponent<Patrol>().patrolPoints = patrols1;
                 }
                 else if (gameObject.name == "CheckClock (1)")
                 {
                     actualClockEnemy = Instantiate(clockEnemy, initialPos.position, initialPos.rotation);
-                    print("2");
                     actualClockEnemy.GetComponent<Patrol>().patrolPoints = patrols2;
                 }
                 if(gameObject.name == "CheckClock (2)")
                 {
                     actualClockEnemy = Instantiate(clockEnemy, initialPos.position, initialPos.rotation);
-                    print("3");
                     actualClockEnemy.GetComponent<Patrol>().patrolPoints = patrols3;
                 }
                 timer = timeForRespawn;
