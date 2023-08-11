@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ColocatePIecesXilophone : MonoBehaviour
 {
-    [SerializeField] GameObject piece, clavo1, clavo2, nextTrigger;
+    [SerializeField] GameObject piece, clavo1, clavo2, nextTrigger, soundTriggerRed, soundTriggerYellow, soundTriggerOrange;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,6 +37,7 @@ public class ColocatePIecesXilophone : MonoBehaviour
                 GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
                 gameObject.GetComponent<EnableBucketUI>().DisableUI();
                 gameObject.SetActive(false);
+                
 
                 if(nextTrigger != null)
                 {
@@ -46,14 +47,17 @@ public class ColocatePIecesXilophone : MonoBehaviour
                 if(gameObject.name == "TriggerRed")
                 {
                     GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyRedPlaced = true;
+                    soundTriggerRed.SetActive(true);
 
                 }else if(gameObject.name == "TriggerOrange")
                 {
                     GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyOrangePlaced = true;
+                    soundTriggerOrange.SetActive(true);
                 }
                 else
                 {
                     GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyYellowPlaced = true;
+                    soundTriggerYellow.SetActive(true);
                 }
                 GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
                 gameObject.GetComponent<EnableBucketUI>().DisableUI();

@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class PiecesAndCap : MonoBehaviour
 {
     [SerializeField] private PuzzleXilofono puzzleXilofono;
+    GameObject redUI, orangeUI, yellowUI;
     public AudioSource grabPiece;
 
     private void Start()
     {
         grabPiece = GameObject.Find("PickObjAudio").GetComponent<AudioSource>();
+        redUI = GameObject.Find("RedKeyUI");
+        yellowUI = GameObject.Find("YellowKeyUI");
+        orangeUI = GameObject.Find("OrangeUI");
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -20,19 +24,19 @@ public class PiecesAndCap : MonoBehaviour
             {
                 puzzleXilofono.keyRedDis = true;
                 gameObject.SetActive(false);
-                GameObject.Find("RedKeyUI").SetActive(true);
+                redUI.SetActive(true);
             }
             else if (gameObject.name == "YellowKey")
             {
                 puzzleXilofono.keyYellowDis = true;
                 gameObject.SetActive(false);
-                GameObject.Find("YellowKeyUI").SetActive(true);
+                yellowUI.SetActive(true);
             }
             else if (gameObject.name == "OrangeKey")
             {
                 puzzleXilofono.keyOrangeDis = true;
                 gameObject.SetActive(false);
-                GameObject.Find("OrangeKeyUI").SetActive(true);
+                orangeUI.SetActive(true);
             }
             else if (gameObject.name == "Xilofono")
             {
