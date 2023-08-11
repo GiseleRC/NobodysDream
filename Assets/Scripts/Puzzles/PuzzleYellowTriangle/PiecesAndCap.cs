@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PiecesAndCap : MonoBehaviour
 {
     [SerializeField] private PuzzleXilofono puzzleXilofono;
+    public AudioSource grabPiece;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Char")
@@ -32,6 +33,8 @@ public class PiecesAndCap : MonoBehaviour
             {
                 puzzleXilofono.xilofonoComplete = true;
             }
+
+            grabPiece.Play();
         }
     }
 }
