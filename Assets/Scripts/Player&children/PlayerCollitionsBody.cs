@@ -462,7 +462,7 @@ public class PlayerCollitionsBody : MonoBehaviour
 
             other.transform.GetChild(0).gameObject.SetActive(false);
             dientes.SetActive(false);
-            linterna.SetActive(true);
+            flashLigthArm.SetActive(true);
             
         }
 
