@@ -14,10 +14,13 @@ public class PuzzleMemory : MonoBehaviour
     bool showed;
     [SerializeField] Canon[] canons;
     [SerializeField] LanzadorLatas[] lanzadorLatas;
+    AudioSource audioSource;
+    [SerializeField] AudioClip correct, wrong;
 
     void OnEnable()
     {
-        foreach(GameObject piece in pieces)
+        audioSource = GameObject.Find("PlayRandomAudios").GetComponent<AudioSource>();
+        foreach (GameObject piece in pieces)
         {
             piece.GetComponent<PiecePuzzleMemory>().ShowPiece();
         }
@@ -58,7 +61,7 @@ public class PuzzleMemory : MonoBehaviour
                 puzzleCount++;
                 firstPieceGO.GetComponent<PiecePuzzleMemory>().correct = true;
                 piece.GetComponent<PiecePuzzleMemory>().correct = true;
-
+                audioSource.PlayOneShot(correct);
                 if (puzzleCount == 4)
                 {
                     print("Gane Puzzle");
@@ -80,6 +83,7 @@ public class PuzzleMemory : MonoBehaviour
             {
                 print("Incorrecto");
                 firstPieceGO.GetComponent<PiecePuzzleMemory>().HidePiece();
+                audioSource.PlayOneShot(wrong);
                 piece.GetComponent<PiecePuzzleMemory>().HidePiece();
                 firstPieceGO.GetComponent<PiecePuzzleMemory>().guess = true;
                 piece.GetComponent<PiecePuzzleMemory>().guess = true;

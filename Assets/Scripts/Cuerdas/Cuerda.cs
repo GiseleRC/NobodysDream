@@ -25,7 +25,8 @@ public class Cuerda : MonoBehaviour
 
     private void OnDestroy()
     {
-        audioSource.PlayOneShot(cut);
+        if(audioSource != null)
+            audioSource.PlayOneShot(cut);
         if(rbBalanza != null)
         {
             rbBalanza.isKinematic = false;

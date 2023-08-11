@@ -7,6 +7,7 @@ public class Canon : MonoBehaviour
     [SerializeField] Transform pivot, spawnProjectil;
     [SerializeField] float speedRot, timer, cdThrow, actualTimerThrow;
     float actualTimer;
+    [SerializeField] AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class Canon : MonoBehaviour
 
         if(actualTimerThrow < 0)
         {
+            audioSource.Play();
             GameObject.Instantiate((UnityEngine.Object)Resources.Load("ProjectilCanon"), spawnProjectil.transform.position, spawnProjectil.transform.rotation);
             actualTimerThrow = cdThrow;
         }
