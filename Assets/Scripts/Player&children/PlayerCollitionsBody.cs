@@ -38,6 +38,8 @@ public class PlayerCollitionsBody : MonoBehaviour
     [SerializeField] public GameObject light1;
     [SerializeField] public GameObject light2, light3, Light4, lightBed, ligthPractice, ligthKaki, flashLigthArm, enableLightPuzzle3;
 
+    public bool canElevate;
+
     //Private
     private bool objEnable = false;
     private bool capEnable = false;
@@ -219,11 +221,6 @@ public class PlayerCollitionsBody : MonoBehaviour
         {
             monster.SetActive(true);
             buckets.SetActive(true);
-        }
-        else if (other.gameObject.name == "KakyFINAL")
-        {
-            parte4.SetActive(true);
-            Destroy(other.gameObject);
         }
         if (other.gameObject.name == "activamepasillo")
         {

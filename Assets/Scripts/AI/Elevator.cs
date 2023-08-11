@@ -9,6 +9,7 @@ public class Elevator : MonoBehaviour
     public bool grabbed;
     public float timeTraveler;
     Vector3 velocity;
+    public PlayerCollitionsBody plCol;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +50,7 @@ public class Elevator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Char")
+        if(other.gameObject.name == "Char" && plCol.canElevate == true)
         {
             transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -57,7 +58,7 @@ public class Elevator : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.name == "Char")
+        if(other.gameObject.name == "Char" && plCol.canElevate == true)
         {
             if (Input.GetButton("Interact"))
             {
@@ -73,7 +74,7 @@ public class Elevator : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Char")
+        if (other.gameObject.name == "Char" && plCol.canElevate == true)
         {
             transform.GetChild(0).gameObject.SetActive(false);
         }
