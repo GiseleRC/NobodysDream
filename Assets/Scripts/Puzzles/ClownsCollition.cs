@@ -68,19 +68,10 @@ public class ClownsCollition : MonoBehaviour
             {
                 portalBluePuzzle.SetActive(true);
                 portalBluePuzzle2.SetActive(true);
-                /*dialogManager.ShowDialog(DialogKey.Victory);
                 rudolfClown.SetActive(true);//hermanito
                 rudolfHorse.SetActive(false);//caballo
                 gameObject.SetActive(false);//nariz
                 victoria.SetActive(false);
-                timerController.rudolfIsAttacking = true;
-                level3On.SetActive(true);
-                enableCollider.SetActive(true);
-
-                spawnPlayerController.Respawn(level3InitialSpawnPoint);*/
-
-                //dientesPickeables.SetActive(true);//dientes
-                //finalPlatform.SetActive(true);
             }
         }
     }
