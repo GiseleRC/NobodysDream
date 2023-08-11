@@ -410,7 +410,7 @@ InputManager:
     m_Name: ReloadTime
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: p
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: joystick button 1
