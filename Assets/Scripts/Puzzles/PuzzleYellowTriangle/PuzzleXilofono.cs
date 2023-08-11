@@ -5,7 +5,7 @@ using UnityEngine;
 public class PuzzleXilofono : MonoBehaviour
 {
     public GameObject yellowPiece, xilofonoGO, missingPiecesGO, portalExitGO, portalEnterGO, xilofonoSensorsGO, redKeyUI,
-        orangeKeyUI, yellowKeyUI, xilophoneCompleteGO, finalPosXilophone, yellowTriangle, level1AfterPuzzle, particlePortalYellow, xilophoneUI;
+        orangeKeyUI, yellowKeyUI, xilophoneCompleteGO, finalPosXilophone, yellowTriangle, level1AfterPuzzle, particlePortalYellow, xilophoneUI, xilophoneBorder;
     public bool keyYellowDis, keyRedDis, keyOrangeDis, xilofonoEnable, xilofonoComplete, portalEnable, keyRedPlaced, keyYellowPlaced, keyOrangePlaced, moveXilophoneGO;
     bool changeSpawn;
     public AudioSource puzzleHasBeenPass;
@@ -27,7 +27,6 @@ public class PuzzleXilofono : MonoBehaviour
             portalEnterGO.SetActive(true);
             xilofonoSensorsGO.SetActive(true);
             particlePortalYellow.SetActive(true);
-
         }
 
         if (xilofonoComplete)
@@ -65,6 +64,7 @@ public class PuzzleXilofono : MonoBehaviour
     public void ShowKeyUI()
     {
         xilophoneUI.SetActive(true);
+        xilophoneBorder.SetActive(true);
     }
 
     public void DisableKeyUI()
@@ -73,12 +73,14 @@ public class PuzzleXilofono : MonoBehaviour
         redKeyUI.SetActive(false);
         orangeKeyUI.SetActive(false);
         yellowKeyUI.SetActive(false);
+        xilophoneBorder.SetActive(false);
     }
 
     public void CheckStatusKeyPlaced()
     {
         if(keyYellowPlaced && keyOrangePlaced && keyRedPlaced)
         {
+            xilophoneBorder.SetActive(false);
             moveXilophoneGO = true;
         }
     }
