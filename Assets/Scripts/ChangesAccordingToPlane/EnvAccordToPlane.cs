@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnvAccordToPlane : MonoBehaviour
 {
     private GameState gameState;
-    public GameObject iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, disableFlashlight, pillsGO, umbrellaPick;
+    public GameObject iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, disableFlashlight, pillsGO, umbrellaPick, umbrellaUI;
     public Umbrella umbrella;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
@@ -33,6 +33,7 @@ public class EnvAccordToPlane : MonoBehaviour
                 iconDreamOff.SetActive(true);
                 pillsGO.SetActive(false);
                 umbrella.disableInPlaneDream = true;
+                umbrellaUI.SetActive(false);
                 if (umbrellaPick != null)
                 {
                     umbrellaPick.SetActive(false);
@@ -47,6 +48,7 @@ public class EnvAccordToPlane : MonoBehaviour
                 iconDreamOff.SetActive(true);
                 pillsGO.SetActive(true);
                 umbrella.disableInPlaneDream = false;
+                umbrellaUI.SetActive(true);
                 if (umbrellaPick != null)
                 {
                     umbrellaPick.SetActive(true);
