@@ -54,6 +54,8 @@ MonoBehaviour:
   timer: 2
   valueTime: 20
   actualTimer: 0
+  good: {fileID: 8300000, guid: 651a284bdb7c674419e495077b74d687, type: 3}
+  bad: {fileID: 8300000, guid: d198909acb73cfc429fbd0780bbd790c, type: 3}
 --- !u!65 &2036392582118097084
 BoxCollider:
   m_ObjectHideFlags: 0
