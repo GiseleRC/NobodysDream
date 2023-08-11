@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3059f0e7246c70247ac660abbed609f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableInPlaneDream: 1
   ground: {fileID: 4097475204140539198}
   maxTimeUmbrella: 20
   rechargeSpeed: 5
@@ -1317,7 +1318,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8255497921437555292, guid: 0134a3ef5b1b2ad4ca0085e980e727ac, type: 3}
+  - {fileID: 2100000, guid: 84ceb43bc62cce4468fd406472da3b59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1971,6 +1972,7 @@ MonoBehaviour:
   ligthKaki: {fileID: 0}
   flashLigthArm: {fileID: 339931611260082497}
   enableLightPuzzle3: {fileID: 0}
+  canElevate: 0
   xilophone: {fileID: 0}
 --- !u!114 &691922695422852397
 MonoBehaviour:
