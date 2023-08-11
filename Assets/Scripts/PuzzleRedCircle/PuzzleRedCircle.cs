@@ -7,7 +7,7 @@ public class PuzzleRedCircle : MonoBehaviour
 {
     public bool canPortalExit, alfilPiece, torrePiece, caballoPiece;
     [SerializeField] Collider portalExitTrigger;
-    [SerializeField] GameObject alfilPieceUI, torrePieceUI, caballoPieceUI;
+    [SerializeField] GameObject alfilPieceUI, torrePieceUI, caballoPieceUI, portalParticleEnable;
     public Sprite alfil, torre, caballo;
     // Start is called before the first frame update
     void Awake()
@@ -29,6 +29,7 @@ public class PuzzleRedCircle : MonoBehaviour
         {
             canPortalExit = true;
             portalExitTrigger.enabled = true;
+            portalParticleEnable.SetActive(true);
         }
     }
 
