@@ -114,6 +114,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "Pills Pickeable")
         {
             dialogManager.ShowDialog(DialogKey.BottleOfPills);
+            booster.Play();
         }
         else if (other.name == "SensorPlayer - WindowWrong2")
         {
