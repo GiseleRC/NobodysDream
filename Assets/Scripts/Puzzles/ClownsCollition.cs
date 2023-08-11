@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClownsCollition : MonoBehaviour
 {
     public Puzzle3 puzzle3;
-    public GameObject rudolfClown, rudolfHorse, dientesPickeables, victoria, finalPlatform, level3On, enableCollider, portalBluePuzzle;
+    public GameObject rudolfClown, rudolfHorse, dientesPickeables, victoria, finalPlatform, level3On, enableCollider, portalBluePuzzle, portalBluePuzzle2;
     public DialogManager dialogManager;
     [SerializeField] SpawnPlayerController spawnPlayerController;
     [SerializeField] TimerController timerController;
@@ -67,6 +67,7 @@ public class ClownsCollition : MonoBehaviour
             if (gameObject.name == "Rudolf")
             {
                 portalBluePuzzle.SetActive(true);
+                portalBluePuzzle2.SetActive(true);
                 /*dialogManager.ShowDialog(DialogKey.Victory);
                 rudolfClown.SetActive(true);//hermanito
                 rudolfHorse.SetActive(false);//caballo
