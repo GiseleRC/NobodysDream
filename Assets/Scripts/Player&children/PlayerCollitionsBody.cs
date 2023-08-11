@@ -169,6 +169,7 @@ public class PlayerCollitionsBody : MonoBehaviour
         else if (other.name == "Dientes")
         {
             canUseDientes = true;
+            tutorialPaperBool.showTutorialTeeth = true;
             Destroy(other.gameObject);
         }
         else if (other.name == "arriba")

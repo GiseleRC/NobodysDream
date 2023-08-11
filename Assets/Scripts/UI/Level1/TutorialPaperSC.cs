@@ -15,11 +15,15 @@ public class TutorialPaperSC : MonoBehaviour
     public bool showGuideTutorialPlane = false;
     public bool showTutorialBeret;
     public bool showTutorialUmbrella;
+    public bool showTutorialTeeth;
+
     private bool nextTutorial = false;
     private float timeDelay = 0.5f;
     public float fillAmount = 1f;
     public DialogManager dialogManager;
-    public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1, tutorialBeret, tutorialUmbrella;
+    public Image tutorialFlashligth, tutorialGlasses, tutorialBall, tutorialMat2, tutorialMat1, tutorialBeret, tutorialUmbrella, tutorialTeeth;
+
+
 
     public AudioSource closeTutorial;
 
@@ -46,6 +50,7 @@ public class TutorialPaperSC : MonoBehaviour
         TutorialMaterialized2(showTutorialMat2);
         TutorialBeret(showTutorialBeret);
         TutorialUmbrella(showTutorialUmbrella);
+        TutorialTeeth(showTutorialTeeth);
 
         if (Input.GetButtonDown("CancelMat") && showTuturialFlash == true)
         {
@@ -99,6 +104,12 @@ public class TutorialPaperSC : MonoBehaviour
             showTutorialUmbrella = false;
             anyTutorialOpen = false;
         }
+        else if (Input.GetButtonDown("CancelMat") && showTutorialTeeth == true)
+        {
+            closeTutorial.Play();
+            showTutorialTeeth = false;
+            anyTutorialOpen = false;
+        }
 
         if (nextTutorial)
         {
@@ -145,16 +156,15 @@ public class TutorialPaperSC : MonoBehaviour
             tutorialBall.fillAmount -= fillAmount * Time.deltaTime;
         }
     }
-    public void GuideTutorialPlane(bool show)
+    public void TutorialTeeth(bool show)
     {
         if (show)
         {
-            //guideTutorialPlane.fillAmount += fillAmount * Time.deltaTime;// falta guia de boina
-            //anyTutorialOpen = true;
+            tutorialTeeth.fillAmount += fillAmount * Time.deltaTime;
         }
         else
         {
-            //guideTutorialPlane.fillAmount -= fillAmount * Time.deltaTime;// falta guia de boina
+            tutorialTeeth.fillAmount -= fillAmount * Time.deltaTime;
         }
     }
     public void TutorialMaterialized1(bool show)
