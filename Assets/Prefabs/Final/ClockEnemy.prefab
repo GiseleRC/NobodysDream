@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6047437734433275356}
   - component: {fileID: 6047437734433275357}
   - component: {fileID: -6773873267973551882}
+  - component: {fileID: 6797834684480053059}
   m_Layer: 0
   m_Name: ClockEnemy
   m_TagString: Untagged
@@ -127,6 +128,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6797834684480053059
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047437734433275344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7621475, y: 3.2642317, z: 1.7911224}
+  m_Center: {x: -0.02333349, y: 1.1321158, z: 0.011634827}
 --- !u!1001 &7028142300034026577
 PrefabInstance:
   m_ObjectHideFlags: 0
