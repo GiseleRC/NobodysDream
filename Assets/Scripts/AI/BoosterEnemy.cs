@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class BoosterEnemy : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class BoosterEnemy : MonoBehaviour
     [SerializeField] float timer, valueTime;
     public float actualTimer;
     bool cantChange, isBlue;
+    AudioSource audioSource;
+    [SerializeField] AudioClip good, bad;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -52,10 +56,12 @@ public class BoosterEnemy : MonoBehaviour
             if(isBlue == false)
             {
                 GameObject.Find("TimerController").GetComponent<TimerController>().SubstractTime(valueTime);
+                audioSource.PlayOneShot(bad);
             }
             else
             {
                 GameObject.Find("TimerController").GetComponent<TimerController>().AddTime(valueTime);
+                audioSource.PlayOneShot(good);
             }
             Destroy(gameObject);
         }
