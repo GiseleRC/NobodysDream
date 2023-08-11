@@ -16,6 +16,7 @@ public class BoosterEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GameObject.Find("PlayRandomAudios").GetComponent<AudioSource>();
         meshRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
         meshRenderer.material = blue;
         actualTimer = timer;
