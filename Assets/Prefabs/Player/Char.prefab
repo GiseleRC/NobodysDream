@@ -6759,6 +6759,8 @@ MonoBehaviour:
   yellowKey: {fileID: 0}
   clavoYellow1: {fileID: 0}
   clavoYellow2: {fileID: 0}
+  dientes: {fileID: 7138201993952134314}
+  linterna: {fileID: 3993898324957452158}
   pickeablesUI: []
   IconFantasma: {fileID: 0}
   IconFantasmaLinterna: {fileID: 0}
