@@ -85,7 +85,7 @@ MonoBehaviour:
   timer: 4
   cdThrow: 6
   actualTimerThrow: 0
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 3684707003846064664}
 --- !u!82 &3684707003846064664
 AudioSource:
   m_ObjectHideFlags: 0
