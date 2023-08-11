@@ -6,7 +6,7 @@ public class CheckerClockEnemy : MonoBehaviour
 {
     [SerializeField] GameObject clockEnemy, actualClockEnemy;
     [SerializeField] Transform initialPos;
-    [SerializeField] Transform[] patrols;
+    public Transform[] patrols1, patrols2, patrols3;
     float timer;
     [SerializeField] float timeForRespawn;
     // Start is called before the first frame update
@@ -22,10 +22,27 @@ public class CheckerClockEnemy : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            if(timer < 0)
+            if (timer < 0)
             {
-                actualClockEnemy = Instantiate(clockEnemy, initialPos.position, initialPos.rotation);
-                clockEnemy.GetComponent<Patrol>().patrolPoints = patrols;
+                print(gameObject.name);
+                if (gameObject.name == "CheckClock")
+                {
+                    actualClockEnemy = Instantiate(clockEnemy, initialPos.position, initialPos.rotation);
+                    print("1");
+                    clockEnemy.GetComponent<Patrol>().patrolPoints = patrols1;
+                }
+                else if (gameObject.name == "CheckClock (1)")
+                {
+                    actualClockEnemy = Instantiate(clockEnemy, initialPos.position, initialPos.rotation);
+                    print("2");
+                    clockEnemy.GetComponent<Patrol>().patrolPoints = patrols2;
+                }
+                if(gameObject.name == "CheckClock (2)")
+                {
+                    actualClockEnemy = Instantiate(clockEnemy, initialPos.position, initialPos.rotation);
+                    print("3");
+                    clockEnemy.GetComponent<Patrol>().patrolPoints = patrols3;
+                }
                 timer = timeForRespawn;
             }
         }
