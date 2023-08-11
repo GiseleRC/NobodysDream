@@ -18,7 +18,8 @@ public class GhostMovement : MonoBehaviour
         if (canITalk)
         {
             timeCount -= Time.deltaTime;
-            canITalk = false;
+            if(timeCount < 0)
+                canITalk = false;
         }
 
         if (timeCount <= 0f && !stopMoving)
