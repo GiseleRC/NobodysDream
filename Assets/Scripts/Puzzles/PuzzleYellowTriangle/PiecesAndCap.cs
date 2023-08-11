@@ -14,7 +14,7 @@ public class PiecesAndCap : MonoBehaviour
         grabPiece = GameObject.Find("PickObjAudio").GetComponent<AudioSource>();
         redUI = GameObject.Find("RedKeyUI");
         yellowUI = GameObject.Find("YellowKeyUI");
-        orangeUI = GameObject.Find("OrangeUI");
+        orangeUI = GameObject.Find("OrangeKeyUI");
     }
     private void OnTriggerEnter(Collider other)
     {
