@@ -6,6 +6,7 @@ public class EnvAccordToPlane : MonoBehaviour
 {
     private GameState gameState;
     public GameObject iconGhostOn, iconGhostOff, iconDreamOn, iconDreamOff, canvasBallCount, disableFlashlight, pillsGO;
+    public Umbrella umbrella;
     public PlayerSC playerSC;
     private GameState.PlaneMode lastAppliedPlaneMode;
     public AudioSource SwitchMode;
@@ -31,6 +32,7 @@ public class EnvAccordToPlane : MonoBehaviour
                 iconDreamOn.SetActive(true);
                 iconDreamOff.SetActive(true);
                 pillsGO.SetActive(false);
+                umbrella.CantUseUmbrella = true;
 
                 SwitchMode.Play();
                 break;
@@ -40,6 +42,7 @@ public class EnvAccordToPlane : MonoBehaviour
                 iconDreamOn.SetActive(false);
                 iconDreamOff.SetActive(true);
                 pillsGO.SetActive(true);
+                umbrella.CantUseUmbrella = false;
 
                 SwitchMode.Play();
                 break;
