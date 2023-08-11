@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Patrol : MonoBehaviour
 {
-    [SerializeField] Transform[] patrolPoints;
+    public Transform[] patrolPoints;
     [SerializeField] int currentPoint;
     [SerializeField] Material whiteEyes;
     Ghost ghost;
