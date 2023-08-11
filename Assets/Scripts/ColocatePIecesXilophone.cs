@@ -47,17 +47,17 @@ public class ColocatePIecesXilophone : MonoBehaviour
                 if(gameObject.name == "TriggerRed")
                 {
                     GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyRedPlaced = true;
-                    soundTriggerRed.SetActive(true);
+                    //soundTriggerRed.SetActive(true);
 
                 }else if(gameObject.name == "TriggerOrange")
                 {
                     GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyOrangePlaced = true;
-                    soundTriggerOrange.SetActive(true);
+                    //soundTriggerOrange.SetActive(true);
                 }
                 else
                 {
                     GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().keyYellowPlaced = true;
-                    soundTriggerYellow.SetActive(true);
+                    //soundTriggerYellow.SetActive(true);
                 }
                 GameObject.Find("Puzzle - Yellow Triangle").GetComponent<PuzzleXilofono>().CheckStatusKeyPlaced();
                 gameObject.GetComponent<EnableBucketUI>().DisableUI();
