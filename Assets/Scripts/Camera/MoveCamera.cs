@@ -81,6 +81,7 @@ public class MoveCamera : MonoBehaviour
         {
             if (timerReset < 0)
             {
+                print("dontMove2");
                 transform.position = new Vector3(cameraPos.transform.position.x, Mathf.Lerp(transform.position.y, cameraPos.transform.position.y, 0.4f), cameraPos.transform.position.z);
             }
             else
@@ -92,6 +93,7 @@ public class MoveCamera : MonoBehaviour
         }
         else
         {
+            print("dontMove");
             transform.position = cameraPos.transform.position;
             timerReset = 0.2f;
         }

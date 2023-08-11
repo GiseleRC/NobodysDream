@@ -20,24 +20,38 @@ public class Elevator : MonoBehaviour
     {
         float distance = Vector3.Distance(pointA.transform.position, pointB.transform.position);
 
-        if(grabbed == true)
-        {
-            GameObject.Find("Char").transform.parent = pointA.transform;
-            GameObject.Find("Char").GetComponent<Rigidbody>().isKinematic = true;
-            pointA.transform.position = Vector3.SmoothDamp(pointA.transform.position, pointB.transform.position, ref velocity, timeTraveler * Time.deltaTime);
-        }
-        else
-        {
-            pointA.transform.position = Vector3.SmoothDamp(pointA.transform.position, initialPointA, ref velocity, timeTraveler * Time.deltaTime);
 
-        }
 
-        if (Input.GetButtonDown("Jump") || distance < 0.5f)
+        if (Input.GetButtonDown("Jump") || distance < 5f)
         {
             GameObject.Find("Char").GetComponent<Rigidbody>().isKinematic = false;
             grabbed = false;
             GameObject.Find("Char").transform.parent = null;
             paraguas.SetActive(false);
+            GameObject.Find("CameraHolder").GetComponent<MoveCamera>().dontMoveCamera = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (grabbed == true)
+        {
+            GameObject.Find("Char").transform.parent = pointA.transform;
+            GameObject.Find("Char").GetComponent<Rigidbody>().isKinematic = true;
+            pointA.transform.position = Vector3.SmoothDamp(pointA.transform.position, pointB.transform.position, ref velocity, timeTraveler * Time.deltaTime);
+            GameObject.Find("CameraHolder").GetComponent<MoveCamera>().dontMoveCamera = true;
+        }
+        else
+        {
+            pointA.transform.position = Vector3.SmoothDamp(pointA.transform.position, initialPointA, ref velocity, timeTraveler * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name == "Char")
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -47,10 +61,21 @@ public class Elevator : MonoBehaviour
         {
             if (Input.GetButton("Interact"))
             {
+                other.transform.position = gameObject.transform.position;
                 paraguas.SetActive(true);
                 grabbed = true;
+                transform.GetChild(0).gameObject.SetActive(false);
+
 
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "Char")
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class Explode : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Explode : MonoBehaviour
     [SerializeField] ClockEnemy clockEnemy;
     [SerializeField] NavMeshAgent nma;
     [SerializeReference] GameObject vfxExplosion;
+    AudioSource audioSource;
     
 
     // Start is called before the first frame update
@@ -20,15 +22,18 @@ public class Explode : MonoBehaviour
         nma = clockEnemy.NMA;
         nma.SetDestination(transform.position);
         actualTime = timerForExplode;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnEnable()
     {
+        audioSource = GetComponent<AudioSource>();
         clockEnemy = GetComponent<ClockEnemy>();
         nma = clockEnemy.NMA;
         nma.SetDestination(transform.position);
         actualTime = timerForExplode;
         clockEnemy.Explosion = true;
+        audioSource.Play();
     }
 
     // Update is called once per frame
