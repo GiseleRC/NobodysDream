@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Cuerda : MonoBehaviour
 {
     [SerializeField] Rigidbody rbBalanza;
     [SerializeField] PuzzleEnderezarPlataforma puzzleEnderezarPlataforma;
+    AudioSource audioSource;
+    [SerializeField] AudioClip cut;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+        audioSource = GameObject.Find("PlayRandomAudios").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,6 +25,7 @@ public class Cuerda : MonoBehaviour
 
     private void OnDestroy()
     {
+        audioSource.PlayOneShot(cut);
         if(rbBalanza != null)
         {
             rbBalanza.isKinematic = false;

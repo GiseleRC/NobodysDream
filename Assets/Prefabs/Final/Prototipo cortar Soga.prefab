@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbBalanza: {fileID: 0}
   puzzleEnderezarPlataforma: {fileID: 0}
+  cut: {fileID: 8300000, guid: bf4e12c598aa33b43b41d6616c4f955e, type: 3}
 --- !u!1001 &1704227274316836398
 PrefabInstance:
   m_ObjectHideFlags: 0
